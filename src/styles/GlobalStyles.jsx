@@ -1,6 +1,6 @@
-import { css } from '@emotion/react';
+import { Global, css } from '@emotion/react';
 
-export const globalStyles = css`
+const globalStyles = css`
   :root {
     --white-color: #ffffff;
     --button-bgd-color: #3e85f3;
@@ -14,7 +14,9 @@ export const globalStyles = css`
 
   @font-face {
     font-family: 'InterTight';
-    src: local('InterTight'), local('InterTight-Regular'),
+    src:
+      local('InterTight'),
+      local('InterTight-Regular'),
       url('../fonts/InterTight-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
@@ -23,7 +25,9 @@ export const globalStyles = css`
 
   @font-face {
     font-family: 'InterTight';
-    src: local('InterTight'), local('InterTight-Medium'),
+    src:
+      local('InterTight'),
+      local('InterTight-Medium'),
       url('../fonts/InterTight-Medium.ttf') format('truetype');
     font-weight: 500;
     font-style: normal;
@@ -32,7 +36,9 @@ export const globalStyles = css`
 
   @font-face {
     font-family: 'InterTight';
-    src: local('InterTight'), local('InterTight-SemiBold'),
+    src:
+      local('InterTight'),
+      local('InterTight-SemiBold'),
       url('../fonts/InterTight-SemiBold.ttf') format('truetype');
     font-weight: 600;
     font-style: normal;
@@ -41,7 +47,9 @@ export const globalStyles = css`
 
   @font-face {
     font-family: 'InterTight';
-    src: local('InterTight'), local('InterTight-Bold'),
+    src:
+      local('InterTight'),
+      local('InterTight-Bold'),
       url('../fonts/InterTight-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
@@ -50,7 +58,9 @@ export const globalStyles = css`
 
   @font-face {
     font-family: 'InterTight';
-    src: local('InterTight'), local('InterTight-BoldItalic'),
+    src:
+      local('InterTight'),
+      local('InterTight-BoldItalic'),
       url('../fonts/InterTight-BoldItalic.ttf') format('truetype');
     font-weight: 700;
     font-style: italic;
@@ -59,7 +69,9 @@ export const globalStyles = css`
 
   @font-face {
     font-family: 'Poppins';
-    src: local('Poppins'), local('Poppins-Regular'),
+    src:
+      local('Poppins'),
+      local('Poppins-Regular'),
       url('../fonts/Poppins-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
@@ -68,7 +80,9 @@ export const globalStyles = css`
 
   @font-face {
     font-family: 'Poppins';
-    src: local('Poppins'), local('Poppins-Medium'),
+    src:
+      local('Poppins'),
+      local('Poppins-Medium'),
       url('../fonts/Poppins-Medium.ttf') format('truetype');
     font-weight: 500;
     font-style: normal;
@@ -116,6 +130,6 @@ export const globalStyles = css`
   }
 `;
 
-// const GlobalStyles = () => <Global styles={globalStyles} />;
+const GlobalStyles = () => <Global styles={globalStyles} />;
 
-// export default GlobalStyles;
+export default GlobalStyles;
