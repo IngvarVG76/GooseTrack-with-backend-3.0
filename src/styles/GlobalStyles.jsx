@@ -114,7 +114,7 @@ const globalStylesCSS = css`
   }
   .recharts-layer {
   }
-`
+`;
 
 const GlobalStyles = () => <Global styles={globalStylesCSS} />;
 
