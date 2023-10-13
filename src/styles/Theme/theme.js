@@ -1,38 +1,7 @@
-// export const light = {
-//   name: 'light-theme',
-//   colors: {
-//     background: '#EAEAEA', // сірий
-//     contentBackground: '#fff', // білий
-//     sideBarBackground: '#fff',
-//     textColor: 'rgba(52, 52, 52, 0.5)',
-//     titleColor: '#111111',
-//     accentColor: '#3E85F3',
-//     taskBackground: 'F7F6F9',
-//     calendarBackground:'#fff',
-//     button: 'red',
-//   },
-// },
-
-// export const dark = {
-//   name: 'dark-theme',
-//   colors: {
-//     background: '#21222C', // чорний
-//     contentBackground: '#21222C', // прозорий
-//     sideBarBackground: '#13151A',
-//     textColor: '#fff',
-//     titleColor: '#fff',
-//     accentColor: '#3E85F3',
-//     taskBackground: '#171820',
-//     calendarBackground:'rgba(255, 255, 255, 0.15)',
-//     button: 'blue',
-//   },
-// };
-
 export const light = {
   name: 'light-theme',
   colors: {
     /* text */
- 
     titleTextMainColor: '#111111',
     secondaryTextColor: '#616161',
     accentColor: '#3e85f3',
@@ -56,12 +25,6 @@ export const light = {
     mainBackgroundColor: '#ffffff',
     sidearBackgroundColor: '#ffffff',
     authBackgroundColor: '#dcebf7',
-
-    outletBackgroundColor: '#f7f6f9',
-    inputBackgroundColor: '#F6F6F6',
-    activeBtnColor: '#2b78ef;',
-    backgroundButtonMonth: '',
-    backgroundButTonday: '',
 
     /* form */
     inputBgColor: '#f7f7f7;',
@@ -110,7 +73,6 @@ export const dark = {
   name: 'dark-theme',
   colors: {
     /* text */
-  
     titleTextMainColor: '#ffffff',
     secondaryTextColor: '#ffffff',
     accentColor: '#ffffff',
@@ -134,16 +96,6 @@ export const dark = {
     mainBackgroundColor: ' #21222c',
     sidearBackgroundColor: '#13151a',
     authBackgroundColor: 'rgba(255, 255, 255, 0.15)',
-
-    outletBackgroundColor: '#171820',
-    inputBackgroundColor: '#171820',
-    activeBtnColor: '#2b78ef',
-
-    backgroundButtonMonth: '#3e85f3',
-    backgroundButTonday: '#21222c',
-    backgroundFeedbackFormBtnEdit: '#353647',
-    backgroundFeedbackFormBtnDelete: 'rgba(234, 61, 101, 0.2)',
-    backgroundFeedackFormBtnAction: '#21222c',
 
     /* form */
     inputBgColor: '#171820',
@@ -184,6 +136,6 @@ export const dark = {
     calendarDateColor: '#ffffff',
     calendarDayColor: 'rgba(250, 250, 250, 0.3)',
     activeBtnCalendarSwitch: 'rgba(255, 255, 255, 1)',
-    noActiveBtnCalendarSwitch: 'rgba(62, 133, 243, 1)',
+    noActiveBtnCalendarSwitch: 'rgba(62, 133, 243, 1)',gi
   },
 };
