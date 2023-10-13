@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { dark, light } from './theme';
-import { Button } from './stylesButton,jsx';
+import { Button } from './StylesButton.js';
 
 // стаття про зміну теми в style-components
 // https://blog.logrocket.com/build-react-theme-switcher-app-styled-components/
