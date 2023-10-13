@@ -136,6 +136,6 @@ export const dark = {
     calendarDateColor: '#ffffff',
     calendarDayColor: 'rgba(250, 250, 250, 0.3)',
     activeBtnCalendarSwitch: 'rgba(255, 255, 255, 1)',
-    noActiveBtnCalendarSwitch: 'rgba(62, 133, 243, 1)',gi
+    noActiveBtnCalendarSwitch: 'rgba(62, 133, 243, 1)',
   },
 };
