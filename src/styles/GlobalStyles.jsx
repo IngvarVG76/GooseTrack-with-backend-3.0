@@ -1,6 +1,6 @@
-import { Global, css } from '@emotion/react';
+import { css } from '@emotion/react';
 
-const globalStylesCSS = css`
+export const globalStyles = css`
   :root {
     --white-color: #ffffff;
     --button-bgd-color: #3e85f3;
@@ -116,6 +116,6 @@ const globalStylesCSS = css`
   }
 `;
 
-const GlobalStyles = () => <Global styles={globalStylesCSS} />;
+// const GlobalStyles = () => <Global styles={globalStyles} />;
 
-export default GlobalStyles;
+// export default GlobalStyles;
