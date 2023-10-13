@@ -160,7 +160,7 @@ import { GlobalStyle } from '../../styles/GlobalStyles';
 
 const App = () => {
   const [selectedTheme, setSelectedTheme] = useState(light);
-  console.log('selectedTheme: ', selectedTheme);
+  // q
 
   const HandleThemeChange = (theme) => setSelectedTheme(theme);
   return (

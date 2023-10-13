@@ -6,7 +6,7 @@ import { Button } from './stylesButton,jsx';
 // https://blog.logrocket.com/build-react-theme-switcher-app-styled-components/
 export default function ChangeThemeButton({ HandleThemeChange }) {
   const [themeValue, SetthemeValue] = useState(light);
-  console.log('themeValue: ', themeValue);
+  //   console.log('themeValue: ', themeValue);
 
   const [buttonStatus, SetButtonStatus] = useState(false);
 

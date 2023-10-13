@@ -7,18 +7,14 @@ import ReactDOM from 'react-dom/client';
 import App from './components/App/App.jsx';
 // import { persistor, store } from './redux/store.js';
 
-
-
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
- 
     {/* <Provider store={store}> */}
     {/* <PersistGate loading={null} persistor={persistor}> */}
-    <BrowserRouter>
+    <BrowserRouter basename="/GooseTrack-with-backend-3.0">
       <App />
     </BrowserRouter>
     {/* </PersistGate> */}
     {/* </Provider> */}
   </React.StrictMode>,
 );
-// basename="/GooseTrack-with-backend-3.0">
