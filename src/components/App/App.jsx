@@ -159,22 +159,29 @@ import { GlobalStyle } from '../../styles/GlobalStyles';
 // }
 
 const App = () => {
-  const [selectedTheme, setSelectedTheme] = useState(light);
-  // q
+  const [selectedTheme, setSelectedTheme] = useState();
 
-  const HandleThemeChange = (theme) =>{ 
-    setSelectedTheme(theme);
-    localStorage.setItem("current-theme", JSON.stringify(theme));
-    setSelectedTheme(theme)};
+  const HandleThemeChange = (theme) => {
+    localStorage.setItem('current-theme', JSON.stringify(theme));
+    // setSelectedTheme(theme);
+  };
 
-    useEffect(() => {
-      const currentTheme = JSON.parse(localStorage.getItem("current-theme"));
+  useEffect(() => {
+    console.log('useEffect');
+    const getTheme = () => {
+      console.log('getTheme');
+
+      const currentTheme = localStorage.getItem('current-theme');
+      console.log('currentTheme: ', currentTheme);
       if (currentTheme) {
-        setSelectedTheme(currentTheme);
+        return setSelectedTheme(JSON.parse(currentTheme));
       }
-    }, []);
+      return setSelectedTheme(light);
+    };
+    getTheme();
+  }, []);
   return (
-    <ThemeProvider theme={selectedTheme}>
+    <ThemeProvider theme={selectedTheme || light}>
       <GlobalStyle />
       <ChangeThemeButton
         HandleThemeChange={HandleThemeChange}
