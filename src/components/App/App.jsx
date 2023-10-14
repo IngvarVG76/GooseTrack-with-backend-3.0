@@ -163,7 +163,7 @@ const App = () => {
 
   const HandleThemeChange = (theme) => {
     localStorage.setItem('current-theme', JSON.stringify(theme));
-    // setSelectedTheme(theme);
+    setSelectedTheme(theme);
   };
 
   useEffect(() => {
