@@ -15,7 +15,7 @@ import {
   Day,
   DayInActive,
   DayToday,
-  DayWeekend,
+  // DayWeekend,
 } from './StyledMonth';
 
 const MonthCalendar = ({ activeDate }) => {
@@ -31,10 +31,6 @@ const MonthCalendar = ({ activeDate }) => {
             <DayToday>
               <span> {format(currentDate, 'd')}</span>{' '}
             </DayToday>
-          ) : isWeekend(currentDate, activeDate) ? (
-            <DayWeekend>
-              <span> {format(currentDate, 'd')}</span>
-            </DayWeekend>
           ) : !isSameMonth(currentDate, activeDate) ? (
             <DayInActive>
               <span> {format(currentDate, 'd')}</span>

@@ -111,21 +111,9 @@ img {
 }
 
 
-.day {
-  cursor: pointer;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
 
-  padding-top: 4px;
-  padding-right: 8px;
-  border: 1px solid rgba(220, 227, 229, 0.8);
-}
 
-.today span {
-  color: #fff;
-  background: #3e85f3;
-}
+
 
 .weekNames {
   font-size: 16px;

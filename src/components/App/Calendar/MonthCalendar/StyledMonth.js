@@ -36,33 +36,30 @@ export const Day = styled.div`
 
   border: 1px solid ${({ theme }) => theme.colors.borderСalendarColor};
   span {
+    width: 18px;
+    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Inter';
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.16;
+
+    color: ${({ theme }) => theme.colors.calendarTextColor};
   }
 `;
 export const DayToday = styled(Day)`
   span {
     color: #fff;
-    background: #3e85f3;
+    background: ${({ theme }) => theme.colors.backgroundButton};
+    border-radius: 6px;
   }
 `;
-export const DayWeekend = styled(Day)`
-  span {
-    color: blue;
-  }
-`;
+
 export const DayInActive = styled(Day)`
   span {
-    color: grey;
+    color: rgba(220, 227, 229, 0.5);
   }
-`;
-
-export const DayNumber = styled.span`
-  height: 26px;
-  width: 27px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  font-weight: 700;
-  font-size: 16px;
-  border-radius: 8px;
 `;

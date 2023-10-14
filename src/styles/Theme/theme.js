@@ -19,6 +19,7 @@ export const light = {
     borderColor: '#E3F3FF', // колір рамки графіка
     arrowColor: '#343434', // колір стрілки
     calendarTextColor: '#343434', // колір тексту календаря
+    calendarTextColorToday: '#343434', // колір тексту календаря
     weekendTextColor: '#3E85F3', // колір тексту вихідних днів календаря
     backgroundCalendar: '#FFFFFF', // колір фону календаря
     borderСalendarColor: 'rgba(220,	227,	229, 0.80)', // колір рамки календаря
