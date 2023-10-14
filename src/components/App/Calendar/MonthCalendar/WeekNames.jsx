@@ -1,5 +1,5 @@
 import { addDays, format, startOfWeek } from 'date-fns';
-import { StyledWeekNames } from './StyledMonth';
+import { StyledWeekNames, WrapperWeek } from './StyledMonth';
 import { useEffect, useState } from 'react';
 
 const WeekNames = ({ activeDate }) => {
@@ -32,7 +32,7 @@ const WeekNames = ({ activeDate }) => {
       </StyledWeekNames>,
     );
   }
-  return <div className="weekContainer">{weekNames}</div>;
+  return <WrapperWeek>{weekNames}</WrapperWeek>;
 };
 
 export default WeekNames;
