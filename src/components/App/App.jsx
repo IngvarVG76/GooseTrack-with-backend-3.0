@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { light } from '../../styles/Theme/theme';
 import ChangeThemeButton from '../../styles/Theme/ThemeButton';
@@ -162,7 +162,17 @@ const App = () => {
   const [selectedTheme, setSelectedTheme] = useState(light);
   // q
 
-  const HandleThemeChange = (theme) => setSelectedTheme(theme);
+  const HandleThemeChange = (theme) =>{ 
+    setSelectedTheme(theme);
+    localStorage.setItem("current-theme", JSON.stringify(theme));
+    setSelectedTheme(theme)};
+
+    useEffect(() => {
+      const currentTheme = JSON.parse(localStorage.getItem("current-theme"));
+      if (currentTheme) {
+        setSelectedTheme(currentTheme);
+      }
+    }, []);
   return (
     <ThemeProvider theme={selectedTheme}>
       <GlobalStyle />
