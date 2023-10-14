@@ -27,39 +27,36 @@ export const CalendarContainer = styled.div`
 
 export const Day = styled.div`
   cursor: pointer;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
 
+  display: flex;
+  flex-direction: column;
   padding-top: 4px;
   padding-right: 8px;
 
   border: 1px solid ${({ theme }) => theme.colors.borderСalendarColor};
-  span {
-    width: 18px;
-    height: 22px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-family: 'Inter';
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 1.16;
-
-    color: ${({ theme }) => theme.colors.calendarTextColor};
-  }
 `;
-export const DayToday = styled(Day)`
-  span {
-    color: #fff;
-    background: ${({ theme }) => theme.colors.backgroundButton};
-    border-radius: 6px;
-  }
+export const DayNumberRegular = styled.p`
+  width: 18px;
+  height: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: end;
+
+  font-family: 'Inter';
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.16;
+
+  color: ${({ theme }) => theme.colors.calendarTextColor};
 `;
 
-export const DayInActive = styled(Day)`
-  span {
-    color: rgba(220, 227, 229, 0.5);
-  }
+export const DayNumberToday = styled(DayNumberRegular)`
+  color: #fff;
+  background: ${({ theme }) => theme.colors.backgroundButton};
+  border-radius: 6px;
+`;
+
+export const DayNumberInActive = styled(DayNumberRegular)`
+  color: rgba(220, 227, 229, 0.5);
 `;

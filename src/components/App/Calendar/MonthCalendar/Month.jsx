@@ -5,7 +5,6 @@ import {
   format,
   isSameDay,
   isSameMonth,
-  isWeekend,
   startOfMonth,
   startOfWeek,
 } from 'date-fns';
@@ -13,8 +12,10 @@ import WeekNames from './WeekNames';
 import {
   CalendarContainer,
   Day,
-  DayInActive,
-  DayToday,
+  DayNumberInActive,
+  DayNumberRegular,
+  DayNumberToday,
+
   // DayWeekend,
 } from './StyledMonth';
 
@@ -23,24 +24,24 @@ const MonthCalendar = ({ activeDate }) => {
     let currentDate = date;
     const week = [];
 
-    // one day  of month calendar
+    // one day  of week  calendar
     for (let day = 0; day < 7; day++) {
       week.push(
-        <>
+        <Day>
           {isSameDay(currentDate, activeDate) ? (
-            <DayToday>
-              <span> {format(currentDate, 'd')}</span>{' '}
-            </DayToday>
+            <DayNumberToday>{format(currentDate, 'd')}</DayNumberToday>
           ) : !isSameMonth(currentDate, activeDate) ? (
-            <DayInActive>
-              <span> {format(currentDate, 'd')}</span>
-            </DayInActive>
+            <DayNumberInActive>{format(currentDate, 'd')}</DayNumberInActive>
           ) : (
-            <Day>
-              <span> {format(currentDate, 'd')}</span>
-            </Day>
+            <DayNumberRegular>{format(currentDate, 'd')}</DayNumberRegular>
           )}
-        </>,
+
+          {
+            <div>
+              <p>Test task</p>
+            </div>
+          }
+        </Day>,
       );
       currentDate = addDays(currentDate, 1);
     }
