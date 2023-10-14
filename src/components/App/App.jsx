@@ -1,3 +1,8 @@
+import { useEffect, useState } from 'react';
+import { ThemeProvider } from 'styled-components';
+import { light } from '../../styles/Theme/theme';
+import ChangeThemeButton from '../../styles/Theme/ThemeButton';
+import { GlobalStyle } from '../../styles/GlobalStyles';
 // import { Suspense, lazy } from 'react';
 // import 'react-toastify/dist/ReactToastify.css';
 // import { useEffect } from 'react';
@@ -11,6 +16,8 @@
 //   selectIsLoggedIn,
 // } from 'redux/auth/selectors';
 // import { getCurrentUser } from 'redux/auth/operations';
+
+// import ChangeThemeButton from '../../styles/Theme/ThemeButton';
 
 // import MainLayout from './MainLayout/MainLayout';
 
@@ -150,3 +157,39 @@
 
 //   return !isLogged && !isFetching ? <Navigate to={navigateTo} /> : component;
 // }
+
+const App = () => {
+  const [selectedTheme, setSelectedTheme] = useState();
+
+  const HandleThemeChange = (theme) => {
+    localStorage.setItem('current-theme', JSON.stringify(theme));
+    // setSelectedTheme(theme);
+  };
+
+  useEffect(() => {
+    console.log('useEffect');
+    const getTheme = () => {
+      console.log('getTheme');
+
+      const currentTheme = localStorage.getItem('current-theme');
+      console.log('currentTheme: ', currentTheme);
+      if (currentTheme) {
+        return setSelectedTheme(JSON.parse(currentTheme));
+      }
+      return setSelectedTheme(light);
+    };
+    getTheme();
+  }, []);
+  return (
+    <ThemeProvider theme={selectedTheme || light}>
+      <GlobalStyle />
+      <ChangeThemeButton
+        HandleThemeChange={HandleThemeChange}
+      ></ChangeThemeButton>
+
+      <>Hello</>
+    </ThemeProvider>
+  );
+};
+
+export default App;
