@@ -115,73 +115,10 @@ img {
 
 
 
-.weekNames {
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 1.13;
-  text-transform: uppercase;
-  color: #343434;
-  cursor: default;
-}
 
-.inactiveDay {
-  color: #9e9e9e;
-}
+.weekend {
 
-.navIcon {
-  width: 20px;
-  height: 20px;
-  padding: 8px;
-  cursor: pointer;
-}
-
-.navIcon:hover {
-  border-radius: 50%;
-  background: #efefee;
-}
-
-.todayButton {
-  border: 1px solid #e0e0e0;
-  border-radius: 5px;
-  padding: 8px 16px;
-  cursor: pointer;
-  margin-right: 8px;
-}
-
-.todayButton:hover {
-  background: #efefef;
-}
-
-.weekList {
-  width: 1087px;
-  height: 68px;
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  align-items: center;
-  box-sizing: border-box;
-  border: 1px solid grey;
-  border-radius: 8px;
-  list-style: none;
-}
-.dayOfWeek {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: 'Inter';
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 1.13;
-
-  color: #282626;
-  cursor: default;
-}
-
-.weekNames {
-  text-transform: uppercase;
-}
-.selectedDay {
-  color: #fff;
-  background: #3e85f3;
+color: #3e85f3;
 }
 
 `;

@@ -62,10 +62,7 @@ const MonthCalendar = ({ activeDate }) => {
     currentDate = addDays(currentDate, 7);
   }
 
-  // const daysOfMonth = eachDayOfInterval({
-  //   start: startOfTheSelectedMonth,
-  //   end: endOfTheSelectedMonth,
-  // });
+ 
 
   return (
     <>
