@@ -1,9 +1,22 @@
-import { addDays, format, isWeekend, startOfWeek } from 'date-fns';
+import { addDays, format, startOfWeek } from 'date-fns';
+import { StyledWeekNames } from './StyledMonth';
+import { useEffect, useState } from 'react';
 
 const WeekNames = ({ activeDate }) => {
   //початок тижня цієї дати
   const weekStartDate = startOfWeek(activeDate, { weekStartsOn: 1 });
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    function handleResize() {
+      setWindowWidth(window.innerWidth);
+    }
 
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   const weekNames = [];
 
   for (let day = 0; day < 7; day++) {
@@ -14,13 +27,9 @@ const WeekNames = ({ activeDate }) => {
     //додай до початкової дати 7 днів і відформатуй і поверни тільки дні тижня
 
     weekNames.push(
-      <div className="weekNames" key={day}>
-        {isWeekend(addDays(weekStartDate, day)) ? (
-          <p className="weekend">{format(addDays(weekStartDate, day), 'E')}</p>
-        ) : (
-          <p className="regDay">{format(addDays(weekStartDate, day), 'E')}</p>
-        )}gi
-      </div>,
+      <StyledWeekNames key={day}>
+        {format(addDays(weekStartDate, day), windowWidth < 768 ? 'EEEEE' : 'E')}
+      </StyledWeekNames>,
     );
   }
   return <div className="weekContainer">{weekNames}</div>;

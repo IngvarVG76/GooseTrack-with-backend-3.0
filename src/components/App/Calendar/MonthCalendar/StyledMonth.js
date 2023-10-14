@@ -60,3 +60,24 @@ export const DayNumberToday = styled(DayNumberRegular)`
 export const DayNumberInActive = styled(DayNumberRegular)`
   color: rgba(220, 227, 229, 0.5);
 `;
+
+export const StyledWeekNames = styled.p`
+  font-weight: 600;
+  font-size: 16px;
+  line-height: calc(18 / 16);
+  color: #343434;
+  text-transform: uppercase;
+  &:nth-child(6n),
+  &:nth-child(7n) {
+    color: #3e85f3;
+  }
+`;
+
+export const WrapperWeek = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  gap: 34px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #dce3e5;
+`;

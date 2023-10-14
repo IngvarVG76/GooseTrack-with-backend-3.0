@@ -62,8 +62,6 @@ const MonthCalendar = ({ activeDate }) => {
     currentDate = addDays(currentDate, 7);
   }
 
- 
-
   return (
     <>
       <WeekNames activeDate={activeDate} />
