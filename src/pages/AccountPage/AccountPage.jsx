@@ -1,7 +1,13 @@
-// import UserForm from 'components/UserForm/UserForm';
+import UserForm from '../../components/UserForm/UserForm';
 
-// const AccountPage = () => {
-//   return <UserForm />;
-// };
+import { PageContainer } from './AccountPage.styled';
 
-// export default AccountPage;
+const AccountPage = () => {
+  return (
+    <PageContainer>
+      <UserForm />
+    </PageContainer>
+  );
+};
+
+export default AccountPage;
