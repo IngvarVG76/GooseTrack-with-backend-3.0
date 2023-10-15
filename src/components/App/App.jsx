@@ -188,6 +188,10 @@ const App = () => {
       ></ChangeThemeButton>
 
       <>Hello</>
+<<<<<<< Updated upstream
+=======
+      <Calendar />
+>>>>>>> Stashed changes
     </ThemeProvider>
   );
 };
