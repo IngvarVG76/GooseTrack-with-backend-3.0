@@ -2,13 +2,14 @@ import { useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { light } from '../../styles/Theme/theme';
 import ChangeThemeButton from '../../styles/Theme/ThemeButton';
-import { GlobalStyle } from '../../styles/GlobalStyles';
+// import { GlobalStyle } from '../../styles/GlobalStyles';
+import { Route, Routes } from 'react-router-dom';
+import StatisticsPage from '../../pages/StatisticsPage/StatisticsPage';
 // import { Suspense, lazy } from 'react';
 // import 'react-toastify/dist/ReactToastify.css';
 // import { useEffect } from 'react';
 // import { ToastContainer } from 'react-toastify';
 // import { useDispatch, useSelector } from 'react-redux';
-// import { Route, Routes, Navigate } from 'react-router-dom';
 // import image from './Bandero-goose/images/shu.jpg';
 // import image1 from './Bandero-goose/images/iron-man.webp';
 // import {
@@ -181,14 +182,21 @@ const App = () => {
     getTheme();
   }, []);
   return (
-    <ThemeProvider theme={selectedTheme || light}>
-      <GlobalStyle />
-      <ChangeThemeButton
-        HandleThemeChange={HandleThemeChange}
-      ></ChangeThemeButton>
+    <>
+      <ThemeProvider theme={selectedTheme || light}>
+        {/* <GlobalStyle /> */}
+        <ChangeThemeButton
+          HandleThemeChange={HandleThemeChange}
+        ></ChangeThemeButton>
 
-      <>Hello</>
-    </ThemeProvider>
+        <>Hello</>
+      </ThemeProvider>
+      <div>
+        <Routes>
+          <Route path="/statistics" element={<StatisticsPage />} />
+        </Routes>
+      </div>
+    </>
   );
 };
 
