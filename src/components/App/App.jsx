@@ -5,6 +5,7 @@ import ChangeThemeButton from '../../styles/Theme/ThemeButton';
 import { GlobalStyle } from '../../styles/GlobalStyles';
 import { useCallback } from 'react';
 import { ModalComponent } from '../Modal/Modal';
+import Calendar from './Calendar/Calendar';
 // import { Suspense, lazy } from 'react';
 // import 'react-toastify/dist/ReactToastify.css';
 // import { useEffect } from 'react';
@@ -198,9 +199,10 @@ const App = () => {
         <ModalComponent onClose={onClickModal}>
           <p>Content</p>
         </ModalComponent>
-      )}{/* necessary for a modal window, you need to add it to the component */}
+      )}
+      {/* necessary for a modal window, you need to add it to the component */}
       <>Hello</>
-      {/* <Calendar /> */}
+      <Calendar />
     </ThemeProvider>
   );
 };

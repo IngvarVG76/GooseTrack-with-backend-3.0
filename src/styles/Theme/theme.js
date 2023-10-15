@@ -20,6 +20,9 @@ export const light = {
     arrowColor: '#343434', // колір стрілки
     calendarTextColor: '#343434', // колір тексту календаря
     calendarTextColorToday: '#343434', // колір тексту календаря
+    calendarActiveDay: '#3E85F3', // колір активного тексту календаря
+    calendarBackground: '#FFFFFF', // колір фону календаря
+    calendarBarBorder: '#DCE3E580', // колір borderu календаря
     weekendTextColor: '#3E85F3', // колір тексту вихідних днів календаря
     backgroundCalendar: '#FFFFFF', // колір фону календаря
     borderСalendarColor: 'rgba(220,	227,	229, 0.80)', // колір рамки календаря
@@ -77,6 +80,10 @@ export const dark = {
     borderColor: '#e3f3ff26', // колір рамки графіка
     arrowColor: '#FFFFFF', // колір стрілки
     calendarTextColor: '#FFFFFF', // колір тексту календаря
+    calendarTextColorToday: '#FAFAFA4D', // колір тексту календаря
+    calendarActiveDay: '#3E85F3', // колір активного тексту календаря
+    calendarBackground: '#FFFFFF26', // колір фону календаря
+    calendarBarBorder: '#22232D', // колір borderu календаря
     weekendTextColor: '#3E85F3', // колір тексту вихідних днів календаря
     backgroundCalendar: '#21222C', // колір фону календаря
     borderСalendarColor: 'rgba(255, 255, 255, 0.15)', // колір рамки календаря
