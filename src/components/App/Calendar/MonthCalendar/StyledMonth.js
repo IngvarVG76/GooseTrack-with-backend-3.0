@@ -74,10 +74,30 @@ export const StyledWeekNames = styled.p`
 `;
 
 export const WrapperWeek = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  gap: 34px;
-  background-color: #ffffff;
+  width: 100vw;
+  height: 50px;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: repeat(7, 6fr);
+  margin-bottom: 14px;
+
+  background: ${({ theme }) => theme.colors.backgroundCalendar};
+  border: 1px solid ${({ theme }) => theme.colors.borderСalendarColor};
   border-radius: 8px;
-  border: 1px solid #dce3e5;
+
+  @media screen and (min-width: 375px) {
+    width: 335px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 704px;
+    height: 46px;
+    margin-bottom: 18px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 1087px;
+    margin-bottom: 15px;
+  }
 `;

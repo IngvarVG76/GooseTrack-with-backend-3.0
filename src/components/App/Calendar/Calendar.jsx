@@ -1,4 +1,3 @@
-import Header from './Header/Header';
 import CalendarTools from './CalendarTools/CalendarTools';
 import MonthCalendar from './MonthCalendar/Month';
 import WeekCalendar from './WeekCalendar/Day';
@@ -9,8 +8,7 @@ const Calendar = () => {
   const [activeDate, setActiveDate] = useState(new Date());
   const [isMonth, setIsMonth] = useState(true);
   return (
-    < CalendarWrapper>
-      <Header />
+    <CalendarWrapper>
       <CalendarTools
         isMonth={isMonth}
         setIsMonth={setIsMonth}
@@ -23,7 +21,7 @@ const Calendar = () => {
       ) : (
         <WeekCalendar activeDate={activeDate} />
       )}
-    </ CalendarWrapper>
+    </CalendarWrapper>
   );
 };
 

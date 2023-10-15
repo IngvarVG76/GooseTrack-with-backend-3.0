@@ -8,7 +8,7 @@ import {
   startOfMonth,
   startOfWeek,
 } from 'date-fns';
-import WeekNames from './WeekNames';
+
 import {
   CalendarContainer,
   Day,
@@ -18,6 +18,7 @@ import {
 
   // DayWeekend,
 } from './StyledMonth';
+import WeekNames from './WeekNames';
 
 const MonthCalendar = ({ activeDate }) => {
   const generateDatesForCurrentWeek = (date, activeDate) => {
