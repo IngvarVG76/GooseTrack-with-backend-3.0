@@ -16,21 +16,21 @@ const commonButton = css`
 
 export const Button = styled.button`
   ${commonButton}
-  ${props => {
+  ${(props) => {
     switch (props.$active) {
       case 'day':
         return css`
           border-radius: 0px 8px 8px 0px;
-          background: ${props => props.$primary && '#3E85F333'};
-          border-left: ${props => props.$primary && 'solid 1px #3e85f333;'};
-          cursor: ${props => props.$primary && 'default;'};
+          background: ${(props) => props.$primary && '#3E85F333'};
+          border-left: ${(props) => props.$primary && 'solid 1px #3e85f333;'};
+          cursor: ${(props) => props.$primary && 'default;'};
         `;
       case 'month':
         return css`
           border-radius: 8px 0px 0px 8px;
-          background: ${props => props.$primary && '#3E85F333'};
-          border-right: ${props => props.$primary && 'solid 1px #3e85f333;'};
-          cursor: ${props => props.$primary && 'default;'};
+          background: ${(props) => props.$primary && '#3E85F333'};
+          border-right: ${(props) => props.$primary && 'solid 1px #3e85f333;'};
+          cursor: ${(props) => props.$primary && 'default;'};
         `;
       default:
         return css`
@@ -47,13 +47,18 @@ export const Wrapper = styled.div`
   flex-direction: column;
   gap: 18px;
 
+  @media screen and (min-width: 375px) {
+    width: 335px;
+  }
+
   @media screen and (min-width: 768px) {
+    width: 704px;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
   }
 
   @media screen and (min-width: 1440px) {
-    /* width: 1087px; */
+    width: 1087px;
   }
 `;

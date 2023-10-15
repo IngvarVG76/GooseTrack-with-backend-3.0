@@ -5,41 +5,57 @@ import {
   endOfWeek,
   isSameDay,
 } from 'date-fns';
+import {
+  DayHigherWrapper,
+  DayWrapper,
+  WeekNames,
+  WeekNumber,
+} from './Day.styled';
+import { useEffect, useState } from 'react';
 
 const WeekCalendar = ({ activeDate }) => {
-  console.log('activeDate : ', activeDate);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    function handleResize() {
+      setWindowWidth(window.innerWidth);
+    }
 
-  const startDate = startOfWeek(activeDate);
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+  // console.log('activeDate : ', activeDate);
+
+  const startDate = startOfWeek(activeDate, { weekStartsOn: 1 });
   // const startDate = startOfWeek(activeDate, { weekStartsOn: 1 });
   // const startDate = startOfISOWeek(activeDate);
 
-  const endDate = endOfWeek(activeDate);
-  console.log(' endDate : ', endDate);
+  const endDate = endOfWeek(activeDate, { weekStartsOn: 1 });
+
   console.log('startDate : ', startDate);
+  console.log(' endDate : ', endDate);
 
   const daysOfWeek = eachDayOfInterval({
     start: startDate,
     end: endDate,
   });
-  // console.log('daysOfWeek: ', daysOfWeek);
 
   return (
-    <ul className="weekList">
+    <DayHigherWrapper>
       {daysOfWeek.map((day, index) => {
-        const dayOfWeek = format(day, 'EEE');
-
+        const dayOfWeek = format(day, windowWidth < 768 ? 'EEEEE' : 'E');
         return (
-          <li className="dayOfWeek" key={index}>
-            <span className="weekNames">{dayOfWeek}</span>
-            <span
-              className={`${isSameDay(day, activeDate) ? 'selectedDay' : ''}`}
-            >
+          <DayWrapper key={index}>
+            <WeekNames>{dayOfWeek}</WeekNames>
+            <WeekNumber $active={isSameDay(day, activeDate)}>
               {format(day, 'd')}
-            </span>
-          </li>
+            </WeekNumber>
+          </DayWrapper>
         );
       })}
-    </ul>
+    </DayHigherWrapper>
   );
 };
 
