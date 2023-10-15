@@ -2,14 +2,17 @@ import { useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { light } from '../../styles/Theme/theme';
 import ChangeThemeButton from '../../styles/Theme/ThemeButton';
-// import { GlobalStyle } from '../../styles/GlobalStyles';
-import { Route, Routes } from 'react-router-dom';
+import { GlobalStyle } from '../../styles/GlobalStyles';
+import { useCallback } from 'react';
+import { ModalComponent } from '../Modal/Modal';
+import Calendar from './Calendar/Calendar';
 import StatisticsPage from '../../pages/StatisticsPage/StatisticsPage';
 // import { Suspense, lazy } from 'react';
 // import 'react-toastify/dist/ReactToastify.css';
 // import { useEffect } from 'react';
 // import { ToastContainer } from 'react-toastify';
 // import { useDispatch, useSelector } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
 // import image from './Bandero-goose/images/shu.jpg';
 // import image1 from './Bandero-goose/images/iron-man.webp';
 // import {
@@ -161,6 +164,11 @@ import StatisticsPage from '../../pages/StatisticsPage/StatisticsPage';
 
 const App = () => {
   const [selectedTheme, setSelectedTheme] = useState();
+  const [modalOpen, setModalOpen] = useState(false); //necessary for a modal window, you need to add it to the component
+
+  const onClickModal = useCallback(() => {
+    setModalOpen(!modalOpen);
+  }, [modalOpen]); //necessary for a modal window, you need to add it to the component
 
   const HandleThemeChange = (theme) => {
     localStorage.setItem('current-theme', JSON.stringify(theme));
@@ -184,18 +192,26 @@ const App = () => {
   return (
     <>
       <ThemeProvider theme={selectedTheme || light}>
-        {/* <GlobalStyle /> */}
+        <GlobalStyle />
         <ChangeThemeButton
           HandleThemeChange={HandleThemeChange}
         ></ChangeThemeButton>
-
+        <button onClick={onClickModal}>Modal</button>
+        {modalOpen && (
+          <ModalComponent onClose={onClickModal}>
+            <p>Content</p>
+          </ModalComponent>
+        )}
+        {/* necessary for a modal window, you need to add it to the component */}
         <>Hello</>
+        <Calendar />
       </ThemeProvider>
       <div>
         <Routes>
           <Route path="/statistics" element={<StatisticsPage />} />
         </Routes>
       </div>
+      ;
     </>
   );
 };
