@@ -3,7 +3,7 @@ import { ThemeProvider } from 'styled-components';
 import { light } from '../../styles/Theme/theme';
 import ChangeThemeButton from '../../styles/Theme/ThemeButton';
 import { GlobalStyle } from '../../styles/GlobalStyles';
-import Calendar from './Calendar/Calendar';
+
 // import { Suspense, lazy } from 'react';
 // import 'react-toastify/dist/ReactToastify.css';
 // import { useEffect } from 'react';
@@ -189,7 +189,7 @@ const App = () => {
       ></ChangeThemeButton>
 
       <>Hello</>
-    <  Calendar/ >
+      <Calendar />
     </ThemeProvider>
   );
 };
