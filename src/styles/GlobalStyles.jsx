@@ -8,6 +8,88 @@ export const GlobalStyle = createGlobalStyle`
 
 
 }
+
+@font-face {
+    font-family: 'Inter';
+    src: local('Inter'), local('Inter-Black'),
+      url('../fonts/Inter-Black.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Inter';
+    src: local('Inter'), local('Inter-Bold'),
+      url('../fonts/Inter-Bold.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+    @font-face {
+    font-family: 'Inter';
+    src: local('Inter'), local('Inter-ExtraBold'),
+      url('../fonts/Inter-ExtraBold.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+      @font-face {
+    font-family: 'Inter';
+    src: local('Inter'), local('Inter-ExtraLight'),
+      url('../fonts/Inter-ExtraLight.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  } 
+
+      @font-face {
+    font-family: 'Inter';
+    src: local('Inter'), local('Inter-Light'),
+      url('../fonts/Inter-Light.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  } 
+
+        @font-face {
+    font-family: 'Inter';
+    src: local('Inter'), local('Inter-Medium'),
+      url('../fonts/Inter-Medium.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  } 
+
+        @font-face {
+    font-family: 'Inter';
+    src: local('Inter'), local('Inter-Regular'),
+      url('../fonts/Inter-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  } 
+
+          @font-face {
+    font-family: 'Inter';
+    src: local('Inter'), local('Inter-SemiBold'),
+      url('../fonts/Inter-SemiBold.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  } 
+  
+           @font-face {
+    font-family: 'Inter';
+    src: local('Inter'), local('Inter-Thin'),
+      url('../fonts/Inter-Thin.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  } 
+
 main {
   background: inherit;
 }
