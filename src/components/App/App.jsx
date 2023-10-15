@@ -200,6 +200,7 @@ const App = () => {
         </ModalComponent>
       )}{/* necessary for a modal window, you need to add it to the component */}
       <>Hello</>
+      {/* <Calendar /> */}
     </ThemeProvider>
   );
 };
