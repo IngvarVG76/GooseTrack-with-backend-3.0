@@ -1,10 +1,9 @@
-
-import { Theme} from '../../styles/Theme/theme';
 import ChangeThemeButton from '../../styles/Theme/ThemeButton';
 import { GlobalStyle } from '../../styles/GlobalStyles';
 import { useCallback, useState } from 'react';
 import { ModalComponent } from '../Modal/Modal';
 import Calendar from './Calendar/Calendar';
+import { Theme } from '../../styles/Theme/Theme.jsx';
 // import { Suspense, lazy } from 'react';
 // import 'react-toastify/dist/ReactToastify.css';
 // import { useEffect } from 'react';
@@ -170,7 +169,7 @@ const App = () => {
   return (
     <Theme>
       <GlobalStyle />
-      <ChangeThemeButton/>
+      <ChangeThemeButton />
       <button onClick={onClickModal}>Modal</button>
       {modalOpen && (
         <ModalComponent onClose={onClickModal}>
