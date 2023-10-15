@@ -119,3 +119,12 @@ export const dark = {
     backgroundTaskFormInput: '#171820',
   },
 };
+
+// export const Theme = ({ children }) => {
+//   const currentTheme = useSelector((state) => state.theme.lightTheme);
+//   const theme = (checkTheme = false) => {
+//     return checkTheme ? { ...light } : { ...dark };
+//   };
+
+//   return <ThemeProvider theme={theme(currentTheme)}>{children}</ThemeProvider>;
+// };
