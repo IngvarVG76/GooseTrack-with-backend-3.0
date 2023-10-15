@@ -1,5 +1,8 @@
 // приклад   background: ${({theme}) => theme.colors.mainBackgroundColor};
 
+import { useSelector } from 'react-redux';
+import { ThemeProvider } from 'styled-components';
+
 export const light = {
   name: 'light-theme',
   colors: {
@@ -118,4 +121,13 @@ export const dark = {
     backgroundColorTaskModal: '#171820',
     backgroundTaskFormInput: '#171820',
   },
+};
+
+export const Theme = ({ children }) => {
+  const currentTheme = useSelector((state) => state.theme.lightTheme);
+  const theme = (checkTheme = false) => {
+    return checkTheme ? { ...light } : { ...dark };
+  };
+
+  return <ThemeProvider theme={theme(currentTheme)}>{children}</ThemeProvider>;
 };

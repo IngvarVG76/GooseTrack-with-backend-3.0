@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
-import { light } from '../../styles/Theme/theme';
+import { Theme, light } from '../../styles/Theme/theme';
 import ChangeThemeButton from '../../styles/Theme/ThemeButton';
 import { GlobalStyle } from '../../styles/GlobalStyles';
 import { useCallback } from 'react';
@@ -162,38 +162,16 @@ import Calendar from './Calendar/Calendar';
 // }
 
 const App = () => {
-  const [selectedTheme, setSelectedTheme] = useState();
   const [modalOpen, setModalOpen] = useState(false); //necessary for a modal window, you need to add it to the component
 
   const onClickModal = useCallback(() => {
     setModalOpen(!modalOpen);
   }, [modalOpen]); //necessary for a modal window, you need to add it to the component
 
-  const HandleThemeChange = (theme) => {
-    localStorage.setItem('current-theme', JSON.stringify(theme));
-    setSelectedTheme(theme);
-  };
-
-  useEffect(() => {
-    console.log('useEffect');
-    const getTheme = () => {
-      console.log('getTheme');
-
-      const currentTheme = localStorage.getItem('current-theme');
-      console.log('currentTheme: ', currentTheme);
-      if (currentTheme) {
-        return setSelectedTheme(JSON.parse(currentTheme));
-      }
-      return setSelectedTheme(light);
-    };
-    getTheme();
-  }, []);
   return (
-    <ThemeProvider theme={selectedTheme || light}>
+    <Theme>
       <GlobalStyle />
-      <ChangeThemeButton
-        HandleThemeChange={HandleThemeChange}
-      ></ChangeThemeButton>
+      <ChangeThemeButton></ChangeThemeButton>
       <button onClick={onClickModal}>Modal</button>
       {modalOpen && (
         <ModalComponent onClose={onClickModal}>
@@ -203,7 +181,7 @@ const App = () => {
       {/* necessary for a modal window, you need to add it to the component */}
       <>Hello</>
       <Calendar />
-    </ThemeProvider>
+    </Theme>
   );
 };
 
