@@ -3,6 +3,9 @@ import { ThemeProvider } from 'styled-components';
 import { light } from '../../styles/Theme/theme';
 import ChangeThemeButton from '../../styles/Theme/ThemeButton';
 import { GlobalStyle } from '../../styles/GlobalStyles';
+import { useCallback } from 'react';
+import { ModalComponent } from '../Modal/Modal';
+import Calendar from './Calendar/Calendar';
 // import { Suspense, lazy } from 'react';
 // import 'react-toastify/dist/ReactToastify.css';
 // import { useEffect } from 'react';
@@ -160,6 +163,11 @@ import { GlobalStyle } from '../../styles/GlobalStyles';
 
 const App = () => {
   const [selectedTheme, setSelectedTheme] = useState();
+  const [modalOpen, setModalOpen] = useState(false); //necessary for a modal window, you need to add it to the component
+
+  const onClickModal = useCallback(() => {
+    setModalOpen(!modalOpen);
+  }, [modalOpen]); //necessary for a modal window, you need to add it to the component
 
   const HandleThemeChange = (theme) => {
     localStorage.setItem('current-theme', JSON.stringify(theme));
@@ -186,12 +194,15 @@ const App = () => {
       <ChangeThemeButton
         HandleThemeChange={HandleThemeChange}
       ></ChangeThemeButton>
-
+      <button onClick={onClickModal}>Modal</button>
+      {modalOpen && (
+        <ModalComponent onClose={onClickModal}>
+          <p>Content</p>
+        </ModalComponent>
+      )}
+      {/* necessary for a modal window, you need to add it to the component */}
       <>Hello</>
-<<<<<<< Updated upstream
-=======
       <Calendar />
->>>>>>> Stashed changes
     </ThemeProvider>
   );
 };
