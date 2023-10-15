@@ -1,8 +1,6 @@
-import { useEffect, useState } from 'react';
-import { dark, light } from './theme';
 import { Button } from './StylesButton.js';
-import { useDispatch, useSelector } from 'react-redux';
-import { toggleTheme } from './themeSlice';
+import { useDispatch } from 'react-redux';
+import { changeTheme } from './themeSlice.jsx';
 
 // стаття про зміну теми в style-components
 // https://blog.logrocket.com/build-react-theme-switcher-app-styled-components/
@@ -28,10 +26,9 @@ import { toggleTheme } from './themeSlice';
 //   );
 // }
 export default function ChangeThemeButton() {
-  // const currentTheme = useSelector((state) => state.theme.lightTheme);
   const dispatch = useDispatch();
   const handelThemeChange = () => {
-    dispatch(toggleTheme());
+    dispatch(changeTheme());
   };
 
   return (

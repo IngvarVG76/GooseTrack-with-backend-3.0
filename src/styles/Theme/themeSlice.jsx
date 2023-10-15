@@ -6,7 +6,7 @@ export const themeSlice = createSlice({
   name: 'lightTheme',
   initialState: { currentTheme: true },
   reducers: {
-    toggleTheme: (state) => {
+    changeTheme: (state) => {
       state.lightTheme = !state.lightTheme;
     },
   },
@@ -23,4 +23,4 @@ export const persistedThemeReducer = persistReducer(
   themeSlice.reducer,
 );
 
-export const { toggleTheme } = themeSlice.actions;
+export const { changeTheme } = themeSlice.actions;

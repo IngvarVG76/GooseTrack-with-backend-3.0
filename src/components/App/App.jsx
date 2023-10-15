@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
-import { ThemeProvider } from 'styled-components';
-import { Theme, light } from '../../styles/Theme/theme';
+
+import { Theme} from '../../styles/Theme/theme';
 import ChangeThemeButton from '../../styles/Theme/ThemeButton';
 import { GlobalStyle } from '../../styles/GlobalStyles';
 import { useCallback } from 'react';
@@ -171,7 +170,7 @@ const App = () => {
   return (
     <Theme>
       <GlobalStyle />
-      <ChangeThemeButton></ChangeThemeButton>
+      <ChangeThemeButton/>
       <button onClick={onClickModal}>Modal</button>
       {modalOpen && (
         <ModalComponent onClose={onClickModal}>
