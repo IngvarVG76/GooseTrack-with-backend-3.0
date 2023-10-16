@@ -4,8 +4,9 @@ import { Wrapper } from './CalendarToolbar.styled';
 import CurrentDate from '../CurrentDate/CurrentDate';
 import { DayOrMonthPeriod } from '../PeriodTypeSelect';
 
-const CalendarToolbar = ({ activeDate, setActiveDate }) => {
+const CalendarToolbar = () => {
   const location = useLocation();
+  // console.log('location.pathname: ', location.pathname);
 
   const activePage = (arr) => {
     let active;
@@ -20,19 +21,11 @@ const CalendarToolbar = ({ activeDate, setActiveDate }) => {
   };
 
   const pages = ['month', 'day'];
-
+  console.log(activePage(pages));
   return (
     <Wrapper>
-      <CurrentDate
-        activeDate={activeDate}
-        setActiveDate={setActiveDate}
-        activePage={activePage(pages)}
-      />
-      <DayOrMonthPeriod
-        activePage={activePage(pages)}
-        setActiveDate={setActiveDate}
-        activeDate={activeDate}
-      />
+      <CurrentDate activePage={activePage(pages)} />
+      <DayOrMonthPeriod activePage={activePage(pages)} />
     </Wrapper>
   );
 };

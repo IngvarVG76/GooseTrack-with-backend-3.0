@@ -4,36 +4,22 @@ import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import CalendarToolbar from '../../components/Calendar/CalendarToolbar/CalendarToolbar';
 
 const CalendarPage = () => {
-  const [activeDate, setActiveDate] = useState(new Date());
-
-  const [isActivePage, setIsActivePage] = useState(false);
+  const [isActivePage] = useState(false);
   const navigate = useNavigate();
 
   const location = useLocation();
 
   useEffect(() => {
+    const activeDate = new Date();
     if (location.pathname === '/calendar') {
       navigate(`/calendar/month/${activeDate}`);
       return;
     }
-  }, [activeDate, navigate, location.pathname]);
-
-  const doActiveDate = () => {
-    setIsActivePage(false);
-  };
-  const doActiveMonth = () => {
-    setIsActivePage(true);
-  };
+  }, [navigate, location.pathname]);
 
   return (
     <Container>
-      <CalendarToolbar
-        activeDate={activeDate}
-        setActiveDate={setActiveDate}
-        isActivePage={isActivePage}
-        doActiveMonth={doActiveMonth}
-        doActiveDate={doActiveDate}
-      />
+      <CalendarToolbar isActivePage={isActivePage} />
       <Suspense fallback={null}>
         <Outlet />
       </Suspense>

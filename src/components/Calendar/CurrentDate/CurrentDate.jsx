@@ -7,16 +7,34 @@ import {
   StyledAiOutlineLeft,
   StyledAiOutlineRight,
 } from './CurrentDate.styled';
-const CurrentDate = ({ activePage, activeDate, setActiveDate }) => {
-  const changeNextDate = (activePage) => {
+import { useNavigate, useParams } from 'react-router-dom';
+const CurrentDate = ({ activePage, setActiveDate }) => {
+  // console.log('activePage: ', activePage);
+  const navigate = useNavigate();
+  const params = useParams();
+  const date = new Date(params.currentDate);
+
+  const getDatefromURL = () => {
+    if (Object.prototype.toString.call(date) === '[object Date]') {
+      if (isNaN(date)) {
+        return new Date();
+      } else {
+        return date;
+      }
+    }
+  };
+
+  const activeDate = getDatefromURL();
+
+  const changeNextDate = (activeDate) => {
     activePage === 'month'
-      ? setActiveDate(addMonths(activeDate, 1))
-      : setActiveDate(addDays(activeDate, 1));
+      ? navigate(`/calendar/month/${addMonths(activeDate, 1)}`)
+      : navigate(`/calendar/day/${addDays(activeDate, 1)}`);
   };
   const changePrevDate = (activePage) => {
     activePage === 'month'
-      ? setActiveDate(subMonths(activeDate, 1))
-      : setActiveDate(subDays(activeDate, 1));
+      ? navigate(`/calendar/month/${subMonths(activeDate, 1)}`)
+      : navigate(`/calendar/day/${subDays(activeDate, 1)}`);
   };
   return (
     <Controllers>
@@ -31,11 +49,11 @@ const CurrentDate = ({ activePage, activeDate, setActiveDate }) => {
         <Button
           $direction="back"
           $back
-          onClick={() => changePrevDate(activePage)}
+          onClick={() => changePrevDate(activeDate)}
         >
           <StyledAiOutlineLeft />
         </Button>
-        <Button $direction="forward" onClick={() => changeNextDate(activePage)}>
+        <Button $direction="forward" onClick={() => changeNextDate(activeDate)}>
           <StyledAiOutlineRight />
         </Button>
       </div>

@@ -18,9 +18,11 @@ import {
 
   // DayWeekend,
 } from './StyledMonth';
-import WeekNames from './WeekNames';
+import { useParams } from 'react-router-dom';
 
-const MonthCalendar = ({ activeDate }) => {
+const MonthCalendar = () => {
+  const params = useParams();
+  const activeDate = new Date(params.currentDate);
   const generateDatesForCurrentWeek = (date, activeDate) => {
     let currentDate = date;
     const week = [];
@@ -65,7 +67,6 @@ const MonthCalendar = ({ activeDate }) => {
 
   return (
     <>
-      <WeekNames activeDate={activeDate} />
       <CalendarContainer>{allWeeks}</CalendarContainer>;
     </>
   );
