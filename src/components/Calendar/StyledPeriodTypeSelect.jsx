@@ -18,7 +18,7 @@ const common = css`
 export const StyledLink = styled(Link)`
   ${common}
   ${(props) => {
-    console.log('props.$active: ', props.$active);
+    // console.log('props.$active: ', props.$active);
 
     switch (props.$active) {
       case 'day':
@@ -37,7 +37,7 @@ export const StyledLink = styled(Link)`
         `;
       default:
         return css`
-          ${commonButton}
+          ${common}
         `;
     }
   }}

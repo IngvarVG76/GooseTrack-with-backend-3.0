@@ -10,9 +10,6 @@ const CalendarToolbar = ({ activeDate, setActiveDate }) => {
   const activePage = (arr) => {
     let active;
     arr.map((page) => {
-      console.log('page: ', page);
-      console.log('location.pathname: ', location.pathname);
-
       if (location.pathname.includes(page)) {
         active = page;
       }

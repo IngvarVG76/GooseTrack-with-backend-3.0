@@ -1,12 +1,10 @@
 import { StyledLink, Wrapper } from './StyledPeriodTypeSelect';
 
 export const DayOrMonthPeriod = ({ activePage, activeDate }) => {
-  console.log('  activePage: ', activePage);
   const primaryBtn = () => {
     return activePage === 'month' ? true : false;
   };
 
-  console.log(' primaryBtn: ', primaryBtn());
   return (
     <Wrapper>
       <StyledLink
