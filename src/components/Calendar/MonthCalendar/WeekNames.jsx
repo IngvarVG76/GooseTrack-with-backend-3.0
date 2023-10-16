@@ -20,8 +20,8 @@ const WeekNames = ({ activeDate }) => {
   const weekNames = [];
 
   for (let day = 0; day < 7; day++) {
-    console.log('day', day);
-    console.log('activeDate', activeDate);
+    // console.log('day', day);
+    // console.log('activeDate', activeDate);
 
     //"E" Day of week (formatting)
     //додай до початкової дати 7 днів і відформатуй і поверни тільки дні тижня

@@ -1,11 +1,15 @@
-import { useEffect, useState } from 'react';
-import { ThemeProvider } from 'styled-components';
-import { light } from '../../styles/Theme/theme';
 import ChangeThemeButton from '../../styles/Theme/ThemeButton';
 import { GlobalStyle } from '../../styles/GlobalStyles';
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import { ModalComponent } from '../Modal/Modal';
-import Calendar from './Calendar/Calendar';
+
+import { Theme } from '../../styles/Theme/theme.jsx';
+import { Route, Routes } from 'react-router-dom';
+import CalendarPage from '../../pages/CalendarPage/CalendarPage';
+import StatisticsPage from '../../pages/StatisticsPage/StatisticsPage';
+import { GooseDay } from '../Calendar/GooseDay/GooseDay';
+import { GooseMonth } from '../Calendar/GooseMonth/GooseMonth';
+import MainPage from '../../pages/MainPage/MainPage';
 // import { Suspense, lazy } from 'react';
 // import 'react-toastify/dist/ReactToastify.css';
 // import { useEffect } from 'react';
@@ -24,8 +28,6 @@ import Calendar from './Calendar/Calendar';
 
 // import MainLayout from './MainLayout/MainLayout';
 
-// import { ChoosedMonth } from './Calendar/ChoosedMonth/ChoosedMonth';
-// import { ChoosedDay } from './Calendar/ChoosedDay/ChoosedDay';
 // import ImageAnimation from './Bandero-goose/ImageAnimation';
 // import { ContainerR, Img, Img1 } from './Bandero-goose/ImageAnimation.styled';
 
@@ -56,7 +58,7 @@ import Calendar from './Calendar/Calendar';
 //     </ContainerR>
 //   ) : (
 //     <Suspense fallback={<ImageAnimation />}>
-//       <Routes>
+//    <Routes>
 //         <Route
 //           path="/"
 //           element={
@@ -107,26 +109,6 @@ import Calendar from './Calendar/Calendar';
 //           />
 
 //           <Route
-//             path="calendar/"
-//             element={
-//               <PrivateRoute component={<CalendarPage />} navigateTo="/" />
-//             }
-//           >
-//             <Route
-//               path="month/:currentDate"
-//               element={
-//                 <PrivateRoute component={<ChoosedMonth />} navigateTo="/" />
-//               }
-//             />
-//             <Route
-//               path="day/:currentDate"
-//               element={
-//                 <PrivateRoute component={<ChoosedDay />} navigateTo="/" />
-//               }
-//             />
-//           </Route>
-
-//           <Route
 //             path="statistics"
 //             element={
 //               <PrivateRoute component={<StatisticsPage />} navigateTo="/" />
@@ -162,48 +144,34 @@ import Calendar from './Calendar/Calendar';
 // }
 
 const App = () => {
-  const [selectedTheme, setSelectedTheme] = useState();
   const [modalOpen, setModalOpen] = useState(false); //necessary for a modal window, you need to add it to the component
 
   const onClickModal = useCallback(() => {
     setModalOpen(!modalOpen);
   }, [modalOpen]); //necessary for a modal window, you need to add it to the component
 
-  const HandleThemeChange = (theme) => {
-    localStorage.setItem('current-theme', JSON.stringify(theme));
-    setSelectedTheme(theme);
-  };
-
-  useEffect(() => {
-    console.log('useEffect');
-    const getTheme = () => {
-      console.log('getTheme');
-
-      const currentTheme = localStorage.getItem('current-theme');
-      console.log('currentTheme: ', currentTheme);
-      if (currentTheme) {
-        return setSelectedTheme(JSON.parse(currentTheme));
-      }
-      return setSelectedTheme(light);
-    };
-    getTheme();
-  }, []);
   return (
-    <ThemeProvider theme={selectedTheme || light}>
+    <Theme>
       <GlobalStyle />
-      <ChangeThemeButton
-        HandleThemeChange={HandleThemeChange}
-      ></ChangeThemeButton>
+      <ChangeThemeButton />
       <button onClick={onClickModal}>Modal</button>
       {modalOpen && (
         <ModalComponent onClose={onClickModal}>
           <p>Content</p>
         </ModalComponent>
       )}
+
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="calendar/" element={<CalendarPage />}>
+          <Route path="month/:currentDate" element={<GooseMonth />} />
+          <Route path="day/:currentDate" element={<GooseDay />} />
+        </Route>
+        <Route path="/statistics" element={<StatisticsPage />} />
+      </Routes>
+   
       {/* necessary for a modal window, you need to add it to the component */}
-      <>Hello</>
-      <Calendar />
-    </ThemeProvider>
+    </Theme>
   );
 };
 

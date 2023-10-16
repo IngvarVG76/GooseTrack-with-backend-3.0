@@ -7,14 +7,14 @@ import {
   StyledAiOutlineLeft,
   StyledAiOutlineRight,
 } from './CurrentDate.styled';
-const CurrentDate = ({ isMonth, activeDate, setActiveDate }) => {
-  const changeNextDate = isMonth => {
-    isMonth
+const CurrentDate = ({ activePage, activeDate, setActiveDate }) => {
+  const changeNextDate = (activePage) => {
+    activePage === 'month'
       ? setActiveDate(addMonths(activeDate, 1))
       : setActiveDate(addDays(activeDate, 1));
   };
-  const changePrevDate = isMonth => {
-    isMonth
+  const changePrevDate = (activePage) => {
+    activePage === 'month'
       ? setActiveDate(subMonths(activeDate, 1))
       : setActiveDate(subDays(activeDate, 1));
   };
@@ -28,10 +28,14 @@ const CurrentDate = ({ isMonth, activeDate, setActiveDate }) => {
         <CurrentMonth> {format(activeDate, ' d MMM yyyy')}</CurrentMonth>
       </div>
       <div>
-        <Button $direction="back" $back onClick={() => changePrevDate(isMonth)}>
+        <Button
+          $direction="back"
+          $back
+          onClick={() => changePrevDate(activePage)}
+        >
           <StyledAiOutlineLeft />
         </Button>
-        <Button $direction="forward" onClick={() => changeNextDate(isMonth)}>
+        <Button $direction="forward" onClick={() => changeNextDate(activePage)}>
           <StyledAiOutlineRight />
         </Button>
       </div>
