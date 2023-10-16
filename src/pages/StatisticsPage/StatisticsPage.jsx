@@ -1,4 +1,4 @@
-import StatisticsChart from '../../components/App/statisticsChart/StatisticsChart';
+import StatisticsChart from '../../components/statisticsChart/StatisticsChart';
 
 const StatisticsPage = () => {
   return <StatisticsChart />;

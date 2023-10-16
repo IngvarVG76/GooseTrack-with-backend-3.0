@@ -13,18 +13,15 @@ import {
 // inprogressByDay%=inprogressByDay/allTasksByDay
 // doneByDay%=doneByDay/allTasksByDay
 
-const statisticsData = [
-  {
-    allTasksByDay: 15,
-    todoByDay: 7,
-    inprogressByDay: 3,
-    doneByDay: 5,
-  },
-];
+const tasksByDay = {
+  todoByDay: 7,
+  inprogressByDay: 3,
+  doneByDay: 5,
+};
 
-const procentageByDay = () => {
-  const date = new Date();
-  console.log(date);
+const percentageByDay = () => {
+  const allTasksByDay = Object.values(tasksByDay);
+  console.log(allTasksByDay);
 };
 procentageByDay();
 

@@ -4,12 +4,13 @@ import { useCallback, useState } from 'react';
 import { ModalComponent } from '../Modal/Modal';
 import Calendar from './Calendar/Calendar';
 import { Theme } from '../../styles/Theme/Theme.jsx';
+import { Route, Routes } from 'react-router-dom';
+import StatisticsPage from '../../pages/StatisticsPage/StatisticsPage';
 // import { Suspense, lazy } from 'react';
 // import 'react-toastify/dist/ReactToastify.css';
 // import { useEffect } from 'react';
 // import { ToastContainer } from 'react-toastify';
 // import { useDispatch, useSelector } from 'react-redux';
-// import { Route, Routes, Navigate } from 'react-router-dom';
 // import image from './Bandero-goose/images/shu.jpg';
 // import image1 from './Bandero-goose/images/iron-man.webp';
 // import {
@@ -167,19 +168,24 @@ const App = () => {
   }, [modalOpen]); //necessary for a modal window, you need to add it to the component
 
   return (
-    <Theme>
-      <GlobalStyle />
-      <ChangeThemeButton />
-      <button onClick={onClickModal}>Modal</button>
-      {modalOpen && (
-        <ModalComponent onClose={onClickModal}>
-          <p>Content</p>
-        </ModalComponent>
-      )}
-      {/* necessary for a modal window, you need to add it to the component */}
-      <>Hello</>
-      <Calendar />
-    </Theme>
+    <>
+      <Theme>
+        <GlobalStyle />
+        <ChangeThemeButton />
+        <button onClick={onClickModal}>Modal</button>
+        {modalOpen && (
+          <ModalComponent onClose={onClickModal}>
+            <p>Content</p>
+          </ModalComponent>
+        )}
+        {/* necessary for a modal window, you need to add it to the component */}
+        <>Hello</>
+        <Calendar />
+      </Theme>
+      <Routes>
+        <Route path="/statistics" element={<StatisticsPage />} />
+      </Routes>
+    </>
   );
 };
 
