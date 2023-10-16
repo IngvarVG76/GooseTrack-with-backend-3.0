@@ -163,13 +163,13 @@ const App = () => {
 
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="calendar/" element=<CalendarPage />>
-          <Route path="month/:currentDate" element=<GooseMonth /> />
-          <Route path="day/:currentDate" element=<GooseDay /> />
+        <Route path="calendar/" element={<CalendarPage />}>
+          <Route path="month/:currentDate" element={<GooseMonth />} />
+          <Route path="day/:currentDate" element={<GooseDay />} />
         </Route>
         <Route path="/statistics" element={<StatisticsPage />} />
       </Routes>
-
+   
       {/* necessary for a modal window, you need to add it to the component */}
     </Theme>
   );
