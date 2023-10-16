@@ -1,9 +1,6 @@
 import { useEffect } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import { ButtonClose, Modal, Overlay } from './Modal.styles';
-import { createPortal } from 'react-dom';
-
-const modalRoot = document.getElementById('modal');
 
 export const ModalComponent = ({ children, onClose }) => {
   const onClickOverlay = (e) => {
@@ -25,7 +22,7 @@ export const ModalComponent = ({ children, onClose }) => {
     };
   }, [onClose]);
 
-  return createPortal(
+  return (
     <Overlay onClick={onClickOverlay}>
       <Modal>
         <ButtonClose type="button" onClick={onClose}>
@@ -33,7 +30,6 @@ export const ModalComponent = ({ children, onClose }) => {
         </ButtonClose>
         {children}
       </Modal>
-    </Overlay>,
-    modalRoot,
+    </Overlay>
   );
 };
