@@ -3,7 +3,7 @@ import { GlobalStyle } from '../../styles/GlobalStyles';
 import { useCallback, useState } from 'react';
 import { ModalComponent } from '../Modal/Modal';
 
-import { Theme } from '../../styles/Theme/Theme.jsx';
+import { Theme } from '../../styles/Theme/theme.jsx';
 import { Route, Routes } from 'react-router-dom';
 import CalendarPage from '../../pages/CalendarPage/CalendarPage';
 import StatisticsPage from '../../pages/StatisticsPage/StatisticsPage';
