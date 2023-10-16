@@ -1,19 +1,29 @@
-import { Link, NavLink } from 'react-router-dom';
+import { StyledLink, Wrapper } from './StyledPeriodTypeSelect';
 
 export const DayOrMonthPeriod = ({ activePage, activeDate }) => {
-  return (
-    <div>
-      {activePage === 'month' ? (
-        <Link to={`/calendar/month/${activeDate}`}>Month</Link>
-      ) : (
-        <NavLink to={`/calendar/month/${activeDate}`}>Month</NavLink>
-      )}
+  console.log('  activePage: ', activePage);
+  const primaryBtn = () => {
+    return activePage === 'month' ? true : false;
+  };
 
-      {activePage === 'day' ? (
-        <Link to={`/calendar/day/${activeDate}`}>Day</Link>
-      ) : (
-        <NavLink to={`/calendar/day/${activeDate}`}>Day</NavLink>
-      )}
-    </div>
+  console.log(' primaryBtn: ', primaryBtn());
+  return (
+    <Wrapper>
+      <StyledLink
+        $active={activePage}
+        $primary={primaryBtn()}
+        to={`/calendar/month/${activeDate}`}
+      >
+        Month
+      </StyledLink>
+
+      <StyledLink
+        $active={activePage}
+        $primary={primaryBtn()}
+        to={`/calendar/day/${activeDate}`}
+      >
+        Day
+      </StyledLink>
+    </Wrapper>
   );
 };

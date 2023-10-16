@@ -10,14 +10,13 @@ const CalendarPage = () => {
   const navigate = useNavigate();
 
   const location = useLocation();
-  // const formattedCurrentDate = format(urlDate, "yyyy-MM");
 
-  // useEffect(() => {
-  //   if (location.pathname === "/calendar") {
-  //     // navigate(`/calendar/month/${formattedCurrentDate}`);
-  //     return;
-  //   }
-  // }, [formattedCurrentDate, navigate, location.pathname]);
+  useEffect(() => {
+    if (location.pathname === '/calendar') {
+      navigate(`/calendar/month/${activeDate}`);
+      return;
+    }
+  }, [activeDate, navigate, location.pathname]);
 
   const doActiveDate = () => {
     setIsActivePage(false);

@@ -4,8 +4,9 @@ import { useCallback, useState } from 'react';
 import { ModalComponent } from '../Modal/Modal';
 
 import { Theme } from '../../styles/Theme/Theme.jsx';
-import { Link, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import CalendarPage from '../../pages/CalendarPage/CalendarPage';
+import StatisticsPage from '../../pages/StatisticsPage/StatisticsPage';
 import { GooseDay } from '../Calendar/GooseDay/GooseDay';
 import { GooseMonth } from '../Calendar/GooseMonth/GooseMonth';
 import MainPage from '../../pages/MainPage/MainPage';
@@ -166,7 +167,7 @@ const App = () => {
           <Route path="month/:currentDate" element=<GooseMonth /> />
           <Route path="day/:currentDate" element=<GooseDay /> />
         </Route>
-        ;
+        <Route path="/statistics" element={<StatisticsPage />} />
       </Routes>
 
       {/* necessary for a modal window, you need to add it to the component */}
