@@ -5,13 +5,14 @@ import {
   endOfWeek,
   isSameDay,
 } from 'date-fns';
+
+import { useEffect, useState } from 'react';
 import {
   DayHigherWrapper,
   DayWrapper,
   WeekNames,
   WeekNumber,
-} from './Day.styled';
-import { useEffect, useState } from 'react';
+} from './WeekCalendar.styled';
 
 const WeekCalendar = ({ activeDate }) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);

@@ -1,4 +1,4 @@
-// приклад   background: ${({theme}) => theme.colors.mainBackgroundColor};
+// приклад   background: ${({theme}) => theme.colors.primaryBackground};
 
 export const light = {
   name: 'light-theme',

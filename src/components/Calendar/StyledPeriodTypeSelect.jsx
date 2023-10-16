@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
-const commonButton = css`
+const common = css`
   color: #3e85f3;
   font-weight: 500;
   font-size: 14;
@@ -14,9 +15,11 @@ const commonButton = css`
   }
 `;
 
-export const Button = styled.button`
-  ${commonButton}
+export const StyledLink = styled(Link)`
+  ${common}
   ${(props) => {
+    // console.log('props.$active: ', props.$active);
+
     switch (props.$active) {
       case 'day':
         return css`
@@ -34,7 +37,7 @@ export const Button = styled.button`
         `;
       default:
         return css`
-          ${commonButton}
+          ${common}
         `;
     }
   }}
