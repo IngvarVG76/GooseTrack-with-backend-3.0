@@ -7,16 +7,37 @@ import {
   StyledAiOutlineLeft,
   StyledAiOutlineRight,
 } from './CurrentDate.styled';
-const CurrentDate = ({ activePage, activeDate, setActiveDate }) => {
-  const changeNextDate = (activePage) => {
-    activePage === 'month'
-      ? setActiveDate(addMonths(activeDate, 1))
-      : setActiveDate(addDays(activeDate, 1));
+import { useNavigate, useParams } from 'react-router-dom';
+const CurrentDate = ({ activePage, setActiveDate }) => {
+  console.log('activePage: ', activePage);
+  const navigate = useNavigate();
+  const params = useParams();
+  const date = new Date(params.currentDate);
+
+  const getDatefromURL = (date) => {
+    if (Object.prototype.toString.call(date) === '[object Date]') {
+      if (isNaN(date)) {
+        return new Date();
+      } else {
+        return date;
+      }
+    }
   };
-  const changePrevDate = (activePage) => {
+
+  const activeDate = getDatefromURL(date);
+
+  const changeNextDate = () => {
     activePage === 'month'
-      ? setActiveDate(subMonths(activeDate, 1))
-      : setActiveDate(subDays(activeDate, 1));
+      ? navigate(`/calendar/month/${addMonths(activeDate, 1)}`)
+      : navigate(`/calendar/day/${addDays(activeDate, 1)}`);
+  };
+  const changePrevDate = () => {
+    const prevMonth = subMonths(activeDate, 1);
+    const prevDay = subDays(activeDate, 1);
+
+    activePage === 'month'
+      ? navigate(`/calendar/month/${prevMonth}`)
+      : navigate(`/calendar/day/${prevDay}`);
   };
   return (
     <Controllers>
@@ -28,14 +49,10 @@ const CurrentDate = ({ activePage, activeDate, setActiveDate }) => {
         <CurrentMonth> {format(activeDate, ' d MMM yyyy')}</CurrentMonth>
       </div>
       <div>
-        <Button
-          $direction="back"
-          $back
-          onClick={() => changePrevDate(activePage)}
-        >
+        <Button $direction="back" $back onClick={() => changePrevDate()}>
           <StyledAiOutlineLeft />
         </Button>
-        <Button $direction="forward" onClick={() => changeNextDate(activePage)}>
+        <Button $direction="forward" onClick={() => changeNextDate()}>
           <StyledAiOutlineRight />
         </Button>
       </div>
