@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import WeekCalendar from '../CalendarHeadDay/WeekCalendar';
 
-export const GooseDay = () => {
+export const ChoosedDay = () => {
   const params = useParams();
   const date = new Date(params.currentDate);
 

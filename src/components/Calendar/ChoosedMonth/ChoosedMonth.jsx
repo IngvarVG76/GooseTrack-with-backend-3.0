@@ -1,7 +1,7 @@
 import MonthCalendar from '../MonthCalendar/Month';
 import MonthCalendarHead from '../CalendarHeadMonth/MonthCalendarHead';
 
-export const GooseMonth = () => {
+export const ChoosedMonth = () => {
   return (
     <>
       <MonthCalendarHead />

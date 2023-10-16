@@ -7,8 +7,8 @@ import { Theme } from '../../styles/Theme/theme.jsx';
 import { Route, Routes } from 'react-router-dom';
 import CalendarPage from '../../pages/CalendarPage/CalendarPage';
 import StatisticsPage from '../../pages/StatisticsPage/StatisticsPage';
-import { GooseDay } from '../Calendar/GooseDay/GooseDay';
-import { GooseMonth } from '../Calendar/GooseMonth/GooseMonth';
+import { ChoosedDay } from '../Calendar/ChoosedDay/ChoosedDay';
+import { ChoosedMonth } from '../Calendar/ChoosedMonth/ChoosedMonth';
 import MainPage from '../../pages/MainPage/MainPage';
 import MainLayout from '../../pages/MainLayout/MainLayout';
 // import { Suspense, lazy } from 'react';
@@ -173,8 +173,8 @@ const App = () => {
             }
           />
           <Route path="/calendar" element={<CalendarPage />}>
-            <Route path="month/:currentDate" element={<GooseMonth />} />
-            <Route path="day/:currentDate" element={<GooseDay />} />
+            <Route path="month/:currentDate" element={<ChoosedMonth />} />
+            <Route path="day/:currentDate" element={<ChoosedDay />} />
           </Route>
           <Route path="/statistics" element={<StatisticsPage />} />
         </Route>
