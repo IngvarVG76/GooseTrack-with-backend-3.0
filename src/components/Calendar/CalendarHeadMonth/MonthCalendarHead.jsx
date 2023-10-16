@@ -1,8 +1,11 @@
 import { addDays, format, startOfWeek } from 'date-fns';
-import { StyledWeekNames, WrapperWeek } from './StyledMonth';
+import { StyledWeekNames, WrapperWeek } from '../MonthCalendar/StyledMonth';
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-const WeekNames = ({ activeDate }) => {
+const MonthCalendarHead = () => {
+  const params = useParams();
+  const activeDate = new Date(params.currentDate);
   //початок тижня цієї дати
   const weekStartDate = startOfWeek(activeDate, { weekStartsOn: 1 });
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -35,4 +38,4 @@ const WeekNames = ({ activeDate }) => {
   return <WrapperWeek>{weekNames}</WrapperWeek>;
 };
 
-export default WeekNames;
+export default MonthCalendarHead;

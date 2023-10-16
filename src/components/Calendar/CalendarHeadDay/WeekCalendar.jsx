@@ -13,8 +13,12 @@ import {
   WeekNames,
   WeekNumber,
 } from './WeekCalendar.styled';
+import { useParams } from 'react-router-dom';
 
-const WeekCalendar = ({ activeDate }) => {
+const WeekCalendar = () => {
+  const params = useParams();
+  const activeDate = new Date(params.currentDate);
+  
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   useEffect(() => {
     function handleResize() {
@@ -35,8 +39,8 @@ const WeekCalendar = ({ activeDate }) => {
 
   const endDate = endOfWeek(activeDate, { weekStartsOn: 1 });
 
-  console.log('startDate : ', startDate);
-  console.log(' endDate : ', endDate);
+  // console.log('startDate : ', startDate);
+  // console.log(' endDate : ', endDate);
 
   const daysOfWeek = eachDayOfInterval({
     start: startDate,
