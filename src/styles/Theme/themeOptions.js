@@ -57,6 +57,8 @@ export const light = {
     borderCalendar: '1px solid background: rgb(255, 255, 255)',
     backgroundColorTaskModal: '#FFFFFF',
     backgroundTaskFormInput: '#F6F6F6',
+    activeNavBackground: '#E3F3FF',
+    formaBackground: '#fff',
   },
 };
 
@@ -117,6 +119,8 @@ export const dark = {
     borderCalendar: '1px solid rgba(255, 255, 255, 0.15)',
     backgroundColorTaskModal: '#171820',
     backgroundTaskFormInput: '#171820',
+    activeNavBackground: '#3E85F3',
+    formaBackground: '#171820',
   },
 };
 

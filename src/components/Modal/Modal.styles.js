@@ -16,10 +16,15 @@ export const Overlay = styled.div`
 
 export const Modal = styled.div`
   position: relative;
-  background-color: #fff;
-  padding: 28px 40px;
+  background-color: ${({ theme }) => theme.colors.formaBackground};
+  border-radius: 8px;
+  border: 1px solid ${({ theme }) => theme.colors.borderСalendarColor};
+
+  box-shadow: 0px 4px 57px 0px rgba(17, 17, 17, 0.05);
   max-width: calc(100vw - 48px);
   max-height: calc(100vh - 24px);
+  display: flex;
+  justify-content: center;
 `;
 
 export const ButtonClose = styled.button`
@@ -31,7 +36,7 @@ export const ButtonClose = styled.button`
   border: none;
   font-size: 24px;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
+  color: ${({ theme }) => (theme.name === 'dark-theme' ? '#fff' : '#111')};
   &:hover,
   :focus {
     color: #3e85f3;

@@ -10,6 +10,7 @@ import StatisticsPage from '../../pages/StatisticsPage/StatisticsPage';
 import { GooseDay } from '../Calendar/GooseDay/GooseDay';
 import { GooseMonth } from '../Calendar/GooseMonth/GooseMonth';
 import MainPage from '../../pages/MainPage/MainPage';
+import MainLayout from '../../pages/MainLayout/MainLayout';
 // import { Suspense, lazy } from 'react';
 // import 'react-toastify/dist/ReactToastify.css';
 // import { useEffect } from 'react';
@@ -144,32 +145,41 @@ import MainPage from '../../pages/MainPage/MainPage';
 // }
 
 const App = () => {
-  const [modalOpen, setModalOpen] = useState(false); //necessary for a modal window, you need to add it to the component
+  // const [modalOpen, setModalOpen] = useState(false); //necessary for a modal window, you need to add it to the component
 
-  const onClickModal = useCallback(() => {
-    setModalOpen(!modalOpen);
-  }, [modalOpen]); //necessary for a modal window, you need to add it to the component
+  // const onClickModal = useCallback(() => {
+  //   setModalOpen(!modalOpen);
+  // }, [modalOpen]); //necessary for a modal window, you need to add it to the component
 
   return (
     <Theme>
       <GlobalStyle />
-      <ChangeThemeButton />
+      {/* <ChangeThemeButton />
       <button onClick={onClickModal}>Modal</button>
       {modalOpen && (
         <ModalComponent onClose={onClickModal}>
           <p>Content</p>
         </ModalComponent>
-      )}
+      )} */}
 
       <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="calendar/" element={<CalendarPage />}>
-          <Route path="month/:currentDate" element={<GooseMonth />} />
-          <Route path="day/:currentDate" element={<GooseDay />} />
+        <Route path="/" element={<MainLayout />}>
+          <Route
+            path="/account"
+            element={
+              <h1 style={{ textAlign: 'center', marginTop: '30%' }}>
+                В Розробці
+              </h1>
+            }
+          />
+          <Route path="/calendar" element={<CalendarPage />}>
+            <Route path="month/:currentDate" element={<GooseMonth />} />
+            <Route path="day/:currentDate" element={<GooseDay />} />
+          </Route>
+          <Route path="/statistics" element={<StatisticsPage />} />
         </Route>
-        <Route path="/statistics" element={<StatisticsPage />} />
       </Routes>
-   
+
       {/* necessary for a modal window, you need to add it to the component */}
     </Theme>
   );
