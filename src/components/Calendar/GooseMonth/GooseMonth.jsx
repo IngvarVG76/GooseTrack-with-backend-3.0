@@ -1,5 +1,5 @@
 import MonthCalendar from '../MonthCalendar/Month';
-import MonthCalendarHead from '../MonthCalendarHead/MonthCalendarHead';
+import MonthCalendarHead from '../CalendarHeadMonth/MonthCalendarHead';
 
 export const GooseMonth = () => {
   return (

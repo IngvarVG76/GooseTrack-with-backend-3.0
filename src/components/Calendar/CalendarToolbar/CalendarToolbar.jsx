@@ -2,7 +2,7 @@ import { useLocation } from 'react-router-dom';
 
 import { Wrapper } from './CalendarToolbar.styled';
 import CurrentDate from '../CurrentDate/CurrentDate';
-import { DayOrMonthPeriod } from '../PeriodTypeSelect';
+import { DayOrMonthPeriod } from '../PeriodTypeSelect/PeriodTypeSelect';
 
 const CalendarToolbar = () => {
   const location = useLocation();
