@@ -21,7 +21,7 @@ const CalendarToolbar = () => {
   };
 
   const pages = ['month', 'day'];
-  console.log(activePage(pages));
+
   return (
     <Wrapper>
       <CurrentDate activePage={activePage(pages)} />

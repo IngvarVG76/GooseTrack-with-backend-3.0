@@ -9,7 +9,6 @@ import {
 } from './CurrentDate.styled';
 import { useNavigate, useParams } from 'react-router-dom';
 const CurrentDate = ({ activePage, setActiveDate }) => {
-  console.log('activePage: ', activePage);
   const navigate = useNavigate();
   const params = useParams();
   const date = new Date(params.currentDate);

@@ -10,6 +10,8 @@ const common = css`
   background-color: #e3f3ff;
   padding: 8px 16px 8px 16px;
   cursor: pointer;
+  border-radius: ${(props) =>
+    props.$borderSide ? '8px 0px 0px 8px' : '0px 8px 8px 0px'};
   @media screen and (min-width: 768px) {
     font-size: 16px;
   }
@@ -18,19 +20,15 @@ const common = css`
 export const StyledLink = styled(Link)`
   ${common}
   ${(props) => {
-    // console.log('props.$active: ', props.$active);
-
     switch (props.$active) {
       case 'day':
         return css`
-          border-radius: 0px 8px 8px 0px;
           background: ${(props) => props.$primary && '#3E85F333'};
           border-left: ${(props) => props.$primary && 'solid 1px #3e85f333;'};
           cursor: ${(props) => props.$primary && 'default;'};
         `;
       case 'month':
         return css`
-          border-radius: 8px 0px 0px 8px;
           background: ${(props) => props.$primary && '#3E85F333'};
           border-right: ${(props) => props.$primary && 'solid 1px #3e85f333;'};
           cursor: ${(props) => props.$primary && 'default;'};
@@ -41,27 +39,4 @@ export const StyledLink = styled(Link)`
         `;
     }
   }}
-`;
-
-export const Wrapper = styled.div`
-  width: 100%;
-  height: 82px;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-
-  @media screen and (min-width: 375px) {
-    width: 335px;
-  }
-
-  @media screen and (min-width: 768px) {
-    width: 704px;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  @media screen and (min-width: 1440px) {
-    width: 1087px;
-  }
 `;
