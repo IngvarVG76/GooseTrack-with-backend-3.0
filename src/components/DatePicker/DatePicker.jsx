@@ -19,16 +19,18 @@ const CustomDatePicker = ({ activePage }) => {
   const CustomInput = forwardRef(({ value, onClick }, ref) => {
     return (
       <StyledInput onClick={onClick} ref={ref}>
-        {value}
+        {activePage === 'month'
+          ? format(activeDate, 'MMMM yyyy')
+          : format(activeDate, ' dd MMM yyyy')}
       </StyledInput>
     );
   });
 
   return (
     <DatePicker
-      selected={activeDate}
+      selected={new Date()}
       onChange={(date) => handleClick(date)}
-      dateFormat={activePage === 'month' ? 'MMMM yyyy' : 'dd MMM yyyy'}
+      //   dateFormat={activePage === 'month' ? 'MMMM yyyy' : 'dd MMM yyyy'}
       customInput={<CustomInput />}
       calendarStartDay={1}
       formatWeekDay={(nameOfDay) => nameOfDay.slice(0, 1)}
