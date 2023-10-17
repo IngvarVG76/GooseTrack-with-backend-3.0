@@ -14,6 +14,9 @@ export const light = {
     activeTextColorBtn: '#3E85F3', // колір тексту активних кнопок
     textColorButton: '#3E85F3', // колір тексту кнопок
     hoverTextBtn: '#FFFFFF', // колір тексту при ховері
+    backgraundAddBtn: '#E3F3FF', // колір фону кнопки додавання таски
+    colorAddBtn: '#111111', // колір text кнопки додавання таски
+    borderdAddBtn: '1px dashed #3e85f3', // бордер кнопки додавання
     text: '#111111', // колір тексту
     textNav: ' #34343480', // колір Nav
     borderColor: '#E3F3FF', // колір рамки графіка
@@ -36,6 +39,7 @@ export const light = {
     borderInputHover: '1px solid #111111', // бордер при ховері
     titleAvatar: '#343434', // колір ім"я користувача
     textAvatar: '#343434', // текст юзер
+    scrollBg: '#E7E5E5', //колір скролу
     arrowIconColor: '#111111', // колір стрілки вниз
     bgColorLowTask: '#CEEEFD', // колір фону Low такси
     textColorLowTask: '#3E85F3', // колір фону Low такси
@@ -77,8 +81,11 @@ export const dark = {
     activeTextColorBtn: '#FFFFFF', // колір тексту активних кнопок
     textColorButton: '#FFFFFF', // колір тексту кнопок
     hoverTextBtn: '#CAE8FF', // колір тексту при ховері
+    backgraundAddBtn: '#3E85F3', // колір фону кнопки додавання таски
+    colorAddBtn: '#FFFFFF', // колір text кнопки додавання таски
     text: '#FFFFFF', // колір тексту
     textNav: '#FFFFFF', // колір Nav
+    scrollBg: '#2D3037', //колір скролу
     borderColor: '#e3f3ff26', // колір рамки графіка
     arrowColor: '#FFFFFF', // колір стрілки
     calendarTextColor: '#FFFFFF', // колір тексту календаря
@@ -88,6 +95,7 @@ export const dark = {
     calendarBarBorder: '#22232D', // колір borderu календаря
     weekendTextColor: '#3E85F3', // колір тексту вихідних днів календаря
     backgroundCalendar: '#21222C', // колір фону календаря
+    borderdAddBtn: 'none', // бордер кнопки додавання
     borderСalendarColor: 'rgba(255, 255, 255, 0.15)', // колір рамки календаря
     activeArrowColor: 'rgba(255, 255, 255, 0.15)', // колір активної стрілки
     gooseColor: '#E3F3FF', //колір тексту Goose
