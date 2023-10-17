@@ -1,0 +1,14 @@
+.barChart {
+  border: solid 0.8px #e3f3ff;
+  border-radius: 20px;
+  padding: 10px;
+  width: 355px;
+  background-color: #fff;
+}
+.barMonth {
+  fill: #3e85f3;
+}
+
+.barDay {
+  fill: #ffd2dd;
+}
