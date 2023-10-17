@@ -5,6 +5,7 @@ export const DayHigherWrapper = styled.div`
   display: flex;
   justify-content: space-around;
   padding: 14px 18px;
+  border-radius: 8px;
   background: ${({ theme }) => theme.colors.calendarBackground};
   border: 1px solid ${({ theme }) => theme.colors.borderСalendarColor};
 `;

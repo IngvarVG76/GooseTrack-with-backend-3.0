@@ -1,15 +1,15 @@
 import { useParams } from 'react-router-dom';
 import WeekCalendar from '../CalendarHeadDay/WeekCalendar';
-import { TasksColumn } from '../TasksColumn/TasksColumn ';
+import { TasksColumnsList } from '../TasksColumnsList/TasksColumnsList';
 
-export const GooseDay = () => {
+export const ChoosedDay = () => {
   const params = useParams();
   const date = new Date(params.currentDate);
 
   return (
     <>
       <WeekCalendar activeDate={date} />
-      <TasksColumn title={'To do'} />
+      <TasksColumnsList />
     </>
   );
 };

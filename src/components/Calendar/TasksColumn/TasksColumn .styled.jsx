@@ -5,14 +5,17 @@ import AddIcon from '@mui/icons-material/Add';
 import { Button } from '@mui/base';
 
 export const WrapperTasks = styled.div`
-  margin-top: 14px;
+  width: 355px;
   max-height: 432px;
   border-radius: 8px;
   border: 1px;
-  gap: 18px;
   padding: 14px 18px;
+
   background: ${({ theme }) => theme.colors.calendarBackground};
   border: 1px solid ${({ theme }) => theme.colors.borderСalendarColor};
+  @media screen and (min-width: 768px) {
+    width: 344px;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -26,6 +29,11 @@ export const Title = styled.p`
   line-height: 20px;
   letter-spacing: 0em;
   color: ${({ theme }) => theme.colors.calendarTextColor};
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: calc(24 / 20);
+  }
 `;
 
 export const ButtonMUI = styled(Button)`
@@ -38,12 +46,16 @@ export const ButtonMUI = styled(Button)`
   width: 100%;
   margin-top: 35px;
   margin-bottom: 20px;
-  background-color: ${({ theme }) => theme.colors.backgroundButton};
+  border: ${({ theme }) => theme.colors.borderdAddBtn};
+  background-color: ${({ theme }) => theme.colors.backgraundAddBtn};
 `;
 
 export const IconAdd = styled(AddCircleOutlineIcon)`
   font-size: 22px !important;
   color: ${({ theme }) => theme.colors.calendarTextColor};
+  @media screen and (min-width: 768px) {
+    font-size: 24px !important;
+  }
 `;
 
 export const ButtonPlus = styled.button`
@@ -57,10 +69,10 @@ export const Text = styled.p`
   font-weight: 600;
   line-height: calc(18 / 14);
   letter-spacing: 0em;
-  color: ${({ theme }) => theme.colors.textButton};
+  color: ${({ theme }) => theme.colors.colorAddBtn};
 `;
 
 export const IconBtn = styled(AddIcon)`
   font-size: 14px !important;
-  color: ${({ theme }) => theme.colors.textButton};
+  color: ${({ theme }) => theme.colors.colorAddBtn};
 `;

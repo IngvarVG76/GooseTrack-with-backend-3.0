@@ -1,6 +1,3 @@
-// import { useParams } from 'react-router-dom';
-// import { StyledLink } from './StyledPeriodTypeSelect';
-
 import {
   ButtonMUI,
   IconAdd,
