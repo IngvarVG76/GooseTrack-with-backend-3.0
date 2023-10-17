@@ -8,6 +8,8 @@ import { format } from 'date-fns';
 
 const CustomDatePicker = () => {
   const activeDate = GetDatefromURL();
+  console.log('activeDate: ', activeDate);
+
   const navigate = useNavigate();
   const handleClick = (date) => {
     date = new Date(date);

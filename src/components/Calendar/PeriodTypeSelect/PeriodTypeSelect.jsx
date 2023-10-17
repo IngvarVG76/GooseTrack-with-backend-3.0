@@ -5,7 +5,7 @@ export const DayOrMonthPeriod = ({ activePage }) => {
   const params = useParams();
   const date = new Date(params.currentDate);
 
-  const getDatefromURL = () => {
+  const GetDatefromURL = () => {
     if (Object.prototype.toString.call(date) === '[object Date]') {
       if (isNaN(date)) {
         return new Date();
@@ -15,7 +15,7 @@ export const DayOrMonthPeriod = ({ activePage }) => {
     }
   };
 
-  const activeDate = getDatefromURL();
+  const activeDate = GetDatefromURL();
 
   const primaryBtn = () => {
     return activePage === 'month' ? true : false;
