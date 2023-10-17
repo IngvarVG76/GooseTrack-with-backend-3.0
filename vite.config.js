@@ -6,9 +6,10 @@ export default defineConfig({
   plugins: [react(), svgr()],
   resolve: {
     alias: {
-      src: '/src',
-      components: '/src/components',
+      src: './src',
+      components: './src/components',
     },
   },
-  base: '/GooseTrack-with-backend-3.0/',
+  base: '/GooseTrack-with-backend-3.0/', 
+  publicDir: 'public',
 });
