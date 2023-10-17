@@ -1,8 +1,9 @@
 import { useLocation } from 'react-router-dom';
 
 import { Wrapper } from './CalendarToolbar.styled';
-import CurrentDate from '../CurrentDate/CurrentDate';
+
 import { DayOrMonthPeriod } from '../PeriodTypeSelect/PeriodTypeSelect';
+import ChooseDate from '../PeriodDateSelect/ChooseDate';
 
 const CalendarToolbar = () => {
   const location = useLocation();
@@ -24,7 +25,7 @@ const CalendarToolbar = () => {
 
   return (
     <Wrapper>
-      <CurrentDate activePage={activePage(pages)} />
+      <ChooseDate activePage={activePage(pages)} />
       <DayOrMonthPeriod activePage={activePage(pages)} />
     </Wrapper>
   );

@@ -21,7 +21,7 @@ export const CalendarContainer = styled.div`
 
   @media screen and (min-width: 1440px) {
     width: 1087px;
-    height: 645px;
+    height: 625px;
   }
 `;
 
@@ -52,8 +52,8 @@ export const DayNumberRegular = styled.p`
 `;
 
 export const DayNumberToday = styled(DayNumberRegular)`
-  color: #fff;
   background: ${({ theme }) => theme.colors.backgroundButton};
+  color: ${({ theme }) => theme.colors.calendarTextColorToday};
   border-radius: 6px;
 `;
 
