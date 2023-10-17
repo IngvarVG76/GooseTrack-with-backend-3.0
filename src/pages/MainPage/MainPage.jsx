@@ -1,7 +1,4 @@
-// import AuthSection from '../components/AuthSection/';
-// import Description from '../components/Description/';
-// import ReviewsSlider from '../components/ReviewsSlider/';
-// import Footer from '../components/Footer/';
+
 import { AuthSection } from "../../components/App/AuthSection/AuthSection";
 import { Description } from "../../components/App/Description/Description";
 import { ReviewsSlider } from "../../components/App/ReviewsSlider/ReviewsSlider";
