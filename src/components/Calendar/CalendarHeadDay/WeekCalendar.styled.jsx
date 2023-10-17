@@ -35,14 +35,15 @@ export const WeekNames = styled.span`
   }
 `;
 
-export const WeekNumber = styled.span`
-  font-family: 'Inter, sans-serif';
+export const WeekNumber = styled.button`
   font-weight: 700;
   font-size: 12px;
   line-height: calc(14 / 12);
   color: ${({ theme }) => theme.colors.calendarTextColor};
   padding: 4px 6px;
   border-radius: 8px;
+  background-color: inherit;
+  border: none;
   background-color: ${(props) =>
     props.$active && props.theme.colors.calendarActiveDay};
 
