@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { BsFillPlusCircleFill } from "react-icons/bs" 
 
 const FormContainer = styled.div`
   position: relative;
@@ -6,7 +7,7 @@ const FormContainer = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
-  background-color: var(--white-color);
+  background-color: #ffffff;
   border-radius: 16px;
   padding: 59px 20px 40px;
 
@@ -19,6 +20,8 @@ const FormContainer = styled.div`
 const AvatarUploader = styled.div`
   position: absolute;
   top: -31px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 72px;
   height: 72px;
   display: flex;
@@ -36,7 +39,7 @@ const AvatarPreview = styled.div`
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  border: 2px solid var(--button-bgd-color);
+  border: 2px solid #3e85f3;
   overflow: hidden;
 
   font-size: 8px;
@@ -50,7 +53,7 @@ const AvatarImg = styled.img`
   object-position: center;
 `;
 
-const AddAvatarBtn = styled.button`
+const AddAvatarBtn = styled(BsFillPlusCircleFill)`
   position: absolute;
   top: 62px;
   left: 43px;
@@ -60,11 +63,12 @@ const AddAvatarBtn = styled.button`
 
   width: 14px;
   height: 14px;
-  border-radius: 50%;
+  border-radius: 100%;
   border: none;
 
-  background-color: var(--button-bgd-color);
-  color: var(--white-color);
+  background-color: #ffffff;
+  color: #3e85f3;
+  font-size: 8px;
 `;
 
 const InputFile = styled.input`
@@ -77,23 +81,31 @@ const AvatarPlaceholder = styled.span`
 `;
 
 const UserName = styled.h2`
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 700;
   line-height: calc(18 / 14);
+  text-align: center;
 
   margin-bottom: 4px;
+  margin-top: 0;
 `;
 
 const UserText = styled.p`
+  font-family: 'Inter', sans-serif;
   font-size: 12px;
   font-weight: 500;
+  text-align: center;
   line-height: calc(14 / 12);
+
   margin-bottom: 40px;
+  margin-top: 0;
 `;
 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
+
   /* gap: 18px; */
   width: 100%;
   margin: 0 auto;
@@ -107,19 +119,27 @@ const InputWrap = styled.div`
 
 const Label = styled.label`
   width: 100%;
+  font-family: 'Inter', sans-serif;
   font-size: 12px;
   font-weight: 400;
   line-height: calc(14 / 12);
 `;
 
 const Input = styled.input`
-  width: 100%;
+  /* width: 100%; */
   margin-bottom: ${(props) => (props.last ? 0 : '18px')};
   padding: 12px 14px;
   border: 1px solid #1111111a;
   border-radius: 8px;
 
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: calc(18 / 14);
+  color: #111111;
+
   ::placeholder {
+    font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 400;
     line-height: calc(18 / 14);
@@ -138,12 +158,13 @@ const SaveBtn = styled.button`
   margin-top: 40px;
   padding: 10px 20px;
 
-  background-color: var(--color-task-low-priority);
+  background-color: #3e85f3;
   color: #ffffff;
   border: none;
   border-radius: 16px;
   cursor: pointer;
 
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: calc(18 / 14);
@@ -152,7 +173,7 @@ const SaveBtn = styled.button`
     max-width: 195px;
   }
 
-  @media screen and (min-width: 375px) { 
+  @media screen and (min-width: 375px) {
     width: 195px;
   }
 `;
