@@ -24,6 +24,7 @@ export const DayOrMonthPeriod = ({ activePage }) => {
   return (
     <div>
       <StyledLink
+        $borderSide
         $active={activePage}
         $primary={primaryBtn()}
         to={`/calendar/month/${activeDate}`}

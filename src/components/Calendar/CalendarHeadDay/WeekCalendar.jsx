@@ -18,7 +18,7 @@ import { useParams } from 'react-router-dom';
 const WeekCalendar = () => {
   const params = useParams();
   const activeDate = new Date(params.currentDate);
-  
+
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   useEffect(() => {
     function handleResize() {

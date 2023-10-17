@@ -53,12 +53,12 @@ const commonButton = css`
 
 export const Button = styled.button`
   ${commonButton}
-  ${props => {
+  ${(props) => {
     switch (props.$direction) {
       case 'back':
         return css`
           border-radius: 8px 0px 0px 8px;
-          border-right: ${props => props.$back && 'none; '};
+          border-right: ${(props) => props.$back && 'none; '};
         `;
       case 'forward':
         return css`

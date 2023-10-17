@@ -12,7 +12,6 @@ import CustomDatePicker from '../../DatePicker/DatePicker';
 import { GetDatefromURL } from '../../../heplers/getDatefromURL';
 import { useNavigate } from 'react-router-dom';
 const CurrentDate = ({ activePage, setActiveDate }) => {
-  console.log('activePage: ', activePage);
   const navigate = useNavigate();
   const activeDate = GetDatefromURL();
 
