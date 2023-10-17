@@ -1,30 +1,20 @@
-import { format, subDays, addDays, subMonths, addMonths } from 'date-fns';
+import { subDays, addDays, subMonths, addMonths } from 'date-fns';
 
 import {
   Button,
   Controllers,
-  CurrentMonth,
+  //CurrentMonth,
   StyledAiOutlineLeft,
   StyledAiOutlineRight,
 } from './CurrentDate.styled';
-import { useNavigate, useParams } from 'react-router-dom';
+
+import CustomDatePicker from '../../DatePicker/DatePicker';
+import { GetDatefromURL } from '../../../heplers/getDatefromURL';
+import { useNavigate } from 'react-router-dom';
 const CurrentDate = ({ activePage, setActiveDate }) => {
   console.log('activePage: ', activePage);
   const navigate = useNavigate();
-  const params = useParams();
-  const date = new Date(params.currentDate);
-
-  const getDatefromURL = (date) => {
-    if (Object.prototype.toString.call(date) === '[object Date]') {
-      if (isNaN(date)) {
-        return new Date();
-      } else {
-        return date;
-      }
-    }
-  };
-
-  const activeDate = getDatefromURL(date);
+  const activeDate = GetDatefromURL();
 
   const changeNextDate = () => {
     activePage === 'month'
@@ -46,7 +36,9 @@ const CurrentDate = ({ activePage, setActiveDate }) => {
           setActiveDate(new Date());
         }}
       >
-        <CurrentMonth> {format(activeDate, ' d MMM yyyy')}</CurrentMonth>
+        {/* <CurrentMonth> {format(activeDate, ' d MMM yyyy')}</CurrentMonth> */}
+
+        <CustomDatePicker />
       </div>
       <div>
         <Button $direction="back" $back onClick={() => changePrevDate()}>
