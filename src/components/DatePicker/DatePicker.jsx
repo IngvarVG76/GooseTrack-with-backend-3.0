@@ -2,14 +2,13 @@ import { forwardRef, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { GetDatefromURL } from '../../heplers/getDatefromURL';
-import { useNavigate } from 'react-router-dom';
-import { TitleWrapper } from './StyledDayPicker';
+
 import { format } from 'date-fns';
+import { useNavigate } from 'react-router';
+import { StyledInput } from './StyledDayPicker';
 
-const CustomDatePicker = () => {
+const CustomDatePicker = ({ activePage }) => {
   const activeDate = GetDatefromURL();
-  console.log('activeDate: ', activeDate);
-
   const navigate = useNavigate();
   const handleClick = (date) => {
     date = new Date(date);
@@ -19,9 +18,9 @@ const CustomDatePicker = () => {
 
   const CustomInput = forwardRef(({ value, onClick }, ref) => {
     return (
-      <TitleWrapper onClick={onClick} ref={ref}>
-        {format(activeDate, 'dd MMMM yyyy')}
-      </TitleWrapper>
+      <StyledInput onClick={onClick} ref={ref}>
+        {value}
+      </StyledInput>
     );
   });
 
@@ -29,8 +28,10 @@ const CustomDatePicker = () => {
     <DatePicker
       selected={activeDate}
       onChange={(date) => handleClick(date)}
-      dateFormat="dd MM yyyy"
+      dateFormat={activePage === 'month' ? 'MMMM yyyy' : 'dd MMM yyyy'}
       customInput={<CustomInput />}
+      calendarStartDay={1}
+      formatWeekDay={(nameOfDay) => nameOfDay.slice(0, 1)}
     />
   );
 };

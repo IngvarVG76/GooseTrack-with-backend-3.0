@@ -1,20 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { StyledLink } from './StyledPeriodTypeSelect';
+import { GetDatefromURL } from '../../../heplers/getDatefromURL';
 
 export const DayOrMonthPeriod = ({ activePage }) => {
-  const params = useParams();
-  const date = new Date(params.currentDate);
-
-  const GetDatefromURL = () => {
-    if (Object.prototype.toString.call(date) === '[object Date]') {
-      if (isNaN(date)) {
-        return new Date();
-      } else {
-        return date;
-      }
-    }
-  };
-
   const activeDate = GetDatefromURL();
 
   const primaryBtn = () => {
