@@ -162,9 +162,7 @@ img {
     position: relative;
   }
 
-  /* .react-datepicker-wrapper {
-    width: 100%;
-  } */
+
 
   .react-datepicker__input-container {
     > input {
@@ -174,46 +172,66 @@ img {
 
   .react-datepicker {
     position: absolute;
-   
+    width: 328px;
+ display:flex;
+ justify-content:center;
     left: 50%;
     top: 50%;
     transform: translate(-1%, 0%);
     font-family: "InterRegular";
-    padding: 12px;
+
     border-radius: 16px;
     background-color: #3E85F3;
     border: none;
-    margin-bottom: 20px;
+   
 
     @media (min-width: 768px) {
-      padding: 18px;
-      transform: translate(-8%, 0%);
+     
+      width: 373px;
     }
   }
 
-  .react-datepicker__month-container {
-    float: inherit;
-    box-sizing: inherit;
-  }
+ 
 
   .react-datepicker__header {
-    font-family: "InterRegular";
-    text-align: center;
-  
     background:  #3e85f3;
     border-top-right-radius: 16px;
     border-top-left-radius: 16px;
-    position: relative;
+    // position: relative;
+    margin-bottom: 10px;
+
   }
 
+  
+  .react-datepicker__current-month {
+  height:32px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+padding-top:9px;
+    font-family: "Inter";
+    font-size: 20px;
+    font-weight: 600;
+    line-height: calc(24/20);
+   
+    color: #fff;
+
+   
+  }
+
+
   .react-datepicker__day-names {
+  
     display: flex;
-    border-bottom: 1px solid #ffffff33;
-    padding: 12px 0;
-    justify-content: space-between;
+    align-items: center;
+    width: 322px;
+  
+
+    justify-content: space-evenly;
+    
 
     @media (min-width: 768px) {
-      padding: 16px 0;
+   
     }
   }
 
@@ -223,22 +241,12 @@ img {
     padding: 0;
   }
 
-  .react-datepicker__current-month {
-    font-family: "Inter";
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 24px;
-    letter-spacing: 0em;
-    text-align: center;
-    color: #fff;
-
-    @media (min-width: 768px) {
-      font-size: 24px;
-      line-height: 28px;
-    }
-  }
-
   .react-datepicker__day-name {
+    width:48px;
+    height:48px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     font-family: "InterSemiBold";
     font-weight: 600;
     font-size: 14px;
@@ -299,11 +307,8 @@ img {
 
   .react-datepicker__week {
     display: flex;
-    gap: 7px;
-
-  
-    justify-content: space-between;
-  }
+    justify-content: space-evenly 
+   }
 
   .react-datepicker__day {
     font-family: "Inter";
@@ -316,8 +321,8 @@ img {
     text-align: center;
   
     color: #fff;
-    width: 32px;
-    height: 32px;
+    width: 48px;
+      height: 48px;
     margin: 0;
     border-radius: 50%;
     text-align: center;
@@ -327,8 +332,7 @@ img {
     @media (min-width: 768px) {
       font-size: 18px;
       line-height: 24px;
-      width: 48px;
-      height: 48px;
+    
    
     }
   }
@@ -336,16 +340,17 @@ img {
   .react-datepicker__day--weekend{
     color:rgba(255,255,255,0.5)
   }
-  .react-datepicker__month {
+  .react-datepicker__month{
     display: flex;
-    gap: 7px;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-top: 16px;
-    margin: 0;
+    width: 322px;
 
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-bottom: 19px;
+    border-top: 1px solid #ffffff33;
+    margin: 0;
     @media (min-width: 768px) {
-      padding-top: 20px;
+    
     }
   }
 
@@ -361,14 +366,13 @@ img {
 
   .react-datepicker__day--selected:hover {
     border-radius: 50%;
-    background-color: var(--primary-bg-color);
+    background-color: #3E85F3;
   }
 
   .react-datepicker__day:hover,
   .react-datepicker__day--keyboard-selected {
     border-radius: 50%;
-    background-color: var(--primary-bg-color);
-    color: #3E85F3;
+    background-color: #3E85F3;
     cursor: pointer;
   }
 
@@ -379,12 +383,12 @@ img {
     opacity: 0;
   }
 
-  .react-datepicker__view-calendar-icon input {
+  /* .react-datepicker__view-calendar-icon input {
     padding: 6px 10px 5px 13px;
   }
 
   .react-datepicker__triangle,
   .react-datepicker__aria-live {
     display: none;
-  }
+  }  */
 `;

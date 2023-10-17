@@ -28,7 +28,7 @@ const CustomDatePicker = ({ activePage }) => {
 
   return (
     <DatePicker
-      selected={new Date()}
+      selected={activeDate}
       onChange={(date) => handleClick(date)}
       //   dateFormat={activePage === 'month' ? 'MMMM yyyy' : 'dd MMM yyyy'}
       customInput={<CustomInput />}
