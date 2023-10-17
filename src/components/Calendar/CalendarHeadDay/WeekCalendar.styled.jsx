@@ -5,19 +5,9 @@ export const DayHigherWrapper = styled.div`
   display: flex;
   justify-content: space-around;
   padding: 14px 18px;
+  border-radius: 8px;
   background: ${({ theme }) => theme.colors.calendarBackground};
   border: 1px solid ${({ theme }) => theme.colors.borderСalendarColor};
-  @media screen and (min-width: 375px) {
-    width: 335px;
-  }
-
-  @media screen and (min-width: 768px) {
-    width: 704px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    width: 1087px;
-  }
 `;
 
 export const DayWrapper = styled.div`
