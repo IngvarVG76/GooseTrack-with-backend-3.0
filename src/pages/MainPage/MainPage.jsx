@@ -1,24 +1,25 @@
-// import AuthSection from '../components/AuthSection/';
-// import Description from '../components/Description/';
-// import ReviewsSlider from '../components/ReviewsSlider/';
-// import Footer from '../components/Footer/';
 
-const MainPage = () => {
+import { AuthSection } from "../../components/App/AuthSection/AuthSection";
+import { Description } from "../../components/App/Description/Description";
+import { ReviewsSlider } from "../../components/App/ReviewsSlider/ReviewsSlider";
+
+
+export const MainPage = () => {
   return (
     <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        minHeight: '100vh',
-        backgroundColor: 'inherit',
-      }}
+      // style={{
+      //   display: 'flex',
+      //   flexDirection: 'column',
+      //   alignItems: 'center',
+      //   justifyContent: 'center',
+      //   minHeight: '100vh',
+      //   backgroundColor: 'inherit',
+      // }}
     >
-      {/* <AuthSection />
+      <AuthSection />
       <Description />
       <ReviewsSlider />
-      <Footer /> */}
+
     </div>
   );
 };
