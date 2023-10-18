@@ -270,7 +270,7 @@ padding-top:9px;
     margin-top: 7px;
 
     @media (min-width: 768px) {
-      margin-top: 17px;
+      margin-top: 9px;
     }
   }
 
@@ -295,15 +295,15 @@ padding-top:9px;
     border-color: #fff;
 
     @media (max-width: 767px) {
-      border-width: 2px 2px 0 0;
+      border-width: 1.5px 1.5px 0 0;
       height: 9px;
       width: 9px;
     }
 
     @media (min-width: 768px) {
       margin-top: -2px;
-      height: 12px;
-      width: 12px;
+      height: 9px;
+      width: 9px;
     }
   }
 
