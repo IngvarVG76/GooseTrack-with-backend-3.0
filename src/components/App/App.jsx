@@ -165,12 +165,7 @@ const App = () => {
 
       <Routes>
         <Route path="/" element={<MainLayout />}>
-          <Route
-            path="/account"
-            element={
-             <AccountPage />
-            }
-          />
+          <Route path="/account" element={<AccountPage />} />
           <Route path="/calendar" element={<CalendarPage />}>
             <Route path="month/:currentDate" element={<ChoosedMonth />} />
             <Route path="day/:currentDate" element={<ChoosedDay />} />

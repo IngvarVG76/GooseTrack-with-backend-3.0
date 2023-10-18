@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { FiLogIn } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { MdErrorOutline } from 'react-icons/md';
@@ -11,7 +11,7 @@ export const Container = styled.div`
 
   min-height: 100vh;
   min-width: 100%;
-  background: var(--auth-background-color);
+  background: #dcebf7;
 `;
 
 export const StyledForm = styled.form`
@@ -19,11 +19,14 @@ export const StyledForm = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #fff;
+  border-radius: 8px;
 `;
 
 export const FormName = styled.h1`
-  color: var(--accent-color);
-  text-shadow: 0px 9.4px 57px rgba(0, 0, 0, 0.04),
+  color: #3e85f3;
+  text-shadow:
+    0px 9.4px 57px rgba(0, 0, 0, 0.04),
     0px 47px 355px rgba(0, 0, 0, 0.07);
   font-size: 18px;
   font-weight: 600;
@@ -105,7 +108,7 @@ export const Button = styled.button`
   gap: 10px;
 
   border-radius: 16px;
-  background: var(--accent-background-color);
+  background: #3e85f3;
   border: none;
   cursor: pointer;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -128,7 +131,7 @@ export const Button = styled.button`
 
 export const ButtonText = styled.span`
   white-space: nowrap;
-  color: var(--btn-text-color);
+  color: #fff;
   font-family: inherit;
   font-size: 14px;
   font-weight: 600;
@@ -140,7 +143,7 @@ export const ItemIcon = styled(FiLogIn)`
   width: 18px;
   height: 18px;
   flex-shrink: 0;
-  color: var(--btn-text-color);
+  color: #fff;
 `;
 
 export const ShowHideButton = styled.button`
@@ -156,13 +159,23 @@ export const ShowHideButton = styled.button`
   align-items: center;
 `;
 
-export const LinksContainer = styled.nav`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-items: center;
-  margin-top: 18px;
-  gap: 18px;
+export const LinksContainer = styled.button`
+  color: #3e85f3;
+  background-color: transparent;
+  border: transparent;
+  text-shadow:
+    0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04),
+    0px 47px 355px rgba(0, 0, 0, 0.07);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 133.333%;
+  text-decoration-line: underline;
+  margin: 18px auto 0;
+  display: block;
+
+  @media screen and (min-width: 768px) {
+    margin: 24px auto 0;
+  }
 `;
 
 export const Label = styled.label`
@@ -170,7 +183,7 @@ export const Label = styled.label`
   font-size: 12px;
   font-style: normal;
   font-weight: 600;
-  color: var(--title-text-main-color);
+  color: #111;
 
   @media screen and (min-width: 768px) {
     font-size: 14px;
@@ -182,12 +195,6 @@ export const Label = styled.label`
   &.invalid-input {
     color: #ff0000;
   }
-
-  &:hover,
-  &:focus,
-  &:active {
-    color: var(--title-text-main-color);
-  }
 `;
 
 export const Input = styled.input`
@@ -195,13 +202,11 @@ export const Input = styled.input`
   width: 100%;
   height: 46px;
   padding: 14px;
-  
-  color: var(--title-text-main-color);
+
+  color: #111;
   border-radius: 8px;
   padding: 14px;
-  border: 1px solid var(--btn-border-color);
-  background: ${props =>
-    props.isPassword || props.isEmail ? '#FFFFFF' : 'none'};
+  border: 1px solid rgba(220, 227, 229, 0.6);
   outline: none;
 
   &.valid-input {
@@ -215,7 +220,7 @@ export const Input = styled.input`
   &:hover,
   &:focus,
   &:active {
-    border: 1px solid var(--title-text-main-color);
+    border: 1px solid #111;
   }
 
   @media screen and (min-width: 375px) {
@@ -287,15 +292,12 @@ export const ContainerErrorIcon = styled.div`
 `;
 
 export const PictureWrapper = styled.div`
-  display: ${props => (props.hide ? 'block' : 'none')};
+  display: none;
   position: absolute;
-  bottom: 19px;
-  right: 60px;
-
-  width: 368px;
-  height: 521px;
+  bottom: 0;
+  left: 49px;
 
   @media screen and (min-width: 1440px) {
-    display: ${props => (props.hide ? 'none' : 'block')};
+    display: block;
   }
 `;
