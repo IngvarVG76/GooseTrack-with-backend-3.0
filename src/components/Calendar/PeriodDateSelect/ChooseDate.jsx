@@ -6,12 +6,12 @@ import {
   //CurrentMonth,
   StyledAiOutlineLeft,
   StyledAiOutlineRight,
-} from './CurrentDate.styled';
+} from './ChooseDate.styled';
 
 import CustomDatePicker from '../../DatePicker/DatePicker';
 import { GetDatefromURL } from '../../../heplers/getDatefromURL';
 import { useNavigate } from 'react-router-dom';
-const CurrentDate = ({ activePage, setActiveDate }) => {
+const ChooseDate= ({ activePage }) => {
   const navigate = useNavigate();
   const activeDate = GetDatefromURL();
 
@@ -30,15 +30,7 @@ const CurrentDate = ({ activePage, setActiveDate }) => {
   };
   return (
     <Controllers>
-      <div
-        onClick={() => {
-          setActiveDate(new Date());
-        }}
-      >
-        {/* <CurrentMonth> {format(activeDate, ' d MMM yyyy')}</CurrentMonth> */}
-
-        <CustomDatePicker />
-      </div>
+      <CustomDatePicker  activePage={activePage}/>
       <div>
         <Button $direction="back" $back onClick={() => changePrevDate()}>
           <StyledAiOutlineLeft />
@@ -51,4 +43,4 @@ const CurrentDate = ({ activePage, setActiveDate }) => {
   );
 };
 
-export default CurrentDate;
+export default ChooseDate;
