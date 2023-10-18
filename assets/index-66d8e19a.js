@@ -371,7 +371,7 @@ padding-top:9px;
     margin-top: 7px;
 
     @media (min-width: 768px) {
-      margin-top: 17px;
+      margin-top: 9px;
     }
   }
 
@@ -396,15 +396,15 @@ padding-top:9px;
     border-color: #fff;
 
     @media (max-width: 767px) {
-      border-width: 2px 2px 0 0;
+      border-width: 1.5px 1.5px 0 0;
       height: 9px;
       width: 9px;
     }
 
     @media (min-width: 768px) {
       margin-top: -2px;
-      height: 12px;
-      width: 12px;
+      height: 9px;
+      width: 9px;
     }
   }
 
@@ -496,7 +496,7 @@ padding-top:9px;
   .react-datepicker__aria-live {
     display: none;
   }  */
-`;const I4={name:"light-theme",colors:{sideBar:"#FFFFFF",primaryBackground:"#F7F6F9",secondaryBackground:"#FFFFFF",buttonBlue:"#E3F3FF",backgroundButton:"#3E85F3",textButton:"#FFFFFF",activeButtonBlue:"#CAE8FF",textUserPanel:"#34343480",activeTextColorBtn:"#3E85F3",textColorButton:"#3E85F3",hoverTextBtn:"#FFFFFF",backgraundAddBtn:"#E3F3FF",colorAddBtn:"#111111",borderdAddBtn:"1px dashed #3e85f3",text:"#111111",textNav:" #34343480",borderColor:"#E3F3FF",arrowColor:"#343434",calendarTextColor:"#343434",calendarTextColorToday:"#fff",calendarActiveDay:"#3E85F3",calendarBackground:"#FFFFFF",calendarBarBorder:"#DCE3E580",weekendTextColor:"#3E85F3",backgroundCalendar:"#FFFFFF",borderСalendarColor:"rgba(220,	227,	229, 0.80)",activeArrowColor:"#dce3e5",borderColorSideBar:"1px solid #dce3e580",gooseColor:"rgba(62, 133, 243, 1)",backgroundColorClose:"white",colorBtnClose:"black",labelUserFormTextColor:"#111111",borderUserForm:"1px solid #11111126",borderInputHover:"1px solid #111111",titleAvatar:"#343434",textAvatar:"#343434",scrollBg:"#E7E5E5",arrowIconColor:"#111111",bgColorLowTask:"#CEEEFD",textColorLowTask:"#3E85F3",bgColorMediumTask:"#FCF0D4",textColorMediumTask:"#F3B249",bgColorHighTask:"#FFD2DD",textColorHighTask:"#EA3D65",avatarBgColor:"#f8f8f8",modalReviewLabel:"rgba(52, 52, 52, 0.80)",modalReviewBorder:"#F6F6F6",modalReviewTextBg:"#F6F6F6",scrollbarThumbColor:"#e7e5e5",scrollbarTrackColor:"#f2f2f2",columnScrollbarThumbColor:"rgba(231, 229, 229, 1)",columnScrollbarTrackColor:"rgba(242, 242, 242, 1)",columnScrollbarThumbHoverColor:"#c0c0c0",notActiveCalendarLinkColor:"#E3F3FF",activeCalendarLinkColor:"#CAE8FF",borderCalendar:"1px solid background: rgb(255, 255, 255)",backgroundColorTaskModal:"#FFFFFF",backgroundTaskFormInput:"#F6F6F6",activeNavBackground:"#E3F3FF",formaBackground:"#fff",avatarPlaceholder:"#3E85F32E"}},N4={name:"dark-theme",colors:{sideBar:"#13151A",primaryBackground:"#171820",secondaryBackground:"#21222C",buttonBlue:"#3E85F3",backgroundButton:"#3E85F3",textButton:"#FFFFFF",activeButtonBlue:"#3E85F3",textUserPanel:"#FAFAFA4D",borderColorSideBar:"none",activeTextColorBtn:"#FFFFFF",textColorButton:"#FFFFFF",hoverTextBtn:"#CAE8FF",backgraundAddBtn:"#3E85F3",colorAddBtn:"#FFFFFF",text:"#FFFFFF",textNav:"#FFFFFF",scrollBg:"#2D3037",borderColor:"#e3f3ff26",arrowColor:"#FFFFFF",calendarTextColor:"#FFFFFF",calendarTextColorToday:"#FAFAFA4D",calendarActiveDay:"#3E85F3",calendarBackground:"#FFFFFF26",calendarBarBorder:"#22232D",weekendTextColor:"#3E85F3",backgroundCalendar:"#21222C",borderdAddBtn:"none",borderСalendarColor:"rgba(255, 255, 255, 0.15)",activeArrowColor:"rgba(255, 255, 255, 0.15)",gooseColor:"#E3F3FF",backgroundColorClose:"#13151A",colorBtnClose:"white",labelUserFormTextColor:"#FAFAFA4D",borderUserForm:"1px solid #FFFFFF26",borderInputHover:"1px solid #ffffff",titleAvatar:"#ffffff",textAvatar:"rgba(250, 250, 250, 0.3)",arrowIconColor:"#ffffff",bgColorLowTask:"#CEEEFD",textColorLowTask:"#3E85F3",bgColorMediumTask:"#FCF0D4",textColorMediumTask:"#F3B249",bgColorHighTask:"#FFD2DD",textColorHighTask:"#EA3D65",avatarBgColor:"#171820",modalReviewLabel:"rgba(250, 250, 250, 0.30)",modalReviewBorder:"rgba(255, 255, 255, 0.15)",modalReviewTextBg:"#21222C",scrollbarThumbColor:"#171820",scrollbarTrackColor:"#2d3037",columnScrollbarThumbColor:"rgba(45, 48, 55, 1)",columnScrollbarTrackColor:"rgba(33, 34, 44, 1)",columnScrollbarThumbHoverColor:"#444444",notActiveCalendarLinkColor:"#21222C",activeCalendarLinkColor:"#3E85F3",borderCalendar:"1px solid rgba(255, 255, 255, 0.15)",backgroundColorTaskModal:"#171820",backgroundTaskFormInput:"#171820",activeNavBackground:"#3E85F3",formaBackground:"#171820",avatarPlaceholder:"#FFFFFF2E"}},D4=({children:e})=>{const t=Uk(r=>r.theme.lightTheme),n=(r=!1)=>r?{...I4}:{...N4};return C.jsx(fC,{theme:n(t),children:e})};var Mx={color:void 0,size:void 0,className:void 0,style:void 0,attr:void 0},V0=Oe.createContext&&Oe.createContext(Mx),or=globalThis&&globalThis.__assign||function(){return or=Object.assign||function(e){for(var t,n=1,r=arguments.length;n<r;n++){t=arguments[n];for(var i in t)Object.prototype.hasOwnProperty.call(t,i)&&(e[i]=t[i])}return e},or.apply(this,arguments)},z4=globalThis&&globalThis.__rest||function(e,t){var n={};for(var r in e)Object.prototype.hasOwnProperty.call(e,r)&&t.indexOf(r)<0&&(n[r]=e[r]);if(e!=null&&typeof Object.getOwnPropertySymbols=="function")for(var i=0,r=Object.getOwnPropertySymbols(e);i<r.length;i++)t.indexOf(r[i])<0&&Object.prototype.propertyIsEnumerable.call(e,r[i])&&(n[r[i]]=e[r[i]]);return n};function Bx(e){return e&&e.map(function(t,n){return Oe.createElement(t.tag,or({key:n},t.attr),Bx(t.child))})}function pn(e){return function(t){return Oe.createElement(L4,or({attr:or({},e.attr)},t),Bx(e.child))}}function L4(e){var t=function(n){var r=e.attr,i=e.size,o=e.title,a=z4(e,["attr","size","title"]),s=i||n.size||"1em",l;return n.className&&(l=n.className),e.className&&(l=(l?l+" ":"")+e.className),Oe.createElement("svg",or({stroke:"currentColor",fill:"currentColor",strokeWidth:"0"},n.attr,r,a,{className:l,style:or(or({color:e.color||n.color},n.style),e.style),height:s,width:s,xmlns:"http://www.w3.org/2000/svg"}),o&&Oe.createElement("title",null,o),e.children)};return V0!==void 0?Oe.createElement(V0.Consumer,null,function(n){return t(n)}):t(Mx)}function M4(e){return pn({tag:"svg",attr:{viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"2",strokeLinecap:"round",strokeLinejoin:"round"},child:[{tag:"path",attr:{d:"M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"}},{tag:"polyline",attr:{points:"10 17 15 12 10 7"}},{tag:"line",attr:{x1:"15",x2:"3",y1:"12",y2:"12"}}]})(e)}const B4=_.img`
+`;const I4={name:"light-theme",colors:{sideBar:"#FFFFFF",primaryBackground:"#F7F6F9",secondaryBackground:"#FFFFFF",buttonBlue:"#E3F3FF",backgroundButton:"#3E85F3",textButton:"#FFFFFF",activeButtonBlue:"#CAE8FF",textUserPanel:"#34343480",activeTextColorBtn:"#3E85F3",textColorButton:"#3E85F3",hoverTextBtn:"#FFFFFF",backgraundAddBtn:"#E3F3FF",colorAddBtn:"#111111",borderdAddBtn:"1px dashed #3e85f3",text:"#111111",textNav:" #34343480",borderColor:"#E3F3FF",arrowColor:"#343434",calendarTextColor:"#343434",calendarTextColorToday:"#fff",calendarActiveDay:"#3E85F3",calendarBackground:"#FFFFFF",calendarBarBorder:"#DCE3E580",weekendTextColor:"#3E85F3",backgroundCalendar:"#FFFFFF",borderСalendarColor:"rgba(220,	227,	229, 0.80)",activeArrowColor:"#dce3e5",borderColorSideBar:"1px solid #dce3e580",gooseColor:"rgba(62, 133, 243, 1)",backgroundColorClose:"white",colorBtnClose:"black",labelUserFormTextColor:"#111111",borderUserForm:"1px solid #11111126",borderInputHover:"1px solid #111111",titleAvatar:"#343434",textAvatar:"#343434",scrollBg:"#E7E5E5",arrowIconColor:"#111111",bgColorLowTask:"#CEEEFD",textColorLowTask:"#3E85F3",bgColorMediumTask:"#FCF0D4",textColorMediumTask:"#F3B249",bgColorHighTask:"#FFD2DD",textColorHighTask:"#EA3D65",avatarBgColor:"#f8f8f8",modalReviewLabel:"rgba(52, 52, 52, 0.80)",modalReviewBorder:"#F6F6F6",modalReviewTextBg:"#F6F6F6",scrollbarThumbColor:"#e7e5e5",scrollbarTrackColor:"#f2f2f2",columnScrollbarThumbColor:"rgba(231, 229, 229, 1)",columnScrollbarTrackColor:"rgba(242, 242, 242, 1)",columnScrollbarThumbHoverColor:"#c0c0c0",notActiveCalendarLinkColor:"#E3F3FF",activeCalendarLinkColor:"#CAE8FF",borderCalendar:"1px solid background: rgb(255, 255, 255)",backgroundColorTaskModal:"#FFFFFF",backgroundTaskFormInput:"#F6F6F6",activeNavBackground:"#E3F3FF",formaBackground:"#fff",avatarPlaceholder:"#3E85F32E"}},N4={name:"dark-theme",colors:{sideBar:"#13151A",primaryBackground:"#171820",secondaryBackground:"#21222C",buttonBlue:"#3E85F3",backgroundButton:"#3E85F3",textButton:"#FFFFFF",activeButtonBlue:"#3E85F3",textUserPanel:"#FAFAFA4D",borderColorSideBar:"none",activeTextColorBtn:"#FFFFFF",textColorButton:"#FFFFFF",hoverTextBtn:"#CAE8FF",backgraundAddBtn:"#3E85F3",colorAddBtn:"#FFFFFF",text:"#FFFFFF",textNav:"#FFFFFF",scrollBg:"#2D3037",borderColor:"#e3f3ff26",arrowColor:"#FFFFFF",calendarTextColor:"#FFFFFF",calendarTextColorToday:"#fff",calendarActiveDay:"#3E85F3",calendarBackground:"#FFFFFF26",calendarBarBorder:"#22232D",weekendTextColor:"#3E85F3",backgroundCalendar:"#21222C",borderdAddBtn:"none",borderСalendarColor:"rgba(255, 255, 255, 0.15)",activeArrowColor:"rgba(255, 255, 255, 0.15)",gooseColor:"#E3F3FF",backgroundColorClose:"#13151A",colorBtnClose:"white",labelUserFormTextColor:"#FAFAFA4D",borderUserForm:"1px solid #FFFFFF26",borderInputHover:"1px solid #ffffff",titleAvatar:"#ffffff",textAvatar:"rgba(250, 250, 250, 0.3)",arrowIconColor:"#ffffff",bgColorLowTask:"#CEEEFD",textColorLowTask:"#3E85F3",bgColorMediumTask:"#FCF0D4",textColorMediumTask:"#F3B249",bgColorHighTask:"#FFD2DD",textColorHighTask:"#EA3D65",avatarBgColor:"#171820",modalReviewLabel:"rgba(250, 250, 250, 0.30)",modalReviewBorder:"rgba(255, 255, 255, 0.15)",modalReviewTextBg:"#21222C",scrollbarThumbColor:"#171820",scrollbarTrackColor:"#2d3037",columnScrollbarThumbColor:"rgba(45, 48, 55, 1)",columnScrollbarTrackColor:"rgba(33, 34, 44, 1)",columnScrollbarThumbHoverColor:"#444444",notActiveCalendarLinkColor:"#21222C",activeCalendarLinkColor:"#3E85F3",borderCalendar:"1px solid rgba(255, 255, 255, 0.15)",backgroundColorTaskModal:"#171820",backgroundTaskFormInput:"#171820",activeNavBackground:"#3E85F3",formaBackground:"#171820",avatarPlaceholder:"#FFFFFF2E"}},D4=({children:e})=>{const t=Uk(r=>r.theme.lightTheme),n=(r=!1)=>r?{...I4}:{...N4};return C.jsx(fC,{theme:n(t),children:e})};var Mx={color:void 0,size:void 0,className:void 0,style:void 0,attr:void 0},V0=Oe.createContext&&Oe.createContext(Mx),or=globalThis&&globalThis.__assign||function(){return or=Object.assign||function(e){for(var t,n=1,r=arguments.length;n<r;n++){t=arguments[n];for(var i in t)Object.prototype.hasOwnProperty.call(t,i)&&(e[i]=t[i])}return e},or.apply(this,arguments)},z4=globalThis&&globalThis.__rest||function(e,t){var n={};for(var r in e)Object.prototype.hasOwnProperty.call(e,r)&&t.indexOf(r)<0&&(n[r]=e[r]);if(e!=null&&typeof Object.getOwnPropertySymbols=="function")for(var i=0,r=Object.getOwnPropertySymbols(e);i<r.length;i++)t.indexOf(r[i])<0&&Object.prototype.propertyIsEnumerable.call(e,r[i])&&(n[r[i]]=e[r[i]]);return n};function Bx(e){return e&&e.map(function(t,n){return Oe.createElement(t.tag,or({key:n},t.attr),Bx(t.child))})}function pn(e){return function(t){return Oe.createElement(L4,or({attr:or({},e.attr)},t),Bx(e.child))}}function L4(e){var t=function(n){var r=e.attr,i=e.size,o=e.title,a=z4(e,["attr","size","title"]),s=i||n.size||"1em",l;return n.className&&(l=n.className),e.className&&(l=(l?l+" ":"")+e.className),Oe.createElement("svg",or({stroke:"currentColor",fill:"currentColor",strokeWidth:"0"},n.attr,r,a,{className:l,style:or(or({color:e.color||n.color},n.style),e.style),height:s,width:s,xmlns:"http://www.w3.org/2000/svg"}),o&&Oe.createElement("title",null,o),e.children)};return V0!==void 0?Oe.createElement(V0.Consumer,null,function(n){return t(n)}):t(Mx)}function M4(e){return pn({tag:"svg",attr:{viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"2",strokeLinecap:"round",strokeLinejoin:"round"},child:[{tag:"path",attr:{d:"M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"}},{tag:"polyline",attr:{points:"10 17 15 12 10 7"}},{tag:"line",attr:{x1:"15",x2:"3",y1:"12",y2:"12"}}]})(e)}const B4=_.img`
   width: 150px;
   height: 149px;
   background-size: cover;
@@ -1271,12 +1271,12 @@ attempted value: ${a}
     margin-bottom: 32px;
   }
 `;const ny=ln`
-  color: #3e85f3;
+  color: ${e=>e.theme.name==="dark-theme"&e.$primary?"#fff":"#3e85f3"};
   font-weight: 500;
   font-size: 14;
   line-height: calc(18 / 14);
   border: none;
-  background-color: #e3f3ff;
+  background: ${({theme:e})=>e.colors.notActiveCalendarLinkColor};
   padding: 8px 16px 8px 16px;
   cursor: pointer;
   border-radius: ${e=>e.$borderSide?"8px 0px 0px 8px":"0px 8px 8px 0px"};
@@ -1286,11 +1286,11 @@ attempted value: ${a}
 `;_(eo)`
   ${ny}
   ${e=>{switch(e.$active){case"day":return ln`
-          background: ${t=>t.$primary&&"#3E85F333"};
+          background: ${t=>t.$primary&&t.theme.colors.activeCalendarLinkColor};
           border-left: ${t=>t.$primary&&"solid 1px #3e85f333;"};
           cursor: ${t=>t.$primary&&"default;"};
         `;case"month":return ln`
-          background: ${t=>t.$primary&&"#3E85F333"};
+          background: ${t=>t.$primary&&t.theme.colors.activeCalendarLinkColor};
           border-right: ${t=>t.$primary&&"solid 1px #3e85f333;"};
           cursor: ${t=>t.$primary&&"default;"};
         `;default:return ln`
@@ -1298,12 +1298,13 @@ attempted value: ${a}
         `}}}
 `;_(L_)`
   font-size: 16px;
-  color: #dce3e5;
+  color: ${({theme:e})=>e.colors.activeArrowColor};
   @media screen and (min-width: 768px) {
     font-size: 18px;
   }
 `;_(M_)`
   font-size: 16px;
+  color: ${({theme:e})=>e.colors.arrowColor};
   @media screen and (min-width: 768px) {
     font-size: 18px;
   }
@@ -1329,8 +1330,8 @@ attempted value: ${a}
     padding: 8px 12px 8px 12px;
   }
 `;const ry=ln`
-  border: 1px solid #dce3e580;
-  background-color: #ffffff;
+  border: 1px solid ${({theme:e})=>e.colors.borderСalendarColor};
+  background-color: ${({theme:e})=>e.colors.backgroundCalendar};
   padding: 7px 10px;
   cursor: pointer;
   @media screen and (min-width: 768px) {
@@ -1348,7 +1349,7 @@ attempted value: ${a}
         `}}}
 `;_.button`
   width: 142px;
-  padding: 6px 12px;
+  padding: 8px 12px;
   font-size: 14px;
   font-weight: 700;
   line-height: calc(18 / 14);
@@ -2297,8 +2298,8 @@ attempted value: ${a}
 
   border: 1px solid ${({theme:e})=>e.colors.borderСalendarColor};
 `;const fb=_.p`
-  width: 18px;
-  height: 22px;
+  width: 27px;
+  height: 26px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2320,7 +2321,7 @@ attempted value: ${a}
   font-weight: 600;
   font-size: 16px;
   line-height: calc(18 / 16);
-  color: #343434;
+  color: ${({theme:e})=>e.colors.calendarTextColor};
   text-transform: uppercase;
   &:nth-child(6n),
   &:nth-child(7n) {
