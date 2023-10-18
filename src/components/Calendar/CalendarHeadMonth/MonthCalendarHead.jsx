@@ -1,7 +1,8 @@
 import { addDays, format, startOfWeek } from 'date-fns';
-import { StyledWeekNames, WrapperWeek } from '../MonthCalendar/StyledMonth';
+
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { StyledWeekNames, WrapperWeek } from './StyledMonthCalendarHead';
 
 const MonthCalendarHead = () => {
   const params = useParams();

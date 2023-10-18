@@ -89,7 +89,7 @@ export const dark = {
     borderColor: '#e3f3ff26', // колір рамки графіка
     arrowColor: '#FFFFFF', // колір стрілки
     calendarTextColor: '#FFFFFF', // колір тексту календаря
-    calendarTextColorToday: '#FAFAFA4D', // колір тексту календаря
+    calendarTextColorToday: '#FFF', // колір тексту календаря
     calendarActiveDay: '#3E85F3', // колір активного тексту календаря
     calendarBackground: '#FFFFFF26', // колір фону календаря
     calendarBarBorder: '#22232D', // колір borderu календаря

@@ -2,12 +2,17 @@ import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 const common = css`
-  color: #3e85f3;
+  // color: #3e85f3;
+  color: ${(props) => {
+    return (props.theme.name === 'dark-theme') & props.$primary
+      ? '#fff'
+      : '#3e85f3';
+  }};
   font-weight: 500;
   font-size: 14;
   line-height: calc(18 / 14);
   border: none;
-  background-color: #e3f3ff;
+  background: ${({ theme }) => theme.colors.notActiveCalendarLinkColor};
   padding: 8px 16px 8px 16px;
   cursor: pointer;
   border-radius: ${(props) =>
@@ -23,13 +28,16 @@ export const StyledLink = styled(Link)`
     switch (props.$active) {
       case 'day':
         return css`
-          background: ${(props) => props.$primary && '#3E85F333'};
+          background: ${(props) =>
+            props.$primary && props.theme.colors.activeCalendarLinkColor};
+
           border-left: ${(props) => props.$primary && 'solid 1px #3e85f333;'};
           cursor: ${(props) => props.$primary && 'default;'};
         `;
       case 'month':
         return css`
-          background: ${(props) => props.$primary && '#3E85F333'};
+          background: ${(props) =>
+            props.$primary && props.theme.colors.activeCalendarLinkColor};
           border-right: ${(props) => props.$primary && 'solid 1px #3e85f333;'};
           cursor: ${(props) => props.$primary && 'default;'};
         `;

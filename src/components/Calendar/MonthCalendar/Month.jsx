@@ -30,7 +30,7 @@ const MonthCalendar = () => {
     // one day  of week  calendar
     for (let day = 0; day < 7; day++) {
       week.push(
-        <Day>
+        <Day key={currentDate.getDate()}>
           {isSameDay(currentDate, new Date()) ? (
             <DayNumberToday>{format(currentDate, 'd')}</DayNumberToday>
           ) : !isSameMonth(currentDate, activeDate) ? (
@@ -60,9 +60,22 @@ const MonthCalendar = () => {
 
   const allWeeks = [];
 
+  // while (currentDate <= endDate) {
+  //   allWeeks.push(generateDatesForCurrentWeek(currentDate, activeDate));
+  //   currentDate = addDays(currentDate, 7);
+  // }
   while (currentDate <= endDate) {
-    allWeeks.push(generateDatesForCurrentWeek(currentDate, activeDate));
+    // currentDate дата початку тижня 
+    // endDate дата кінця тижня 
+    
+    // oneWeek  один тиждень місяця  обєкт дати з всіма днями тижня 
+    const oneWeek = generateDatesForCurrentWeek(currentDate, activeDate);
     currentDate = addDays(currentDate, 7);
+    let key = allWeeks.length;
+ 
+    //масив  всіх тижнів місяця  
+    allWeeks.push({ ...oneWeek, key });
+
   }
 
   return (
