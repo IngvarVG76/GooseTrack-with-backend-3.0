@@ -7,6 +7,7 @@ import {
   Tooltip,
   LabelList,
 } from 'recharts';
+import css from './chart.module.css';
 
 // allTasksByDay=todoByDay+inprogressByDay+doneByDay
 // todoByDay%=todoByDay/allTasksByDay
@@ -48,25 +49,12 @@ const data = [
 
 const StatisticsChart = () => {
   return (
-    <div
-      style={{
-        border: 'solid 0.8px #E3F3FF',
-        borderRadius: '20px',
-        width: '310px',
-        padding: '10px',
-      }}
-    >
+    <div className={css.barChart}>
       <h3 style={{ fontWeight: 600, fontSize: '14px', color: '#343434' }}>
         Tasks
       </h3>
 
-      <BarChart
-        width={307}
-        height={360}
-        data={data}
-        margin={{ top: 20, bottom: 20 }}
-        barGap={9}
-      >
+      <BarChart width={355} height={360} data={data} barGap={9}>
         <CartesianGrid vertical={false} fill="#fff" stroke="#E3F3FF" />
 
         <XAxis
@@ -84,7 +72,8 @@ const StatisticsChart = () => {
           tick={{ fill: '#343434', fontSize: '14px' }}
         />
         <Tooltip cursor={false} />
-        <Bar dataKey="day" barSize={22} fill="#FFD2DD">
+
+        <Bar dataKey="day" barSize={22} className={css.barDay}>
           <LabelList
             dataKey="day"
             position="top"
@@ -92,7 +81,7 @@ const StatisticsChart = () => {
             fontSize={12}
           />
         </Bar>
-        <Bar dataKey="month" barSize={22} fill="#3E85F3">
+        <Bar dataKey="month" barSize={22} className={css.barMonth}>
           <LabelList
             dataKey="month"
             position="top"

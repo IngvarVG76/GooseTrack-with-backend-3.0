@@ -5,6 +5,7 @@ import AddIcon from '@mui/icons-material/Add';
 import { Button } from '@mui/base';
 
 export const WrapperTasks = styled.div`
+  position: relative;
   width: 355px;
   max-height: 432px;
   border-radius: 8px;
