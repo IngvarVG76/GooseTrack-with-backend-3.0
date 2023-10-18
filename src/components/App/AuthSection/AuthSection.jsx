@@ -68,8 +68,8 @@ export const AuthSection = () => {
         <GooseImg src={suitableImage} alt="main-Goose" />
         <MainText>GooseTrack</MainText>
         <ButtonContainer>
-          <BtnSignUp to="/RegisterPage">Sign up</BtnSignUp>
-          <BtnLogIn to="/LoginPage">
+          <BtnSignUp to="/register">Sign up</BtnSignUp>
+          <BtnLogIn to="/login">
             <BtnLoginText>Log in</BtnLoginText>
             <LogInIcon />
           </BtnLogIn>
