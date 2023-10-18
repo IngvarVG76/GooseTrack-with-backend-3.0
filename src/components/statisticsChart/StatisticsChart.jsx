@@ -23,12 +23,6 @@ const statisticsData = [
   },
 ];
 
-const procentageByDay = () => {
-  const date = new Date();
-  console.log(date);
-};
-procentageByDay();
-
 const data = [
   {
     name: 'To Do',

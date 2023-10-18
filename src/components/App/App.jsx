@@ -1,5 +1,5 @@
 // Libs
-import { Suspense, useCallback, useEffect, useState } from 'react';
+import { Suspense, useCallback, useEffect, useState, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
@@ -9,19 +9,29 @@ import { GlobalStyle } from '../../styles/GlobalStyles';
 import { Theme } from '../../styles/Theme/theme.jsx';
 
 // Pages
-import MainPage from '../../pages/MainPage/MainPage';
-import MainLayout from '../../pages/MainLayout/MainLayout';
-import CalendarPage from '../../pages/CalendarPage/CalendarPage';
-import StatisticsPage from '../../pages/StatisticsPage/StatisticsPage';
-import AccountPage from '../../pages/AccountPage/AccountPage';
-import RegisterPage from '../../pages/RegisterPage/RegisterPage';
-import LoginPage from '../../pages/LoginPage/LoginPage';
+const MainPage = lazy(() => import('../../pages/MainPage/MainPage'));
+const MainLayout = lazy(() => import('../../pages/MainLayout/MainLayout'));
+const CalendarPage = lazy(() =>
+  import('../../pages/CalendarPage/CalendarPage'),
+);
+const StatisticsPage = lazy(() =>
+  import('../../pages/StatisticsPage/StatisticsPage'),
+);
+const AccountPage = lazy(() => import('../../pages/AccountPage/AccountPage'));
+const RegisterPage = lazy(() =>
+  import('../../pages/RegisterPage/RegisterPage'),
+);
+const LoginPage = lazy(() => import('../../pages/LoginPage/LoginPage'));
+const NotFoundPage = lazy(() =>
+  import('../../pages/NotFoundPage/NotFoundPage'),
+);
 
 // Components
 import { ModalComponent } from '../Modal/Modal';
 import { ChoosedDay } from '../Calendar/ChoosedDay/ChoosedDay';
 import { ChoosedMonth } from '../Calendar/ChoosedMonth/ChoosedMonth';
 import PrivateRoute from '../../components/PrivateRoute/PrivateRoute';
+import PublicRoute from '../PublicRoute/PublicRoute';
 import { getCurrentUser } from '../../redux/auth/operations';
 
 const App = () => {
@@ -36,18 +46,72 @@ const App = () => {
     <Theme>
       <Suspense fallback={<p>Loading...</p>}>
         <Routes>
-          <Route path="/" element={<MainPage />} />
-          {/* <PrivateRoute path="/" redirectTo="/login">
-            <Route index element={<MainLayout />} />
-            <Route path="/account" element={<AccountPage />} />
-            <Route path="/calendar" element={<CalendarPage />}>
-              <Route path="month/:currentDate" element={<ChoosedMonth />} />
-              <Route path="day/:currentDate" element={<ChoosedDay />} />
-            </Route>
-            <Route path="/statistics" element={<StatisticsPage />} />
-          </PrivateRoute> */}
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage />} />
+          <Route path="/" element={<MainLayout />} />
+          <Route
+            index
+            element={
+              <PublicRoute redirectTo="/">
+                <MainPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <PublicRoute restricted redirectTo="/calendar/month">
+                <RegisterPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <PublicRoute restricted redirectTo="/calendar/month">
+                <LoginPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/account"
+            element={
+              <PrivateRoute redirectTo="/login">
+                <AccountPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/calendar"
+            element={
+              <PrivateRoute redirectTo="/login">
+                <CalendarPage />
+              </PrivateRoute>
+            }
+          >
+            <Route
+              path="month/:currentDate"
+              element={
+                <PrivateRoute redirectTo="/login">
+                  <ChoosedMonth />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="day/:currentDate"
+              element={
+                <PrivateRoute redirectTo="/login">
+                  <ChoosedDay />
+                </PrivateRoute>
+              }
+            />
+          </Route>
+          <Route
+            path="/statistics"
+            element={
+              <PrivateRoute redirectTo="/login">
+                <StatisticsPage />
+              </PrivateRoute>
+            }
+          />
         </Routes>
       </Suspense>
       {/* Add your modal window component here */}
@@ -63,8 +127,6 @@ export default App;
 
 //   return <Route path={path} element={authentificated ? element : <Navigate to={redirectTo} />} />;
 // }; <PrivateRoute path="/account" element={<AccountPage />} redirectTo="/login" />
-
-
 
 // Олд апп
 
