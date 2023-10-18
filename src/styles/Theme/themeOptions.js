@@ -63,6 +63,7 @@ export const light = {
     backgroundTaskFormInput: '#F6F6F6',
     activeNavBackground: '#E3F3FF',
     formaBackground: '#fff',
+    avatarPlaceholder: '#3E85F32E',
   },
 };
 
@@ -129,6 +130,7 @@ export const dark = {
     backgroundTaskFormInput: '#171820',
     activeNavBackground: '#3E85F3',
     formaBackground: '#171820',
+    avatarPlaceholder: '#FFFFFF2E',
   },
 };
 
