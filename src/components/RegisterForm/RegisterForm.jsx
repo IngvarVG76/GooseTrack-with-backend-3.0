@@ -21,18 +21,22 @@ import {
   FormName,
   PictureWrapper,
   LinksContainer,
-} from './LoginForm.styled';
+} from './RegisterForm.styled';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import { useState } from 'react';
-import img from '../../images/auth_goose/login-elements.png';
+import img from '../../images/auth_goose/signup-elements.png';
 
-const LoginForm = () => {
+const RegisterForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const emailRegexp =
     /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
 
   const validationSchema = yup.object({
+    userName: yup
+      .string()
+      .min(3, 'Name must contain at least 3 characters')
+      .required(`Name required`),
     email: yup
       .string()
       .matches(emailRegexp, `This is an ERROR email`)
@@ -45,6 +49,7 @@ const LoginForm = () => {
 
   const formik = useFormik({
     initialValues: {
+      userName: '',
       email: '',
       password: '',
     },
@@ -61,8 +66,56 @@ const LoginForm = () => {
         <div>
           <StyledForm onSubmit={formik.handleSubmit}>
             <InputGroupe>
-              <FormName>Log In</FormName>
+              <FormName>Sign Up</FormName>
               <InputList>
+                <InputWrapper $isusername={'userName'}>
+                  <Label
+                    htmlFor="userName"
+                    className={
+                      formik.touched.userName
+                        ? formik.errors.userName
+                          ? 'invalid-input'
+                          : 'valid-input'
+                        : ''
+                    }
+                  >
+                    Name
+                  </Label>
+                  <Input
+                    type="text"
+                    id="userName"
+                    name="userName"
+                    autoComplete="true"
+                    value={formik.values.userName}
+                    placeholder="Enter your name"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    className={
+                      formik.touched.userName
+                        ? formik.errors.userName
+                          ? 'invalid-input'
+                          : 'valid-input'
+                        : ''
+                    }
+                  />
+                  {formik.touched.userName ? (
+                    formik.errors.userName ? (
+                      <ContainerErrorIcon>
+                        <Error className="invalid">
+                          {formik.errors.userName}
+                        </Error>
+                        <ErrorIcon />
+                      </ContainerErrorIcon>
+                    ) : (
+                      <ContainerErrorIcon>
+                        <Error className="valid">
+                          {formik.errors.userName}
+                        </Error>
+                        <SuccessIcon />
+                      </ContainerErrorIcon>
+                    )
+                  ) : null}
+                </InputWrapper>
                 <InputWrapper $isemail={'email'}>
                   <Label
                     htmlFor="email"
@@ -82,7 +135,7 @@ const LoginForm = () => {
                     name="email"
                     autoComplete="true"
                     value={formik.values.email}
-                    placeholder="Your email"
+                    placeholder="Enter your email"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     className={
@@ -126,7 +179,7 @@ const LoginForm = () => {
                       id="password"
                       name="password"
                       autoComplete="current-password"
-                      placeholder="Your password"
+                      placeholder="Enter your password"
                       value={formik.values.password}
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
@@ -167,18 +220,18 @@ const LoginForm = () => {
                 </InputWrapper>
               </InputList>
               <Button type="submit">
-                <ButtonText>Log in</ButtonText>
+                <ButtonText>Sign Up</ButtonText>
                 <ItemIcon />
               </Button>
             </InputGroupe>
           </StyledForm>
-          <LinksContainer type="button" onClick={() => navigate('/register')}>
-            Sing Up
+          <LinksContainer type="button" onClick={() => navigate('/login')}>
+            Log In
           </LinksContainer>
         </div>
         <PictureWrapper>
           <picture>
-            <img loading="lazy" src={img} alt="Goose login" width={368} />
+            <img loading="lazy" src={img} alt="Goose register" width={400} />
           </picture>
         </PictureWrapper>
       </Container>
@@ -186,4 +239,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default RegisterForm;
