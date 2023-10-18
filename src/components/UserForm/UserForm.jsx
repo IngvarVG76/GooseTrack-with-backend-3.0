@@ -20,7 +20,8 @@ import {
   InputWrap,
   SaveBtn,
   FieldsWrap,
-  ColumnWrap
+  ColumnWrap,
+  LastInput
 } from './UserForm.styled';
 
 const phoneRegExp = /\+380\d{3}\d{2}\d{2}\d{2}$/;
@@ -133,7 +134,7 @@ const UserForm = () => {
             {avatar ? (
               <AvatarImg src={avatar} alt="Avatar" />
             ) : (
-              <AvatarPlaceholder>Add your photo</AvatarPlaceholder>
+              <AvatarPlaceholder/>
             )}
           </AvatarPreview>
           <AddAvatarBtn onClick={handleButtonClick}></AddAvatarBtn>
@@ -201,12 +202,11 @@ const UserForm = () => {
             </InputWrap>
             <InputWrap>
               <Label htmlFor="skype">Skype</Label>
-              <Input
-                last
+              <LastInput
                 id="skype"
                 name="skype"
                 type="text"
-                placeholder="Enter your skype"
+                placeholder="Add a skype number"
                 {...formik.getFieldProps('skype')}
               />
               {formik.touched.skype && formik.errors.skype ? (

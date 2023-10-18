@@ -1,5 +1,6 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { BsFillPlusCircleFill } from 'react-icons/bs';
+import { PiUserLight } from 'react-icons/pi';
 
 const FormContainer = styled.div`
   position: relative;
@@ -7,7 +8,7 @@ const FormContainer = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
-  background-color: #ffffff;
+  background-color: ${({ theme }) => theme.colors.secondaryBackground};
   border-radius: 16px;
   padding: 59px 20px 40px;
 
@@ -67,7 +68,7 @@ const AvatarPreview = styled.div`
   overflow: hidden;
 
   font-size: 8px;
-  background-color: #f7f6f9;
+  background-color: ${({ theme }) => theme.colors.avatarBgColor};
 
   @media screen and (min-width: 768px) {
     width: 124px;
@@ -93,7 +94,7 @@ const AddAvatarBtn = styled(BsFillPlusCircleFill)`
   width: 14px;
   height: 14px;
   border-radius: 100%;
-  border: none;
+  border: 0;
 
   background-color: #ffffff;
   color: #3e85f3;
@@ -112,10 +113,21 @@ const InputFile = styled.input`
   display: none;
 `;
 
-const AvatarPlaceholder = styled.span`
-  width: 35px;
-  color: #dce3e5;
+const AvatarPlaceholder = styled(PiUserLight)`
+  width: 48px;
+  height: 48px;
+  color: ${({ theme }) => theme.colors.avatarPlaceholder};
+
+  @media screen and (max-width: 767px) {
+    width: 32px;
+    height: 32px;
+  }
 `;
+
+// const AvatarPlaceholder = styled.span`
+//   width: 35px;
+//   color: #dce3e5;
+// `;
 
 const UserName = styled.h2`
   font-family: 'Inter', sans-serif;
@@ -123,6 +135,7 @@ const UserName = styled.h2`
   font-weight: 700;
   line-height: calc(18 / 14);
   text-align: center;
+  color: ${({ theme }) => theme.colors.titleAvatar};
 
   margin-bottom: 4px;
   margin-top: 0;
@@ -141,6 +154,7 @@ const UserText = styled.p`
   font-weight: 500;
   text-align: center;
   line-height: calc(14 / 12);
+  color: ${({ theme }) => theme.colors.textAvatar};
 
   margin-bottom: 40px;
   margin-top: 0;
@@ -172,6 +186,7 @@ const Label = styled.label`
   font-size: 12px;
   font-weight: 400;
   line-height: calc(14 / 12);
+  color: ${({ theme }) => theme.colors.labelUserFormTextColor};
 
   @media screen and (min-width: 768px) {
     font-size: 14px;
@@ -181,23 +196,24 @@ const Label = styled.label`
 
 const Input = styled.input`
   /* width: 100%; */
-  margin-bottom: ${(props) => (props.last ? 0 : '18px')};
+  margin-bottom: 18px;
   padding: 12px 14px;
-  border: 1px solid #1111111a;
+  border: ${({ theme }) => theme.colors.borderUserForm};
   border-radius: 8px;
 
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 600;
   line-height: calc(18 / 14);
-  color: #111111;
+  background-color: ${({ theme }) => theme.colors.secondaryBackground};
+  color: ${({ theme }) => theme.colors.text};
 
-  ::placeholder {
+  &::placeholder {
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 400;
     line-height: calc(18 / 14);
-    color: #dce3e5;
+    color: ${({ theme }) => theme.colors.activeArrowColor};
 
     @media screen and (min-width: 768px) {
       font-size: 16px;
@@ -207,15 +223,23 @@ const Input = styled.input`
 
   &:focus {
     outline: none;
-    border-color: #111111;
+    border: ${({ theme }) => theme.colors.borderInputHover};
+  }
+
+  &:hover {
+    border: ${({ theme }) => theme.colors.borderInputHover};
   }
 
   @media screen and (min-width: 768px) {
-    margin-bottom: ${(props) => (props.last ? 0 : '24px')};
+    margin-bottom: 24px;
     padding: 14px 18px;
     font-size: 16px;
     line-height: calc(18 / 16);
   }
+`;
+
+const LastInput = styled(Input)`
+  margin-bottom: 0;
 `;
 
 const SaveBtn = styled.button`
@@ -232,8 +256,12 @@ const SaveBtn = styled.button`
 
   font-family: 'Inter', sans-serif;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: calc(18 / 14);
+
+  &:hover {
+    background-color: #2b78ef;
+  }
 
   @media screen and (max-width: 374px) {
     max-width: 195px;
@@ -285,4 +313,5 @@ export {
   SaveBtn,
   FieldsWrap,
   ColumnWrap,
+  LastInput,
 };
