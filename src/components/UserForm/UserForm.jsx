@@ -19,6 +19,8 @@ import {
   Input,
   InputWrap,
   SaveBtn,
+  FieldsWrap,
+  ColumnWrap
 } from './UserForm.styled';
 
 const phoneRegExp = /\+380\d{3}\d{2}\d{2}\d{2}$/;
@@ -32,11 +34,11 @@ const UserForm = () => {
   // const userFromBackend = useSelector(state = state.auth.user);
 
   const user = {
-    userName: 'Vova',
-    birthday: '1988-01-19',
-    email: 'vovaplyuto@gmail.com',
+    userName: 'Nadiia Doe',
+    birthday: '',
+    email: 'nadiia@gmail.com',
     phone: '',
-    skype: 'pvo',
+    skype: '',
   };
 
   // const user = {
@@ -143,70 +145,76 @@ const UserForm = () => {
             onChange={handleAvatarChange}
           />
         </AvatarUploader>
-        <UserName>Vova Plyuto</UserName>
+        <UserName>{user.userName}</UserName>
         <UserText>User</UserText>
-        <InputWrap>
-          <Label htmlFor="userName">User Name</Label>
-          <Input
-            id="userName"
-            name="userName"
-            type="text"
-            placeholder="Enter your name"
-            {...formik.getFieldProps('userName')}
-          />
-          {formik.touched.userName && formik.errors.userName ? (
-            <div>{formik.errors.userName}</div>
-          ) : null}
-        </InputWrap>
-        <InputWrap>
-          <Label htmlFor="birthday">Birthday</Label>
-          <Input
-            id="birthday"
-            name="birthday"
-            type="date"
-            {...formik.getFieldProps('birthday')}
-          />
-        </InputWrap>
-        <InputWrap>
-          <Label htmlFor="email">Email</Label>
-          <Input
-            id="email"
-            name="email"
-            type="text"
-            placeholder="Enter your email"
-            {...formik.getFieldProps('email')}
-          />
-          {formik.touched.email && formik.errors.email ? (
-            <div>{formik.errors.email}</div>
-          ) : null}
-        </InputWrap>
-        <InputWrap>
-          <Label htmlFor="phone">Phone</Label>
-          <Input
-            id="phone"
-            name="phone"
-            type="text"
-            placeholder="+380670000000"
-            {...formik.getFieldProps('phone')}
-          />
-          {formik.touched.phone && formik.errors.phone ? (
-            <div>{formik.errors.phone}</div>
-          ) : null}
-        </InputWrap>
-        <InputWrap>
-          <Label htmlFor="skype">Skype</Label>
-          <Input
-            last
-            id="skype"
-            name="skype"
-            type="text"
-            placeholder="Enter your skype"
-            {...formik.getFieldProps('skype')}
-          />
-          {formik.touched.skype && formik.errors.skype ? (
-            <div>{formik.errors.skype}</div>
-          ) : null}
-        </InputWrap>
+        <FieldsWrap>
+          <ColumnWrap>
+            <InputWrap>
+              <Label htmlFor="userName">User Name</Label>
+              <Input
+                id="userName"
+                name="userName"
+                type="text"
+                placeholder="Enter your name"
+                {...formik.getFieldProps('userName')}
+              />
+            </InputWrap>
+            {formik.touched.userName && formik.errors.userName ? (
+              <div>{formik.errors.userName}</div>
+            ) : null}
+            <InputWrap>
+              <Label htmlFor="birthday">Birthday</Label>
+              <Input
+                id="birthday"
+                name="birthday"
+                type="date"
+                {...formik.getFieldProps('birthday')}
+              />
+            </InputWrap>
+            <InputWrap>
+              <Label htmlFor="email">Email</Label>
+              <Input
+                id="email"
+                name="email"
+                type="text"
+                placeholder="Enter your email"
+                {...formik.getFieldProps('email')}
+              />
+              {formik.touched.email && formik.errors.email ? (
+                <div>{formik.errors.email}</div>
+              ) : null}
+            </InputWrap>
+          </ColumnWrap>
+          <ColumnWrap>
+            <InputWrap>
+              <Label htmlFor="phone">Phone</Label>
+              <Input
+                id="phone"
+                name="phone"
+                type="text"
+                placeholder="+380670000000"
+                {...formik.getFieldProps('phone')}
+              />
+              {formik.touched.phone && formik.errors.phone ? (
+                <div>{formik.errors.phone}</div>
+              ) : null}
+            </InputWrap>
+            <InputWrap>
+              <Label htmlFor="skype">Skype</Label>
+              <Input
+                last
+                id="skype"
+                name="skype"
+                type="text"
+                placeholder="Enter your skype"
+                {...formik.getFieldProps('skype')}
+              />
+              {formik.touched.skype && formik.errors.skype ? (
+                <div>{formik.errors.skype}</div>
+              ) : null}
+            </InputWrap>
+          </ColumnWrap>
+        </FieldsWrap>
         <SaveBtn type="submit">Save changes</SaveBtn>
       </Form>
     </FormContainer>
