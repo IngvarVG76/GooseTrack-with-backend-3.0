@@ -18,11 +18,11 @@ import {
 
   // DayWeekend,
 } from './StyledMonth';
-import { useParams } from 'react-router-dom';
+
+import { GetDatefromURL } from '../../../heplers/getDatefromURL';
 
 const MonthCalendar = () => {
-  const params = useParams();
-  const activeDate = new Date(params.currentDate);
+  const activeDate = GetDatefromURL();
   const generateDatesForCurrentWeek = (date, activeDate) => {
     let currentDate = date;
     const week = [];
@@ -31,7 +31,7 @@ const MonthCalendar = () => {
     for (let day = 0; day < 7; day++) {
       week.push(
         <Day>
-          {isSameDay(currentDate, activeDate) ? (
+          {isSameDay(currentDate, new Date()) ? (
             <DayNumberToday>{format(currentDate, 'd')}</DayNumberToday>
           ) : !isSameMonth(currentDate, activeDate) ? (
             <DayNumberInActive>{format(currentDate, 'd')}</DayNumberInActive>

@@ -1,16 +1,18 @@
 import styled from 'styled-components';
 
-export const TitleWrapper = styled.button`
-  width: 195px;
+export const StyledInput = styled.button`
+  width: 142px;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: calc(18 / 14);
+
   color: #ffffff;
   background: #3e85f3;
+  border: none;
   border-radius: 8px;
-  font-weight: 700;
-  line-height: 18px;
-  text-align: center;
   text-transform: uppercase;
-  padding: 8px 12px;
-  font-size: 16px;
-  justify-content: space-around;
   align-items: center;
+  /* 
+  margin-bottom: 18px; */
 `;
