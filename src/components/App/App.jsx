@@ -11,6 +11,7 @@ import { ChoosedDay } from '../Calendar/ChoosedDay/ChoosedDay';
 import { ChoosedMonth } from '../Calendar/ChoosedMonth/ChoosedMonth';
 import MainPage from '../../pages/MainPage/MainPage';
 import MainLayout from '../../pages/MainLayout/MainLayout';
+import AccountPage from '../../pages/AccountPage/AccountPage';
 // import { Suspense, lazy } from 'react';
 // import 'react-toastify/dist/ReactToastify.css';
 // import { useEffect } from 'react';
@@ -167,9 +168,7 @@ const App = () => {
           <Route
             path="/account"
             element={
-              <h1 style={{ textAlign: 'center', marginTop: '30%' }}>
-                В Розробці
-              </h1>
+             <AccountPage />
             }
           />
           <Route path="/calendar" element={<CalendarPage />}>

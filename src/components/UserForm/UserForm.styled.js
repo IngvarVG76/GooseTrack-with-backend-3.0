@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { BsFillPlusCircleFill } from "react-icons/bs" 
+import { BsFillPlusCircleFill } from 'react-icons/bs';
 
 const FormContainer = styled.div`
   position: relative;
@@ -11,9 +11,22 @@ const FormContainer = styled.div`
   border-radius: 16px;
   padding: 59px 20px 40px;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 374px) {
     max-width: 335px;
-    min-height: 150px;
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 335px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 704px;
+    padding: 40px 175px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 1087px;
+    padding: 60px 164px;
   }
 `;
 
@@ -28,6 +41,17 @@ const AvatarUploader = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
+
+  @media screen and (min-width: 768px) {
+    position: relative;
+    transform: none;
+    top: 0;
+    left: 0;
+    width: 124px;
+    height: 124px;
+
+    margin-bottom: 20px;
+  }
 `;
 
 const AvatarPreview = styled.div`
@@ -44,6 +68,11 @@ const AvatarPreview = styled.div`
 
   font-size: 8px;
   background-color: #f7f6f9;
+
+  @media screen and (min-width: 768px) {
+    width: 124px;
+    height: 124px;
+  }
 `;
 
 const AvatarImg = styled.img`
@@ -57,9 +86,9 @@ const AddAvatarBtn = styled(BsFillPlusCircleFill)`
   position: absolute;
   top: 62px;
   left: 43px;
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 
   width: 14px;
   height: 14px;
@@ -69,6 +98,14 @@ const AddAvatarBtn = styled(BsFillPlusCircleFill)`
   background-color: #ffffff;
   color: #3e85f3;
   font-size: 8px;
+
+  @media screen and (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+
+    top: 106px;
+    left: 76px;
+  }
 `;
 
 const InputFile = styled.input`
@@ -89,6 +126,13 @@ const UserName = styled.h2`
 
   margin-bottom: 4px;
   margin-top: 0;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 1;
+
+    margin-bottom: 8px;
+  }
 `;
 
 const UserText = styled.p`
@@ -100,6 +144,11 @@ const UserText = styled.p`
 
   margin-bottom: 40px;
   margin-top: 0;
+
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    line-height: calc(18 / 14);
+  }
 `;
 
 const Form = styled.form`
@@ -123,6 +172,11 @@ const Label = styled.label`
   font-size: 12px;
   font-weight: 400;
   line-height: calc(14 / 12);
+
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    line-height: calc(18 / 14);
+  }
 `;
 
 const Input = styled.input`
@@ -144,11 +198,23 @@ const Input = styled.input`
     font-weight: 400;
     line-height: calc(18 / 14);
     color: #dce3e5;
+
+    @media screen and (min-width: 768px) {
+      font-size: 16px;
+      line-height: calc(18 / 16);
+    }
   }
 
   &:focus {
     outline: none;
     border-color: #111111;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: ${(props) => (props.last ? 0 : '24px')};
+    padding: 14px 18px;
+    font-size: 16px;
+    line-height: calc(18 / 16);
   }
 `;
 
@@ -156,7 +222,7 @@ const SaveBtn = styled.button`
   margin-left: auto;
   margin-right: auto;
   margin-top: 40px;
-  padding: 10px 20px;
+  padding: 14px 20px;
 
   background-color: #3e85f3;
   color: #ffffff;
@@ -176,6 +242,30 @@ const SaveBtn = styled.button`
   @media screen and (min-width: 375px) {
     width: 195px;
   }
+
+  @media screen and (min-width: 768px) {
+    width: 262px;
+    padding: 15px 20px;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-top: 88px;
+  }
+`;
+
+const FieldsWrap = styled.div`
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    gap: 50px;
+  }
+`;
+
+const ColumnWrap = styled.div`
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    flex-direction: column;
+    width: 354px;
+  }
 `;
 
 export {
@@ -193,4 +283,6 @@ export {
   Input,
   InputWrap,
   SaveBtn,
+  FieldsWrap,
+  ColumnWrap,
 };
