@@ -21,10 +21,17 @@ import {
   SaveBtn,
   FieldsWrap,
   ColumnWrap,
-  LastInput
+  LastInput,
+  ContainerErrorIcon,
+  Error,
+  SuccessIcon,
 } from './UserForm.styled';
 
+import { ErrorIcon } from '../../components/RegisterForm/RegisterForm.styled';
+
 const phoneRegExp = /\+380\d{3}\d{2}\d{2}\d{2}$/;
+const emailRegexp =
+  /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
 
 const avaliableMimeType = ['image/jpeg', 'image/png'];
 
@@ -82,11 +89,11 @@ const UserForm = () => {
   const formik = useFormik({
     initialValues: {
       avatar: '',
-      userName: `${user.userName || ''}`,
+      userName: `${user.userName ?? ''}`,
       birthday: `${user.birthday || formatDate(new Date())}`,
-      email: `${user.email}`,
-      phone: `${user.phone}`,
-      skype: `${user.skype}`,
+      email: `${user.email ?? ''}`,
+      phone: `${user.phone ?? ''}`,
+      skype: `${user.skype ?? ''}`,
     },
     validationSchema: Yup.object({
       // avatar: Yup.mixed().test(
@@ -99,8 +106,9 @@ const UserForm = () => {
       // ),
       avatar: Yup.string().oneOf(avaliableMimeType, 'Invalid file type'),
       userName: Yup.string()
-        .max(16, 'Username must not have more than 16 characters')
-        .required('Username is required field'),
+        .min(3, 'Username must contain at least 3 characters')
+        .max(16, 'Username must contain not more than 16 characters')
+        .required('Username Name is required field'),
       birthday: Yup.date()
         .transform(function (value, originalValue) {
           if (this.isType(value)) {
@@ -109,17 +117,18 @@ const UserForm = () => {
           const result = parse(originalValue, 'dd.MM.yyyy', new Date());
           return result;
         })
-        .typeError('please enter a valid date')
-        .required()
-        .min('1969-11-13', 'Date is too early'),
+        .typeError('Please enter a valid date')
+        .min('1969-11-13', 'Date is too early')
+        .max('2024-01-01', 'Date is not valid')
+        .required(),
       email: Yup.string()
-        .email('Invalid email address')
-        .required('Username is required field'),
+        .email(`This is an ERROR email`)
+        .matches(emailRegexp, `This is an ERROR email`)
+        .required('Email is required field'),
       phone: Yup.string().matches(phoneRegExp, 'Phone number is not valid'),
-      skype: Yup.string().max(
-        16,
-        'Skype must not have more than 16 characters',
-      ),
+      skype: Yup.string()
+        .min(3, 'Skype must contain at least 3 characters')
+        .max(16, 'Skype must not have more than 16 characters'),
     }),
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
@@ -134,7 +143,7 @@ const UserForm = () => {
             {avatar ? (
               <AvatarImg src={avatar} alt="Avatar" />
             ) : (
-              <AvatarPlaceholder/>
+              <AvatarPlaceholder />
             )}
           </AvatarPreview>
           <AddAvatarBtn onClick={handleButtonClick}></AddAvatarBtn>
@@ -151,18 +160,46 @@ const UserForm = () => {
         <FieldsWrap>
           <ColumnWrap>
             <InputWrap>
-              <Label htmlFor="userName">User Name</Label>
+              <Label
+                htmlFor="userName"
+                className={
+                  formik.touched.userName
+                    ? formik.errors.userName
+                      ? 'invalid-input'
+                      : 'valid-input'
+                    : ''
+                }
+              >
+                User Name
+              </Label>
               <Input
                 id="userName"
                 name="userName"
                 type="text"
                 placeholder="Enter your name"
                 {...formik.getFieldProps('userName')}
+                className={
+                  formik.touched.userName
+                    ? formik.errors.userName
+                      ? 'invalid-input'
+                      : 'valid-input'
+                    : ''
+                }
               />
+              {formik.touched.userName ? (
+                formik.errors.userName ? (
+                  <ContainerErrorIcon>
+                    <Error className="invalid">{formik.errors.userName}</Error>
+                    <ErrorIcon />
+                  </ContainerErrorIcon>
+                ) : (
+                  <ContainerErrorIcon>
+                    <Error className="valid">This is CORRECT username</Error>
+                    <SuccessIcon />
+                  </ContainerErrorIcon>
+                )
+              ) : null}
             </InputWrap>
-            {formik.touched.userName && formik.errors.userName ? (
-              <div>{formik.errors.userName}</div>
-            ) : null}
             <InputWrap>
               <Label htmlFor="birthday">Birthday</Label>
               <Input
@@ -170,7 +207,25 @@ const UserForm = () => {
                 name="birthday"
                 type="date"
                 {...formik.getFieldProps('birthday')}
+                className={
+                  formik.touched.birthday
+                    ? formik.errors.birthday
+                      ? 'invalid-input'
+                      : 'valid-input'
+                    : ''
+                }
               />
+              {formik.touched.birthday ? (
+                formik.errors.birthday ? (
+                  <ContainerErrorIcon>
+                    <Error className="invalid">{formik.errors.birthday}</Error>
+                  </ContainerErrorIcon>
+                ) : (
+                  <ContainerErrorIcon>
+                    <Error className="valid">This is CORRECT date</Error>
+                  </ContainerErrorIcon>
+                )
+              ) : null}
             </InputWrap>
             <InputWrap>
               <Label htmlFor="email">Email</Label>
@@ -180,9 +235,26 @@ const UserForm = () => {
                 type="text"
                 placeholder="Enter your email"
                 {...formik.getFieldProps('email')}
+                className={
+                  formik.touched.email
+                    ? formik.errors.email
+                      ? 'invalid-input'
+                      : 'valid-input'
+                    : ''
+                }
               />
-              {formik.touched.email && formik.errors.email ? (
-                <div>{formik.errors.email}</div>
+              {formik.touched.email ? (
+                formik.errors.email ? (
+                  <ContainerErrorIcon>
+                    <Error className="invalid">{formik.errors.email}</Error>
+                    <ErrorIcon />
+                  </ContainerErrorIcon>
+                ) : (
+                  <ContainerErrorIcon>
+                    <Error className="valid">This is CORRECT email</Error>
+                    <SuccessIcon />
+                  </ContainerErrorIcon>
+                )
               ) : null}
             </InputWrap>
           </ColumnWrap>
@@ -195,9 +267,26 @@ const UserForm = () => {
                 type="text"
                 placeholder="+380670000000"
                 {...formik.getFieldProps('phone')}
+                className={
+                  formik.touched.phone
+                    ? formik.errors.phone
+                      ? 'invalid-input'
+                      : 'valid-input'
+                    : ''
+                }
               />
-              {formik.touched.phone && formik.errors.phone ? (
-                <div>{formik.errors.phone}</div>
+              {formik.touched.phone ? (
+                formik.errors.phone ? (
+                  <ContainerErrorIcon>
+                    <Error className="invalid">{formik.errors.phone}</Error>
+                    <ErrorIcon />
+                  </ContainerErrorIcon>
+                ) : (
+                  <ContainerErrorIcon>
+                    <Error className="valid">This is CORRECT phone</Error>
+                    <SuccessIcon />
+                  </ContainerErrorIcon>
+                )
               ) : null}
             </InputWrap>
             <InputWrap>
@@ -208,9 +297,26 @@ const UserForm = () => {
                 type="text"
                 placeholder="Add a skype number"
                 {...formik.getFieldProps('skype')}
+                className={
+                  formik.touched.skype
+                    ? formik.errors.skype
+                      ? 'invalid-input'
+                      : 'valid-input'
+                    : ''
+                }
               />
-              {formik.touched.skype && formik.errors.skype ? (
-                <div>{formik.errors.skype}</div>
+              {formik.touched.skype ? (
+                formik.errors.skype ? (
+                  <ContainerErrorIcon>
+                    <Error className="invalid">{formik.errors.skype}</Error>
+                    <ErrorIcon />
+                  </ContainerErrorIcon>
+                ) : (
+                  <ContainerErrorIcon>
+                    <Error className="valid">This is CORRECT skype</Error>
+                    <SuccessIcon />
+                  </ContainerErrorIcon>
+                )
               ) : null}
             </InputWrap>
           </ColumnWrap>
