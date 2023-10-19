@@ -25,9 +25,12 @@ import {
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import { useState } from 'react';
 import img from '../../images/auth_goose/signup-elements.png';
+import { useDispatch } from 'react-redux';
+import { register } from '../../redux/auth/operations';
 
 const RegisterForm = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const emailRegexp =
     /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
@@ -55,8 +58,12 @@ const RegisterForm = () => {
     },
     validationSchema: validationSchema,
 
-    onSubmit: (values) => {
-      console.log('values: ', values);
+    onSubmit: async ({ userName, email, password }) => {
+      try {
+        dispatch(register({ userName, email, password }));
+      } catch (error) {
+        console.log(error.message);
+      }
     },
   });
 
