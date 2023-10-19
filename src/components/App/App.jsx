@@ -1,12 +1,21 @@
 // Libs
 import { Suspense, useCallback, useEffect, useState, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 // Styles
 import ChangeThemeButton from '../../styles/Theme/ThemeButton';
 import { GlobalStyle } from '../../styles/GlobalStyles';
 import { Theme } from '../../styles/Theme/theme.jsx';
+
+// Components
+import { ModalComponent } from '../Modal/Modal';
+import { ChoosedDay } from '../Calendar/ChoosedDay/ChoosedDay';
+import { ChoosedMonth } from '../Calendar/ChoosedMonth/ChoosedMonth';
+import PrivateRoute from '../../components/PrivateRoute/PrivateRoute';
+import PublicRoute from '../PublicRoute/PublicRoute';
+import { getCurrentUser } from '../../redux/auth/operations';
+import { selectToken } from '../../redux/auth/selectors';
 
 // Pages
 const MainPage = lazy(() => import('../../pages/MainPage/MainPage'));
@@ -26,31 +35,25 @@ const NotFoundPage = lazy(() =>
   import('../../pages/NotFoundPage/NotFoundPage'),
 );
 
-// Components
-import { ModalComponent } from '../Modal/Modal';
-import { ChoosedDay } from '../Calendar/ChoosedDay/ChoosedDay';
-import { ChoosedMonth } from '../Calendar/ChoosedMonth/ChoosedMonth';
-import PrivateRoute from '../../components/PrivateRoute/PrivateRoute';
-import PublicRoute from '../PublicRoute/PublicRoute';
-import { getCurrentUser } from '../../redux/auth/operations';
-
 const App = () => {
   const dispatch = useDispatch();
+  const authenticated = useSelector(selectToken);
+
   // const isRefreshing = useSelector(selectIsFetchingCurrentUser);
 
   useEffect(() => {
+    if(!authenticated)return
     dispatch(getCurrentUser());
-  }, [dispatch]);
+  }, [authenticated, dispatch]);
 
   return (
     <Theme>
       <Suspense fallback={<p>Loading...</p>}>
         <Routes>
-          <Route path="/" element={<MainLayout />} />
           <Route
-            index
+            path='/'
             element={
-              <PublicRoute redirectTo="/">
+              <PublicRoute restricted redirectTo="/">
                 <MainPage />
               </PublicRoute>
             }
@@ -58,7 +61,7 @@ const App = () => {
           <Route
             path="/register"
             element={
-              <PublicRoute restricted redirectTo="/calendar/month">
+              <PublicRoute restricted redirectTo="/calendar">
                 <RegisterPage />
               </PublicRoute>
             }
@@ -66,13 +69,14 @@ const App = () => {
           <Route
             path="/login"
             element={
-              <PublicRoute restricted redirectTo="/calendar/month">
+              <PublicRoute restricted redirectTo="/calendar">
                 <LoginPage />
               </PublicRoute>
             }
           />
+          <Route path='/' element={<MainLayout />} >
           <Route
-            path="/account"
+            path="account"
             element={
               <PrivateRoute redirectTo="/login">
                 <AccountPage />
@@ -80,7 +84,7 @@ const App = () => {
             }
           />
           <Route
-            path="/calendar"
+            path="calendar/"
             element={
               <PrivateRoute redirectTo="/login">
                 <CalendarPage />
@@ -103,15 +107,16 @@ const App = () => {
                 </PrivateRoute>
               }
             />
-          </Route>
+            </Route>
           <Route
-            path="/statistics"
+            path="statistics"
             element={
               <PrivateRoute redirectTo="/login">
                 <StatisticsPage />
               </PrivateRoute>
             }
-          />
+            />
+            </Route>
         </Routes>
       </Suspense>
       {/* Add your modal window component here */}
