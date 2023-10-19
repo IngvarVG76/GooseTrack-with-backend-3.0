@@ -2,11 +2,12 @@
 import { Suspense, useCallback, useEffect, useState, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 // Styles
 import ChangeThemeButton from '../../styles/Theme/ThemeButton';
 import { GlobalStyle } from '../../styles/GlobalStyles';
-import { Theme } from '../../styles/Theme/theme.jsx';
+import { Theme } from '../../styles/Theme/theme';
 
 // Components
 import { ModalComponent } from '../Modal/Modal';
@@ -42,16 +43,17 @@ const App = () => {
   // const isRefreshing = useSelector(selectIsFetchingCurrentUser);
 
   useEffect(() => {
-    if(!authenticated)return
+    if (!authenticated) return;
     dispatch(getCurrentUser());
   }, [authenticated, dispatch]);
 
   return (
     <Theme>
+      <GlobalStyle />
       <Suspense fallback={<p>Loading...</p>}>
         <Routes>
           <Route
-            path='/'
+            path="/"
             element={
               <PublicRoute restricted redirectTo="/">
                 <MainPage />
@@ -74,49 +76,49 @@ const App = () => {
               </PublicRoute>
             }
           />
-          <Route path='/' element={<MainLayout />} >
-          <Route
-            path="account"
-            element={
-              <PrivateRoute redirectTo="/login">
-                <AccountPage />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="calendar/"
-            element={
-              <PrivateRoute redirectTo="/login">
-                <CalendarPage />
-              </PrivateRoute>
-            }
-          >
+          <Route path="/" element={<MainLayout />}>
             <Route
-              path="month/:currentDate"
+              path="account"
               element={
                 <PrivateRoute redirectTo="/login">
-                  <ChoosedMonth />
+                  <AccountPage />
                 </PrivateRoute>
               }
             />
             <Route
-              path="day/:currentDate"
+              path="calendar/"
               element={
                 <PrivateRoute redirectTo="/login">
-                  <ChoosedDay />
+                  <CalendarPage />
+                </PrivateRoute>
+              }
+            >
+              <Route
+                path="month/:currentDate"
+                element={
+                  <PrivateRoute redirectTo="/login">
+                    <ChoosedMonth />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="day/:currentDate"
+                element={
+                  <PrivateRoute redirectTo="/login">
+                    <ChoosedDay />
+                  </PrivateRoute>
+                }
+              />
+            </Route>
+            <Route
+              path="statistics"
+              element={
+                <PrivateRoute redirectTo="/login">
+                  <StatisticsPage />
                 </PrivateRoute>
               }
             />
-            </Route>
-          <Route
-            path="statistics"
-            element={
-              <PrivateRoute redirectTo="/login">
-                <StatisticsPage />
-              </PrivateRoute>
-            }
-            />
-            </Route>
+          </Route>
         </Routes>
       </Suspense>
       {/* Add your modal window component here */}
