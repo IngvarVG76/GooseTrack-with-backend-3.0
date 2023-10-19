@@ -23,11 +23,17 @@ import {
   LinksContainer,
 } from './LoginForm.styled';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import img from '../../images/auth_goose/login-elements.png';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCurrentUser, logIn } from '../../redux/auth/operations';
+import { selectToken } from '../../redux/auth/selectors';
 
 const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const authenticated = useSelector(selectToken);
+
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const emailRegexp =
     /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
@@ -50,10 +56,18 @@ const LoginForm = () => {
     },
     validationSchema: validationSchema,
 
-    onSubmit: (values) => {
-      console.log('values: ', values);
+    onSubmit: async ({ email, password }) => {
+      try {
+        dispatch(logIn({ email, password }));
+      } catch (error) {
+        console.log(error.message);
+      }
     },
   });
+
+  useEffect(() => {
+    authenticated && navigate('/account');
+  }, [authenticated, navigate]);
 
   return (
     <>
