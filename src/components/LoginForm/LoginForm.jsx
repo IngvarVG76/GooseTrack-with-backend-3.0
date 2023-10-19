@@ -66,7 +66,7 @@ const LoginForm = () => {
   });
 
   useEffect(() => {
-    authenticated && navigate('/account');
+    authenticated && navigate('/calendar');
   }, [authenticated, navigate]);
 
   return (
