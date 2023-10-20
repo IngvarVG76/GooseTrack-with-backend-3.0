@@ -1,10 +1,10 @@
 import {
-  addDays,
-  endOfMonth,
-  endOfWeek,
+  eachDayOfInterval,
   format,
   isSameDay,
   isSameMonth,
+  lastDayOfMonth,
+  lastDayOfWeek,
   startOfMonth,
   startOfWeek,
 } from 'date-fns';
@@ -20,58 +20,42 @@ import {
 } from './StyledMonth';
 
 import { GetDatefromURL } from '../../../heplers/getDatefromURL';
+import { useNavigate } from 'react-router-dom';
 
 const MonthCalendar = () => {
   const activeDate = GetDatefromURL();
   console.log(' activeDate : ', activeDate);
 
-  const generateDatesForCurrentWeek = (date, activeDate) => {
-    let currentDate = date;
-    const week = [];
-
-    // one day  of week  calendar
-    for (let day = 0; day < 7; day++) {
-      week.push(
-        <Day key={format(currentDate, 'd')}>
-          {isSameDay(currentDate, new Date()) ? (
-            <DayNumberToday>{format(currentDate, 'd')}</DayNumberToday>
-          ) : !isSameMonth(currentDate, activeDate) ? (
-            <DayNumberInActive>{format(currentDate, 'd')}</DayNumberInActive>
-          ) : (
-            <DayNumberRegular>{format(currentDate, 'd')}</DayNumberRegular>
-          )}
-
-          {
-            <div>
-              <p>Test task</p>
-            </div>
-          }
-        </Day>,
-      );
-      currentDate = addDays(currentDate, 1);
-    }
-    return <>{week}</>;
+  const navigate = useNavigate();
+  const nagigatetoGoosedDay = (day) => {
+    navigate(`/calendar/day/${format(day, 'dd-MMMM-yyyy')}`);
   };
-  const startOfTheSelectedMonth = startOfMonth(activeDate);
+  const firstDay = startOfMonth(activeDate);
+  const lastDay = lastDayOfMonth(activeDate);
+  const startDate = startOfWeek(firstDay, { weekStartsOn: 1 });
+  const endDate = lastDayOfWeek(lastDay, { weekStartsOn: 1 });
 
-  const endOfTheSelectedMonth = endOfMonth(activeDate);
-  const startDate = startOfWeek(startOfTheSelectedMonth, { weekStartsOn: 1 });
-  const endDate = endOfWeek(endOfTheSelectedMonth);
-
-  let currentDate = startDate;
-
-  const allWeeks = [];
-
-  while (currentDate <= endDate) {
-    const oneWeek = generateDatesForCurrentWeek(currentDate, activeDate);
-    allWeeks.push({ ...oneWeek, key: allWeeks.length });
-    currentDate = addDays(currentDate, 7);
-  }
+  const totalDays = eachDayOfInterval({ start: startDate, end: endDate });
 
   return (
-    <>
-      <CalendarContainer>{allWeeks}</CalendarContainer>;
-    </>
+    <CalendarContainer>
+      {totalDays.map((oneDayofMonth) => (
+        <Day
+          key={oneDayofMonth}
+          onClick={() => nagigatetoGoosedDay(oneDayofMonth)}
+        >
+          {isSameDay(oneDayofMonth, new Date()) ? (
+            <DayNumberToday>{format(oneDayofMonth, 'd')}</DayNumberToday>
+          ) : !isSameMonth(oneDayofMonth, activeDate) ? (
+            <DayNumberInActive>{format(oneDayofMonth, 'd')}</DayNumberInActive>
+          ) : (
+            <DayNumberRegular>{format(oneDayofMonth, 'd')}</DayNumberRegular>
+          )}
+
+          {<>task</>}
+        </Day>
+      ))}
+    </CalendarContainer>
   );
 };
 
