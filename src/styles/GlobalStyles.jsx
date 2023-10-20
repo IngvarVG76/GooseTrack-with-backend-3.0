@@ -18,7 +18,9 @@ export const GlobalStyle = createGlobalStyle`
  body{
     font-family: 'Inter', sans-serif;
     font-size: 16px;
-  // background: ${(props) => props.theme.colors.mainBackgroundColor};
+    background: ${(props) => props.theme.colors.mainBackgroundColor};
+    margin: 0;
+
 }
 
 @font-face {
