@@ -11,7 +11,7 @@ const CustomDatePicker = ({ activePage }) => {
   const activeDate = GetDatefromURL();
   const navigate = useNavigate();
   const handleClick = (date) => {
-    date = new Date(date);
+    date = format(new Date(date), 'dd-MMMM-yyyy');
 
     navigate(`/calendar/day/${date}`);
   };

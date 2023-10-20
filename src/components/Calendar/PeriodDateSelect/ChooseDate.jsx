@@ -1,4 +1,4 @@
-import { subDays, addDays, subMonths, addMonths } from 'date-fns';
+import { subDays, addDays, subMonths, addMonths, format } from 'date-fns';
 
 import {
   Button,
@@ -11,18 +11,20 @@ import {
 import CustomDatePicker from '../../DatePicker/DatePicker';
 import { GetDatefromURL } from '../../../heplers/getDatefromURL';
 import { useNavigate } from 'react-router-dom';
-const ChooseDate= ({ activePage }) => {
+const ChooseDate = ({ activePage }) => {
   const navigate = useNavigate();
   const activeDate = GetDatefromURL();
 
   const changeNextDate = () => {
+    const addMonth = format(addMonths(activeDate, 1), 'MMMM-yyy'); 
+    const addDay = format(addDays(activeDate, 1), 'd-MMMM-yyy');   
     activePage === 'month'
-      ? navigate(`/calendar/month/${addMonths(activeDate, 1)}`)
-      : navigate(`/calendar/day/${addDays(activeDate, 1)}`);
+      ? navigate(`/calendar/month/${addMonth}`)
+      : navigate(`/calendar/day/${addDay}`);
   };
   const changePrevDate = () => {
-    const prevMonth = subMonths(activeDate, 1);
-    const prevDay = subDays(activeDate, 1);
+    const prevMonth = format(subMonths(activeDate, 1), 'MMMM-yyy'); 
+    const prevDay = format(subDays(activeDate, 1), 'd-MMMM-yyy');
 
     activePage === 'month'
       ? navigate(`/calendar/month/${prevMonth}`)
@@ -30,7 +32,7 @@ const ChooseDate= ({ activePage }) => {
   };
   return (
     <Controllers>
-      <CustomDatePicker  activePage={activePage}/>
+      <CustomDatePicker activePage={activePage} />
       <div>
         <Button $direction="back" $back onClick={() => changePrevDate()}>
           <StyledAiOutlineLeft />
