@@ -5,7 +5,7 @@ import {
   logIn,
   getCurrentUser,
   logOut,
-  //   updateUser,
+  updateUser,
   //   getVerifyEmailUser,
 } from './operations';
 
@@ -76,6 +76,9 @@ const authSlice = createSlice({
           console.error(payload?.message);
         }
       })
+      .addCase(updateUser.fulfilled, (state, action) => {
+        state.user = action.payload;
+      })
       .addMatcher(
         isAnyOf(
           register.pending,
@@ -106,9 +109,6 @@ const authSlice = createSlice({
     //     state.isLoggedIn = false;
     //   })
 
-    //   .addCase(updateUser.fulfilled, (state, action) => {
-    //     state.user = action.payload;
-    //   });
     // .addCase(getVerifyEmailUser.fulfilled, (state, action) => {
     //     state.user.verify = action.payload;
     // });

@@ -105,18 +105,18 @@ export const getCurrentUser = createAsyncThunk(
   },
 );
 
-// export const updateUser = createAsyncThunk(
-//   '/user',
-//   async (credentials, thunkAPI) => {
-//     try {
-//       const response = await axios.patch('/user', credentials);
-//       return response.data.user;
-//     } catch (error) {
-//       console.log(error.response.data.message);
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   },
-// );
+export const updateUser = createAsyncThunk(
+  '/user',
+  async (credentials, thunkAPI) => {
+    try {
+      const response = await $instants.patch('/user', credentials);
+      return response.data.user;
+    } catch (error) {
+      console.log(error.response.data.message);
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);
 
 // export const sendVerifyEmailUser = createAsyncThunk(
 //   '/sendVerifyEmail',
