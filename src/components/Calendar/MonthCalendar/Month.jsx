@@ -23,6 +23,8 @@ import { GetDatefromURL } from '../../../heplers/getDatefromURL';
 
 const MonthCalendar = () => {
   const activeDate = GetDatefromURL();
+  console.log(' activeDate : ', activeDate);
+
   const generateDatesForCurrentWeek = (date, activeDate) => {
     let currentDate = date;
     const week = [];
@@ -30,7 +32,7 @@ const MonthCalendar = () => {
     // one day  of week  calendar
     for (let day = 0; day < 7; day++) {
       week.push(
-        <Day>
+        <Day key={format(currentDate, 'd')}>
           {isSameDay(currentDate, new Date()) ? (
             <DayNumberToday>{format(currentDate, 'd')}</DayNumberToday>
           ) : !isSameMonth(currentDate, activeDate) ? (
@@ -61,7 +63,8 @@ const MonthCalendar = () => {
   const allWeeks = [];
 
   while (currentDate <= endDate) {
-    allWeeks.push(generateDatesForCurrentWeek(currentDate, activeDate));
+    const oneWeek = generateDatesForCurrentWeek(currentDate, activeDate);
+    allWeeks.push({ ...oneWeek, key: allWeeks.length });
     currentDate = addDays(currentDate, 7);
   }
 
