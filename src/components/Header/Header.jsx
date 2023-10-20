@@ -24,10 +24,6 @@ export const Header = ({ onClickModal, modal }) => {
   const [namePage, setNamePage] = useState('');
   const theme = useSelector((state) => state.theme.lightTheme);
   const userData = useSelector(selectUser);
-
-  const handelThemeChange = () => {
-    dispatch(changeTheme());
-  };
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -43,6 +39,10 @@ export const Header = ({ onClickModal, modal }) => {
         break;
     }
   }, [pathname]);
+
+  const handelThemeChange = () => {
+    dispatch(changeTheme());
+  };
 
   return (
     <>

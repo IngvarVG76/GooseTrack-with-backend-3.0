@@ -25,11 +25,14 @@ import {
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import { useState } from 'react';
 import img from '../../images/auth_goose/signup-elements.png';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { register } from '../../redux/auth/operations';
+import { selectUser } from '../../redux/auth/selectors';
+import { useEffect } from 'react';
 
 const RegisterForm = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const user = useSelector(selectUser);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const emailRegexp =
@@ -66,6 +69,18 @@ const RegisterForm = () => {
       }
     },
   });
+
+  useEffect(() => {
+    const loginNavigate = () => {
+      return navigate('/login');
+    };
+    if (user.userName && user.email) {
+      setTimeout(loginNavigate, 1500);
+    }
+    return () => {
+      clearTimeout(loginNavigate);
+    };
+  }, [navigate, user.email, user.userName]);
 
   return (
     <>

@@ -11,16 +11,16 @@ import {
 
 const initialState = {
   user: {
-    userName: null,
-    _id: null,
-    email: null,
-    phone: null,
-    skype: null,
-    birthDay: null,
-    avatarURL: null,
-    verify: null,
+    userName: '',
+    _id: '',
+    email: '',
+    phone: '',
+    skype: '',
+    birthDay: '',
+    avatarURL: '',
+    verify: '',
   },
-  token: null,
+  token: '',
   isLoggedIn: false,
   isFetchingCurrentUser: false,
   error: null,
@@ -32,18 +32,13 @@ const authSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(register.fulfilled, (state, { payload }) => {
-        state.user = payload.user;
-        state.isLoggedIn = false;
-        if (payload?.status) {
-          console.error(payload?.message);
-        }
+        state.user.userName = payload.userName;
+        state.user.email = payload.email;
+        state.isLoggedIn = true;
       })
       .addCase(logIn.fulfilled, (state, { payload }) => {
         state.token = payload.token;
-        state.isLoggedIn = false;
-        if (payload?.status) {
-          console.error(payload?.message);
-        }
+        state.isLoggedIn = true;
       })
       .addCase(getCurrentUser.pending, (state) => {
         state.isFetchingCurrentUser = true;
@@ -51,30 +46,24 @@ const authSlice = createSlice({
       .addCase(getCurrentUser.fulfilled, (state, { payload }) => {
         state.user = payload;
         state.isFetchingCurrentUser = false;
-        state.isLoggedIn = false;
-        if (payload?.status) {
-          console.error(payload?.message);
-        }
+        state.isLoggedIn = true;
       })
       .addCase(getCurrentUser.rejected, (state) => {
         state.isFetchingCurrentUser = false;
       })
-      .addCase(logOut.fulfilled, (state, { payload }) => {
+      .addCase(logOut.fulfilled, (state) => {
         state.isLoggedIn = false;
-        state.token = null;
+        state.token = '';
         state.user = {
-          userName: null,
-          _id: null,
-          email: null,
-          phone: null,
-          skype: null,
-          birthDay: null,
-          avatarURL: null,
-          verify: null,
+          userName: '',
+          _id: '',
+          email: '',
+          phone: '',
+          skype: '',
+          birthDay: '',
+          avatarURL: '',
+          verify: '',
         };
-        if (payload?.status) {
-          console.error(payload?.message);
-        }
       })
       .addCase(updateUser.fulfilled, (state, action) => {
         state.user = action.payload;
@@ -87,7 +76,7 @@ const authSlice = createSlice({
           logOut.pending,
         ),
         (state) => {
-          state.isLoggedIn = true;
+          state.isLoggedIn = false;
           state.error = null;
         },
       )
