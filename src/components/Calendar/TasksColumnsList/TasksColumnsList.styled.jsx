@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  /* min-height: 311px; */
+  flex-grow: 1;
   overflow-x: scroll;
 
   &::-webkit-scrollbar {
