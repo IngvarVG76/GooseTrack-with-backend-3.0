@@ -1,6 +1,6 @@
 import React from 'react';
 import { ModalComponent } from './ChoreTask/ChoreModal';
-import { TaskForm } from '../../TaskForm/TaskForm';
+import { TaskForm } from '../TaskForm/TaskForm';
 
 export const TaskModal = ({ category, task, onClose }) => {
   return (

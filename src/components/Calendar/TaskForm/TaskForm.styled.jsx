@@ -6,8 +6,6 @@ export const FormContainer = styled.div`
   width: 303px;
   padding: 48px 18px 40px;
   border-radius: 8px;
-  border: ${(props) => props.theme.variable.borderCalendar};
-  background-color: ${(props) => props.theme.variable.backgrouTaskModalndColor};
   box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
   @media screen and (min-width: 768px) {
     width: 396px;
@@ -30,14 +28,12 @@ export const CloseButton = styled.button`
 export const CloseIcon = styled.svg`
   width: 24px;
   height: 24px;
-  stroke: ${(props) => props.theme.variable.colorBtnClose};
 `;
 
 export const Label = styled.label`
   display: flex;
   flex-direction: column;
   gap: 8px;
-  color: ${(props) => props.theme.variable.modalReviewLabel};
   font-family: InterMedium;
   font-size: 12px;
   line-height: calc(14 / 12);
@@ -50,9 +46,6 @@ export const TitleField = styled(Field)`
   padding: 12px 14px;
   margin-bottom: 16px;
   border-radius: 8px;
-  border-color: ${(props) => props.theme.variable.calendarBarBorder};
-  background-color: ${(props) => props.theme.variable.modalReviewBorder};
-  color: ${(props) => props.theme.variable.calendarTextColor};
   font-family: InterSemiBold;
   font-size: 14px;
   line-height: calc(18 / 14);
@@ -65,7 +58,6 @@ export const TitleField = styled(Field)`
   }
   &::placeholder {
     opacity: 1;
-    color: ${(props) => props.theme.variable.calendarTextColor};
     font-size: 14px;
     font-family: InterSemiBold;
     line-height: calc(18 / 14);
@@ -84,9 +76,6 @@ export const TimeField = styled(Field)`
   padding: 12px 14px;
   margin-bottom: 16px;
   border-radius: 8px;
-  border-color: ${(props) => props.theme.variable.calendarBarBorder};
-  background-color: ${(props) => props.theme.variable.modalReviewBorder};
-  color: ${(props) => props.theme.variable.calendarTextColor};
   font-family: InterSemiBold;
   font-size: 14px;
   line-height: calc(18 / 14);
@@ -117,7 +106,6 @@ export const PriorityLabel = styled.label`
   display: flex;
   align-items: center;
   gap: 6px;
-  color: ${(props) => props.theme.variable.calendarTextColor};
   font-family: InterSemiBold;
   font-size: 12px;
   line-height: calc(14 / 12);

@@ -1,14 +1,23 @@
-import { TasksColumn } from '../TasksColumn/TasksColumn ';
-import { WrapperTasks, Wrapper } from './TasksColumnsList.styled';
+import { TasksColumn } from './TasksColumn/TasksColumn';
 
-export const TasksColumnsList = () => {
+import { Container } from './TaskColumnList.styled';
+
+export const TasksColumnsList = ({ tasks, date }) => {
+  const tasksByDay = tasks.filter(task => task.date === date);
+
+  const tasksToDo = tasksByDay.filter(task => task.category === 'to-do');
+
+  const tasksInProgress = tasksByDay.filter(
+    task => task.category === 'in-progress'
+  );
+
+  const tasksDone = tasksByDay.filter(task => task.category === 'done');
+
   return (
-    <Wrapper>
-      <WrapperTasks>
-        <TasksColumn title={'To do'} />
-        <TasksColumn title={'In progress'} />
-        <TasksColumn title={'Done'} />
-      </WrapperTasks>
-    </Wrapper>
+    <Container>
+      <TasksColumn title={'to-do'} tasks={tasksToDo} />
+      <TasksColumn title={'in-progress'} tasks={tasksInProgress} />
+      <TasksColumn title={'done'} tasks={tasksDone} />
+    </Container>
   );
 };

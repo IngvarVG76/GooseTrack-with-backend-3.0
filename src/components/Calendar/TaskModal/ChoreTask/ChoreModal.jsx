@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Modal, ButtonClose, Overlay } from './ChoreModal.styles';
+import { Modal, ButtonClose, Overlay } from './ChoreModal.styled';
 import { AiOutlineClose } from 'react-icons/ai';
 import { createPortal } from 'react-dom';
 
