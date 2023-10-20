@@ -59,7 +59,7 @@ export const light = {
     notActiveCalendarLinkColor: '#E3F3FF',
     activeCalendarLinkColor: '#CAE8FF',
     borderCalendar: '1px solid background: rgb(255, 255, 255)',
-    backgroundColorTaskModal: '#FFFFFF',
+    backgrouTaskModalndColor: '#FFFFFF',
     backgroundTaskFormInput: '#F6F6F6',
     activeNavBackground: '#E3F3FF',
     formaBackground: '#fff',

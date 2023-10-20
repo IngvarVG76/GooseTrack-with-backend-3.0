@@ -6,8 +6,8 @@ export const FormContainer = styled.div`
   width: 303px;
   padding: 48px 18px 40px;
   border-radius: 8px;
-  border: ${(props) => props.theme.variable.borderFormColor};
-  background-color: ${(props) => props.theme.variable.bgColorTaskModal};
+  border: ${(props) => props.theme.variable.borderCalendar};
+  background-color: ${(props) => props.theme.variable.backgrouTaskModalndColor};
   box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
   @media screen and (min-width: 768px) {
     width: 396px;
@@ -37,7 +37,7 @@ export const Label = styled.label`
   display: flex;
   flex-direction: column;
   gap: 8px;
-  color: ${(props) => props.theme.variable.reviewLabel};
+  color: ${(props) => props.theme.variable.modalReviewLabel};
   font-family: InterMedium;
   font-size: 12px;
   line-height: calc(14 / 12);
@@ -50,8 +50,8 @@ export const TitleField = styled(Field)`
   padding: 12px 14px;
   margin-bottom: 16px;
   border-radius: 8px;
-  border-color: ${(props) => props.theme.variable.borderCalendarColor};
-  background-color: ${(props) => props.theme.variable.bgTaskFormInput};
+  border-color: ${(props) => props.theme.variable.calendarBarBorder};
+  background-color: ${(props) => props.theme.variable.modalReviewBorder};
   color: ${(props) => props.theme.variable.calendarTextColor};
   font-family: InterSemiBold;
   font-size: 14px;
@@ -84,8 +84,8 @@ export const TimeField = styled(Field)`
   padding: 12px 14px;
   margin-bottom: 16px;
   border-radius: 8px;
-  border-color: ${(props) => props.theme.variable.borderCalendarColor};
-  background-color: ${(props) => props.theme.variable.bgTaskFormInput};
+  border-color: ${(props) => props.theme.variable.calendarBarBorder};
+  background-color: ${(props) => props.theme.variable.modalReviewBorder};
   color: ${(props) => props.theme.variable.calendarTextColor};
   font-family: InterSemiBold;
   font-size: 14px;
