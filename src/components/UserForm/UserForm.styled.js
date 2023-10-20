@@ -259,19 +259,21 @@ const SaveBtn = styled.button`
   margin-top: 40px;
   padding: 14px 20px;
 
-  background-color: #3e85f3;
+  background-color: ${(props) => (props.disabled ? '#ccc' : '#3e85f3')};
   color: #ffffff;
   border: none;
   border-radius: 16px;
-  cursor: pointer;
+  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
 
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 600;
   line-height: calc(18 / 14);
 
-  &:hover {
-    background-color: #2b78ef;
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: ${(props) => (props.disabled ? '#ccc' : '#2b78ef')};
   }
 
   @media screen and (max-width: 374px) {
@@ -287,7 +289,7 @@ const SaveBtn = styled.button`
     padding: 15px 20px;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1440px) {
     margin-top: 88px;
   }
 `;
@@ -348,7 +350,7 @@ export const SuccessIcon = styled(IoCheckmarkCircleOutline)`
   color: #3cbc81;
 
   @media screen and (min-width: 768px) {
-    bottom: 27px;
+    bottom: 37px;
   }
 `;
 
