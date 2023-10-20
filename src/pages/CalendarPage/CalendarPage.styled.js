@@ -6,6 +6,9 @@ export const Container = styled.div`
 
     return theme.colors.primaryBackground;
   }};
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 
   @media screen and (min-width: 375px) {
     width: 335px;
