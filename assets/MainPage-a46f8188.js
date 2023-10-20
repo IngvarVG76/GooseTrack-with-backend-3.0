@@ -1,4 +1,4 @@
-import{s as i,L as G,r as s,j as e}from"./index-013d57a6.js";import{b as y}from"./index.esm-4dca5417.js";const S=i.img`
+import{s as i,L as G,r as s,j as e}from"./index-b4a708b6.js";import{b as y}from"./index.esm-51065319.js";import"./iconBase-cdcc92b6.js";const S=i.img`
   width: 150px;
   height: 149px;
   background-size: cover;
@@ -263,4 +263,4 @@ font-weight: 500;
 font-size: 14px;
 line-height: 18px;
 color: #111111B2;
-`,ve=()=>e.jsxs(e.Fragment,{children:[e.jsx(be,{children:"Reviews"}),e.jsxs(we,{children:[e.jsx(Te,{}),e.jsxs(fe,{children:[e.jsx(ke,{children:"User Name"}),e.jsx(De,{}),e.jsx(ue,{children:"GooseTrack is impressive, the calendar view and filter options make it easy to stay organized and focused. Highly recommended."})]})]})]}),ye=()=>e.jsxs("div",{children:[e.jsx(U,{}),e.jsx(me,{}),e.jsx(ve,{})]});export{ye as MainPage,ye as default};
+`,ve=()=>e.jsxs(e.Fragment,{children:[e.jsx(be,{children:"Reviews"}),e.jsxs(we,{children:[e.jsx(Te,{}),e.jsxs(fe,{children:[e.jsx(ke,{children:"User Name"}),e.jsx(De,{}),e.jsx(ue,{children:"GooseTrack is impressive, the calendar view and filter options make it easy to stay organized and focused. Highly recommended."})]})]})]}),Se=()=>e.jsxs("div",{children:[e.jsx(U,{}),e.jsx(me,{}),e.jsx(ve,{})]});export{Se as MainPage,Se as default};
