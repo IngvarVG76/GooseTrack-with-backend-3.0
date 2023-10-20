@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
@@ -27,12 +28,12 @@ import { useState } from 'react';
 import img from '../../images/auth_goose/signup-elements.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { register } from '../../redux/auth/operations';
-import { selectUser } from '../../redux/auth/selectors';
-import { useEffect } from 'react';
+import { selectToken } from '../../redux/auth/selectors';
 
 const RegisterForm = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const user = useSelector(selectUser);
+  const authenticated = useSelector(selectToken);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const emailRegexp =
@@ -53,6 +54,21 @@ const RegisterForm = () => {
       .required(`Password required`),
   });
 
+  const onSubmit = useCallback(
+    async ({ userName, email, password }) => {
+      try {
+        dispatch(register({ userName, email, password }));
+
+        if (authenticated) {
+          navigate('/calendar');
+        }
+      } catch (error) {
+        console.log(error.message);
+      }
+    },
+    [dispatch, navigate, authenticated],
+  );
+
   const formik = useFormik({
     initialValues: {
       userName: '',
@@ -60,27 +76,8 @@ const RegisterForm = () => {
       password: '',
     },
     validationSchema: validationSchema,
-
-    onSubmit: async ({ userName, email, password }) => {
-      try {
-        dispatch(register({ userName, email, password }));
-      } catch (error) {
-        console.log(error.message);
-      }
-    },
+    onSubmit,
   });
-
-  useEffect(() => {
-    const loginNavigate = () => {
-      return navigate('/login');
-    };
-    if (user.userName && user.email) {
-      setTimeout(loginNavigate, 1500);
-    }
-    return () => {
-      clearTimeout(loginNavigate);
-    };
-  }, [navigate, user.email, user.userName]);
 
   return (
     <>
