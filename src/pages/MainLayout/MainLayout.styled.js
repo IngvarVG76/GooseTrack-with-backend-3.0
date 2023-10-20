@@ -22,9 +22,6 @@ export const Content = styled.div`
 export const HeaderContainer = styled.header``;
 
 export const Main = styled.main`
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
   @media screen and (min-width: 1440px) {
     width: 79.5%;
     padding-left: 32px;
