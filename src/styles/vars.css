@@ -27,13 +27,13 @@
   --logo-text: #3e85f3;
   --btn-border-color: rgba(220, 227, 229, 0.8);
   --btn-head-color: rgba(230, 237, 239, 0.8);
-  
+
   /* backgroung */
   --main-background-color: #ffffff;
   --auth-background-color: #dcebf7;
   --outlet-background-color: #f7f6f9;
   --accent-background-color: #3e85f3;
-  --input-background-color: #F6F6F6;
+  --input-background-color: #f6f6f6;
   --sidebar-background-color: #ffffff;
   --active-btn-color: #2b78ef;
 
@@ -130,7 +130,7 @@
   --task-field-color: #171820;
   --active-btn-color: #2b78ef;
   --task-field-color: #171820;
-  --auth-background-color:rgba(255, 255, 255, 0.15);
+  --auth-background-color: rgba(255, 255, 255, 0.15);
   /* form */
   --input-bcg-color: #171820;
   --border-input: #ffffff2f;
