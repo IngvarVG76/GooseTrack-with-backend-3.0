@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-// import { showErrorToast, showSuccessToast } from '../../utils/showToast';
+import { styleToastify } from '../../components/toastify';
+import { toast } from 'react-toastify';
 
 export const $instants = axios.create({
   baseURL: 'https://project-backend-8dts.onrender.com/auth/',
@@ -19,18 +20,19 @@ export const register = createAsyncThunk(
   async (user, thunkAPI) => {
     try {
       const { data } = await $instants.post('/signup', user);
+      toast.success('You have successfully registered', styleToastify);
       return data;
     } catch (error) {
       if (error.response) {
         const { status } = error.response;
         if (status === 400) {
-          console.log('User register error.');
+          toast.error('User register error.', styleToastify);
         }
         if (status === 409) {
-          console.log('User already exists.');
+          toast.error('User already exists.', styleToastify);
         }
         if (status === 500) {
-          console.log('Server error.');
+          toast.error('Server error.', styleToastify);
         }
       }
       return thunkAPI.rejectWithValue(error.message);
@@ -49,13 +51,13 @@ export const logIn = createAsyncThunk(
       if (error.response) {
         const { status } = error.response;
         if (status === 400) {
-          console.log('User login error.');
+          toast.error('User login error.', styleToastify);
         }
         if (status === 401) {
-          console.log('Email or password is wrong.');
+          toast.error('Email or password is wrong.', styleToastify);
         }
         if (status === 500) {
-          console.log('Server error.');
+          toast.error('Server error.', styleToastify);
         }
       }
       return thunkAPI.rejectWithValue(error.message);
@@ -71,10 +73,10 @@ export const logOut = createAsyncThunk('user/logout', async (_, thunkAPI) => {
     if (error.response) {
       const { status } = error.response;
       if (status === 401) {
-        console.log('Not authorized.');
+        toast.error('Not authorized.', styleToastify);
       }
       if (status === 500) {
-        console.log('Server error.');
+        toast.error('Server error.', styleToastify);
       }
     }
     return thunkAPI.rejectWithValue(error.message);
@@ -97,7 +99,7 @@ export const getCurrentUser = createAsyncThunk(
       if (error.response) {
         const { status } = error.response;
         if (status === 500) {
-          console.log('Server error.');
+          toast.error('Server error.', styleToastify);
         }
       }
       return thunkAPI.rejectWithValue(error.message);
@@ -105,18 +107,18 @@ export const getCurrentUser = createAsyncThunk(
   },
 );
 
-// export const updateUser = createAsyncThunk(
-//   '/user',
-//   async (credentials, thunkAPI) => {
-//     try {
-//       const response = await axios.patch('/user', credentials);
-//       return response.data.user;
-//     } catch (error) {
-//       console.log(error.response.data.message);
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   },
-// );
+export const updateUser = createAsyncThunk(
+  '/user',
+  async (credentials, thunkAPI) => {
+    try {
+      const response = await $instants.patch('/user', credentials);
+      return response.data.user;
+    } catch (error) {
+      console.log(error.response.data.message);
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);
 
 // export const sendVerifyEmailUser = createAsyncThunk(
 //   '/sendVerifyEmail',

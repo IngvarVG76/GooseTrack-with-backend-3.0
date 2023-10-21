@@ -16,7 +16,7 @@ export const WrapperSideBar = styled.aside`
     if (isOpenMenu === 'true') {
       return '0';
     }
-    return '-100%';
+    return '-100vh';
   }};
   z-index: 200;
 
@@ -38,6 +38,7 @@ export const Backdrop = styled.div`
   height: 100%;
   background-color: transparent;
   backdrop-filter: blur(2px);
+  z-index: 100;
 `;
 
 export const WrapperGosse = styled.div`

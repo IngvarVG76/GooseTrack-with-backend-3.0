@@ -4,6 +4,7 @@ import { BiMenu } from 'react-icons/bi';
 import { Header } from '../../components/Header/Header';
 import { SideBar } from '../../components/SideBar/SideBar';
 import { Main, Content, OpenMenu, HeaderContainer } from './MainLayout.styled';
+import { useEffect } from 'react';
 
 const MainLayout = () => {
   const [navOpen, setNavOpen] = useState(false);
@@ -17,10 +18,10 @@ const MainLayout = () => {
       : (document.body.style.overflow = 'auto');
   }, [modalOpen]);
 
-  const onClickMenu = useCallback(() => {
-    setNavOpen(!navOpen);
+  const onClickMenu = () => setNavOpen(true);
 
-    !navOpen
+  useEffect(() => {
+    navOpen
       ? (document.body.style.overflow = 'hidden')
       : (document.body.style.overflow = 'auto');
   }, [navOpen]);
@@ -31,7 +32,11 @@ const MainLayout = () => {
         <OpenMenu type="button" onClick={onClickMenu}>
           <BiMenu />
         </OpenMenu>
-        <SideBar onClickMenu={onClickMenu} nav={navOpen} />
+        <SideBar
+          onClickMenu={onClickMenu}
+          nav={navOpen}
+          setNavOpen={setNavOpen}
+        />
       </HeaderContainer>
       <Main>
         <Header onClickModal={onClickModal} modal={modalOpen} />

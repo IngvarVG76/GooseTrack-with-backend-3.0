@@ -19,7 +19,7 @@ import {
 import goose from '../../images/mainLayout/goose.png';
 import { logOut } from '../../redux/auth/operations';
 
-export const SideBar = ({ onClickMenu, nav }) => {
+export const SideBar = ({ onClickMenu, nav, setNavOpen }) => {
   const dispatch = useDispatch();
   const onClickBackdrop = (event) => {
     if (event.target === event.currentTarget) {
@@ -34,6 +34,7 @@ export const SideBar = ({ onClickMenu, nav }) => {
   ];
 
   const logout = () => {
+    setNavOpen(false);
     dispatch(logOut());
   };
 
