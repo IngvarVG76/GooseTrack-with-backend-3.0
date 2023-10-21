@@ -1,22 +1,5 @@
-.chartContainer {
-  margin: 0 auto;
-  width: 380px;
-  border-radius: 20px;
-  border: 0.8px solid #e3f3ff;
-  padding-bottom: 40px;
-}
-
 .barChart {
   margin-left: 14px;
   margin-right: 11px;
-}
-
-.tasksTitle {
-  margin-left: 14px;
-  font-weight: 600;
-  font-size: 14px;
-  color: '#343434';
-  margin-bottom: 30px;
-  margin-top: 40px;
-  line-height: 21px;
+  fill: #21222c;
 }
