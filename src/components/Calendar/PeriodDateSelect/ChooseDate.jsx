@@ -16,14 +16,14 @@ const ChooseDate = ({ activePage }) => {
   const activeDate = GetDatefromURL();
 
   const changeNextDate = () => {
-    const addMonth = format(addMonths(activeDate, 1), 'MMMM-yyy'); 
-    const addDay = format(addDays(activeDate, 1), 'd-MMMM-yyy');   
+    const addMonth = format(addMonths(activeDate, 1), 'MMMM-yyy');
+    const addDay = format(addDays(activeDate, 1), 'd-MMMM-yyy');
     activePage === 'month'
       ? navigate(`/calendar/month/${addMonth}`)
       : navigate(`/calendar/day/${addDay}`);
   };
   const changePrevDate = () => {
-    const prevMonth = format(subMonths(activeDate, 1), 'MMMM-yyy'); 
+    const prevMonth = format(subMonths(activeDate, 1), 'MMMM-yyy');
     const prevDay = format(subDays(activeDate, 1), 'd-MMMM-yyy');
 
     activePage === 'month'
