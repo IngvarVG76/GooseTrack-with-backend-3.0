@@ -1,4 +1,4 @@
-import { StyledLink } from './StyledPeriodTypeSelect';
+import { LinkWrapper, StyledLink } from './StyledPeriodTypeSelect';
 import { GetDatefromURL } from '../../../heplers/getDatefromURL';
 import { format } from 'date-fns';
 
@@ -10,7 +10,7 @@ export const DayOrMonthPeriod = ({ activePage }) => {
   };
 
   return (
-    <div>
+    <LinkWrapper>
       <StyledLink
         $borderSide
         $active={activePage}
@@ -27,6 +27,6 @@ export const DayOrMonthPeriod = ({ activePage }) => {
       >
         Day
       </StyledLink>
-    </div>
+    </LinkWrapper>
   );
 };

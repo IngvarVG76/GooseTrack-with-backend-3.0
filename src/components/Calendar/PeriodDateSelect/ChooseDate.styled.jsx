@@ -3,7 +3,7 @@ import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 
 export const StyledAiOutlineLeft = styled(AiOutlineLeft)`
   font-size: 16px;
-  color: ${({ theme }) => theme.colors.activeArrowColor};
+  color: ${({ theme }) => theme.colors.toolbarButtonArrowColor};
   @media screen and (min-width: 768px) {
     font-size: 18px;
   }
@@ -11,7 +11,7 @@ export const StyledAiOutlineLeft = styled(AiOutlineLeft)`
 
 export const StyledAiOutlineRight = styled(AiOutlineRight)`
   font-size: 16px;
-  color: ${({ theme }) => theme.colors.arrowColor};
+  color: ${({ theme }) => theme.colors.toolbarButtonArrowColor};
   @media screen and (min-width: 768px) {
     font-size: 18px;
   }
@@ -23,22 +23,6 @@ export const Controllers = styled.div`
   align-items: center;
   @media screen and (min-width: 768px) {
     gap: 8px;
-  }
-`;
-
-export const CurrentMonth = styled.h3`
-  font-weight: 700;
-  font-size: 14px;
-  line-height: calc(18 / 14);
-  letter-spacing: 0em;
-  color: #ffffff;
-  background-color: #3e85f3;
-  padding: 6px 12px 6px 12px;
-  border-radius: 8px;
-  margin: 0;
-  @media screen and (min-width: 768px) {
-    font-size: 16px;
-    padding: 8px 12px 8px 12px;
   }
 `;
 
@@ -71,4 +55,9 @@ export const Button = styled.button`
         `;
     }
   }}
+
+  &:hover svg {
+    color: ${({ theme }) => theme.colors.toolbarButtonArrowColorHover
+  };
+  }
 `;

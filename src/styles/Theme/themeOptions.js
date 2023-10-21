@@ -29,7 +29,8 @@ export const light = {
     weekendTextColor: '#3E85F3', // колір тексту вихідних днів календаря
     backgroundCalendar: '#FFFFFF', // колір фону календаря
     borderСalendarColor: 'rgba(220,	227,	229, 0.80)', // колір рамки календаря
-    activeArrowColor: '#dce3e5', // колір активної стрілки
+    toolbarButtonArrowColor: '#dce3e5', // колір  стрілки
+    toolbarButtonArrowColorHover: '#343434', // колір активної стрілки
     borderColorSideBar: '1px solid #dce3e580', // колір бордера SideBar
     gooseColor: 'rgba(62, 133, 243, 1)', // колір тексту Goose
     backgroundColorClose: 'white', // фон кнопки закриття SideBar
@@ -88,7 +89,8 @@ export const dark = {
     textNav: '#FFFFFF', // колір Nav
     scrollBg: '#2D3037', //колір скролу
     borderColor: '#e3f3ff26', // колір рамки графіка
-    arrowColor: '#FFFFFF', // колір стрілки
+    toolbarButtonArrowColor: 'rgba(255, 255, 255, 0.15)', // колір активної стрілки
+    toolbarButtonArrowColorHover: '#fff', // колір активної стрілки
     calendarTextColor: '#FFFFFF', // колір тексту календаря
     calendarTextColorToday: '#fff', // колір тексту календаря
     calendarActiveDay: '#3E85F3', // колір активного тексту календаря
