@@ -1,6 +1,7 @@
-import {DescriptionContainer, FirstContainer, SecondContainer, ThirdContainer, Number, MainTittle, Tittle, DescriptionP, ImageDescription, TextBox} from "./Description.styled"
+
+import {DescriptionContainer, FirstContainer, SecondContainer, ThirdContainer, Number, MainTittle, Tittle, DescriptionP, ImageDescription, TextBox, Box} from "./Description.styled"
 import { useState, useEffect } from "react"
-import firstDescriptionDesk from '../../images/Description/Desk/Desk_FirstDescription-min.png';
+import firstDescriptionDesk from "../../images/Description/Desk/Desk_FirstDescription-min.png"
 import firstDescriptionDeskTwoX from "../../images/Description/Desk/Desk@2x_FirstDescription-min.png"
 import firstDescriptionDeskThreeX from "../../images/Description/Desk/Desk@3x_FirstDescription-min.png"
 import firstDescriptionTab from "../../images/Description/Tab/Tab_FirstDescription-min.png"
@@ -37,7 +38,6 @@ export const Description =()=>{
     const [suitableFirstImage, setFirstSuitableImage] = useState(firstDescriptionDesk);
     const [suitableSecondImage, setSecondSuitableImage] = useState(secondDescriptionDesk);
     const [suitableThirdImage, setThirdSuitableImage] = useState(thirdDescriptionDesk);
-
     useEffect(() => {
         if (screenWidthPx <= 767) {
           if (screenRatio == 1) {
@@ -99,16 +99,15 @@ export const Description =()=>{
 
 
 
-
-
 return <DescriptionContainer>
     <FirstContainer>
-    <div>
+    <Box>
         <Number>1.</Number>
     <MainTittle>Calendar</MainTittle>
         <Tittle>VIEW</Tittle>
         <DescriptionP>GooseTrack&apos;s Calendar view provides a comprehensive overview of your schedule, displaying all your tasks, events, and appointments in a visually appealing and intuitive layout.</DescriptionP>
-        </div>
+
+        </Box>
         <ImageDescription src={suitableFirstImage} alt="image Description Calendar"></ImageDescription>
     </FirstContainer>
 
@@ -124,12 +123,13 @@ return <DescriptionContainer>
 
 
 <ThirdContainer>
-<div>
+
+<Box>
 <Number>3.</Number>
         <MainTittle>all in</MainTittle>
         <Tittle>ONE</Tittle>
         <DescriptionP>GooseTrack is an all-in-one productivity tool that helps you stay on top of your tasks, events, and deadlines. Say goodbye to scattered to-do lists and hello to streamlined productivity with GooseTrack.</DescriptionP>
-        </div>
+        </Box>
         <ImageDescription src={suitableThirdImage} alt="image Description One"></ImageDescription>
 </ThirdContainer>
 </DescriptionContainer>
