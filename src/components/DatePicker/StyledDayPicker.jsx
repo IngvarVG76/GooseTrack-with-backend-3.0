@@ -3,7 +3,7 @@ import { createGlobalStyle, styled } from 'styled-components';
 import 'react-datepicker/dist/react-datepicker.css';
 
 export const StyledButton = styled.button`
-  width: 142px;
+  width: 145px;
   padding: 8px 12px;
   font-size: 14px;
   font-weight: 700;
@@ -165,7 +165,6 @@ export const CalendarGlobalStyles = createGlobalStyle`
     visibility: hidden;
   }
 `;
-
 
 // DATEPICKER
 

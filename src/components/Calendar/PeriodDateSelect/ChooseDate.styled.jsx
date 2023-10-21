@@ -32,22 +32,6 @@ export const Controllers = styled.div`
   }
 `;
 
-export const CurrentMonth = styled.h3`
-  font-weight: 700;
-  font-size: 14px;
-  line-height: calc(18 / 14);
-  letter-spacing: 0em;
-  color: #ffffff;
-  background-color: #3e85f3;
-  padding: 6px 12px 6px 12px;
-  border-radius: 8px;
-  margin: 0;
-  @media screen and (min-width: 768px) {
-    font-size: 16px;
-    padding: 8px 12px 8px 12px;
-  }
-`;
-
 const commonButton = css`
   border: 1px solid ${({ theme }) => theme.colors.borderСalendarColor};
   background-color: ${({ theme }) => theme.colors.backgroundCalendar};
@@ -77,4 +61,8 @@ export const Button = styled.button`
         `;
     }
   }}
+
+  &:hover svg {
+    color: ${({ theme }) => theme.colors.toolbarButtonArrowColorHover};
+  }
 `;
