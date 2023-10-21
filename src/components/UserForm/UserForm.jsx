@@ -1,8 +1,11 @@
-import { useRef, useState } from 'react';
-// import { useSelector } from 'react-redux';
+import { useRef, useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { parse } from 'date-fns';
+import { format, parse } from 'date-fns';
+
+import { selectUser } from '../../redux/auth/selectors';
+import { updateUser } from '../../redux/auth/operations';
 
 import {
   FormContainer,
@@ -26,46 +29,40 @@ import {
   Error,
   SuccessIcon,
 } from './UserForm.styled';
-
 import { ErrorIcon } from '../../components/RegisterForm/RegisterForm.styled';
 
 const phoneRegExp = /\+380\d{3}\d{2}\d{2}\d{2}$/;
 const emailRegexp =
   /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
-
-const avaliableMimeType = ['image/jpeg', 'image/png'];
+// const avaliableMimeType = ['image/jpeg', 'image/png'];
 
 const UserForm = () => {
-  const [avatar, setAvatar] = useState(null);
-  // const [birthday, setBirthday] = useState(formatDate(new Date()));
+  const { avatarURL, birthDay, email, phone, skype, userName } =
+    useSelector(selectUser);
 
-  // const userFromBackend = useSelector(state = state.auth.user);
+  const [avatar, setAvatar] = useState(avatarURL ?? '');
+  const [avatarPreviewURL, setAvatarPreviewURL] = useState('');
+  // const [newUserName, setNewUserName] = useState(userName ?? '');
+  // const [newBirthDay, setNewBirthDay] = useState(
+  //   birthDay || format(new Date(), 'yyyy-MM-dd'),
+  // );
+  // const [newEmail, setNewEmail] = useState(email ?? '');
+  // const [newPhone, setNewPhone] = useState(phone ?? '');
+  // const [newSkype, setNewSkype] = useState(skype ?? '');
 
-  const user = {
-    userName: 'Nadiia Doe',
-    birthday: '',
-    email: 'nadiia@gmail.com',
-    phone: '',
-    skype: '',
-  };
-
-  // const user = {
-  //   userName: '',
-  //   birthday: '',
-  //   email: '',
-  //   phone: '',
-  //   skype: '',
-  // };
-
-  function formatDate(date) {
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const year = String(date.getFullYear());
-
-    return `${year}-${month}-${day}`;
-  }
+  const dispatch = useDispatch();
 
   const fileInputRef = useRef();
+  const submitBtnRef = useRef();
+  const fakeInputRef = useRef();
+
+  useEffect(() => {
+    return () => {
+      if (avatarPreviewURL) {
+        URL.revokeObjectURL(avatarPreviewURL);
+      }
+    };
+  }, [avatarPreviewURL]);
 
   const handleButtonClick = () => {
     fileInputRef.current.click();
@@ -73,27 +70,48 @@ const UserForm = () => {
 
   const handleAvatarChange = (e) => {
     const file = e.target.files[0];
+    if (!avatarPreviewURL) {
+      fakeInputRef.current.click();
+    }
+    setAvatar(file);
     if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        setAvatar(e.target.result);
-      };
-      reader.readAsDataURL(file);
+      const previewURL = URL.createObjectURL(file);
+      setAvatarPreviewURL(previewURL);
+      console.log(avatarPreviewURL);
+    } else {
+      setAvatarPreviewURL(avatarURL);
     }
   };
 
-  // const handleDateChange = (e) => {
-  //   setBirthday(e.target.value);
+  // const handleAvatarChange = (e) => {
+  //   console.log(e.target.value);
+  //   const file = e.target.files[0];
+
+  //   if (file) {
+  //     const reader = new FileReader();
+  //     reader.onload = (e) => {
+  //       setAvatar(e.target.result);
+  //     };
+  //     console.log(e.target.value)
+  //     reader.readAsDataURL(file);
+  //   }
   // };
 
   const formik = useFormik({
     initialValues: {
-      avatar: '',
-      userName: `${user.userName ?? ''}`,
-      birthday: `${user.birthday || formatDate(new Date())}`,
-      email: `${user.email ?? ''}`,
-      phone: `${user.phone ?? ''}`,
-      skype: `${user.skype ?? ''}`,
+      // avatar: `${avatar}`,
+      // userName: `${newUserName}`,
+      // birthday: `${newBirthDay}`,
+      // email: `${newEmail}`,
+      // phone: `${newPhone}`,
+      // skype: `${newSkype}`,
+      avatar: `${avatar}`,
+      checkBox: false,
+      userName: `${userName ?? ''}`,
+      birthday: `${birthDay || format(new Date(), 'yyyy-MM-dd')}`,
+      email: `${email ?? ''}`,
+      phone: `${phone ?? ''}`,
+      skype: `${skype ?? ''}`,
     },
     validationSchema: Yup.object({
       // avatar: Yup.mixed().test(
@@ -104,11 +122,11 @@ const UserForm = () => {
       //     return ['image/jpeg', 'image/png'].includes(value.type);
       //   },
       // ),
-      avatar: Yup.string().oneOf(avaliableMimeType, 'Invalid file type'),
+      // avatar: Yup.string().oneOf(avaliableMimeType, 'Invalid file type'),
       userName: Yup.string()
         .min(3, 'Username must contain at least 3 characters')
         .max(16, 'Username must contain not more than 16 characters')
-        .required('Username Name is required field'),
+        .required('Username is required field'),
       birthday: Yup.date()
         .transform(function (value, originalValue) {
           if (this.isType(value)) {
@@ -130,18 +148,59 @@ const UserForm = () => {
         .min(3, 'Skype must contain at least 3 characters')
         .max(16, 'Skype must not have more than 16 characters'),
     }),
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+    onSubmit: async (values, actions) => {
+      const formData = new FormData();
+
+      if (formik.initialValues.userName !== values.userName) {
+        formData.append('userName', values.userName);
+      }
+      if (formik.initialValues.email !== values.email) {
+        formData.append('email', values.email);
+      }
+      if (formik.initialValues.phone !== values.phone) {
+        formData.append('phone', values.phone);
+      }
+      if (formik.initialValues.skype !== values.skype) {
+        formData.append('skype', values.skype);
+      }
+      if (formik.initialValues.birthday !== values.birthday) {
+        formData.append('birthDay', values.birthday);
+      }
+      if (avatar !== '') {
+        formData.append('avatarURL', avatar);
+      }
+
+      console.log(values);
+
+      dispatch(updateUser(formData));
+
+      setTimeout(() => {
+        formik.resetForm({ values: values });
+      }, 3000);
+
+      actions.setSubmitting(false);
+
+      // alert(JSON.stringify(values, null, 2));
+      // formik.setSubmitting(false);
     },
   });
+
+  // formik.touched = {};
 
   return (
     <FormContainer>
       <Form onSubmit={formik.handleSubmit}>
         <AvatarUploader>
           <AvatarPreview onClick={handleButtonClick}>
-            {avatar ? (
+            {/* {avatar ? (
               <AvatarImg src={avatar} alt="Avatar" />
+            ) : (
+              <AvatarPlaceholder />
+            )} */}
+            {avatarPreviewURL ? (
+              <AvatarImg src={avatarPreviewURL} alt={userName} />
+            ) : avatarURL ? (
+              <AvatarImg src={avatarURL} alt={userName} />
             ) : (
               <AvatarPlaceholder />
             )}
@@ -152,10 +211,19 @@ const UserForm = () => {
             type="file"
             ref={fileInputRef}
             accept="image/*"
+            value={formik.values.avatar}
             onChange={handleAvatarChange}
           />
+          <input
+            ref={fakeInputRef}
+            type="checkbox"
+            name="checkBox"
+            onChange={formik.handleChange}
+            checked={formik.values.checkBox}
+            style={{ display: 'none' }}
+          />
         </AvatarUploader>
-        <UserName>{user.userName}</UserName>
+        <UserName>{userName}</UserName>
         <UserText>User</UserText>
         <FieldsWrap>
           <ColumnWrap>
@@ -177,7 +245,10 @@ const UserForm = () => {
                 name="userName"
                 type="text"
                 placeholder="Enter your name"
-                {...formik.getFieldProps('userName')}
+                value={formik.values.userName}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                // {...formik.getFieldProps('userName')}
                 className={
                   formik.touched.userName
                     ? formik.errors.userName
@@ -283,7 +354,9 @@ const UserForm = () => {
                   </ContainerErrorIcon>
                 ) : (
                   <ContainerErrorIcon>
-                    <Error className="valid">This is CORRECT phone</Error>
+                    <Error className="valid" style={{ color: '#ffffff' }}>
+                      OK
+                    </Error>
                     <SuccessIcon />
                   </ContainerErrorIcon>
                 )
@@ -313,7 +386,9 @@ const UserForm = () => {
                   </ContainerErrorIcon>
                 ) : (
                   <ContainerErrorIcon>
-                    <Error className="valid">This is CORRECT skype</Error>
+                    <Error className="valid" style={{ color: '#ffffff' }}>
+                      OK
+                    </Error>
                     <SuccessIcon />
                   </ContainerErrorIcon>
                 )
@@ -321,7 +396,14 @@ const UserForm = () => {
             </InputWrap>
           </ColumnWrap>
         </FieldsWrap>
-        <SaveBtn type="submit">Save changes</SaveBtn>
+        <SaveBtn
+          type="submit"
+          ref={submitBtnRef}
+          // disabled={verify()}
+          disabled={!(formik.isValid && formik.dirty) || formik.isSubmitting}
+        >
+          Save changes
+        </SaveBtn>
       </Form>
     </FormContainer>
   );

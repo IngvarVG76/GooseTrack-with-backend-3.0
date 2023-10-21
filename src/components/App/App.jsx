@@ -1,22 +1,20 @@
 // Libs
-import { Suspense, useCallback, useEffect, useState, lazy } from 'react';
+import { Suspense, useEffect, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 // Styles
-import ChangeThemeButton from '../../styles/Theme/ThemeButton';
 import { GlobalStyle } from '../../styles/GlobalStyles';
 import { Theme } from '../../styles/Theme/theme';
 
 // Components
-import { ModalComponent } from '../Modal/Modal';
 import { ChoosedDay } from '../Calendar/ChoosedDay/ChoosedDay';
 import { ChoosedMonth } from '../Calendar/ChoosedMonth/ChoosedMonth';
 import PrivateRoute from '../../components/PrivateRoute/PrivateRoute';
 import PublicRoute from '../PublicRoute/PublicRoute';
 import { getCurrentUser } from '../../redux/auth/operations';
 import { selectToken } from '../../redux/auth/selectors';
+import { ToastContainer } from 'react-toastify';
 
 // Pages
 const MainPage = lazy(() => import('../../pages/MainPage/MainPage'));
@@ -40,12 +38,12 @@ const App = () => {
   const dispatch = useDispatch();
   const authenticated = useSelector(selectToken);
 
-  // const isRefreshing = useSelector(selectIsFetchingCurrentUser);
-
   useEffect(() => {
-    if (!authenticated) return;
+    if (!authenticated) {
+      return;
+    }
     dispatch(getCurrentUser());
-  }, [authenticated, dispatch]);
+  }, [dispatch, authenticated]);
 
   return (
     <Theme>
@@ -55,7 +53,7 @@ const App = () => {
           <Route
             path="/"
             element={
-              <PublicRoute restricted redirectTo="/">
+              <PublicRoute restricted redirectTo="/calendar">
                 <MainPage />
               </PublicRoute>
             }
@@ -119,9 +117,18 @@ const App = () => {
               }
             />
           </Route>
+          <Route
+            path="*"
+            element={
+              <PublicRoute>
+                <NotFoundPage />
+              </PublicRoute>
+            }
+          />
         </Routes>
       </Suspense>
       {/* Add your modal window component here */}
+      <ToastContainer />
     </Theme>
   );
 };

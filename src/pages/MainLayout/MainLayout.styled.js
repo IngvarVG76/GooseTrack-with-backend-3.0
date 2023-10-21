@@ -4,27 +4,32 @@ export const Content = styled.div`
   background: ${({ theme }) => theme.colors.primaryBackground};
   height: 100vh;
   position: relative;
-  width: 375px;
+  max-width: 375px;
   margin: 0 auto;
-  padding: 24px 20px 0 28px;
+  padding: 24px 20px 40px 28px;
   display: flex;
   justify-content: flex-end;
 
   @media screen and (min-width: 768px) {
-    width: 768px;
+    max-width: 768px;
+    padding: 24px 32px 38px 32px;
   }
   @media screen and (min-width: 1440px) {
-    width: 1440px;
-    padding-left: 0;
+    max-width: 1440px;
+    padding: 40px 32px 32px 0;
   }
 `;
 
 export const HeaderContainer = styled.header``;
 
 export const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
   @media screen and (min-width: 1440px) {
     width: 79.5%;
     padding-left: 32px;
+    flex-grow: 0;
   }
 `;
 

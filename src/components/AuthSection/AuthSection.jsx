@@ -8,15 +8,15 @@ import {
   LogInIcon,
   BtnLoginText,
 } from './AuthSection.styled';
-import gooseDesk from '../../../images/main-goose/Desk_mainGoose.png';
-import gooseDeskTwoX from '../../../images/main-goose/Desk@2x_mainGoose.png';
-import gooseDeskThreeX from '../../../images/main-goose/Desk@3x_mainGoose.png';
-import gooseTab from '../../../images/main-goose/Tab_mainGoose.png';
-import gooseTabTwoX from '../../../images/main-goose/Tab@2x_mainGoose.png';
-import gooseTabThreeX from '../../../images/main-goose/Tab@3x_mainGoose.png';
-import gooseMob from '../../../images/main-goose/Mob_mainGoose.png';
-import gooseMobTwoX from '../../../images/main-goose/Mob@2x_mainGoose.png';
-import gooseMobThreeX from '../../../images/main-goose/Mob@3x_mainGoose.png';
+import gooseDesk from '../../images/main-goose/Desk_mainGoose.png';
+import gooseDeskTwoX from '../../images/main-goose/Desk@2x_mainGoose.png';
+import gooseDeskThreeX from '../../images/main-goose/Desk@3x_mainGoose.png';
+import gooseTab from '../../images/main-goose/Tab_mainGoose.png';
+import gooseTabTwoX from '../../images/main-goose/Tab@2x_mainGoose.png';
+import gooseTabThreeX from '../../images/main-goose/Tab@3x_mainGoose.png';
+import gooseMob from '../../images/main-goose/Mob_mainGoose.png';
+import gooseMobTwoX from '../../images/main-goose/Mob@2x_mainGoose.png';
+import gooseMobThreeX from '../../images/main-goose/Mob@3x_mainGoose.png';
 import { useState, useEffect } from 'react';
 
 export const AuthSection = () => {
