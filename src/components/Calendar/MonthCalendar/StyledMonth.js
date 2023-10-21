@@ -42,8 +42,6 @@ export const DayNumberRegular = styled.p`
   justify-content: center;
   align-items: center;
   align-self: end;
-
-  font-family: 'Inter';
   font-size: 12px;
   font-weight: 700;
   line-height: 1.16;

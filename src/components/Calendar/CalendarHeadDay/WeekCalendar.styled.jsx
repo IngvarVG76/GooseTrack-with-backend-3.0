@@ -22,11 +22,10 @@ export const WeekNames = styled.span`
   flex-direction: column;
   gap: 10px;
 
-  font-family: 'Inter, sans-serif';
   font-weight: 600;
   font-size: 16px;
   line-height: calc(18 / 16);
-  color: ${({ theme }) => theme.colors.calendarTextColor};
+  color: ${({ theme }) => theme.colors.calendarTextColorToday};
   text-transform: uppercase;
 
   @media screen and (min-width: 768px) {
@@ -39,7 +38,7 @@ export const WeekNumber = styled.button`
   font-weight: 700;
   font-size: 12px;
   line-height: calc(14 / 12);
-  //  color: ${({ theme }) => theme.colors.calendarTextColor};
+  color: ${({ theme }) => theme.colors.calendarTextColor};
 
   padding: 4px 6px;
   border-radius: 8px;
@@ -48,9 +47,7 @@ export const WeekNumber = styled.button`
   background-color: ${(props) =>
     props.$active && props.theme.colors.calendarActiveDay};
   color: ${(props) =>
-    !props.$active
-      ? props.theme.colors.calendarTextColor
-      : props.theme.colors.calendarTextColorToday};
+    !props.$active ? props.theme.colors.calendarTextColor : ' #fff'};
   @media screen and (min-width: 768px) {
     font-size: 16px;
     line-height: calc(18 / 16);
