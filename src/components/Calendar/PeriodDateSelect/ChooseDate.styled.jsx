@@ -57,6 +57,7 @@ export const Button = styled.button`
   }}
 
   &:hover svg {
-    color: ${({ theme }) => theme.colors.toolbarButtonArrowColorHover};
+    color: ${({ theme }) => theme.colors.toolbarButtonArrowColorHover
+  };
   }
 `;
