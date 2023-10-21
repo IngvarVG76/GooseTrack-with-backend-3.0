@@ -6,7 +6,10 @@ export const FormContainer = styled.div`
   width: 303px;
   padding: 48px 18px 40px;
   border-radius: 8px;
+  border: ${({ theme }) => theme.colors.borderCalendar};
+  background-color: ${({ theme }) => theme.colors.backgrouTaskModalndColor};
   box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
+  border: 0px solid rgba(255, 255, 255, 0.15);
   @media screen and (min-width: 768px) {
     width: 396px;
     padding: 40px 28px;
@@ -34,7 +37,8 @@ export const Label = styled.label`
   display: flex;
   flex-direction: column;
   gap: 8px;
-  font-family: InterMedium;
+  color: ${({ theme }) => theme.colors.modalReviewLabel};
+  font-family: 'Inter';
   font-size: 12px;
   line-height: calc(14 / 12);
 `;
@@ -46,7 +50,10 @@ export const TitleField = styled(Field)`
   padding: 12px 14px;
   margin-bottom: 16px;
   border-radius: 8px;
-  font-family: InterSemiBold;
+  border-color: ${({ theme }) => theme.colors.borderСalendarColor};
+  background-color: ${({ theme }) => theme.colors.backgroundTaskFormInput};
+  color: ${({ theme }) => theme.colors.calendarTextColor};
+  font-family: 'Inter';
   font-size: 14px;
   line-height: calc(18 / 14);
   cursor: pointer;
@@ -58,8 +65,9 @@ export const TitleField = styled(Field)`
   }
   &::placeholder {
     opacity: 1;
+    color: ${({ theme }) => theme.colors.calendarTextColor};
     font-size: 14px;
-    font-family: InterSemiBold;
+    font-family: 'Inter';
     line-height: calc(18 / 14);
   }
 `;
@@ -76,7 +84,10 @@ export const TimeField = styled(Field)`
   padding: 12px 14px;
   margin-bottom: 16px;
   border-radius: 8px;
-  font-family: InterSemiBold;
+  border-color: ${({ theme }) => theme.colors.borderСalendarColor};
+  background-color: ${({ theme }) => theme.colors.backgroundTaskFormInput};
+  color: ${({ theme }) => theme.colors.calendarTextColor};
+  font-family: 'Inter';
   font-size: 14px;
   line-height: calc(18 / 14);
   &::-webkit-calendar-picker-indicator {
@@ -106,7 +117,8 @@ export const PriorityLabel = styled.label`
   display: flex;
   align-items: center;
   gap: 6px;
-  font-family: InterSemiBold;
+  color: ${({ theme }) => theme.colors.calendarTextColor};
+  font-family: 'Inter';
   font-size: 12px;
   line-height: calc(14 / 12);
   @media screen and (min-width: 768px) {
@@ -171,7 +183,7 @@ export const ActionButton = styled.button`
   background: #3e85f3;
   color: #fff;
   text-align: center;
-  font-family: InterSemiBold;
+  font-family: 'Inter';
   font-size: 14px;
   line-height: calc(18 / 14);
 
@@ -211,7 +223,7 @@ export const CancelButton = styled.button`
   background: #efefef;
   color: #111;
   text-align: center;
-  font-family: InterSemiBold;
+  font-family: 'Inter';
   font-size: 14px;
   line-height: calc(18 / 14);
 

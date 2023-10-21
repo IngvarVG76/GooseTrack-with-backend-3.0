@@ -5,23 +5,20 @@ const viewport = {
   desk: '@media screen and (min-width: 1440px)',
 };
 export const Wrapper = styled.div`
-  padding: 7px 0;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 35px;
-
-  /* ${viewport.mob} {
-    width: 287px;
-    font-size: 14px;
-    margin: 32px auto;
-  }  */
 `;
 export const Title = styled.h3`
-  color: white;
-  font-size: 20px;
-  font-family: 'Inter';
-  line-height: calc(24 / 20);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0em;
+  color: ${({ theme }) => theme.colors.calendarTextColor};
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: calc(24 / 20);
+  }
 `;
 
 export const IconWrapper = styled.div`
@@ -32,6 +29,9 @@ export const IconWrapper = styled.div`
 export const IconPlus = styled.svg`
   width: 24px;
   height: 24px;
-  stroke: white;
-  fill: #21222c;
+  fill: white;
+  stroke: black;
+  fill: ${({ theme }) => theme.colors.backgroundCalendar};
+  stroke: ${({ theme }) => theme.colors.text};
+  cursor: pointer;
 `;

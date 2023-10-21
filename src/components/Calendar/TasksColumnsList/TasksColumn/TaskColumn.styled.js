@@ -7,17 +7,15 @@ export const ContainerForm = styled.div`
   padding-top: 18px;
   padding-right: 18px;
   padding-bottom: 10px;
-
   min-width: 335px;
   width: 100%;
   height: 100%;
   border-radius: 8px;
-
+  background: ${({ theme }) => theme.colors.backgroundCalendar};
+  border: 1px solid ${({ theme }) => theme.colors.calendarBackground};
   @media screen and (min-width: 768px) {
     min-width: 344px;
   }
-
-  border: 1px solid rgba(220, 227, 229, 0.8);
 
   min-height: 165px;
 
