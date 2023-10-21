@@ -1,7 +1,7 @@
-// import { NotFound } from "../../src/components/NotFound/NotFound";
+import { NotFound } from "../../components/NotFound/NotFound";
 
-// function NotFoundPage() {
-//   return <NotFound />;
-// }
+function NotFoundPage() {
+  return <NotFound />;
+}
 
-// export default NotFoundPage;
+export default NotFoundPage;
