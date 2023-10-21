@@ -157,14 +157,12 @@ const LoginForm = () => {
                           : ''
                       }
                     />
-                    {!formik.errors.password && (
-                      <ShowHideButton
-                        type="button"
-                        onClick={() => setShowPassword((show) => !show)}
-                      >
-                        {showPassword ? <FiEyeOff /> : <FiEye />}
-                      </ShowHideButton>
-                    )}
+                    <ShowHideButton
+                      type="button"
+                      onClick={() => setShowPassword((show) => !show)}
+                    >
+                      {showPassword ? <FiEyeOff /> : <FiEye />}
+                    </ShowHideButton>
                   </InputWrapperWithIcon>
                   {formik.touched.password ? (
                     formik.errors.password ? (

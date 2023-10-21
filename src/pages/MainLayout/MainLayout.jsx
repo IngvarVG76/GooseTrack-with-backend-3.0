@@ -18,7 +18,7 @@ const MainLayout = () => {
       : (document.body.style.overflow = 'auto');
   }, [modalOpen]);
 
-  const onClickMenu = () => setNavOpen(true);
+  const onClickMenu = () => setNavOpen(!navOpen);
 
   useEffect(() => {
     navOpen
