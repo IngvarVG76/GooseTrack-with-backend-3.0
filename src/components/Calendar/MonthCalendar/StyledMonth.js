@@ -51,7 +51,7 @@ export const DayNumberRegular = styled.p`
 
 export const DayNumberToday = styled(DayNumberRegular)`
   background: ${({ theme }) => theme.colors.backgroundButton};
-  color: ${({ theme }) => theme.colors.calendarTextColorToday};
+  color: ${({ theme }) => theme.colors.calendarActivNumber};
   border-radius: 6px;
 `;
 
