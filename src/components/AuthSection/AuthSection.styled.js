@@ -20,25 +20,13 @@ const HeaderContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-task-low-priority);
+  background-color: #3E85F3;
   height: ${(props) => props.height}px;
 `;
 
-// @media screen and (max-width: 767px) {
-//     padding-top: 256px;
-//     padding-bottom: 256px;
-//       }
-//       @media screen and (min-width: 768px) and (max-width: 1399px) {
-//         padding-top: 331px;
-//         padding-bottom: 330px;
-//       }
-//       @media screen and (min-width: 1400px) {
-//         padding-top: 187px;
-//         padding-bottom: 200px;
-//       }
 
 const MainText = styled.h1`
-  color: var(--white-color);
+  color: #FFFFFF;
   font-style: italic;
   font-weight: 700;
   font-size: 120px;
@@ -50,7 +38,7 @@ const MainText = styled.h1`
     line-height: 48px;
     margin-bottom: 32px;
   }
-  @media screen and (min-width: 768px) and (max-width: 1399px) {
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
     font-size: 100px;
     line-height: 130px;
   }
@@ -68,7 +56,7 @@ const ButtonContainer = styled.div`
   }
 `;
 const BtnSignUp = styled(Link)`
-  color: var(--white-color);
+  color: #FFFFFF;
   font-weight: 600;
   line-height: 18px;
   font-size: 14px;
@@ -86,7 +74,7 @@ const BtnSignUp = styled(Link)`
     bottom: 0;
     width: 100%;
     height: 1px;
-    background-color: var(--white-color);
+    background-color: #FFFFFF;
   }
   transition: transform 0.2s;
 
@@ -105,7 +93,7 @@ const BtnLogIn = styled(Link)`
   text-align: inherit;
   cursor: pointer;
 
-  background-color: var(--white-color);
+  background-color: #FFFFFF;
   border-radius: 16px;
   padding: 14px 22px;
   display: flex;
@@ -122,13 +110,13 @@ const BtnLoginText = styled.h2`
   font-weight: 600;
   font-size: 14px;
   line-height: 18px;
-  color: var(--color-task-low-priority);
+  color: #3E85F3;
 `;
 
 const LogInIcon = styled(LuLogIn)`
   width: 18px;
   height: 18px;
-  color: var(--color-task-low-priority);
+  color: #3E85F3;
 `;
 
 export {
