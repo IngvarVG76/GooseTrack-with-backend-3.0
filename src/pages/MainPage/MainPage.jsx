@@ -1,6 +1,6 @@
-import { AuthSection } from '../../components/App/AuthSection/AuthSection';
-import { Description } from '../../components/App/Description/Description';
-import { ReviewsSlider } from '../../components/App/ReviewsSlider/ReviewsSlider';
+import { AuthSection } from '../../components/AuthSection/AuthSection';
+import { Description } from '../../components/Description/Description';
+import { ReviewsSlider } from '../../components/ReviewsSlider/ReviewsSlider';
 
 export const MainPage = () => {
   return (

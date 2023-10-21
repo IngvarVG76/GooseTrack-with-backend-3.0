@@ -117,6 +117,14 @@ const App = () => {
               }
             />
           </Route>
+          <Route
+            path="*"
+            element={
+              <PublicRoute>
+                <NotFoundPage />
+              </PublicRoute>
+            }
+          />
         </Routes>
       </Suspense>
       {/* Add your modal window component here */}
