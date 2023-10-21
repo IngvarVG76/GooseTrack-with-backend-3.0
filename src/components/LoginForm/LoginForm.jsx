@@ -23,25 +23,47 @@ import {
   LinksContainer,
 } from './LoginForm.styled';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import img from '../../images/auth_goose/login-elements.png';
+import { useDispatch, useSelector } from 'react-redux';
+import { logIn } from '../../redux/auth/operations';
+import { selectToken } from '../../redux/auth/selectors';
+
+const emailRegexp =
+  /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+
+const validationSchema = yup.object({
+  email: yup
+    .string()
+    .matches(emailRegexp, `This is an ERROR email`)
+    .required(`Email required`),
+  password: yup
+    .string()
+    .min(6, 'Password must contain at least 6 characters')
+    .required(`Password required`),
+});
 
 const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const navigate = useNavigate();
-  const emailRegexp =
-    /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+  const authenticated = useSelector(selectToken);
 
-  const validationSchema = yup.object({
-    email: yup
-      .string()
-      .matches(emailRegexp, `This is an ERROR email`)
-      .required(`Email required`),
-    password: yup
-      .string()
-      .min(6, 'Password must contain at least 6 characters')
-      .required(`Password required`),
-  });
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const onSubmit = useCallback(
+    async ({ email, password }) => {
+      try {
+        dispatch(logIn({ email, password }));
+
+        if (authenticated) {
+          navigate('/calendar');
+        }
+      } catch (error) {
+        console.log(error.message);
+      }
+    },
+    [dispatch, navigate, authenticated],
+  );
 
   const formik = useFormik({
     initialValues: {
@@ -49,10 +71,7 @@ const LoginForm = () => {
       password: '',
     },
     validationSchema: validationSchema,
-
-    onSubmit: (values) => {
-      console.log('values: ', values);
-    },
+    onSubmit,
   });
 
   return (
@@ -138,14 +157,12 @@ const LoginForm = () => {
                           : ''
                       }
                     />
-                    {!formik.errors.password && (
-                      <ShowHideButton
-                        type="button"
-                        onClick={() => setShowPassword((show) => !show)}
-                      >
-                        {showPassword ? <FiEyeOff /> : <FiEye />}
-                      </ShowHideButton>
-                    )}
+                    <ShowHideButton
+                      type="button"
+                      onClick={() => setShowPassword((show) => !show)}
+                    >
+                      {showPassword ? <FiEyeOff /> : <FiEye />}
+                    </ShowHideButton>
                   </InputWrapperWithIcon>
                   {formik.touched.password ? (
                     formik.errors.password ? (

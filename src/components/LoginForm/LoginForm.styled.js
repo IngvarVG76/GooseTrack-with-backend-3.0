@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { FiLogIn } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { MdErrorOutline } from 'react-icons/md';
-import { IoCheckmarkDoneCircleOutline } from 'react-icons/io5';
+import { AiOutlineCheckCircle } from 'react-icons/ai';
 
 export const Container = styled.div`
   display: flex;
@@ -71,11 +71,10 @@ export const InputWrapper = styled.li`
   flex-direction: column;
 
   Input::placeholder {
-    color: var(--secondary-text-color);
+    color: #dce3e5;
     font-size: 14px;
     font-weight: 400;
     line-height: 18px;
-    background-color: var(--main-background-color);
   }
   @media (min-width: 768px) {
     font-size: 16px;
@@ -89,11 +88,10 @@ export const InputWrapperWithIcon = styled.div`
   gap: 8px;
   position: relative;
   Input::placeholder {
-    color: var(--secondary-text-color);
+    color: #dce3e5;
     font-size: 14px;
     font-weight: 400;
     line-height: 18px;
-    background-color: var(--main-background-color);
   }
 `;
 
@@ -112,11 +110,6 @@ export const Button = styled.button`
   border: none;
   cursor: pointer;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  :hover {
-    color: var(--active-btn-color);
-    box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
-  }
 
   @media screen and (min-width: 375px) {
     width: 287px;
@@ -261,7 +254,7 @@ export const LinkTo = styled(Link)`
   }
 `;
 
-export const SuccessIcon = styled(IoCheckmarkDoneCircleOutline)`
+export const SuccessIcon = styled(AiOutlineCheckCircle)`
   position: absolute;
   right: 12px;
   bottom: 22px;

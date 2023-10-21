@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { BsFillPlusCircleFill } from 'react-icons/bs';
 import { PiUserLight } from 'react-icons/pi';
+import { IoCheckmarkCircleOutline } from 'react-icons/io5';
 
 const FormContainer = styled.div`
   position: relative;
@@ -124,11 +125,6 @@ const AvatarPlaceholder = styled(PiUserLight)`
   }
 `;
 
-// const AvatarPlaceholder = styled.span`
-//   width: 35px;
-//   color: #dce3e5;
-// `;
-
 const UserName = styled.h2`
   font-family: 'Inter', sans-serif;
   font-size: 14px;
@@ -175,6 +171,7 @@ const Form = styled.form`
 `;
 
 const InputWrap = styled.div`
+  /* position: relative; */
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -188,6 +185,14 @@ const Label = styled.label`
   line-height: calc(14 / 12);
   color: ${({ theme }) => theme.colors.labelUserFormTextColor};
 
+  &.valid-input {
+    color: #3cbc81;
+  }
+
+  &.invalid-input {
+    color: #ff0000;
+  }
+
   @media screen and (min-width: 768px) {
     font-size: 14px;
     line-height: calc(18 / 14);
@@ -196,7 +201,7 @@ const Label = styled.label`
 
 const Input = styled.input`
   /* width: 100%; */
-  margin-bottom: 18px;
+  /* margin-bottom: 18px; */
   padding: 12px 14px;
   border: ${({ theme }) => theme.colors.borderUserForm};
   border-radius: 8px;
@@ -221,17 +226,23 @@ const Input = styled.input`
     }
   }
 
-  &:focus {
+  &.valid-input {
+    border: 1px solid #3cbc81;
+  }
+
+  &.invalid-input {
+    border: 1px solid #ff0000;
+  }
+
+  &:focus,
+  &:hover,
+  &:active {
     outline: none;
     border: ${({ theme }) => theme.colors.borderInputHover};
   }
 
-  &:hover {
-    border: ${({ theme }) => theme.colors.borderInputHover};
-  }
-
   @media screen and (min-width: 768px) {
-    margin-bottom: 24px;
+    /* margin-bottom: 24px; */
     padding: 14px 18px;
     font-size: 16px;
     line-height: calc(18 / 16);
@@ -248,19 +259,21 @@ const SaveBtn = styled.button`
   margin-top: 40px;
   padding: 14px 20px;
 
-  background-color: #3e85f3;
+  background-color: ${(props) => (props.disabled ? '#ccc' : '#3e85f3')};
   color: #ffffff;
   border: none;
   border-radius: 16px;
-  cursor: pointer;
+  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
 
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 600;
   line-height: calc(18 / 14);
 
-  &:hover {
-    background-color: #2b78ef;
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: ${(props) => (props.disabled ? '#ccc' : '#2b78ef')};
   }
 
   @media screen and (max-width: 374px) {
@@ -276,23 +289,68 @@ const SaveBtn = styled.button`
     padding: 15px 20px;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1440px) {
     margin-top: 88px;
   }
 `;
 
 const FieldsWrap = styled.div`
+  @media screen and (max-width: 1439px) {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
   @media screen and (min-width: 1440px) {
     display: flex;
+    flex-direction: row;
     gap: 50px;
   }
 `;
 
 const ColumnWrap = styled.div`
+  @media screen and (max-width: 1439px) {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
   @media screen and (min-width: 1440px) {
     display: flex;
     flex-direction: column;
     width: 354px;
+  }
+`;
+
+const ContainerErrorIcon = styled.div`
+  position: relative;
+  padding-left: 18px;
+`;
+
+const Error = styled.div`
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+
+  &.valid {
+    color: #3cbc81;
+  }
+
+  &.invalid {
+    color: #ff0000;
+  }
+`;
+
+export const SuccessIcon = styled(IoCheckmarkCircleOutline)`
+  position: absolute;
+  right: 12px;
+  bottom: 37px;
+  width: 18px;
+  height: 18px;
+  color: #3cbc81;
+
+  @media screen and (min-width: 768px) {
+    bottom: 37px;
   }
 `;
 
@@ -314,4 +372,6 @@ export {
   FieldsWrap,
   ColumnWrap,
   LastInput,
+  ContainerErrorIcon,
+  Error,
 };

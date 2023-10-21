@@ -1,3 +1,4 @@
+import { useDispatch } from 'react-redux';
 import { TbUserCheck, TbCalendarCheck } from 'react-icons/tb';
 import { BsBarChart } from 'react-icons/bs';
 import { LuLogOut } from 'react-icons/lu';
@@ -16,8 +17,10 @@ import {
   WrapperSideBar,
 } from './SideBar.styled';
 import goose from '../../images/mainLayout/goose.png';
+import { logOut } from '../../redux/auth/operations';
 
-export const SideBar = ({ onClickMenu, nav }) => {
+export const SideBar = ({ onClickMenu, nav, setNavOpen }) => {
+  const dispatch = useDispatch();
   const onClickBackdrop = (event) => {
     if (event.target === event.currentTarget) {
       onClickMenu();
@@ -29,6 +32,11 @@ export const SideBar = ({ onClickMenu, nav }) => {
     { name: 'Calendar', icon: <TbCalendarCheck />, to: '/calendar' },
     { name: 'Statistics', icon: <BsBarChart />, to: '/statistics' },
   ];
+
+  const logout = () => {
+    setNavOpen(false);
+    dispatch(logOut());
+  };
 
   return (
     <>
@@ -58,7 +66,7 @@ export const SideBar = ({ onClickMenu, nav }) => {
             </List>
           </nav>
         </div>
-        <LogOut className="log_out" type="button">
+        <LogOut className="log_out" type="button" onClick={logout}>
           Log out <LuLogOut />
         </LogOut>
       </WrapperSideBar>

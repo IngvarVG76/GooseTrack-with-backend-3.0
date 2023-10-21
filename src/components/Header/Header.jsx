@@ -17,15 +17,13 @@ import { ModalComponent } from '../Modal/Modal';
 import { FeedbackForm } from '../FeedbackForm/FeedbackForm';
 import user from '../../images/mainLayout/user.jpg';
 import { changeTheme } from '../../styles/Theme/themeSlice';
+import { selectUser } from '../../redux/auth/selectors';
 
 export const Header = ({ onClickModal, modal }) => {
   const dispatch = useDispatch();
   const [namePage, setNamePage] = useState('');
   const theme = useSelector((state) => state.theme.lightTheme);
-
-  const handelThemeChange = () => {
-    dispatch(changeTheme());
-  };
+  const userData = useSelector(selectUser);
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -42,6 +40,10 @@ export const Header = ({ onClickModal, modal }) => {
     }
   }, [pathname]);
 
+  const handelThemeChange = () => {
+    dispatch(changeTheme());
+  };
+
   return (
     <>
       <WrapperHeader>
@@ -54,7 +56,7 @@ export const Header = ({ onClickModal, modal }) => {
             <ButtonMoon onClick={handelThemeChange}>
               {!theme ? <BiSun /> : <FiMoon />}
             </ButtonMoon>
-            <Name>User Name</Name>
+            <Name>{userData?.userName}</Name>
             <Image src={user} alt="Img User" loading="lazy" width="32" />
           </WrapperUser>
         </Wrapper>

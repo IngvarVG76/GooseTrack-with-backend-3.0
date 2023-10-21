@@ -92,7 +92,6 @@ const BtnLogIn = styled(Link)`
   color: inherit;
   text-align: inherit;
   cursor: pointer;
-
   background-color: #FFFFFF;
   border-radius: 16px;
   padding: 14px 22px;
@@ -116,7 +115,7 @@ const BtnLoginText = styled.h2`
 const LogInIcon = styled(LuLogIn)`
   width: 18px;
   height: 18px;
-  color: #3E85F3;
+  color: var(--color-task-low-priority);
 `;
 
 export {

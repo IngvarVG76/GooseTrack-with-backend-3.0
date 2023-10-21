@@ -1,3 +1,4 @@
+
 import {DescriptionContainer, FirstContainer, SecondContainer, ThirdContainer, Number, MainTittle, Tittle, DescriptionP, ImageDescription, TextBox, Box} from "./Description.styled"
 import { useState, useEffect } from "react"
 import firstDescriptionDesk from "../../images/Description/Desk/Desk_FirstDescription-min.png"
@@ -97,6 +98,7 @@ export const Description =()=>{
 
 
 
+
 return <DescriptionContainer>
     <FirstContainer>
     <Box>
@@ -104,24 +106,24 @@ return <DescriptionContainer>
     <MainTittle>Calendar</MainTittle>
         <Tittle>VIEW</Tittle>
         <DescriptionP>GooseTrack&apos;s Calendar view provides a comprehensive overview of your schedule, displaying all your tasks, events, and appointments in a visually appealing and intuitive layout.</DescriptionP>
+
         </Box>
         <ImageDescription src={suitableFirstImage} alt="image Description Calendar"></ImageDescription>
     </FirstContainer>
 
 
 <SecondContainer>
-
 <TextBox>
 <Number>2.</Number>
         <Tittle>SIDEBAR</Tittle>
         <DescriptionP>GooseTrack offers easy access to your account settings, calendar, and filters. The &ldquo;My Account&ldquo; section allows you to manage your profile information and preferences, while the calendar provides a quick and convenient way to view your upcoming events and tasks.</DescriptionP>
         </TextBox>
-
         <ImageDescription src={suitableSecondImage} alt="image Description Sidebar"></ImageDescription>
 </SecondContainer>
 
 
 <ThirdContainer>
+
 <Box>
 <Number>3.</Number>
         <MainTittle>all in</MainTittle>

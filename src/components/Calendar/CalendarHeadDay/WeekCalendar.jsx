@@ -20,7 +20,7 @@ const WeekCalendar = () => {
   const navigate = useNavigate();
   const activeDate = GetDatefromURL();
   const changeDate = (date) => {
-    navigate(`/calendar/day/${format(date, 'y,M,d')}`);
+    navigate(`/calendar/day/${format(date, 'dd-MMMM-yyyy')}`);
   };
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -47,7 +47,7 @@ const WeekCalendar = () => {
   return (
     <DayHigherWrapper>
       {daysOfWeek.map((day, index) => {
-        console.log(format(day, 'y, M, d'));
+   
         const dayOfWeek = format(day, windowWidth < 768 ? 'EEEEE' : 'E');
         return (
           <DayWrapper key={index}>

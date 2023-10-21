@@ -59,7 +59,7 @@ export const light = {
     notActiveCalendarLinkColor: '#E3F3FF',
     activeCalendarLinkColor: '#CAE8FF',
     borderCalendar: '1px solid background: rgb(255, 255, 255)',
-    backgroundColorTaskModal: '#FFFFFF',
+    backgrouTaskModalndColor: '#FFFFFF',
     backgroundTaskFormInput: '#F6F6F6',
     activeNavBackground: '#E3F3FF',
     formaBackground: '#fff',
@@ -90,7 +90,7 @@ export const dark = {
     borderColor: '#e3f3ff26', // колір рамки графіка
     arrowColor: '#FFFFFF', // колір стрілки
     calendarTextColor: '#FFFFFF', // колір тексту календаря
-    calendarTextColorToday: '#FAFAFA4D', // колір тексту календаря
+    calendarTextColorToday: '#fff', // колір тексту календаря
     calendarActiveDay: '#3E85F3', // колір активного тексту календаря
     calendarBackground: '#FFFFFF26', // колір фону календаря
     calendarBarBorder: '#22232D', // колір borderu календаря

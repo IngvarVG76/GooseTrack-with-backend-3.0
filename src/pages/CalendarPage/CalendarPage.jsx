@@ -2,6 +2,7 @@ import { Suspense, useEffect, useState } from 'react';
 import { Container } from './CalendarPage.styled';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import CalendarToolbar from '../../components/Calendar/CalendarToolbar/CalendarToolbar';
+import { format } from 'date-fns';
 
 const CalendarPage = () => {
   const [isActivePage] = useState(false);
@@ -10,7 +11,7 @@ const CalendarPage = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const activeDate = new Date();
+    const activeDate = format(new Date(), 'MMMM-yyyy');
     if (location.pathname === '/calendar') {
       navigate(`/calendar/month/${activeDate}`);
       return;

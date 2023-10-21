@@ -1,6 +1,6 @@
-import { useParams } from 'react-router-dom';
 import { StyledLink } from './StyledPeriodTypeSelect';
 import { GetDatefromURL } from '../../../heplers/getDatefromURL';
+import { format } from 'date-fns';
 
 export const DayOrMonthPeriod = ({ activePage }) => {
   const activeDate = GetDatefromURL();
@@ -15,7 +15,7 @@ export const DayOrMonthPeriod = ({ activePage }) => {
         $borderSide
         $active={activePage}
         $primary={primaryBtn()}
-        to={`/calendar/month/${activeDate}`}
+        to={`/calendar/month/${format(activeDate, 'MMMM-yyyy')}`}
       >
         Month
       </StyledLink>
@@ -23,7 +23,7 @@ export const DayOrMonthPeriod = ({ activePage }) => {
       <StyledLink
         $active={activePage}
         $primary={!primaryBtn()}
-        to={`/calendar/day/${activeDate}`}
+        to={`/calendar/day/${format(activeDate, 'dd-MMMM-yyyy')}`}
       >
         Day
       </StyledLink>
