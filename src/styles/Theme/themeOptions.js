@@ -29,7 +29,7 @@ export const light = {
     weekendTextColor: '#3E85F3', // колір тексту вихідних днів календаря
     backgroundCalendar: '#FFFFFF', // колір фону календаря
     borderСalendarColor: 'rgba(220,	227,	229, 0.80)', // колір рамки календаря
-    toolbarButtonArrowColor: '#dce3e5', // колір активної стрілки
+    toolbarButtonArrowColor: '#dce3e5', // колір  стрілки
     toolbarButtonArrowColorHover: '#343434', // колір активної стрілки
     borderColorSideBar: '1px solid #dce3e580', // колір бордера SideBar
     gooseColor: 'rgba(62, 133, 243, 1)', // колір тексту Goose
