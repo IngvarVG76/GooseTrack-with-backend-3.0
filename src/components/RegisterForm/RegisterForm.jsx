@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
@@ -25,11 +26,14 @@ import {
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import { useState } from 'react';
 import img from '../../images/auth_goose/signup-elements.png';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { register } from '../../redux/auth/operations';
+import { selectToken } from '../../redux/auth/selectors';
 
 const RegisterForm = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const authenticated = useSelector(selectToken);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const emailRegexp =
@@ -50,6 +54,21 @@ const RegisterForm = () => {
       .required(`Password required`),
   });
 
+  const onSubmit = useCallback(
+    async ({ userName, email, password }) => {
+      try {
+        dispatch(register({ userName, email, password }));
+
+        if (authenticated) {
+          navigate('/calendar');
+        }
+      } catch (error) {
+        console.log(error.message);
+      }
+    },
+    [dispatch, navigate, authenticated],
+  );
+
   const formik = useFormik({
     initialValues: {
       userName: '',
@@ -57,14 +76,7 @@ const RegisterForm = () => {
       password: '',
     },
     validationSchema: validationSchema,
-
-    onSubmit: async ({ userName, email, password }) => {
-      try {
-        dispatch(register({ userName, email, password }));
-      } catch (error) {
-        console.log(error.message);
-      }
-    },
+    onSubmit,
   });
 
   return (
@@ -198,14 +210,12 @@ const RegisterForm = () => {
                           : ''
                       }
                     />
-                    {!formik.errors.password && (
-                      <ShowHideButton
-                        type="button"
-                        onClick={() => setShowPassword((show) => !show)}
-                      >
-                        {showPassword ? <FiEyeOff /> : <FiEye />}
-                      </ShowHideButton>
-                    )}
+                    <ShowHideButton
+                      type="button"
+                      onClick={() => setShowPassword((show) => !show)}
+                    >
+                      {showPassword ? <FiEyeOff /> : <FiEye />}
+                    </ShowHideButton>
                   </InputWrapperWithIcon>
                   {formik.touched.password ? (
                     formik.errors.password ? (
