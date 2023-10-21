@@ -13,8 +13,9 @@ import { ChoosedMonth } from '../Calendar/ChoosedMonth/ChoosedMonth';
 import PrivateRoute from '../../components/PrivateRoute/PrivateRoute';
 import PublicRoute from '../PublicRoute/PublicRoute';
 import { getCurrentUser } from '../../redux/auth/operations';
-import { selectToken } from '../../redux/auth/selectors';
+import { selectIsFetchingCurrentUser, selectToken } from '../../redux/auth/selectors';
 import { ToastContainer } from 'react-toastify';
+import { Loader } from '../Loader/Loader';
 
 // Pages
 const MainPage = lazy(() => import('../../pages/MainPage/MainPage'));
@@ -37,6 +38,7 @@ const NotFoundPage = lazy(() =>
 const App = () => {
   const dispatch = useDispatch();
   const authenticated = useSelector(selectToken);
+  const isRefreshing = useSelector(selectIsFetchingCurrentUser);
 
   useEffect(() => {
     if (!authenticated) {
@@ -45,10 +47,12 @@ const App = () => {
     dispatch(getCurrentUser());
   }, [dispatch, authenticated]);
 
-  return (
+  return isRefreshing ? (
+      <Loader />
+  ) : (
     <Theme>
       <GlobalStyle />
-      <Suspense fallback={<p>Loading...</p>}>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route
             path="/"
