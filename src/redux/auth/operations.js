@@ -4,7 +4,7 @@ import { styleToastify } from '../../components/toastify';
 import { toast } from 'react-toastify';
 
 export const $instants = axios.create({
-  baseURL: 'https://project-backend-8dts.onrender.com/auth/',
+  baseURL: 'https://project-backend-8dts.onrender.com',
 });
 
 const setAuthHeader = (token) => {
@@ -19,7 +19,7 @@ export const register = createAsyncThunk(
   'user/signup',
   async (user, thunkAPI) => {
     try {
-      const { data } = await $instants.post('/signup', user);
+      const { data } = await $instants.post('/auth/signup', user);
       toast.success('You have successfully registered', styleToastify);
       return data;
     } catch (error) {
@@ -44,7 +44,7 @@ export const logIn = createAsyncThunk(
   'user/login',
   async (credentials, thunkAPI) => {
     try {
-      const { data } = await $instants.post('/login', credentials);
+      const { data } = await $instants.post('/auth/login', credentials);
       setAuthHeader(data.token);
       return data;
     } catch (error) {
@@ -67,7 +67,7 @@ export const logIn = createAsyncThunk(
 
 export const logOut = createAsyncThunk('user/logout', async (_, thunkAPI) => {
   try {
-    await $instants.post('/logout');
+    await $instants.post('/auth/logout');
     clearAuthHeader();
   } catch (error) {
     if (error.response) {
@@ -93,7 +93,7 @@ export const getCurrentUser = createAsyncThunk(
     }
     try {
       setAuthHeader(persistedToken);
-      const response = await $instants.get('/current');
+      const response = await $instants.get('/auth/current');
       return response.data.user;
     } catch (error) {
       if (error.response) {
@@ -111,7 +111,7 @@ export const updateUser = createAsyncThunk(
   '/user',
   async (credentials, thunkAPI) => {
     try {
-      const response = await $instants.patch('/user', credentials);
+      const response = await $instants.patch('/auth/user', credentials);
       return response.data.user;
     } catch (error) {
       console.log(error.response.data.message);
