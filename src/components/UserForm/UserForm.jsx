@@ -35,9 +35,12 @@ import {
 import { ErrorIcon } from '../../components/RegisterForm/RegisterForm.styled';
 // import AccountDatepicker from '../AccountDatePicker/AccountDatePicker';
 
-const phoneRegExp = /\+380\d{3}\d{2}\d{2}\d{2}$/;
+// const phoneRegExp = /\+380\d{3}\d{2}\d{2}\d{2}$/;
+const phoneRegExp = /^(?:\+\d|[\d\s\-./()]){10,20}$/;
 const emailRegexp =
-  /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+  /^[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?$/;
+// const emailRegexp =
+//   /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
 // const avaliableMimeType = ['image/jpeg', 'image/png'];
 
 const UserForm = () => {
@@ -103,13 +106,7 @@ const UserForm = () => {
 
   const formik = useFormik({
     initialValues: {
-      // avatar: `${avatar}`,
-      // userName: `${newUserName}`,
-      // birthday: `${newBirthDay}`,
-      // email: `${newEmail}`,
-      // phone: `${newPhone}`,
-      // skype: `${newSkype}`,
-      avatar: `${avatar}`,
+      avatar: `${avatarURL}`,
       checkBox: false,
       userName: `${userName ?? ''}`,
       birthday: `${birthDay}`,
@@ -131,18 +128,18 @@ const UserForm = () => {
         .min(3, 'Username must contain at least 3 characters')
         .max(16, 'Username must contain not more than 16 characters')
         .required('Username is required field'),
-      birthday: Yup.date()
-        // .transform(function (value, originalValue) {
-        //   if (this.isType(value)) {
-        //     return value;
-        //   }
-        //   const result = parse(originalValue, 'dd/MM/yyyy', new Date());
-        //   return result;
-        // })
-        // .typeError('Please enter a valid date')
-        // .min('1969-11-13', 'Date is too early')
-        // .max(new Date(), 'Date is not valid')
-        .required(),
+      birthday: Yup.date(),
+      // .transform(function (value, originalValue) {
+      //   if (this.isType(value)) {
+      //     return value;
+      //   }
+      //   const result = parse(originalValue, 'dd/MM/yyyy', new Date());
+      //   return result;
+      // })
+      // .typeError('Please enter a valid date')
+      // .min('1969-11-13', 'Date is too early')
+      // .max(new Date(), 'Date is not valid')
+      // .required(),
       email: Yup.string()
         .email(`This is an ERROR email`)
         .matches(emailRegexp, `This is an ERROR email`)
@@ -174,24 +171,15 @@ const UserForm = () => {
         formData.append('avatarURL', avatar);
       }
 
-      console.log(values);
-
       dispatch(updateUser(formData));
 
       setTimeout(() => {
-        formik.resetForm({ values: values });
-      }, 3000);
+        formik.resetForm({ values: values, touched: { userName: true, birthday: true, email: true, phone: true, skype: true } });
+      }, 1000);
 
       actions.setSubmitting(false);
-
-      // alert(JSON.stringify(values, null, 2));
-      // formik.setSubmitting(false);
     },
   });
-
-  console.log(formik.values.birthday);
-
-  // formik.touched = {};
 
   return (
     <FormContainer>
@@ -217,7 +205,7 @@ const UserForm = () => {
             type="file"
             ref={fileInputRef}
             accept="image/*"
-            value={formik.values.avatar}
+            // value={formik.values.avatar}
             onChange={handleAvatarChange}
           />
           <input
@@ -300,10 +288,16 @@ const UserForm = () => {
                     : new Date()
                 }
                 onChange={(date) => {
-                  console.log(date);
                   formik.setFieldValue('birthday', format(date, 'yyyy-MM-dd'));
                 }}
                 dateFormat="dd/MM/yyyy"
+                className={
+                  formik.touched.birthday
+                    ? formik.errors.birthday
+                      ? 'invalid-input'
+                      : 'valid-input'
+                    : ''
+                }
               />
               {formik.touched.birthday ? (
                 formik.errors.birthday ? (
@@ -354,8 +348,8 @@ const UserForm = () => {
               <Input
                 id="phone"
                 name="phone"
-                type="text"
-                placeholder="+380670000000"
+                type="tel"
+                placeholder="38 (067) 000 00 00"
                 {...formik.getFieldProps('phone')}
                 className={
                   formik.touched.phone
