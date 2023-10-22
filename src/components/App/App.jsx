@@ -13,8 +13,9 @@ import { ChoosedMonth } from '../Calendar/ChoosedMonth/ChoosedMonth';
 import PrivateRoute from '../../components/PrivateRoute/PrivateRoute';
 import PublicRoute from '../PublicRoute/PublicRoute';
 import { getCurrentUser } from '../../redux/auth/operations';
-import { selectToken } from '../../redux/auth/selectors';
+import { selectIsFetchingCurrentUser, selectToken } from '../../redux/auth/selectors';
 import { ToastContainer } from 'react-toastify';
+import { Loader } from '../Loader/Loader';
 
 // Pages
 const MainPage = lazy(() => import('../../pages/MainPage/MainPage'));
@@ -37,6 +38,7 @@ const NotFoundPage = lazy(() =>
 const App = () => {
   const dispatch = useDispatch();
   const authenticated = useSelector(selectToken);
+  const isRefreshing = useSelector(selectIsFetchingCurrentUser);
 
   useEffect(() => {
     if (!authenticated) {
@@ -45,10 +47,12 @@ const App = () => {
     dispatch(getCurrentUser());
   }, [dispatch, authenticated]);
 
-  return (
+  return isRefreshing ? (
+      <Loader />
+  ) : (
     <Theme>
       <GlobalStyle />
-      <Suspense fallback={<p>Loading...</p>}>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route
             path="/"
@@ -134,46 +138,3 @@ const App = () => {
 };
 
 export default App;
-
-// const PrivateRoute = ({ path, element, redirectTo = '/' }) => {
-//   const authentificated = useSelector(selectIsLoggedIn);
-//   console.log('PrivateRoute authentificated:', authentificated);
-
-//   return <Route path={path} element={authentificated ? element : <Navigate to={redirectTo} />} />;
-// }; <PrivateRoute path="/account" element={<AccountPage />} redirectTo="/login" />
-
-// Олд апп
-
-// const App = () => {
-//   // const [modalOpen, setModalOpen] = useState(false); //necessary for a modal window, you need to add it to the component
-
-//   // const onClickModal = useCallback(() => {
-//   //   setModalOpen(!modalOpen);
-//   // }, [modalOpen]); //necessary for a modal window, you need to add it to the component
-
-//   return (
-//     <Theme>
-//       <GlobalStyle />
-//       {/* <ChangeThemeButton />
-//       <button onClick={onClickModal}>Modal</button>
-//       {modalOpen && (
-//         <ModalComponent onClose={onClickModal}>
-//           <p>Content</p>
-//         </ModalComponent>
-//       )} */}
-
-//       <Routes>
-//         <Route path="/" element={<MainLayout />}>
-//           <Route path="/account" element={<AccountPage />} />
-//           <Route path="/calendar" element={<CalendarPage />}>
-//             <Route path="month/:currentDate" element={<ChoosedMonth />} />
-//             <Route path="day/:currentDate" element={<ChoosedDay />} />
-//           </Route>
-//           <Route path="/statistics" element={<StatisticsPage />} />
-//         </Route>
-//       </Routes>
-
-//       {/* necessary for a modal window, you need to add it to the component */}
-//     </Theme>
-//   );
-// };

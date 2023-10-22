@@ -42,8 +42,6 @@ export const DayNumberRegular = styled.p`
   justify-content: center;
   align-items: center;
   align-self: end;
-
-  font-family: 'Inter';
   font-size: 12px;
   font-weight: 700;
   line-height: 1.16;
@@ -53,7 +51,7 @@ export const DayNumberRegular = styled.p`
 
 export const DayNumberToday = styled(DayNumberRegular)`
   background: ${({ theme }) => theme.colors.backgroundButton};
-  color: ${({ theme }) => theme.colors.calendarTextColorToday};
+  color: ${({ theme }) => theme.colors.calendarActivNumber};
   border-radius: 6px;
 `;
 

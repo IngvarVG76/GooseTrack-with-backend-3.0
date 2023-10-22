@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Content = styled.div`
   background: ${({ theme }) => theme.colors.primaryBackground};
-  height: 100vh;
+  // height: 100vh;
   position: relative;
   max-width: 375px;
   margin: 0 auto;

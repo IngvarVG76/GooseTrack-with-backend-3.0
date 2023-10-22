@@ -47,7 +47,6 @@ const WeekCalendar = () => {
   return (
     <DayHigherWrapper>
       {daysOfWeek.map((day, index) => {
-   
         const dayOfWeek = format(day, windowWidth < 768 ? 'EEEEE' : 'E');
         return (
           <DayWrapper key={index}>

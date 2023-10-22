@@ -12,6 +12,11 @@ export const Wrapper = styled.div`
     background: ${({ theme }) => theme.colors.scrollBg};
     border-radius: 12px;
   }
+  @media screen and (min-width: 768px) {
+    &::-webkit-scrollbar {
+      width: 14px;
+    }
+  }
 `;
 
 export const WrapperTasks = styled.div`
