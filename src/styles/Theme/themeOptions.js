@@ -66,6 +66,7 @@ export const light = {
     activeNavBackground: '#E3F3FF',
     formaBackground: '#fff',
     avatarPlaceholder: '#3E85F32E',
+    textColorTasksChart: '#343434',
   },
 };
 
@@ -135,6 +136,7 @@ export const dark = {
     activeNavBackground: '#3E85F3',
     formaBackground: '#171820',
     avatarPlaceholder: '#FFFFFF2E',
+    textColorTasksChart: '#fff',
   },
 };
 

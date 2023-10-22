@@ -6,8 +6,11 @@ import {
   CartesianGrid,
   Tooltip,
   LabelList,
+  ResponsiveContainer,
 } from 'recharts';
 import css from './chart.module.css';
+import { ChartContainer, Taskstitle } from './chartStyles';
+import { useTheme } from 'styled-components';
 
 // allTasksByDay=todoByDay+inprogressByDay+doneByDay
 // todoByDay%=todoByDay/allTasksByDay
@@ -42,87 +45,104 @@ const data = [
 ];
 
 const StatisticsChart = () => {
+  const theme = useTheme();
+
   return (
-    <div className={css.chartContainer}>
-      <h3 className={css.tasksTitle}>Tasks</h3>
-
-      <BarChart
-        className={css.barChart}
-        width={355}
-        height={360}
-        data={data}
-        barGap={8}
-      >
-        <CartesianGrid vertical={false} fill="#fff" stroke="#E3F3FF" />
-        <defs>
-          <linearGradient
-            id="pinkGradientFill"
-            x1="0%"
-            x2="0%"
-            y1="0%"
-            y2="100%"
-          >
-            <stop offset="0%" stopColor="rgba(255, 210, 221, 0)" />
-            <stop offset="100%" stopColor="rgba(255, 210, 221, 1)" />
-          </linearGradient>
-          <linearGradient
-            id="blueGradientFill"
-            x1="0%"
-            x2="0%"
-            y1="0%"
-            y2="100%"
-          >
-            <stop offset="0%" stopColor="rgba(62, 133, 243, 0)" />
-            <stop offset="100%" stopColor="rgba(62, 133, 243, 1)" />
-          </linearGradient>
-        </defs>
-        <XAxis
-          dataKey="name"
-          axisLine={false}
-          tick={{ fill: '#343434', fontSize: '14px' }}
-          tickSize={20}
-          tickLine={false}
-        />
-        <YAxis
-          type="number"
-          domain={[0, 100]}
-          axisLine={false}
-          width={28}
-          tickCount={6}
-          tickSize={10}
-          tickLine={false}
-          tick={{ fill: '#343434', fontSize: '14px' }}
-        />
-        <Tooltip cursor={false} />
-
-        <Bar
-          dataKey="day"
-          barSize={22}
-          fill="url(#pinkGradientFill)"
-          radius={6}
+    <ChartContainer>
+      <Taskstitle>Tasks</Taskstitle>
+      <ResponsiveContainer width={307} height={360}>
+        <BarChart
+          className={css.barChart}
+          width={307}
+          height={360}
+          data={data}
+          barGap={8}
         >
-          <LabelList
+          <CartesianGrid
+            vertical={false}
+            fill={theme.colors.secondaryBackground}
+            stroke={theme.colors.borderColor}
+          />
+          <defs>
+            <linearGradient
+              id="pinkGradientFill"
+              x1="0%"
+              x2="0%"
+              y1="0%"
+              y2="100%"
+            >
+              <stop offset="0%" stopColor="rgba(255, 210, 221, 0)" />
+              <stop offset="100%" stopColor="rgba(255, 210, 221, 1)" />
+            </linearGradient>
+            <linearGradient
+              id="blueGradientFill"
+              x1="0%"
+              x2="0%"
+              y1="0%"
+              y2="100%"
+            >
+              <stop offset="0%" stopColor="rgba(62, 133, 243, 0)" />
+              <stop offset="100%" stopColor="rgba(62, 133, 243, 1)" />
+            </linearGradient>
+          </defs>
+          <XAxis
+            dataKey="name"
+            axisLine={false}
+            tick={{
+              fill: theme.colors.textColorTasksChart,
+              fontSize: '12px',
+              fontFamily: 'Inter',
+              fontWeight: 400,
+              lineHeight: 1.33,
+            }}
+            tickSize={20}
+            tickLine={false}
+          />
+          <YAxis
+            type="number"
+            domain={[0, 100]}
+            axisLine={false}
+            width={28}
+            tickCount={6}
+            tickSize={10}
+            tickLine={false}
+            tick={{
+              fill: theme.colors.textColorTasksChart,
+              fontSize: '14px',
+              fontFamily: 'Inter',
+            }}
+          />
+          <Tooltip cursor={false} />
+
+          <Bar
             dataKey="day"
-            position="top"
-            fill="#343434"
-            fontSize={12}
-          />
-        </Bar>
-        <Bar
-          dataKey="month"
-          barSize={22}
-          fill="url(#blueGradientFill)"
-          radius={6}
-        >
-          <LabelList
+            barSize={22}
+            fill="url(#pinkGradientFill)"
+            radius={6}
+          >
+            <LabelList
+              dataKey="day"
+              position="top"
+              fill={theme.colors.textColorTasksChart}
+              fontSize={12}
+            />
+          </Bar>
+          <Bar
             dataKey="month"
-            position="top"
-            fill="#343434"
-            fontSize={12}
-          />
-        </Bar>
-      </BarChart>
-    </div>
+            barSize={22}
+            fill="url(#blueGradientFill)"
+            radius={6}
+          >
+            <LabelList
+              dataKey="month"
+              position="top"
+              fill={theme.colors.textColorTasksChart}
+              fontSize={12}
+            />
+          </Bar>
+        </BarChart>
+      </ResponsiveContainer>
+    </ChartContainer>
   );
 };
 
