@@ -15,9 +15,9 @@ export const TasksColumnsList = ({ tasks, date }) => {
 
   return (
     <Container>
-      <TasksColumn title={'to-do'} tasks={tasksToDo} />
-      <TasksColumn title={'in-progress'} tasks={tasksInProgress} />
-      <TasksColumn title={'done'} tasks={tasksDone} />
+      <TasksColumn title={'TODO'} tasks={tasksToDo} />
+      <TasksColumn title={'INPROGRESS'} tasks={tasksInProgress} />
+      <TasksColumn title={'DONE'} tasks={tasksDone} />
     </Container>
   );
 };

@@ -2,13 +2,11 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-import { parse, isDate } from 'date-fns';
 import moment from 'moment';
-import icons from '../../../images/icons.svg';
 import { selectSelectedDate } from '../../../redux/date/selectors';
 import { addTask, updateTask } from '../../../redux/tasks/task';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import icons from '../../../images/icons.svg';
 import {
   ActionButton,
   AddIcon,
@@ -32,91 +30,108 @@ import {
   TimeField,
   TitleField,
 } from './TaskForm.styled';
+import { selectToken } from '../../../redux/auth/selectors';
+// import { icons } from 'react-icons';
 
-const schema = Yup.object().shape({
-  title: Yup.string().max(250, 'Too Long!').required('Title is required'),
-  start: Yup.string().required('Start time cannot be empty'),
-  end: Yup.string()
-    .required('End time cannot be empty')
-    .test('is-greater', 'End time should be greater', function (value) {
-      const { start } = this.parent;
-      return moment(value, 'HH:mm').isSameOrAfter(moment(start, 'HH:mm'));
-    }),
-  priority: Yup.string().oneOf(['LOW', 'MEDIUM', 'HIGH']).required('Required'),
-  date: Yup.date()
-    .required('Required')
-    .transform(function parseDateString(value, originalValue) {
-      return isDate(originalValue)
-        ? originalValue
-        : parse(originalValue, 'yyyy-MM-dd', new Date());
-    }),
-  category: Yup.string()
-    .oneOf(['TODO', 'INPROGRESS', 'DONE'])
-    .required('Required'),
-});
+const validate = (values) => {
+  const errors = {};
+
+  if (!values.title) {
+    errors.title = 'Title is required';
+  } else if (values.title.length > 250) {
+    errors.title = 'Title is too long';
+  }
+
+  if (!values.start) {
+    errors.start = 'Start time cannot be empty';
+  }
+
+  if (!values.end) {
+    errors.end = 'End time cannot be empty';
+  } else if (
+    moment(values.end, 'HH:mm').isSameOrBefore(moment(values.start, 'HH:mm'))
+  ) {
+    errors.end = 'End time should be greater';
+  }
+
+  if (!values.priority) {
+    errors.priority = 'Required';
+  }
+
+  if (!values.date) {
+    errors.date = 'Required';
+  }
+
+  if (!values.category) {
+    errors.category = 'Required';
+  }
+
+  return errors;
+};
 
 export const TaskForm = ({ category, task, onClose }) => {
   const [action, setAction] = useState('create');
+  const authenticated = useSelector(selectToken);
   const date = useSelector(selectSelectedDate);
   const dispatch = useDispatch();
 
   const initialValues = {
     title: '',
     start: '09:00',
-    end: '09:30',
-    priority: 'LOW',
+    end: '17:00',
+    priority: 'HIGH',
     date: date,
-    category: category,
+    category: 'TODO', // You can hardcode 'TODO' for category
   };
 
   useEffect(() => {
     if (task?._id) setAction('edit');
   }, [task]);
 
+  
   const handleSubmit = (values) => {
-    const payload = {
-      id: values._id,
-      updatedTask: {
+    console.log(values);
+    const taskData = {
         title: values.title,
         start: values.start,
         end: values.end,
+        date: moment(values.date).format('YYYY-MM-DD'), // Format the date
         priority: values.priority,
-        date: values.date,
-        category: values.category,
-      },
+        category: 'TODO', // You can hardcode 'TODO' for category
     };
 
-    if (action === 'edit') {
-      Notify.info('Task has been edited.');
-      dispatch(updateTask(payload))
-        .then((data) => {
-          if (data.error) {
-            throw new Error(data.payload);
-          }
-          onClose();
-        })
-        .catch((error) => {
-          Notify.failure('Something went wrong.');
-        });
-    } else {
-      Notify.success('Task has been successfully created.');
-      dispatch(addTask({ ...values, date, category }))
-        .then((data) => {
-          if (data.error) {
-            throw new Error(data.payload);
-          }
-          onClose();
-        })
-        .catch((error) => {
-          Notify.failure('Something went wrong.');
-        });
-    }
+    // if (action === 'edit') {
+    //   Notify.info('Task has been edited.');
+    //   dispatch(updateTask({ id: values._id, updatedTask: taskData }))
+    //     .then((data) => {
+    //       if (data.error) {
+    //         throw new Error(data.payload);
+    //       }
+    //       onClose();
+    //     })
+    //     .catch((error) => {
+    //       Notify.failure('Something went wrong.', error);
+    //     });
+    // } else {
+    //   Notify.success('Task has been successfully created.');
+    dispatch(addTask({ ...taskData, date, category }))
+      .then((data) => {
+        if (data.error) {
+          throw new Error(data.payload);
+        }
+        onClose();
+      })
+      .catch((error) => {
+        Notify.failure('Something went wrong.', error);
+      });
+    // }
   };
+
 
   return (
     <Formik
       initialValues={task || initialValues}
-      validationSchema={schema}
+      validate={validate}
       onSubmit={(values) => {
         handleSubmit(values);
       }}
@@ -221,4 +236,3 @@ export const TaskForm = ({ category, task, onClose }) => {
     </Formik>
   );
 };
-// x
