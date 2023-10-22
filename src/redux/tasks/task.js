@@ -1,7 +1,13 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
+import { styleToastify } from '../../components/toastify';
 
-axios.defaults.baseURL = 'https://goose-track-project-back.onrender.com/';
+axios.defaults.baseURL = 'https://project-backend-8dts.onrender.com';
+
+export const $instants = axios.create({
+  baseURL: 'https://project-backend-8dts.onrender.com',
+});
 
 export const getAllTasks = createAsyncThunk(
   'tasks/getAll',
@@ -14,6 +20,8 @@ export const getAllTasks = createAsyncThunk(
     }
   },
 );
+
+
 
 export const fetchTasks = createAsyncThunk(
   'tasks/fetchTasks',
@@ -30,13 +38,37 @@ export const fetchTasks = createAsyncThunk(
   },
 );
 
+// export const addTask = createAsyncThunk(
+//   'tasks/addTask',
+//   async (task, thunkAPI) => {
+//     // console.log(task)
+//     try {
+//       const res = await axios.post('/tasks', task);
+//       return res.data;
+//     } catch (error) {
+//       console.log(error);
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   },
+// );
+
 export const addTask = createAsyncThunk(
   'tasks/addTask',
   async (task, thunkAPI) => {
     try {
-      const res = await axios.post('/tasks', task);
-      return res.data;
+      const { data } = await $instants.post('/tasks', task);
+      return data;
     } catch (error) {
+      console.log(error);
+      if (error.response) {
+        const { status } = error.response;
+        if (status === 401) {
+          toast.error('Not authorized.', styleToastify);
+        }
+        if (status === 500) {
+          toast.error('Server error.', styleToastify);
+        }
+      }
       return thunkAPI.rejectWithValue(error.message);
     }
   },

@@ -1,10 +1,14 @@
+import { createSlice } from '@reduxjs/toolkit';
 import { logOut } from '../auth/operations';
+
+
 import {
   handleFulfilled,
   handleMonthFulfilled,
   handlePending,
   handleRejected,
 } from './handlers';
+
 import {
   fetchTasks,
   addTask,
@@ -13,7 +17,6 @@ import {
   getAllTasks,
 } from './task';
 
-import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   tasks: [],
