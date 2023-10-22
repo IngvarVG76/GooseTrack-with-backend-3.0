@@ -17,6 +17,7 @@ import { tasksReducer } from './tasks/tasksSlice';
 import { dateReducer } from './date/dateSlice';
 import storage from 'redux-persist/lib/storage';
 import { persistedThemeReducer } from '../styles/Theme/themeSlice';
+import { reviewReducer } from './reviews/slice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -29,8 +30,7 @@ export const store = configureStore({
     tasks: tasksReducer,
     date: dateReducer,
     auth: persistReducer(authPersistConfig, authReducer),
-    // [reviewsApi.reducerPath]: reviewsApi.reducer,
-    // [tasksApi.reducerPath]: tasksApi.reducer,
+    reviews: reviewReducer,
     theme: persistedThemeReducer,
   },
   middleware: (getDefaultMiddleware) =>
