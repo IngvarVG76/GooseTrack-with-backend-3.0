@@ -1,5 +1,9 @@
-https://project-backend-8dts.onrender.com/own get
+-  GET https://project-backend-8dts.onrender.com/reviews (отримати всі відгуки)
 
-https://project-backend-8dts.onrender.com get
+token  GET https://project-backend-8dts.onrender.com/reviews/own (повертає користувачу свій відгук)
 
-https://project-backend-8dts.onrender.com/own post
+token  POST https://project-backend-8dts.onrender.com/reviews/own (створення відгуку)
+
+token  PATCH https://project-backend-8dts.onrender.com/reviews/own/{id} (редагування відгуку)
+
+token  DELETE https://project-backend-8dts.onrender.com/reviews/own/{id}  (видалення відгуку)
