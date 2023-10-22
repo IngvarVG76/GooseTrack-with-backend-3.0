@@ -27,7 +27,7 @@ export const CalendarContainer = styled.div`
 
 export const Day = styled.div`
   cursor: pointer;
-
+  position: relative;
   display: flex;
   flex-direction: column;
   padding-top: 4px;
@@ -57,4 +57,38 @@ export const DayNumberToday = styled(DayNumberRegular)`
 
 export const DayNumberInActive = styled(DayNumberRegular)`
   color: rgba(220, 227, 229, 0.5);
+`;
+
+export const TextWrapper = styled.div`
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  padding: 4px 5px;
+  border-radius: 8px;
+  width: 90%;
+  margin: 2px;
+  background: ${(props) => props.$priority === 'LOW' && '#CEEEFD'};
+  background: ${(props) => props.$priority === 'MEDIUM' && '#FCF0D4'};
+  background-color: ${(props) => props.$priority === 'HIGH' && '#FFD2DD'};
+
+  @media screen and (min-width: 768px) {
+    width: 95%;
+    margin-right: 5px;
+  }
+`;
+
+export const Text = styled.p`
+  font-size: 10px;
+  font-weight: 700;
+  line-height: calc(14 / 10);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: ${(props) => props.$priority === 'LOW' && '#3E85F3'};
+  color: ${(props) => props.$priority === 'MEDIUM' && '#F3B249'};
+  color: ${(props) => props.$priority === 'HIGH' && '#EA3D65'};
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    line-height: calc(18 / 14);
+  }
 `;
