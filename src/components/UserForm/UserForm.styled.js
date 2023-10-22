@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { BsFillPlusCircleFill } from 'react-icons/bs';
 import { PiUserLight } from 'react-icons/pi';
 import { IoCheckmarkCircleOutline } from 'react-icons/io5';
+import DatePicker from 'react-datepicker';
 
 const FormContainer = styled.div`
   position: relative;
@@ -241,6 +242,44 @@ const Input = styled.input`
     border: ${({ theme }) => theme.colors.borderInputHover};
   }
 
+  background-color: ${({ theme }) => theme.colors.secondaryBackground};
+  @media screen and (min-width: 768px) {
+    /* margin-bottom: 24px; */
+    padding: 14px 18px;
+    font-size: 16px;
+    line-height: calc(18 / 16);
+  }
+`;
+
+const InputDate = styled(DatePicker)`
+  width: 100%;
+  padding: 12px 14px;
+  border: ${({ theme }) => theme.colors.borderUserForm};
+  border-radius: 8px;
+
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: calc(18 / 14);
+  background-color: ${({ theme }) => theme.colors.secondaryBackground};
+  color: ${({ theme }) => theme.colors.text};
+
+  &.valid-input {
+    border: 1px solid #3cbc81;
+  }
+
+  &.invalid-input {
+    border: 1px solid #ff0000;
+  }
+
+  &:focus,
+  &:hover,
+  &:active {
+    outline: none;
+    border: ${({ theme }) => theme.colors.borderInputHover};
+  }
+
+  background-color: ${({ theme }) => theme.colors.secondaryBackground};
   @media screen and (min-width: 768px) {
     /* margin-bottom: 24px; */
     padding: 14px 18px;
@@ -319,6 +358,7 @@ const ColumnWrap = styled.div`
     display: flex;
     flex-direction: column;
     width: 354px;
+    gap: 24px;
   }
 `;
 
@@ -368,6 +408,7 @@ export {
   Label,
   Input,
   InputWrap,
+  InputDate,
   SaveBtn,
   FieldsWrap,
   ColumnWrap,
