@@ -1,4 +1,4 @@
-import{s as i,n,L as u,m as h,j as t,o as d,i as x,r as c,p as f,O as y}from"./index-a5cadfa7.js";import{C as $}from"./ChooseDate-e8ec042e.js";import"./index-2dcb2f7c.js";const g=i.div`
+import{s as i,n,L as u,m as h,j as t,o as d,i as x,r as c,p as f,O as y}from"./index-e0698c93.js";import{C as $}from"./ChooseDate-bb80195e.js";import"./index-c935fc00.js";import"./index-927eef9e.js";const g=i.div`
   background-color: ${({theme:r})=>r.colors.primaryBackground};
   display: flex;
   flex-direction: column;
@@ -64,4 +64,4 @@ import{s as i,n,L as u,m as h,j as t,o as d,i as x,r as c,p as f,O as y}from"./i
         `}}}
 `,v=i.div`
 display:flex;
-`,b=({activePage:r})=>{const e=h(),a=()=>r==="month";return t.jsxs(v,{children:[t.jsx(m,{$borderSide:!0,$active:r,$primary:a(),to:`/calendar/month/${d(e,"MMMM-yyyy")}`,children:"Month"}),t.jsx(m,{$active:r,$primary:!a(),to:`/calendar/day/${d(e,"dd-MMMM-yyyy")}`,children:"Day"})]})},j=()=>{const r=x(),e=o=>{let s;return o.map(l=>(r.pathname.includes(l)&&(s=l),s)),s},a=["month","day"];return t.jsxs(w,{children:[t.jsx($,{activePage:e(a)}),t.jsx(b,{activePage:e(a)})]})},L=()=>{const[r]=c.useState(!1),e=f(),a=x();return c.useEffect(()=>{const o=d(new Date,"MMMM-yyyy");if(a.pathname==="/calendar"){e(`/calendar/month/${o}`);return}},[e,a.pathname]),t.jsxs(g,{children:[t.jsx(j,{isActivePage:r}),t.jsx(c.Suspense,{fallback:null,children:t.jsx(y,{})})]})};export{L as default};
+`,b=({activePage:r})=>{const e=h(),a=()=>r==="month";return t.jsxs(v,{children:[t.jsx(m,{$borderSide:!0,$active:r,$primary:a(),to:`/calendar/month/${d(e,"MMMM-yyyy")}`,children:"Month"}),t.jsx(m,{$active:r,$primary:!a(),to:`/calendar/day/${d(e,"dd-MMMM-yyyy")}`,children:"Day"})]})},j=()=>{const r=x(),e=o=>{let s;return o.map(l=>(r.pathname.includes(l)&&(s=l),s)),s},a=["month","day"];return t.jsxs(w,{children:[t.jsx($,{activePage:e(a)}),t.jsx(b,{activePage:e(a)})]})},D=()=>{const[r]=c.useState(!1),e=f(),a=x();return c.useEffect(()=>{const o=d(new Date,"MMMM-yyyy");if(a.pathname==="/calendar"){e(`/calendar/month/${o}`);return}},[e,a.pathname]),t.jsxs(g,{children:[t.jsx(j,{isActivePage:r}),t.jsx(c.Suspense,{fallback:null,children:t.jsx(y,{})})]})};export{D as default};
