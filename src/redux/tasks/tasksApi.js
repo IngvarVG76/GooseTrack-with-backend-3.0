@@ -18,9 +18,9 @@
 
 //   tagTypes: ['Tasks'],
 
-//   endpoints: builder => ({
+//   endpoints: (builder) => ({
 //     getMonthlyTasks: builder.query({
-//       query: date => ({
+//       query: (date) => ({
 //         url: `tasks?month=${date}`,
 //         method: 'GET',
 //       }),
@@ -28,7 +28,7 @@
 //     }),
 
 //     createTasks: builder.mutation({
-//       query: data => ({
+//       query: (data) => ({
 //         url: '/tasks',
 //         method: 'POST',
 //         body: data,
@@ -46,7 +46,7 @@
 //     }),
 
 //     deleteTasks: builder.mutation({
-//       query: id => ({
+//       query: (id) => ({
 //         url: `/tasks/${id}`,
 //         method: 'DELETE',
 //       }),

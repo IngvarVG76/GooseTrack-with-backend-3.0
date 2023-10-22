@@ -6,7 +6,7 @@ export const DayHigherWrapper = styled.div`
   justify-content: space-around;
   padding: 14px 18px;
   border-radius: 8px;
-  background: ${({ theme }) => theme.colors.calendarBackground};
+  background: ${({ theme }) => theme.colors.secondaryBackground};
   border: 1px solid ${({ theme }) => theme.colors.borderСalendarColor};
 `;
 
@@ -22,6 +22,7 @@ export const WeekNames = styled.span`
   flex-direction: column;
   gap: 10px;
 
+  font-family: 'Inter';
   font-weight: 600;
   font-size: 16px;
   line-height: calc(18 / 16);
