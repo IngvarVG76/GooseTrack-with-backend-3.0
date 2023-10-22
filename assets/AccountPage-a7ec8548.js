@@ -1,4 +1,4 @@
-import{G as $,s as t,f as S,h as A,r as d,e as L,u as P,b as O,d as m,z as T,B as M,j as e,o as V}from"./index-3912c171.js";import{a as D}from"./index.esm-c8394095.js";import{t as q,p as W}from"./index-b52df4e5.js";import{E as u}from"./RegisterForm.styled-151682e7.js";import"./index-33aaa618.js";import"./index.esm-4114e4f6.js";import"./index.esm-f318b18b.js";function G(i){return $({tag:"svg",attr:{viewBox:"0 0 256 256",fill:"currentColor"},child:[{tag:"path",attr:{d:"M229.19,213c-15.81-27.32-40.63-46.49-69.47-54.62a70,70,0,1,0-63.44,0C67.44,166.5,42.62,185.67,26.81,213a6,6,0,1,0,10.38,6C56.4,185.81,90.34,166,128,166s71.6,19.81,90.81,53a6,6,0,1,0,10.38-6ZM70,96a58,58,0,1,1,58,58A58.07,58.07,0,0,1,70,96Z"}}]})(i)}function H(i){return $({tag:"svg",attr:{viewBox:"0 0 512 512"},child:[{tag:"path",attr:{fill:"none",strokeMiterlimit:"10",strokeWidth:"32",d:"M448 256c0-106-86-192-192-192S64 150 64 256s86 192 192 192 192-86 192-192z"}},{tag:"path",attr:{fill:"none",strokeLinecap:"round",strokeLinejoin:"round",strokeWidth:"32",d:"M352 176L217.6 336 160 272"}}]})(i)}const K=t.div`
+import{G as $,s as a,f as E,h as S,r as d,e as L,u as P,b as O,d as m,z as T,B as Z,j as e,o as M}from"./index-29d01f54.js";import{a as V}from"./index.esm-809e8d29.js";import{t as D,p as W}from"./index-194a542e.js";import{E as u}from"./RegisterForm.styled-90df16a4.js";import"./index-6e30721f.js";import"./index.esm-c56769d4.js";import"./index.esm-0e7f1cd5.js";function q(i){return $({tag:"svg",attr:{viewBox:"0 0 256 256",fill:"currentColor"},child:[{tag:"path",attr:{d:"M229.19,213c-15.81-27.32-40.63-46.49-69.47-54.62a70,70,0,1,0-63.44,0C67.44,166.5,42.62,185.67,26.81,213a6,6,0,1,0,10.38,6C56.4,185.81,90.34,166,128,166s71.6,19.81,90.81,53a6,6,0,1,0,10.38-6ZM70,96a58,58,0,1,1,58,58A58.07,58.07,0,0,1,70,96Z"}}]})(i)}function G(i){return $({tag:"svg",attr:{viewBox:"0 0 512 512"},child:[{tag:"path",attr:{fill:"none",strokeMiterlimit:"10",strokeWidth:"32",d:"M448 256c0-106-86-192-192-192S64 150 64 256s86 192 192 192 192-86 192-192z"}},{tag:"path",attr:{fill:"none",strokeLinecap:"round",strokeLinejoin:"round",strokeWidth:"32",d:"M352 176L217.6 336 160 272"}}]})(i)}const H=a.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -25,7 +25,7 @@ import{G as $,s as t,f as S,h as A,r as d,e as L,u as P,b as O,d as m,z as T,B a
     width: 1087px;
     padding: 60px 164px;
   }
-`,Z=t.div`
+`,K=a.div`
   position: absolute;
   top: -31px;
   left: 50%;
@@ -47,7 +47,7 @@ import{G as $,s as t,f as S,h as A,r as d,e as L,u as P,b as O,d as m,z as T,B a
 
     margin-bottom: 20px;
   }
-`,_=t.div`
+`,_=a.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -66,12 +66,12 @@ import{G as $,s as t,f as S,h as A,r as d,e as L,u as P,b as O,d as m,z as T,B a
     width: 124px;
     height: 124px;
   }
-`,k=t.img`
+`,k=a.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-`,X=t(D)`
+`,X=a(V)`
   position: absolute;
   top: 62px;
   left: 43px;
@@ -95,9 +95,9 @@ import{G as $,s as t,f as S,h as A,r as d,e as L,u as P,b as O,d as m,z as T,B a
     top: 106px;
     left: 76px;
   }
-`,J=t.input`
+`,J=a.input`
   display: none;
-`,Q=t(G)`
+`,Q=a(q)`
   width: 48px;
   height: 48px;
   color: ${({theme:i})=>i.colors.avatarPlaceholder};
@@ -106,7 +106,7 @@ import{G as $,s as t,f as S,h as A,r as d,e as L,u as P,b as O,d as m,z as T,B a
     width: 32px;
     height: 32px;
   }
-`,Y=t.h2`
+`,Y=a.h2`
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 700;
@@ -123,7 +123,7 @@ import{G as $,s as t,f as S,h as A,r as d,e as L,u as P,b as O,d as m,z as T,B a
 
     margin-bottom: 8px;
   }
-`,ee=t.p`
+`,ee=a.p`
   font-family: 'Inter', sans-serif;
   font-size: 12px;
   font-weight: 500;
@@ -138,19 +138,19 @@ import{G as $,s as t,f as S,h as A,r as d,e as L,u as P,b as O,d as m,z as T,B a
     font-size: 14px;
     line-height: calc(18 / 14);
   }
-`,ie=t.form`
+`,ie=a.form`
   display: flex;
   flex-direction: column;
 
   /* gap: 18px; */
   width: 100%;
   margin: 0 auto;
-`,p=t.div`
+`,p=a.div`
   /* position: relative; */
   display: flex;
   flex-direction: column;
   gap: 8px;
-`,h=t.label`
+`,h=a.label`
   width: 100%;
   font-family: 'Inter', sans-serif;
   font-size: 12px;
@@ -170,7 +170,7 @@ import{G as $,s as t,f as S,h as A,r as d,e as L,u as P,b as O,d as m,z as T,B a
     font-size: 14px;
     line-height: calc(18 / 14);
   }
-`,g=t.input`
+`,g=a.input`
   /* width: 100%; */
   /* margin-bottom: 18px; */
   padding: 12px 14px;
@@ -219,7 +219,7 @@ import{G as $,s as t,f as S,h as A,r as d,e as L,u as P,b as O,d as m,z as T,B a
     font-size: 16px;
     line-height: calc(18 / 16);
   }
-`,ae=t(q)`
+`,te=a(D)`
   width: 100%;
   padding: 12px 14px;
   border: ${({theme:i})=>i.colors.borderUserForm};
@@ -254,9 +254,9 @@ import{G as $,s as t,f as S,h as A,r as d,e as L,u as P,b as O,d as m,z as T,B a
     font-size: 16px;
     line-height: calc(18 / 16);
   }
-`,te=t(g)`
+`,ae=a(g)`
   margin-bottom: 0;
-`,re=t.button`
+`,re=a.button`
   margin-left: auto;
   margin-right: auto;
   margin-top: 40px;
@@ -295,7 +295,7 @@ import{G as $,s as t,f as S,h as A,r as d,e as L,u as P,b as O,d as m,z as T,B a
   @media screen and (min-width: 1440px) {
     margin-top: 88px;
   }
-`,ne=t.div`
+`,ne=a.div`
   @media screen and (max-width: 1439px) {
     display: flex;
     flex-direction: column;
@@ -307,7 +307,7 @@ import{G as $,s as t,f as S,h as A,r as d,e as L,u as P,b as O,d as m,z as T,B a
     flex-direction: row;
     gap: 50px;
   }
-`,N=t.div`
+`,N=a.div`
   @media screen and (max-width: 1439px) {
     display: flex;
     flex-direction: column;
@@ -320,10 +320,10 @@ import{G as $,s as t,f as S,h as A,r as d,e as L,u as P,b as O,d as m,z as T,B a
     width: 354px;
     gap: 24px;
   }
-`,n=t.div`
+`,n=a.div`
   position: relative;
   padding-left: 18px;
-`,o=t.div`
+`,o=a.div`
   font-size: 12px;
   font-weight: 400;
   line-height: 14px;
@@ -335,7 +335,7 @@ import{G as $,s as t,f as S,h as A,r as d,e as L,u as P,b as O,d as m,z as T,B a
   &.invalid {
     color: #ff0000;
   }
-`,f=t(H)`
+`,f=a(G)`
   position: absolute;
   right: 12px;
   bottom: 37px;
@@ -346,4 +346,4 @@ import{G as $,s as t,f as S,h as A,r as d,e as L,u as P,b as O,d as m,z as T,B a
   @media screen and (min-width: 768px) {
     bottom: 37px;
   }
-`,oe=/\+380\d{3}\d{2}\d{2}\d{2}$/,se=/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,le=()=>{const{avatarURL:i,birthDay:R,email:C,phone:z,skype:U,userName:x}=S(A),[b,F]=d.useState(i??""),[l,y]=d.useState(""),I=L(),v=d.useRef(),B=d.useRef(),j=d.useRef();d.useEffect(()=>()=>{l&&URL.revokeObjectURL(l)},[l]);const w=()=>{v.current.click()},E=r=>{const c=r.target.files[0];if(l||j.current.click(),F(c),c){const s=URL.createObjectURL(c);y(s),console.log(l)}else y(i)},a=P({initialValues:{avatar:`${b}`,checkBox:!1,userName:`${x??""}`,birthday:`${R}`,email:`${C??""}`,phone:`${z??""}`,skype:`${U??""}`},validationSchema:O({userName:m().min(3,"Username must contain at least 3 characters").max(16,"Username must contain not more than 16 characters").required("Username is required field"),birthday:T().required(),email:m().email("This is an ERROR email").matches(se,"This is an ERROR email").required("Email is required field"),phone:m().matches(oe,"Phone number is not valid"),skype:m().min(3,"Skype must contain at least 3 characters").max(16,"Skype must not have more than 16 characters")}),onSubmit:async(r,c)=>{const s=new FormData;a.initialValues.userName!==r.userName&&s.append("userName",r.userName),a.initialValues.email!==r.email&&s.append("email",r.email),a.initialValues.phone!==r.phone&&s.append("phone",r.phone),a.initialValues.skype!==r.skype&&s.append("skype",r.skype),a.initialValues.birthday!==r.birthday&&s.append("birthDay",r.birthday),b!==""&&s.append("avatarURL",b),console.log(r),I(M(s)),setTimeout(()=>{a.resetForm({values:r})},3e3),c.setSubmitting(!1)}});return console.log(a.values.birthday),e.jsx(K,{children:e.jsxs(ie,{onSubmit:a.handleSubmit,children:[e.jsxs(Z,{children:[e.jsx(_,{onClick:w,children:l?e.jsx(k,{src:l,alt:x}):i?e.jsx(k,{src:i,alt:x}):e.jsx(Q,{})}),e.jsx(X,{onClick:w}),e.jsx(J,{name:"avatar",type:"file",ref:v,accept:"image/*",value:a.values.avatar,onChange:E}),e.jsx("input",{ref:j,type:"checkbox",name:"checkBox",onChange:a.handleChange,checked:a.values.checkBox,style:{display:"none"}})]}),e.jsx(Y,{children:x}),e.jsx(ee,{children:"User"}),e.jsxs(ne,{children:[e.jsxs(N,{children:[e.jsxs(p,{children:[e.jsx(h,{htmlFor:"userName",className:a.touched.userName?a.errors.userName?"invalid-input":"valid-input":"",children:"User Name"}),e.jsx(g,{id:"userName",name:"userName",type:"text",placeholder:"Enter your name",value:a.values.userName,onChange:a.handleChange,onBlur:a.handleBlur,className:a.touched.userName?a.errors.userName?"invalid-input":"valid-input":""}),a.touched.userName?a.errors.userName?e.jsxs(n,{children:[e.jsx(o,{className:"invalid",children:a.errors.userName}),e.jsx(u,{})]}):e.jsxs(n,{children:[e.jsx(o,{className:"valid",children:"This is CORRECT username"}),e.jsx(f,{})]}):null]}),e.jsxs(p,{children:[e.jsx(h,{htmlFor:"birthday",children:"Birthday"}),e.jsx(ae,{id:"birthday",selected:a.values.birthday?W(a.values.birthday):new Date,onChange:r=>{console.log(r),a.setFieldValue("birthday",V(r,"yyyy-MM-dd"))},dateFormat:"dd/MM/yyyy"}),a.touched.birthday?a.errors.birthday?e.jsx(n,{children:e.jsx(o,{className:"invalid",children:a.errors.birthday})}):e.jsx(n,{children:e.jsx(o,{className:"valid",children:"This is CORRECT date"})}):null]}),e.jsxs(p,{children:[e.jsx(h,{htmlFor:"email",children:"Email"}),e.jsx(g,{id:"email",name:"email",type:"text",placeholder:"Enter your email",...a.getFieldProps("email"),className:a.touched.email?a.errors.email?"invalid-input":"valid-input":""}),a.touched.email?a.errors.email?e.jsxs(n,{children:[e.jsx(o,{className:"invalid",children:a.errors.email}),e.jsx(u,{})]}):e.jsxs(n,{children:[e.jsx(o,{className:"valid",children:"This is CORRECT email"}),e.jsx(f,{})]}):null]})]}),e.jsxs(N,{children:[e.jsxs(p,{children:[e.jsx(h,{htmlFor:"phone",children:"Phone"}),e.jsx(g,{id:"phone",name:"phone",type:"text",placeholder:"+380670000000",...a.getFieldProps("phone"),className:a.touched.phone?a.errors.phone?"invalid-input":"valid-input":""}),a.touched.phone?a.errors.phone?e.jsxs(n,{children:[e.jsx(o,{className:"invalid",children:a.errors.phone}),e.jsx(u,{})]}):e.jsxs(n,{children:[e.jsx(o,{className:"valid",style:{color:"transparent"},children:"OK"}),e.jsx(f,{})]}):null]}),e.jsxs(p,{children:[e.jsx(h,{htmlFor:"skype",children:"Skype"}),e.jsx(te,{id:"skype",name:"skype",type:"text",placeholder:"Add a skype number",...a.getFieldProps("skype"),className:a.touched.skype?a.errors.skype?"invalid-input":"valid-input":""}),a.touched.skype?a.errors.skype?e.jsxs(n,{children:[e.jsx(o,{className:"invalid",children:a.errors.skype}),e.jsx(u,{})]}):e.jsxs(n,{children:[e.jsx(o,{className:"valid",style:{color:"transparent"},children:"OK"}),e.jsx(f,{})]}):null]})]})]}),e.jsx(re,{type:"submit",ref:B,disabled:!(a.isValid&&a.dirty)||a.isSubmitting,children:"Save changes"})]})})},fe=()=>e.jsx(le,{});export{fe as default};
+`,oe=/^(?:\+\d|[\d\s\-./()]){10,20}$/,se=/^[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?$/,le=()=>{const{avatarURL:i,birthDay:R,email:C,phone:z,skype:U,userName:x}=E(S),[b,A]=d.useState(i??""),[l,y]=d.useState(""),F=L(),v=d.useRef(),I=d.useRef(),j=d.useRef();d.useEffect(()=>()=>{l&&URL.revokeObjectURL(l)},[l]);const w=()=>{v.current.click()},B=r=>{const c=r.target.files[0];if(l||j.current.click(),A(c),c){const s=URL.createObjectURL(c);y(s),console.log(l)}else y(i)},t=P({initialValues:{avatar:`${i}`,checkBox:!1,userName:`${x??""}`,birthday:`${R}`,email:`${C??""}`,phone:`${z??""}`,skype:`${U??""}`},validationSchema:O({userName:m().min(3,"Username must contain at least 3 characters").max(16,"Username must contain not more than 16 characters").required("Username is required field"),birthday:T(),email:m().email("This is an ERROR email").matches(se,"This is an ERROR email").required("Email is required field"),phone:m().matches(oe,"Phone number is not valid"),skype:m().min(3,"Skype must contain at least 3 characters").max(16,"Skype must not have more than 16 characters")}),onSubmit:async(r,c)=>{const s=new FormData;t.initialValues.userName!==r.userName&&s.append("userName",r.userName),t.initialValues.email!==r.email&&s.append("email",r.email),t.initialValues.phone!==r.phone&&s.append("phone",r.phone),t.initialValues.skype!==r.skype&&s.append("skype",r.skype),t.initialValues.birthday!==r.birthday&&s.append("birthDay",r.birthday),b!==""&&s.append("avatarURL",b),F(Z(s)),setTimeout(()=>{t.resetForm({values:r,touched:{userName:!0,birthday:!0,email:!0,phone:!0,skype:!0}})},1e3),c.setSubmitting(!1)}});return e.jsx(H,{children:e.jsxs(ie,{onSubmit:t.handleSubmit,children:[e.jsxs(K,{children:[e.jsx(_,{onClick:w,children:l?e.jsx(k,{src:l,alt:x}):i?e.jsx(k,{src:i,alt:x}):e.jsx(Q,{})}),e.jsx(X,{onClick:w}),e.jsx(J,{name:"avatar",type:"file",ref:v,accept:"image/*",onChange:B}),e.jsx("input",{ref:j,type:"checkbox",name:"checkBox",onChange:t.handleChange,checked:t.values.checkBox,style:{display:"none"}})]}),e.jsx(Y,{children:x}),e.jsx(ee,{children:"User"}),e.jsxs(ne,{children:[e.jsxs(N,{children:[e.jsxs(p,{children:[e.jsx(h,{htmlFor:"userName",className:t.touched.userName?t.errors.userName?"invalid-input":"valid-input":"",children:"User Name"}),e.jsx(g,{id:"userName",name:"userName",type:"text",placeholder:"Enter your name",value:t.values.userName,onChange:t.handleChange,onBlur:t.handleBlur,className:t.touched.userName?t.errors.userName?"invalid-input":"valid-input":""}),t.touched.userName?t.errors.userName?e.jsxs(n,{children:[e.jsx(o,{className:"invalid",children:t.errors.userName}),e.jsx(u,{})]}):e.jsxs(n,{children:[e.jsx(o,{className:"valid",children:"This is CORRECT username"}),e.jsx(f,{})]}):null]}),e.jsxs(p,{children:[e.jsx(h,{htmlFor:"birthday",children:"Birthday"}),e.jsx(te,{id:"birthday",selected:t.values.birthday?W(t.values.birthday):new Date,onChange:r=>{t.setFieldValue("birthday",M(r,"yyyy-MM-dd"))},dateFormat:"dd/MM/yyyy",className:t.touched.birthday?t.errors.birthday?"invalid-input":"valid-input":""}),t.touched.birthday?t.errors.birthday?e.jsx(n,{children:e.jsx(o,{className:"invalid",children:t.errors.birthday})}):e.jsx(n,{children:e.jsx(o,{className:"valid",children:"This is CORRECT date"})}):null]}),e.jsxs(p,{children:[e.jsx(h,{htmlFor:"email",children:"Email"}),e.jsx(g,{id:"email",name:"email",type:"text",placeholder:"Enter your email",...t.getFieldProps("email"),className:t.touched.email?t.errors.email?"invalid-input":"valid-input":""}),t.touched.email?t.errors.email?e.jsxs(n,{children:[e.jsx(o,{className:"invalid",children:t.errors.email}),e.jsx(u,{})]}):e.jsxs(n,{children:[e.jsx(o,{className:"valid",children:"This is CORRECT email"}),e.jsx(f,{})]}):null]})]}),e.jsxs(N,{children:[e.jsxs(p,{children:[e.jsx(h,{htmlFor:"phone",children:"Phone"}),e.jsx(g,{id:"phone",name:"phone",type:"tel",placeholder:"38 (067) 000 00 00",...t.getFieldProps("phone"),className:t.touched.phone?t.errors.phone?"invalid-input":"valid-input":""}),t.touched.phone?t.errors.phone?e.jsxs(n,{children:[e.jsx(o,{className:"invalid",children:t.errors.phone}),e.jsx(u,{})]}):e.jsxs(n,{children:[e.jsx(o,{className:"valid",style:{color:"transparent"},children:"OK"}),e.jsx(f,{})]}):null]}),e.jsxs(p,{children:[e.jsx(h,{htmlFor:"skype",children:"Skype"}),e.jsx(ae,{id:"skype",name:"skype",type:"text",placeholder:"Add a skype number",...t.getFieldProps("skype"),className:t.touched.skype?t.errors.skype?"invalid-input":"valid-input":""}),t.touched.skype?t.errors.skype?e.jsxs(n,{children:[e.jsx(o,{className:"invalid",children:t.errors.skype}),e.jsx(u,{})]}):e.jsxs(n,{children:[e.jsx(o,{className:"valid",style:{color:"transparent"},children:"OK"}),e.jsx(f,{})]}):null]})]})]}),e.jsx(re,{type:"submit",ref:I,disabled:!(t.isValid&&t.dirty)||t.isSubmitting,children:"Save changes"})]})})},fe=()=>e.jsx(le,{});export{fe as default};
