@@ -2,7 +2,9 @@ import { useRef, useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { format, parse } from 'date-fns';
+import { format, parseISO } from 'date-fns';
+// import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 import { selectUser } from '../../redux/auth/selectors';
 import { updateUser } from '../../redux/auth/operations';
@@ -21,6 +23,7 @@ import {
   Label,
   Input,
   InputWrap,
+  InputDate,
   SaveBtn,
   FieldsWrap,
   ColumnWrap,
@@ -30,6 +33,7 @@ import {
   SuccessIcon,
 } from './UserForm.styled';
 import { ErrorIcon } from '../../components/RegisterForm/RegisterForm.styled';
+// import AccountDatepicker from '../AccountDatePicker/AccountDatePicker';
 
 const phoneRegExp = /\+380\d{3}\d{2}\d{2}\d{2}$/;
 const emailRegexp =
@@ -108,7 +112,7 @@ const UserForm = () => {
       avatar: `${avatar}`,
       checkBox: false,
       userName: `${userName ?? ''}`,
-      birthday: `${birthDay || format(new Date(), 'yyyy-MM-dd')}`,
+      birthday: `${birthDay}`,
       email: `${email ?? ''}`,
       phone: `${phone ?? ''}`,
       skype: `${skype ?? ''}`,
@@ -128,16 +132,16 @@ const UserForm = () => {
         .max(16, 'Username must contain not more than 16 characters')
         .required('Username is required field'),
       birthday: Yup.date()
-        .transform(function (value, originalValue) {
-          if (this.isType(value)) {
-            return value;
-          }
-          const result = parse(originalValue, 'dd.MM.yyyy', new Date());
-          return result;
-        })
-        .typeError('Please enter a valid date')
-        .min('1969-11-13', 'Date is too early')
-        .max('2024-01-01', 'Date is not valid')
+        // .transform(function (value, originalValue) {
+        //   if (this.isType(value)) {
+        //     return value;
+        //   }
+        //   const result = parse(originalValue, 'dd/MM/yyyy', new Date());
+        //   return result;
+        // })
+        // .typeError('Please enter a valid date')
+        // .min('1969-11-13', 'Date is too early')
+        // .max(new Date(), 'Date is not valid')
         .required(),
       email: Yup.string()
         .email(`This is an ERROR email`)
@@ -184,6 +188,8 @@ const UserForm = () => {
       // formik.setSubmitting(false);
     },
   });
+
+  console.log(formik.values.birthday);
 
   // formik.touched = {};
 
@@ -273,7 +279,7 @@ const UserForm = () => {
             </InputWrap>
             <InputWrap>
               <Label htmlFor="birthday">Birthday</Label>
-              <Input
+              {/* <Input
                 id="birthday"
                 name="birthday"
                 type="date"
@@ -285,6 +291,19 @@ const UserForm = () => {
                       : 'valid-input'
                     : ''
                 }
+              /> */}
+              <InputDate
+                id="birthday"
+                selected={
+                  formik.values.birthday
+                    ? parseISO(formik.values.birthday)
+                    : new Date()
+                }
+                onChange={(date) => {
+                  console.log(date);
+                  formik.setFieldValue('birthday', format(date, 'yyyy-MM-dd'));
+                }}
+                dateFormat="dd/MM/yyyy"
               />
               {formik.touched.birthday ? (
                 formik.errors.birthday ? (
@@ -354,7 +373,7 @@ const UserForm = () => {
                   </ContainerErrorIcon>
                 ) : (
                   <ContainerErrorIcon>
-                    <Error className="valid" style={{ color: '#ffffff' }}>
+                    <Error className="valid" style={{ color: 'transparent' }}>
                       OK
                     </Error>
                     <SuccessIcon />
@@ -386,7 +405,7 @@ const UserForm = () => {
                   </ContainerErrorIcon>
                 ) : (
                   <ContainerErrorIcon>
-                    <Error className="valid" style={{ color: '#ffffff' }}>
+                    <Error className="valid" style={{ color: 'transparent' }}>
                       OK
                     </Error>
                     <SuccessIcon />
