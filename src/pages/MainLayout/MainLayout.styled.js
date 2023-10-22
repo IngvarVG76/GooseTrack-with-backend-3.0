@@ -2,13 +2,14 @@ import styled from 'styled-components';
 
 export const Content = styled.div`
   background: ${({ theme }) => theme.colors.primaryBackground};
-  // height: 100vh;
+  height: 100vh;
   position: relative;
   max-width: 375px;
   margin: 0 auto;
   padding: 24px 20px 40px 28px;
   display: flex;
   justify-content: flex-end;
+  overflow-x: scroll;
 
   @media screen and (min-width: 768px) {
     max-width: 768px;
