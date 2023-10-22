@@ -111,7 +111,10 @@ export const updateUser = createAsyncThunk(
   '/user',
   async (credentials, thunkAPI) => {
     try {
-      const response = await $instants.patch('/auth/user', credentials);
+      for (const pair of credentials.entries()) {
+        console.log(`${pair[0]}, ${pair[1]}`);
+      }
+      const response = await $instants.patch('/users/profile/avatars', credentials);
       return response.data.user;
     } catch (error) {
       console.log(error.response.data.message);
