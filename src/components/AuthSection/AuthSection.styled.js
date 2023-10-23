@@ -115,7 +115,7 @@ const BtnLoginText = styled.h2`
 const LogInIcon = styled(LuLogIn)`
   width: 18px;
   height: 18px;
-  color: var(--color-task-low-priority);
+  color: #3E85F3;
 `;
 
 export {
