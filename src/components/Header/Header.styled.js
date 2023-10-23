@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { PiUserLight } from 'react-icons/pi';
 
 export const WrapperHeader = styled.div`
   display: flex;
@@ -100,15 +101,29 @@ export const Name = styled.p`
   }
 `;
 
-export const Image = styled.img`
+export const Image = styled.div`
   border-radius: 32px;
   border: 1.8px solid #3e85f3;
   width: 32px;
   height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   @media screen and (min-width: 768px) {
     width: 44px;
     height: 44px;
     border-radius: 44px;
+  }
+`;
+
+export const AvatarPlaceholder = styled(PiUserLight)`
+  width: 32px;
+  height: 32px;
+  color: ${({ theme }) => theme.colors.avatarPlaceholder};
+
+  @media screen and (max-width: 767px) {
+    width: 44px;
+    height: 44px;
   }
 `;

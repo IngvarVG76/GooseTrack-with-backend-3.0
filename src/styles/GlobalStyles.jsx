@@ -20,7 +20,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 16px;
     background: ${(props) => props.theme.colors.mainBackgroundColor};
     margin: 0;
-
+    background-color: ${({ theme }) => theme.colors.sideBar};
 }
 
 @font-face {
@@ -157,6 +157,18 @@ margin:0;
 img {
   max-width: 100%;
   height: auto;
+}
+
+::-webkit-scrollbar{
+  width: 15px;
+}
+
+::-webkit-scrollbar-track{
+  background-color:  ${({ theme }) => theme.colors.modalReviewTextBg};
+}
+::-webkit-scrollbar-thumb{
+  background-color: ${({ theme }) => theme.colors.scrollBg};
+  border-radius: 15px;
 }
 
 `;
