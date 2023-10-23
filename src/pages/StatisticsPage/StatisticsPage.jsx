@@ -3,15 +3,22 @@ import ChooseDate from '../../components/Calendar/PeriodDateSelect/ChooseDate';
 import { WrapperPage, LegendWrapp, Legend, Text } from './stylesPage';
 import { useState } from 'react';
 import { format } from 'date-fns';
+import { useEffect } from 'react';
 
 const StatisticsPage = () => {
   const [staticticDate, setStaticticDate] = useState(
     format(new Date(), 'yyyy-MM-dd'),
   );
-  console.log('staticticDate: ', staticticDate);
+  useEffect(() => {
+    console.log('staticticDate: ', staticticDate);
+  }, [staticticDate]);
   return (
     <WrapperPage>
-      <ChooseDate setStaticticDate={setStaticticDate} />
+      <ChooseDate
+        activePage="statistics"
+        staticticDate={staticticDate}
+        setStaticticDate={setStaticticDate}
+      />
       <LegendWrapp>
         <Legend>
           <svg
