@@ -5,25 +5,24 @@ import CalendarToolbar from '../../components/Calendar/CalendarToolbar/CalendarT
 import { format } from 'date-fns';
 import { fetchTasks } from '../../redux/tasks/task';
 import { useDispatch } from 'react-redux';
+import { GetDatefromURL } from '../../heplers/getDatefromURL';
 
 const CalendarPage = () => {
   const [isActivePage] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
+  const activeMonth = format(GetDatefromURL(), 'yyyy-MM');
+  useEffect(() => {
+    if (location.pathname === '/calendar') {
+      navigate(`/calendar/month/${activeMonth}`);
+      return;
+    }
+  }, [navigate, location.pathname, activeMonth]);
 
   useEffect(() => {
-    const activeDate = format(new Date(), 'MMMM-yyyy');
-      if (location.pathname === '/calendar') {
-      navigate(`/calendar/month/${activeDate}`);
-         return;
-    }
-  }, [navigate, location.pathname]);
-
-    useEffect(() => {
-      const activeMonth = format(new Date(), 'yyyy-MM');
-      dispatch(fetchTasks(activeMonth));
-    }, [dispatch]);
+    dispatch(fetchTasks(activeMonth));
+  }, [dispatch, activeMonth]);
 
   return (
     <Container>
