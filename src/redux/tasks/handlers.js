@@ -14,7 +14,7 @@ export const handleRejected = (state, { payload }) => {
 };
 
 export const handleFulfilled = (state, { payload }) => {
-  state.tasks = payload.date;
+  state.tasks = payload.datа;
   state.isLoading = false;
   state.error = null;
 };
