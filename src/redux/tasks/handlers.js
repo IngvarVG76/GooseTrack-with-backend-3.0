@@ -13,12 +13,6 @@ export const handleRejected = (state, { payload }) => {
   state.error = payload;
 };
 
-export const handleFulfilled = (state, { payload }) => {
-  state.tasks = payload.data;
-  state.isLoading = false;
-  state.error = null;
-};
-
 export const handleMonthFulfilled = (state, { payload }) => {
   state.tasks = payload.data;
 

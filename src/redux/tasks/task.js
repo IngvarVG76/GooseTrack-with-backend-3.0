@@ -1,11 +1,9 @@
-import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 import { styleToastify } from '../../components/toastify';
 import { $instants } from '../auth/operations';
 
-
-// Робоча санка, решту перероби за зразком. 
+// Робоча санка, решту перероби за зразком.
 export const addTask = createAsyncThunk(
   'tasks/addTask',
   async (task, thunkAPI) => {
@@ -28,26 +26,11 @@ export const addTask = createAsyncThunk(
   },
 );
 
-
-export const getAllTasks = createAsyncThunk(
-  'tasks/getAll',
-  async (_, thunkAPI) => {
-    try {
-      const res = await $instants.get('/tasks?month=2023-11');
-      return res.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  },
-);
-
 export const fetchTasks = createAsyncThunk(
   'tasks/fetchTasks',
   async (month, thunkAPI) => {
-    console.log(month);
     try {
       const res = await $instants.get(`/tasks?month=${month}`);
-      console.log(res.data)
       return res.data;
     } catch (error) {
       if (error.response.data.message.includes('have no any task')) {
@@ -57,9 +40,6 @@ export const fetchTasks = createAsyncThunk(
     }
   },
 );
-
-
-
 
 export const deleteTask = createAsyncThunk(
   'tasks/deleteTask',

@@ -1,22 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { logOut } from '../auth/operations';
-
 
 import {
-  handleFulfilled,
   handleMonthFulfilled,
   handlePending,
   handleRejected,
 } from './handlers';
 
-import {
-  fetchTasks,
-  addTask,
-  deleteTask,
-  updateTask,
-  getAllTasks,
-} from './task';
-
+import { fetchTasks, addTask, deleteTask, updateTask } from './task';
 
 const initialState = {
   tasks: [],
@@ -29,9 +19,6 @@ const tasksSlice = createSlice({
   initialState,
   extraReducers: (builder) => {
     builder
-      .addCase(getAllTasks.pending, handlePending)
-      .addCase(getAllTasks.fulfilled, handleFulfilled)
-      .addCase(getAllTasks.rejected, handleRejected)
       .addCase(fetchTasks.pending, handlePending)
       .addCase(fetchTasks.fulfilled, handleMonthFulfilled)
       .addCase(fetchTasks.rejected, handleRejected)
