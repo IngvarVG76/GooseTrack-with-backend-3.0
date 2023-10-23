@@ -8,15 +8,17 @@ import {
   StyledButton,
 } from './NotFound.styled';
 import images from './image';
+import { useTheme } from 'styled-components';
 
 const { phone, tablet, desktop } = images;
 
 export const NotFound = () => {
   const { t } = useTranslation();
+  const theme = useTheme();
 
   return (
-    <Container>
-      <Wrapper>
+    <Container style={{ backgroundColor: theme.colors.primaryBackground }} >
+      <Wrapper >
         <Number>4</Number>
         <Picture>
           <source
@@ -56,13 +58,13 @@ export const NotFound = () => {
         </Picture>
         <Number>4</Number>
       </Wrapper>
-      <Text>
-        <Trans i18nKey="notfound.text">
+      <Text style={{ color: theme.colors.text }}>
+        <Trans i18nKey="notfound.text" >
           We’re sorry, the page you requested could not be found. Please go back
           to the homepage.
         </Trans>
       </Text>
-      <StyledButton to="/">{t('Back to home')}</StyledButton>
+      <StyledButton to="/"  style={{ backgroundColor: theme.backgroundButton, color: theme.textButton }}>{t('Back to home')}</StyledButton>
     </Container>
   );
 };
