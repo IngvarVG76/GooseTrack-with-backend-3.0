@@ -13,7 +13,10 @@ import { ChoosedMonth } from '../Calendar/ChoosedMonth/ChoosedMonth';
 import PrivateRoute from '../../components/PrivateRoute/PrivateRoute';
 import PublicRoute from '../PublicRoute/PublicRoute';
 import { getCurrentUser } from '../../redux/auth/operations';
-import { selectIsFetchingCurrentUser, selectToken } from '../../redux/auth/selectors';
+import {
+  selectIsFetchingCurrentUser,
+  selectToken,
+} from '../../redux/auth/selectors';
 import { ToastContainer } from 'react-toastify';
 import { Loader } from '../Loader/Loader';
 
@@ -48,7 +51,7 @@ const App = () => {
   }, [dispatch, authenticated]);
 
   return isRefreshing ? (
-      <Loader />
+    <Loader />
   ) : (
     <Theme>
       <GlobalStyle />
