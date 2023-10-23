@@ -1,4 +1,4 @@
-import{s as i,q as d,B as g,C as m,D as _,t as h,w as y,r as b,j as r,v as a,E as k}from"./index-18531515.js";import{t as w,a as v,s as M,b as $}from"./index-96b84a27.js";const j=i(g)`
+import{s as c,q as s,B as g,C as m,D as b,t as h,w as y,n as _,r as k,j as r,v as n,E as w}from"./index-e4a589ba.js";import{t as v,a as $,s as j,b as C}from"./index-c249b441.js";const M=c(g)`
   font-size: 16px;
   color: ${({theme:e})=>e.colors.arrowColor};
   &:hover {
@@ -7,7 +7,7 @@ import{s as i,q as d,B as g,C as m,D as _,t as h,w as y,r as b,j as r,v as a,E a
   @media screen and (min-width: 768px) {
     font-size: 18px;
   }
-`,C=i(m)`
+`,D=c(m)`
   font-size: 16px;
   color: ${({theme:e})=>e.colors.arrowColor};
   &:hover {
@@ -16,14 +16,14 @@ import{s as i,q as d,B as g,C as m,D as _,t as h,w as y,r as b,j as r,v as a,E a
   @media screen and (min-width: 768px) {
     font-size: 18px;
   }
-`,D=i.div`
+`,z=c.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   @media screen and (min-width: 768px) {
     gap: 8px;
   }
-`,l=d`
+`,l=s`
   border: 1px solid ${({theme:e})=>e.colors.borderСalendarColor};
   background-color: ${({theme:e})=>e.colors.backgroundCalendar};
   padding: 7px 10px;
@@ -31,21 +31,21 @@ import{s as i,q as d,B as g,C as m,D as _,t as h,w as y,r as b,j as r,v as a,E a
   @media screen and (min-width: 768px) {
     padding: 8px 10px;
   }
-`,x=i.button`
+`,x=c.button`
   ${l}
-  ${e=>{switch(e.$direction){case"back":return d`
+  ${e=>{switch(e.$direction){case"back":return s`
           border-radius: 8px 0px 0px 8px;
           border-right: ${o=>o.$back&&"none; "};
-        `;case"forward":return d`
+        `;case"forward":return s`
           border-radius: 0px 8px 8px 0px;
-        `;default:return d`
+        `;default:return s`
           ${l}
         `}}}
 
   &:hover svg {
     color: ${({theme:e})=>e.colors.toolbarButtonArrowColorHover};
   }
-`,z=i.button`
+`,A=c.button`
   width: 145px;
   padding: 8px 12px;
   font-size: 14px;
@@ -60,7 +60,7 @@ import{s as i,q as d,B as g,C as m,D as _,t as h,w as y,r as b,j as r,v as a,E a
   align-items: center;
   /* 
   margin-bottom: 18px; */
-`,A=_`
+`,I=b`
   .react-datepicker__wrapper {
     position: relative;
   }
@@ -205,4 +205,4 @@ import{s as i,q as d,B as g,C as m,D as _,t as h,w as y,r as b,j as r,v as a,E a
   .react-datepicker__triangle {
     visibility: hidden;
   }
-`,I=({activePage:e})=>{const o=h(),n=y(),s=t=>{t=a(new Date(t),"dd-MMMM-yyyy"),n(`/calendar/day/${t}`)},p=b.forwardRef(function({value:c,onClick:f},u){return r.jsx(z,{onClick:f,ref:u,children:e==="month"?a(o,"MMMM yyyy"):a(o," dd MMM yyyy")})});return r.jsxs("div",{children:[r.jsx(w,{selected:o,onChange:t=>s(t),customInput:r.jsx(p,{}),calendarStartDay:1,formatWeekDay:t=>t.slice(0,1)}),r.jsx(A,{})]})},S=({activePage:e})=>{const o=y(),n=h(),s=()=>{const t=a(v(n,1),"MMMM-yyy"),c=a(k(n,1),"d-MMMM-yyy");o(e==="month"?`/calendar/month/${t}`:`/calendar/day/${c}`)},p=()=>{const t=a(M(n,1),"MMMM-yyy"),c=a($(n,1),"d-MMMM-yyy");o(e==="month"?`/calendar/month/${t}`:`/calendar/day/${c}`)};return r.jsxs(D,{children:[r.jsx(I,{activePage:e}),r.jsxs("div",{children:[r.jsx(x,{$direction:"back",$back:!0,onClick:()=>p(),children:r.jsx(j,{})}),r.jsx(x,{$direction:"forward",onClick:()=>s(),children:r.jsx(C,{})})]})]})};export{S as C};
+`,B=({activePage:e})=>{const o=h(),a=y(),d=_(),p=t=>{switch(t=n(new Date(t),"dd-MM-yyyy"),console.log("location.pathname: ",d.pathname),d.pathname){case"/calendar":a(`/calendar/day/${t}`);break;case"/statistics":a(`/statistics/${t}`);break}},i=k.forwardRef(function({value:R,onClick:f},u){return r.jsx(A,{onClick:f,ref:u,children:e==="month"?n(o,"yyyy-MM"):n(o," yyyy-MM-dd")})});return r.jsxs("div",{children:[r.jsx(v,{selected:o,onChange:t=>p(t),customInput:r.jsx(i,{}),calendarStartDay:1,formatWeekDay:t=>t.slice(0,1)}),r.jsx(I,{})]})},O=({activePage:e})=>{const o=y(),a=h(),d=()=>{const i=n($(a,1),"yyyy-MM"),t=n(w(a,1),"yyyy-MM-dd");o(e==="month"?`/calendar/month/${i}`:`/calendar/day/${t}`)},p=()=>{const i=n(j(a,1),"yyyy-MM"),t=n(C(a,1),"yyyy-MM-dd");o(e==="month"?`/calendar/month/${i}`:`/calendar/day/${t}`)};return r.jsxs(z,{children:[r.jsx(B,{activePage:e}),r.jsxs("div",{children:[r.jsx(x,{$direction:"back",$back:!0,onClick:()=>p(),children:r.jsx(M,{})}),r.jsx(x,{$direction:"forward",onClick:()=>d(),children:r.jsx(D,{})})]})]})};export{O as C};

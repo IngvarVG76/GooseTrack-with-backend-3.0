@@ -1,4 +1,4 @@
-import{s as d,q as s,L as u,t as h,j as a,v as c,n as x,r as o,u as f,w as y,x as $,O as g}from"./index-18531515.js";import{C as w}from"./ChooseDate-39c32ba9.js";import"./index-96b84a27.js";import"./index-a0975c39.js";const v=d.div`
+import{s as c,q as s,L as h,t as x,j as r,v as d,n as u,r as o,u as f,w as y,x as $,O as g}from"./index-e4a589ba.js";import{C as w}from"./ChooseDate-4f187301.js";import"./index-c249b441.js";import"./index-b12a67d0.js";const v=c.div`
   background-color: ${({theme:t})=>t.colors.primaryBackground};
   display: flex;
   flex-direction: column;
@@ -15,7 +15,7 @@ import{s as d,q as s,L as u,t as h,j as a,v as c,n as x,r as o,u as f,w as y,x a
   @media screen and (min-width: 1440px) {
     width: 1087px;
   }
-`,M=d.div`
+`,b=c.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -49,7 +49,7 @@ import{s as d,q as s,L as u,t as h,j as a,v as c,n as x,r as o,u as f,w as y,x a
   @media screen and (min-width: 768px) {
     font-size: 16px;
   }
-`,m=d(u)`
+`,m=c(h)`
   ${p}
   ${t=>{switch(t.$active){case"day":return s`
           background: ${e=>e.$primary&&e.theme.colors.activeCalendarLinkColor};
@@ -62,6 +62,6 @@ import{s as d,q as s,L as u,t as h,j as a,v as c,n as x,r as o,u as f,w as y,x a
         `;default:return s`
           ${p}
         `}}}
-`,b=d.div`
+`,j=c.div`
 display:flex;
-`,j=({activePage:t})=>{const e=h(),r=()=>t==="month";return a.jsxs(b,{children:[a.jsx(m,{$borderSide:!0,$active:t,$primary:r(),to:`/calendar/month/${c(e,"MMMM-yyyy")}`,children:"Month"}),a.jsx(m,{$active:t,$primary:!r(),to:`/calendar/day/${c(e,"dd-MMMM-yyyy")}`,children:"Day"})]})},k=()=>{const t=x(),e=i=>{let n;return i.map(l=>(t.pathname.includes(l)&&(n=l),n)),n},r=["month","day"];return a.jsxs(M,{children:[a.jsx(w,{activePage:e(r)}),a.jsx(j,{activePage:e(r)})]})},E=()=>{const[t]=o.useState(!1),e=f(),r=y(),i=x();return o.useEffect(()=>{const n=c(new Date,"MMMM-yyyy");if(i.pathname==="/calendar"){r(`/calendar/month/${n}`);return}},[r,i.pathname]),o.useEffect(()=>{const n=c(new Date,"yyyy-MM");e($(n))},[e]),a.jsxs(v,{children:[a.jsx(k,{isActivePage:t}),a.jsx(o.Suspense,{fallback:null,children:a.jsx(g,{})})]})};export{E as default};
+`,k=({activePage:t})=>{const e=x(),a=()=>t==="month";return r.jsxs(j,{children:[r.jsx(m,{$borderSide:!0,$active:t,$primary:a(),to:`/calendar/month/${d(e,"yyyy-MM")}`,children:"Month"}),r.jsx(m,{$active:t,$primary:!a(),to:`/calendar/day/${d(e,"yyyy-MM-dd")}`,children:"Day"})]})},C=()=>{const t=u(),e=i=>{let n;return i.map(l=>(t.pathname.includes(l)&&(n=l),n)),n},a=["month","day"];return r.jsxs(b,{children:[r.jsx(w,{activePage:e(a)}),r.jsx(k,{activePage:e(a)})]})},E=()=>{const[t]=o.useState(!1),e=f(),a=y(),i=u(),n=d(x(),"yyyy-MM");return o.useEffect(()=>{if(i.pathname==="/calendar"){a(`/calendar/month/${n}`);return}},[a,i.pathname,n]),o.useEffect(()=>{e($(n))},[e,n]),r.jsxs(v,{children:[r.jsx(C,{isActivePage:t}),r.jsx(o.Suspense,{fallback:null,children:r.jsx(g,{})})]})};export{E as default};
