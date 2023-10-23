@@ -20,7 +20,7 @@ const WeekCalendar = () => {
   const navigate = useNavigate();
   const activeDate = GetDatefromURL();
   const changeDate = (date) => {
-    navigate(`/calendar/day/${format(date, 'dd-MMMM-yyyy')}`);
+    navigate(`/calendar/day/${format(date, 'yyyy-MM-dd')}`);
   };
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);

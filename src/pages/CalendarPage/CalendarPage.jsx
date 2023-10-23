@@ -4,7 +4,7 @@ import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import CalendarToolbar from '../../components/Calendar/CalendarToolbar/CalendarToolbar';
 import { format } from 'date-fns';
 import { fetchTasks } from '../../redux/tasks/task';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { GetDatefromURL } from '../../heplers/getDatefromURL';
 
 const CalendarPage = () => {
@@ -12,23 +12,17 @@ const CalendarPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(location.pathname);
-  const tasks = useSelector((state) => state);
-  console.log(tasks);
-  const test = GetDatefromURL();
-  console.log(test);
+  const activeMonth = format(GetDatefromURL(), 'yyyy-MM');
   useEffect(() => {
-    const activeDate = format(new Date(), 'MMMM-yyyy');
     if (location.pathname === '/calendar') {
-      navigate(`/calendar/month/${activeDate}`);
+      navigate(`/calendar/month/${activeMonth}`);
       return;
     }
-  }, [navigate, location.pathname]);
+  }, [navigate, location.pathname, activeMonth]);
 
   useEffect(() => {
-    const activeMonth = format(new Date(), 'yyyy-MM');
     dispatch(fetchTasks(activeMonth));
-  }, [dispatch]);
+  }, [dispatch, activeMonth]);
 
   return (
     <Container>
