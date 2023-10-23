@@ -11,38 +11,11 @@ import css from './chart.module.css';
 import { ChartContainer, Taskstitle } from './chartStyles';
 import { useTheme } from 'styled-components';
 
-const statisticsData = [
-  {
-    allTasksByDay: 15,
-    todoByDay: 7,
-    inprogressByDay: 3,
-    doneByDay: 5,
-  },
-];
-
-const data = [
-  {
-    name: 'To Do',
-    day: 50,
-    month: 88,
-  },
-  {
-    name: 'In Progress',
-    day: 90,
-    month: 80,
-  },
-  {
-    name: 'Done',
-    day: 75,
-    month: 34,
-  },
-];
-
-const StatisticsChart = () => {
+const StatisticsChart = ({ data }) => {
   const theme = useTheme();
-  const formatValue = (value) => {
-    return !isNaN(value) && value !== 0 ? `${value.toFixed(0)}%` : '';
-  };
+  // const formatValue = (value) => {
+  //   return !isNaN(value) && value !== 0 ? `value%` : '';
+  // };
 
   return (
     <ChartContainer>
@@ -117,12 +90,12 @@ const StatisticsChart = () => {
           radius={6}
         >
           <LabelList
-            dataKey="dayPercentage"
+            dataKey="day"
             position="top"
             offset={8}
             fill={theme.colors.textColorTasksChart}
             fontSize={12}
-            // formatter={formatValue(50)}
+            // formatter={formatValue(value)}
           />
         </Bar>
         <Bar
@@ -132,12 +105,12 @@ const StatisticsChart = () => {
           radius={6}
         >
           <LabelList
-            dataKey="monthPercentage"
+            dataKey="month"
             position="top"
             offset={8}
             fill={theme.colors.textColorTasksChart}
             fontSize={12}
-            // formatter={formatValue(90)}
+            // formatter={formatValue(value)}
           />
         </Bar>
       </BarChart>
