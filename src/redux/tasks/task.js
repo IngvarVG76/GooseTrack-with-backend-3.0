@@ -44,8 +44,10 @@ export const getAllTasks = createAsyncThunk(
 export const fetchTasks = createAsyncThunk(
   'tasks/fetchTasks',
   async (month, thunkAPI) => {
+    console.log(month);
     try {
       const res = await $instants.get(`/tasks?month=${month}`);
+      console.log(res.data)
       return res.data;
     } catch (error) {
       if (error.response.data.message.includes('have no any task')) {
