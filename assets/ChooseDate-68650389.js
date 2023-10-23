@@ -1,4 +1,4 @@
-import{s as c,q as s,B as g,C as m,D as b,t as h,w as y,n as _,r as k,j as r,v as n,E as w}from"./index-9fc7a375.js";import{t as v,a as $,s as j,b as C}from"./index-b306aea4.js";const M=c(g)`
+import{s as d,q as p,B as b,C as _,D as k,t as y,w as f,n as w,r as v,j as r,v as a,E as $}from"./index-8e60602b.js";import{t as j,a as C,s as M,b as D}from"./index-30c67e9d.js";const z=d(b)`
   font-size: 16px;
   color: ${({theme:e})=>e.colors.arrowColor};
   &:hover {
@@ -7,7 +7,7 @@ import{s as c,q as s,B as g,C as m,D as b,t as h,w as y,n as _,r as k,j as r,v a
   @media screen and (min-width: 768px) {
     font-size: 18px;
   }
-`,D=c(m)`
+`,A=d(_)`
   font-size: 16px;
   color: ${({theme:e})=>e.colors.arrowColor};
   &:hover {
@@ -16,14 +16,14 @@ import{s as c,q as s,B as g,C as m,D as b,t as h,w as y,n as _,r as k,j as r,v a
   @media screen and (min-width: 768px) {
     font-size: 18px;
   }
-`,z=c.div`
+`,I=d.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   @media screen and (min-width: 768px) {
     gap: 8px;
   }
-`,l=s`
+`,x=p`
   border: 1px solid ${({theme:e})=>e.colors.borderСalendarColor};
   background-color: ${({theme:e})=>e.colors.backgroundCalendar};
   padding: 7px 10px;
@@ -31,21 +31,21 @@ import{s as c,q as s,B as g,C as m,D as b,t as h,w as y,n as _,r as k,j as r,v a
   @media screen and (min-width: 768px) {
     padding: 8px 10px;
   }
-`,x=c.button`
-  ${l}
-  ${e=>{switch(e.$direction){case"back":return s`
+`,h=d.button`
+  ${x}
+  ${e=>{switch(e.$direction){case"back":return p`
           border-radius: 8px 0px 0px 8px;
-          border-right: ${o=>o.$back&&"none; "};
-        `;case"forward":return s`
+          border-right: ${i=>i.$back&&"none; "};
+        `;case"forward":return p`
           border-radius: 0px 8px 8px 0px;
-        `;default:return s`
-          ${l}
+        `;default:return p`
+          ${x}
         `}}}
 
   &:hover svg {
     color: ${({theme:e})=>e.colors.toolbarButtonArrowColorHover};
   }
-`,A=c.button`
+`,B=d.button`
   width: 145px;
   padding: 8px 12px;
   font-size: 14px;
@@ -60,7 +60,7 @@ import{s as c,q as s,B as g,C as m,D as b,t as h,w as y,n as _,r as k,j as r,v a
   align-items: center;
   /* 
   margin-bottom: 18px; */
-`,I=b`
+`,R=k`
   .react-datepicker__wrapper {
     position: relative;
   }
@@ -205,4 +205,4 @@ import{s as c,q as s,B as g,C as m,D as b,t as h,w as y,n as _,r as k,j as r,v a
   .react-datepicker__triangle {
     visibility: hidden;
   }
-`,B=({activePage:e})=>{const o=h(),a=y(),d=_(),p=t=>{switch(t=n(new Date(t),"dd-MM-yyyy"),console.log("location.pathname: ",d.pathname),d.pathname){case"/calendar":a(`/calendar/day/${t}`);break;case"/statistics":a(`/statistics/${t}`);break}},i=k.forwardRef(function({value:R,onClick:f},u){return r.jsx(A,{onClick:f,ref:u,children:e==="month"?n(o,"yyyy-MM"):n(o," yyyy-MM-dd")})});return r.jsxs("div",{children:[r.jsx(v,{selected:o,onChange:t=>p(t),customInput:r.jsx(i,{}),calendarStartDay:1,formatWeekDay:t=>t.slice(0,1)}),r.jsx(I,{})]})},O=({activePage:e})=>{const o=y(),a=h(),d=()=>{const i=n($(a,1),"yyyy-MM"),t=n(w(a,1),"yyyy-MM-dd");o(e==="month"?`/calendar/month/${i}`:`/calendar/day/${t}`)},p=()=>{const i=n(j(a,1),"yyyy-MM"),t=n(C(a,1),"yyyy-MM-dd");o(e==="month"?`/calendar/month/${i}`:`/calendar/day/${t}`)};return r.jsxs(z,{children:[r.jsx(B,{activePage:e}),r.jsxs("div",{children:[r.jsx(x,{$direction:"back",$back:!0,onClick:()=>p(),children:r.jsx(M,{})}),r.jsx(x,{$direction:"forward",onClick:()=>d(),children:r.jsx(D,{})})]})]})};export{O as C};
+`,S=({activePage:e,setStaticticDate:i})=>{const o=y(),n=f(),s=w(),l=t=>{switch(t=a(new Date(t),"dd-MM-yyyy"),console.log("location.pathname: ",s.pathname),s.pathname){case"/calendar":n(`/calendar/day/${t}`);break;case"/statistics":i(t);break}},c=v.forwardRef(function({value:u,onClick:g},m){return console.log("  value: ",u),r.jsx(B,{onClick:g,ref:m,children:e==="month"?a(o,"yyyy-MM"):a(o," yyyy-MM-dd")})});return r.jsxs("div",{children:[r.jsx(j,{selected:o,onChange:t=>l(t),customInput:r.jsx(c,{}),calendarStartDay:1,formatWeekDay:t=>t.slice(0,1)}),r.jsx(R,{})]})},E=({activePage:e,setStaticticDate:i})=>{const o=f(),n=y(),s=()=>{const c=a(C(n,1),"yyyy-MM"),t=a($(n,1),"yyyy-MM-dd");o(e==="month"?`/calendar/month/${c}`:`/calendar/day/${t}`)},l=()=>{const c=a(M(n,1),"yyyy-MM"),t=a(D(n,1),"yyyy-MM-dd");o(e==="month"?`/calendar/month/${c}`:`/calendar/day/${t}`)};return r.jsxs(I,{children:[r.jsx(S,{setStaticticDate:i,activePage:e}),r.jsxs("div",{children:[r.jsx(h,{$direction:"back",$back:!0,onClick:()=>l(),children:r.jsx(z,{})}),r.jsx(h,{$direction:"forward",onClick:()=>s(),children:r.jsx(A,{})})]})]})};export{E as C};
