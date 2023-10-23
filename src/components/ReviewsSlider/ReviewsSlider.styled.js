@@ -79,7 +79,6 @@ const UserAvatar = styled.img`
 width: 50px;
 height: 50px;
 border-radius: 50px;
-background-color: red;
 `
 const StarsBox = styled.div`
 margin-bottom: 24px;
@@ -134,5 +133,22 @@ align-items: center;
       }
 `
 
+const DefaultText = styled.h3`
+font-family: inherit sans-serif;
+text-align: center;
+font-weight: 700;
+font-size: 32px;
+line-height: 20px;
+margin-bottom: 50px;
+color: #111111B2;
 
-export {TittleReviews, RevievBox, FirstBox, UserName, UserAvatar, StarsBox, TextOpinion, Container, ReviewContainer, Rat, SliderSwiper, WrapperBtn, PrevBtn, NextBtn}
+@media screen and (max-width: 767px) {
+    font-size: 18px;
+line-height: 16px;
+margin-bottom: 40px;
+margin: 12px;
+} 
+`
+
+
+export {TittleReviews, RevievBox, FirstBox, UserName, UserAvatar, StarsBox, TextOpinion, Container, ReviewContainer, Rat, SliderSwiper, WrapperBtn, PrevBtn, NextBtn, DefaultText}
