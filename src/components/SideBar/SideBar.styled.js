@@ -27,6 +27,7 @@ export const WrapperSideBar = styled.aside`
 
   @media screen and (min-width: 1440px) {
     left: 0;
+    border-bottom-right-radius: 10px;
   }
 `;
 
@@ -72,7 +73,7 @@ export const ButtonClose = styled.button`
   text-align: center;
   font-size: 24px;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  color: ${({ theme }) => theme.colors.arrowColor};
+  color: ${({ theme }) => theme.colors.colorBtnClose};
   &:hover,
   :focus {
     color: #3e85f3;
@@ -133,7 +134,7 @@ export const Item = styled.li``;
 
 export const Link = styled(NavLink)`
   background-color: transparent;
-  border: none; //* delate after transfer to the project (change to the NavLink)
+  border: none;
   color: ${({ theme }) => theme.colors.textNav};
   min-width: 185px;
   max-width: 100%;

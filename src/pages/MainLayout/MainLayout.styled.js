@@ -8,14 +8,16 @@ export const Content = styled.div`
   margin: 0 auto;
   padding: 24px 20px 40px 28px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   overflow-y: scroll;
+  overflow-x: hidden;
 
   @media screen and (min-width: 768px) {
     max-width: 768px;
     padding: 24px 32px 38px 32px;
   }
   @media screen and (min-width: 1440px) {
+    justify-content: flex-end;
     max-width: 1440px;
     padding: 40px 32px 32px 0;
   }
@@ -27,6 +29,7 @@ export const Main = styled.main`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  height: max-content;
   @media screen and (min-width: 1440px) {
     width: 79.5%;
     padding-left: 32px;
@@ -44,7 +47,7 @@ export const OpenMenu = styled.button`
   position: absolute;
   top: 28px;
   left: 20px;
-  color: ${({ theme }) => theme.colors.arrowColor};
+  color: ${({ theme }) => theme.colors.colorBtnClose};
 
   &:hover,
   :focus {

@@ -12,10 +12,10 @@ import {
   WrapperHeader,
   Wrapper,
   WrapperUser,
+  AvatarPlaceholder,
 } from './Header.styled';
 import { ModalComponent } from '../Modal/Modal';
 import { FeedbackForm } from '../FeedbackForm/FeedbackForm';
-import user from '../../images/mainLayout/user.jpg';
 import { changeTheme } from '../../styles/Theme/themeSlice';
 import { selectUser } from '../../redux/auth/selectors';
 
@@ -57,7 +57,18 @@ export const Header = ({ onClickModal, modal }) => {
               {!theme ? <BiSun /> : <FiMoon />}
             </ButtonMoon>
             <Name>{userData?.userName}</Name>
-            <Image src={user} alt="Img User" loading="lazy" width="32" />
+            <Image>
+              {userData?.avatarURL ? (
+                <img
+                  src={userData?.avatarURL}
+                  alt="Img User"
+                  loading="lazy"
+                  width="32"
+                />
+              ) : (
+                <AvatarPlaceholder />
+              )}
+            </Image>
           </WrapperUser>
         </Wrapper>
       </WrapperHeader>
