@@ -11,7 +11,7 @@ import {
 import CustomDatePicker from '../../DatePicker/DatePicker';
 import { GetDatefromURL } from '../../../heplers/getDatefromURL';
 import { useNavigate } from 'react-router-dom';
-const ChooseDate = ({ activePage }) => {
+const ChooseDate = ({ activePage, setStaticticDate }) => {
   const navigate = useNavigate();
   const activeDate = GetDatefromURL();
 
@@ -32,7 +32,10 @@ const ChooseDate = ({ activePage }) => {
   };
   return (
     <Controllers>
-      <CustomDatePicker activePage={activePage} />
+      <CustomDatePicker
+        setStaticticDate={setStaticticDate}
+        activePage={activePage}
+      />
       <div>
         <Button $direction="back" $back onClick={() => changePrevDate()}>
           <StyledAiOutlineLeft />
