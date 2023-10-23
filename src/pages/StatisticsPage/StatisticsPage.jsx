@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import StatisticsChart from '../../components/statisticsChart/StatisticsChart';
 import ChooseDate from '../../components/Calendar/PeriodDateSelect/ChooseDate';
 import { WrapperPage, LegendWrapp, Legend, Text } from './stylesPage';
+
 import { fetchTasks } from '../../redux/tasks/task';
 import { selectTasks } from '../../redux/tasks/tasksSelectors';
 import { filterTasksByDay } from './functionsDiagram/filterTasksByDay';
@@ -67,10 +68,14 @@ const StatisticsPage = () => {
   ];
 
   console.log('data', data);
-
+  
   return (
     <WrapperPage>
-      <ChooseDate setStaticticDate={setStaticticDate} />
+      <ChooseDate
+        activePage="statistics"
+        staticticDate={staticticDate}
+        setStaticticDate={setStaticticDate}
+      />
       <LegendWrapp>
         <Legend>
           <svg

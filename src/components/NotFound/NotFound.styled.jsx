@@ -38,7 +38,7 @@ export const Picture = styled.picture`
 `;
 
 export const Number = styled.span`
-  color: var(--logo-text);
+  color: #3E85F3;
   font-size: 100px;
   font-weight: 700;
   line-height: 1.5;
@@ -63,8 +63,8 @@ export const Text = styled.p`
 `;
 
 export const StyledButton = styled(Link)`
-  background-color: var(--accent-background-color);
-  color: var(--btn-text-color);
+  background-color: #3E85F3;
+  color: #ffffff;
   padding: 14px 32px;
   border-radius: 16px;
   border: none;
@@ -76,12 +76,13 @@ export const StyledButton = styled(Link)`
   text-transform: none;
   cursor: pointer;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
+  
   &:hover,
   &:focus {
     background-color: var(--active-btn-color);
+    color: #3E85F3;
   }
-
+  
   @media screen and (min-width: 768px) {
     padding: 16px 48px;
     font-size: 18px;

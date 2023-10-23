@@ -35,6 +35,7 @@ export const FeedbackForm = ({ modal, onClickModal }) => {
   const review = useSelector(reviewOwn);
   const [deleteReviewUser, setDeleteReviewUser] = useState(false);
   const [edit, setEdit] = useState(false);
+  const [disabled, setDisabled] = useState(true);
 
   const initialValues = {
     textReview: review?.text || '',
@@ -49,6 +50,7 @@ export const FeedbackForm = ({ modal, onClickModal }) => {
         .max(300, 'Must be 300 characters or less')
         .trim()
         .required('Fill in the field! Your feedback is very important to us'),
+      rating: Yup.number().required(),
     }),
     onSubmit: ({ textReview, rating }) => {
       const trimmedReview = textReview.trim();
@@ -83,6 +85,7 @@ export const FeedbackForm = ({ modal, onClickModal }) => {
       <Title>Rating</Title>
       <Stack spacing={1}>
         <Rating
+          disabled={disabled && !!review?.text}
           name="text-feedback"
           value={formik.values.rating}
           onChange={(event, newRating) => {
@@ -101,6 +104,7 @@ export const FeedbackForm = ({ modal, onClickModal }) => {
           id="textReview"
           name="textReview"
           type="text"
+          disabled={disabled && !!review?.text}
           placeholder="Enter text"
           onChange={formik.handleChange}
           onBlur={formik.onBlur}
@@ -109,7 +113,7 @@ export const FeedbackForm = ({ modal, onClickModal }) => {
         {formik.errors.textReview && (
           <ErrorText>{formik.errors.textReview}</ErrorText>
         )}
-        {(deleteReviewUser || review?.length === 0) && (
+        {(deleteReviewUser || !review?.text) && (
           <WrapperButton>
             <ButtonSave
               type="submit"
@@ -129,12 +133,13 @@ export const FeedbackForm = ({ modal, onClickModal }) => {
             </ButtonCancel>
           </WrapperButton>
         )}
-        {review?.length !== 0 && review !== null && (
+        {!!review?.text && (
           <WrapperButtonEdit>
             <ButtonEdit
               data-edit={edit.toString()}
               type="button"
               onClick={() => {
+                setDisabled(false);
                 setEdit(true);
               }}
             >

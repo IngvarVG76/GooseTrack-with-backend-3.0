@@ -7,32 +7,46 @@ import { format } from 'date-fns';
 import { useLocation, useNavigate } from 'react-router';
 import { StyledButton, CalendarGlobalStyles } from './StyledDayPicker';
 
-const CustomDatePicker = ({ activePage, setStaticticDate }) => {
-  const activeDate = GetDatefromURL();
+const CustomDatePicker = ({ activePage, staticticDate, setStaticticDate }) => {
+  console.log('staticticDate: ', staticticDate);
+  const [activeDate, setActiveDate] = useState(GetDatefromURL());
+
   const navigate = useNavigate();
   const location = useLocation();
   const handleClick = (date) => {
-    date = format(new Date(date), 'dd-MM-yyyy');
+    console.log('date: ', date);
+    const formatdate = format(new Date(date), 'dd-MM-yyyy');
+    setActiveDate(date);
 
-    console.log('location.pathname: ', location.pathname);
     switch (location.pathname) {
       case '/calendar':
-        navigate(`/calendar/day/${date}`);
+        navigate(`/calendar/day/${formatdate}`);
         break;
       case '/statistics':
-        setStaticticDate(date);
+        setStaticticDate(formatdate);
         break;
       default:
     }
   };
 
-  const CustomInput = forwardRef(function CustomInput({ value, onClick }, ref) {
-    console.log('  value: ', value);
+  const inputName = (activePage) => {
+    switch (activePage) {
+      case 'month':
+        return format(GetDatefromURL(), 'MMMM yyyy');
+
+      case 'day':
+        return format(GetDatefromURL(), 'd MMM yyyy');
+
+      case 'statistics':
+        return format(new Date(staticticDate || new Date()), 'dd MMM yyyy');
+      default:
+    }
+  };
+
+  const CustomInput = forwardRef(function CustomInput({ onClick }, ref) {
     return (
       <StyledButton onClick={onClick} ref={ref}>
-        {activePage === 'month'
-          ? format(activeDate, 'yyyy-MM')
-          : format(activeDate, ' yyyy-MM-dd')}
+        {inputName(activePage)}
       </StyledButton>
     );
   });
@@ -54,13 +68,3 @@ const CustomDatePicker = ({ activePage, setStaticticDate }) => {
 
 export default CustomDatePicker;
 
-// Безіменна функція
-// const CustomInput = forwardRef(({ value, onClick }, ref) => {
-//   return (
-//     <StyledButton onClick={onClick} ref={ref}>
-//       {activePage === 'month'
-//         ? format(activeDate, 'MMMM yyyy')
-//         : format(activeDate, ' dd MMM yyyy')}
-//     </StyledButton>
-//   );
-// });
