@@ -1,5 +1,11 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { getReviewOwn, getReviewsAll } from './operation';
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
+import {
+  createReview,
+  deleteReview,
+  editReview,
+  getReviewOwn,
+  getReviewsAll,
+} from './operation';
 
 const initialState = {
   reviews: null,
@@ -12,30 +18,55 @@ const reviewSlice = createSlice({
   initialState,
   extraReducers: (builder) => {
     builder
-      .addCase(getReviewsAll.pending, (state) => {
-        state.isLoading = true;
-        state.error = null;
-      })
-      .addCase(getReviewsAll.fulfilled, (state, { payload }) => {
+      .addCase(deleteReview.fulfilled, (state) => {
+        state.reviews = initialState.reviews;
         state.isLoading = false;
-        state.reviews = payload;
       })
-      .addCase(getReviewsAll.rejected, (state, { payload }) => {
+      .addCase(editReview.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.error = payload.error;
+        state.reviews = {
+          ...state.reviews,
+          text: payload.text,
+          rating: payload.rating,
+        };
       })
-      .addCase(getReviewOwn.pending, (state) => {
-        state.isLoading = true;
-        state.error = null;
-      })
-      .addCase(getReviewOwn.fulfilled, (state, { payload }) => {
-        state.isLoading = false;
-        state.reviews = payload;
-      })
-      .addCase(getReviewOwn.rejected, (state, { payload }) => {
-        state.isLoading = false;
-        state.error = payload.error;
-      });
+      .addMatcher(
+        isAnyOf(
+          getReviewsAll.pending,
+          getReviewOwn.pending,
+          createReview.pending,
+          deleteReview.pending,
+          editReview.pending,
+        ),
+        (state) => {
+          state.isLoading = true;
+          state.error = null;
+        },
+      )
+      .addMatcher(
+        isAnyOf(
+          getReviewsAll.fulfilled,
+          getReviewOwn.fulfilled,
+          createReview.fulfilled,
+        ),
+        (state, { payload }) => {
+          state.isLoading = false;
+          state.reviews = payload;
+        },
+      )
+      .addMatcher(
+        isAnyOf(
+          getReviewsAll.rejected,
+          getReviewOwn.rejected,
+          createReview.rejected,
+          deleteReview.rejected,
+          editReview.rejected,
+        ),
+        (state, { payload }) => {
+          state.isLoading = false;
+          state.error = payload.error;
+        },
+      );
   },
 });
 

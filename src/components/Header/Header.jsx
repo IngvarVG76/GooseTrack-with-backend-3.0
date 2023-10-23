@@ -63,7 +63,7 @@ export const Header = ({ onClickModal, modal }) => {
       </WrapperHeader>
       {modal && (
         <ModalComponent onClose={onClickModal}>
-          <FeedbackForm />
+          <FeedbackForm modal={modal} onClickModal={onClickModal} />
         </ModalComponent>
       )}
     </>

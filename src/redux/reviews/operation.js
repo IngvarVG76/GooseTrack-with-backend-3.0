@@ -62,9 +62,9 @@ export const createReview = createAsyncThunk(
 
 export const editReview = createAsyncThunk(
   'review/edit',
-  async (userId, thunkAPI) => {
+  async (user, thunkAPI) => {
     try {
-      const { data } = await $instants.patch(`/reviews/own/${userId}`);
+      const { data } = await $instants.patch(`/reviews/own/${user._id}`, user);
       return data;
     } catch (error) {
       if (error.response) {
@@ -85,7 +85,7 @@ export const deleteReview = createAsyncThunk(
   'review/delete',
   async (userId, thunkAPI) => {
     try {
-      const { data } = $instants.delete(`/reviews/own/${userId}`);
+      const { data } = await $instants.delete(`/reviews/own/${userId}`);
       return data;
     } catch (error) {
       const { status } = error.response;
