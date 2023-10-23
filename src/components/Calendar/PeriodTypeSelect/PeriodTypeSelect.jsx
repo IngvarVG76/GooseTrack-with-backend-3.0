@@ -15,7 +15,7 @@ export const DayOrMonthPeriod = ({ activePage }) => {
         $borderSide
         $active={activePage}
         $primary={primaryBtn()}
-        to={`/calendar/month/${format(activeDate, 'MMMM-yyyy')}`}
+        to={`/calendar/month/${format(activeDate, 'yyyy-MM')}`}
       >
         Month
       </StyledLink>
@@ -23,7 +23,7 @@ export const DayOrMonthPeriod = ({ activePage }) => {
       <StyledLink
         $active={activePage}
         $primary={!primaryBtn()}
-        to={`/calendar/day/${format(activeDate, 'dd-MMMM-yyyy')}`}
+        to={`/calendar/day/${format(activeDate, 'yyyy-MM-dd')}`}
       >
         Day
       </StyledLink>
