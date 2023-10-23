@@ -20,14 +20,12 @@ export const handleFulfilled = (state, { payload }) => {
 };
 
 export const handleMonthFulfilled = (state, { payload }) => {
-  if (payload.data) {
-    state.data = payload.data;
-    if (payload.data.length === 0) {
-      Notify.info('There are no tasks for this date.', {
-        timeout: 3000,
-      });
-    }
-  }
+  state.tasks = payload.data;
+
+  if (payload.data.length === 0)
+    Notify.info('There are no tasks for this date.', {
+      timeout: 3000,
+    });
   state.isLoading = false;
   state.error = null;
 };
