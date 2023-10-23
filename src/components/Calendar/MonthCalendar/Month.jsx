@@ -72,7 +72,7 @@ const MonthCalendar = () => {
 
   const navigate = useNavigate();
   const nagigatetoGoosedDay = (day) => {
-    navigate(`/calendar/day/${format(day, 'dd-MMMM-yyyy')}`);
+    navigate(`/calendar/day/${format(day, 'yyyy-MM-dd')}`);
   };
   const firstDay = startOfMonth(activeDate);
   const lastDay = lastDayOfMonth(activeDate);
