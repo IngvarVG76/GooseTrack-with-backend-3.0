@@ -19,7 +19,6 @@ const tasksSlice = createSlice({
   initialState,
   extraReducers: (builder) => {
     builder
-
       .addCase(fetchTasks.pending, handlePending)
       .addCase(fetchTasks.fulfilled, handleMonthFulfilled)
       .addCase(fetchTasks.rejected, handleRejected)
