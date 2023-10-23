@@ -1,11 +1,17 @@
 import StatisticsChart from '../../components/statisticsChart/StatisticsChart';
 import ChooseDate from '../../components/Calendar/PeriodDateSelect/ChooseDate';
 import { WrapperPage, LegendWrapp, Legend, Text } from './stylesPage';
+import { useState } from 'react';
+import { format } from 'date-fns';
 
 const StatisticsPage = () => {
+  const [staticticDate, setStaticticDate] = useState(
+    format(new Date(), 'yyyy-MM-dd'),
+  );
+  console.log('staticticDate: ', staticticDate);
   return (
     <WrapperPage>
-      <ChooseDate />
+      <ChooseDate setStaticticDate={setStaticticDate} />
       <LegendWrapp>
         <Legend>
           <svg

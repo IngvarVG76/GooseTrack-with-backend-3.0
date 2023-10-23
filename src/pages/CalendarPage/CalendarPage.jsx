@@ -13,6 +13,7 @@ const CalendarPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const activeMonth = format(GetDatefromURL(), 'yyyy-MM');
+
   useEffect(() => {
     if (location.pathname === '/calendar') {
       navigate(`/calendar/month/${activeMonth}`);

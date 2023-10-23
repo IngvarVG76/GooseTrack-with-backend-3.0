@@ -6,6 +6,7 @@ export const WrapperPage = styled.div`
   padding-top: 28px;
   padding-left: 14px;
   padding-right: 14px;
+  padding-bottom: 135px;
   margin-left: auto;
   margin-right: auto;
 `;
