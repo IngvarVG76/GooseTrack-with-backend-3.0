@@ -111,14 +111,18 @@ export const updateUser = createAsyncThunk(
   '/user',
   async (credentials, thunkAPI) => {
     try {
-      for (const pair of credentials.entries()) {
-        console.log(`${pair[0]}, ${pair[1]}`);
-      }
-      const response = await $instants.patch('/users/profile/avatars', credentials);
+      const response = await $instants.patch(
+        '/users/profile/avatars',
+        credentials,
+      );
+      toast.success('Your user data successfully updated', styleToastify);
       return response.data.user;
     } catch (error) {
       console.log(error.response.data.message);
-      alert("Data not updated!")
+      toast.error(
+        'Ooops! Your data wasn"t updated. Please reload this page and try again !',
+        styleToastify,
+      );
       return thunkAPI.rejectWithValue(error.message);
     }
   },

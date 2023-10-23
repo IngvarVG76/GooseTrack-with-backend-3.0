@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { format, parseISO } from 'date-fns';
-// import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 import { selectUser } from '../../redux/auth/selectors';
@@ -33,15 +32,11 @@ import {
   SuccessIcon,
 } from './UserForm.styled';
 import { ErrorIcon } from '../../components/RegisterForm/RegisterForm.styled';
-// import AccountDatepicker from '../AccountDatePicker/AccountDatePicker';
+import { CalendarGlobalStyles } from '../DatePicker/StyledDayPicker';
 
-// const phoneRegExp = /\+380\d{3}\d{2}\d{2}\d{2}$/;
 const phoneRegExp = /^(?:\+\d|[\d\s\-./()]){10,20}$/;
 const emailRegexp =
   /^[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?$/;
-// const emailRegexp =
-//   /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
-// const avaliableMimeType = ['image/jpeg', 'image/png'];
 
 const UserForm = () => {
   const { avatarURL, birthDay, email, phone, skype, userName } =
@@ -49,13 +44,6 @@ const UserForm = () => {
 
   const [avatar, setAvatar] = useState(avatarURL ?? '');
   const [avatarPreviewURL, setAvatarPreviewURL] = useState('');
-  // const [newUserName, setNewUserName] = useState(userName ?? '');
-  // const [newBirthDay, setNewBirthDay] = useState(
-  //   birthDay || format(new Date(), 'yyyy-MM-dd'),
-  // );
-  // const [newEmail, setNewEmail] = useState(email ?? '');
-  // const [newPhone, setNewPhone] = useState(phone ?? '');
-  // const [newSkype, setNewSkype] = useState(skype ?? '');
 
   const dispatch = useDispatch();
 
@@ -90,20 +78,6 @@ const UserForm = () => {
     }
   };
 
-  // const handleAvatarChange = (e) => {
-  //   console.log(e.target.value);
-  //   const file = e.target.files[0];
-
-  //   if (file) {
-  //     const reader = new FileReader();
-  //     reader.onload = (e) => {
-  //       setAvatar(e.target.result);
-  //     };
-  //     console.log(e.target.value)
-  //     reader.readAsDataURL(file);
-  //   }
-  // };
-
   const formik = useFormik({
     initialValues: {
       avatar: `${avatarURL}`,
@@ -123,23 +97,13 @@ const UserForm = () => {
       //     return ['image/jpeg', 'image/png'].includes(value.type);
       //   },
       // ),
-      // avatar: Yup.string().oneOf(avaliableMimeType, 'Invalid file type'),
       userName: Yup.string()
         .min(3, 'Username must contain at least 3 characters')
         .max(16, 'Username must contain not more than 16 characters')
         .required('Username is required field'),
-      birthday: Yup.date(),
-      // .transform(function (value, originalValue) {
-      //   if (this.isType(value)) {
-      //     return value;
-      //   }
-      //   const result = parse(originalValue, 'dd/MM/yyyy', new Date());
-      //   return result;
-      // })
-      // .typeError('Please enter a valid date')
-      // .min('1969-11-13', 'Date is too early')
-      // .max(new Date(), 'Date is not valid')
-      // .required(),
+      birthday: Yup.date()
+        .min(new Date(1923, 0, 1), 'Date is too early')
+        .max(new Date(), 'Date is not valid'),
       email: Yup.string()
         .email(`This is an ERROR email`)
         .matches(emailRegexp, `This is an ERROR email`)
@@ -174,8 +138,17 @@ const UserForm = () => {
       dispatch(updateUser(formData));
 
       setTimeout(() => {
-        formik.resetForm({ values: values, touched: { userName: true, birthday: true, email: true, phone: true, skype: true } });
-      }, 1000);
+        formik.resetForm({
+          values: values,
+          touched: {
+            userName: true,
+            birthday: true,
+            email: true,
+            phone: true,
+            skype: true,
+          },
+        });
+      }, 500);
 
       actions.setSubmitting(false);
     },
@@ -267,19 +240,6 @@ const UserForm = () => {
             </InputWrap>
             <InputWrap>
               <Label htmlFor="birthday">Birthday</Label>
-              {/* <Input
-                id="birthday"
-                name="birthday"
-                type="date"
-                {...formik.getFieldProps('birthday')}
-                className={
-                  formik.touched.birthday
-                    ? formik.errors.birthday
-                      ? 'invalid-input'
-                      : 'valid-input'
-                    : ''
-                }
-              /> */}
               <InputDate
                 id="birthday"
                 selected={
@@ -290,6 +250,7 @@ const UserForm = () => {
                 onChange={(date) => {
                   formik.setFieldValue('birthday', format(date, 'yyyy-MM-dd'));
                 }}
+                onBlur={() => formik.setFieldTouched('birthday', true)}
                 dateFormat="dd/MM/yyyy"
                 className={
                   formik.touched.birthday
@@ -310,6 +271,7 @@ const UserForm = () => {
                   </ContainerErrorIcon>
                 )
               ) : null}
+              <CalendarGlobalStyles />
             </InputWrap>
             <InputWrap>
               <Label htmlFor="email">Email</Label>
@@ -412,7 +374,6 @@ const UserForm = () => {
         <SaveBtn
           type="submit"
           ref={submitBtnRef}
-          // disabled={verify()}
           disabled={!(formik.isValid && formik.dirty) || formik.isSubmitting}
         >
           Save changes
