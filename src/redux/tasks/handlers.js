@@ -14,17 +14,20 @@ export const handleRejected = (state, { payload }) => {
 };
 
 export const handleFulfilled = (state, { payload }) => {
-  state.tasks = payload.datа;
+  state.tasks = payload.data;
   state.isLoading = false;
   state.error = null;
 };
 
 export const handleMonthFulfilled = (state, { payload }) => {
-  state.tasks = payload.tasks;
-  if (payload.tasks.length === 0)
-    Notify.info('There are no tasks for this date.', {
-      timeout: 3000,
-    });
+  if (payload.data) {
+    state.data = payload.data;
+    if (payload.data.length === 0) {
+      Notify.info('There are no tasks for this date.', {
+        timeout: 3000,
+      });
+    }
+  }
   state.isLoading = false;
   state.error = null;
 };
