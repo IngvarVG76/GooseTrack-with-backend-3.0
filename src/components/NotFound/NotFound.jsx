@@ -62,7 +62,7 @@ export const NotFound = () => {
           to the homepage.
         </Trans>
       </Text>
-      <StyledButton to="/">{t('notfound.back')}</StyledButton>
+      <StyledButton to="/">{t('Back to home')}</StyledButton>
     </Container>
   );
 };
