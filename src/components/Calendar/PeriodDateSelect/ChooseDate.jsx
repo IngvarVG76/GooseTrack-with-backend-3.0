@@ -35,7 +35,7 @@ const ChooseDate = ({ activePage, setStaticticDate }) => {
       <CustomDatePicker
         setStaticticDate={setStaticticDate}
         activePage={activePage}
-      />
+        />
       <div>
         <Button $direction="back" $back onClick={() => changePrevDate()}>
           <StyledAiOutlineLeft />

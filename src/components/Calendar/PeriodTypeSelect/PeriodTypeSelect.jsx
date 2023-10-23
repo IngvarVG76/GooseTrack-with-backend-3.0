@@ -19,7 +19,6 @@ export const DayOrMonthPeriod = ({ activePage }) => {
       >
         Month
       </StyledLink>
-
       <StyledLink
         $active={activePage}
         $primary={!primaryBtn()}

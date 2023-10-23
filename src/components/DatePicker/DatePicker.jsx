@@ -54,13 +54,3 @@ const CustomDatePicker = ({ activePage, setStaticticDate }) => {
 
 export default CustomDatePicker;
 
-// Безіменна функція
-// const CustomInput = forwardRef(({ value, onClick }, ref) => {
-//   return (
-//     <StyledButton onClick={onClick} ref={ref}>
-//       {activePage === 'month'
-//         ? format(activeDate, 'MMMM yyyy')
-//         : format(activeDate, ' dd MMM yyyy')}
-//     </StyledButton>
-//   );
-// });

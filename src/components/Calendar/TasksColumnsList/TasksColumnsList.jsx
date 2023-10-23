@@ -5,13 +5,13 @@ import { Container } from './TaskColumnList.styled';
 export const TasksColumnsList = ({ tasks, date }) => {
   const tasksByDay = tasks.filter(task => task.date === date);
 
-  const tasksToDo = tasksByDay.filter(task => task.category === 'to-do');
+  const tasksToDo = tasksByDay.filter((task) => task.category === 'TODO');
 
   const tasksInProgress = tasksByDay.filter(
-    task => task.category === 'in-progress'
+    (task) => task.category === 'INPROGRESS',
   );
 
-  const tasksDone = tasksByDay.filter(task => task.category === 'done');
+  const tasksDone = tasksByDay.filter((task) => task.category === 'DONE');
 
   return (
     <Container>

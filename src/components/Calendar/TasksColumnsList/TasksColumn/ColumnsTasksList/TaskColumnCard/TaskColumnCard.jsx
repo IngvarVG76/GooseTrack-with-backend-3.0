@@ -39,7 +39,7 @@ export const TaskColumnCard = ({ task, setTaskToEdit, setIsOpen }) => {
     dispatch(deleteTask(task));
   };
 
-  const categories = ['to-do', 'in-progress', 'done'];
+  const categories = ['TODO', 'INPROGRESS', 'DONE'];
   const allowedCategory = categories.filter((item) => item !== task.category);
 
   return (
