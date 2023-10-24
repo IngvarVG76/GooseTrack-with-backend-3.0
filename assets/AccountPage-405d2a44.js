@@ -1,4 +1,4 @@
-import{G as B,s as t,d as E,o as S,r as l,u as L,e as P,f as O,h as m,I as T,K as V,j as e,x as Z}from"./index-a848e5a7.js";import{a as D,P as M}from"./index.esm-e91dad5a.js";import{t as W,p as q}from"./index-64d82f80.js";import{E as u}from"./RegisterForm.styled-48778936.js";import"./index-77e3a7b6.js";import"./index.esm-c5cbf656.js";import"./index.esm-aba3a2f6.js";function K(a){return B({tag:"svg",attr:{viewBox:"0 0 512 512"},child:[{tag:"path",attr:{fill:"none",strokeMiterlimit:"10",strokeWidth:"32",d:"M448 256c0-106-86-192-192-192S64 150 64 256s86 192 192 192 192-86 192-192z"}},{tag:"path",attr:{fill:"none",strokeLinecap:"round",strokeLinejoin:"round",strokeWidth:"32",d:"M352 176L217.6 336 160 272"}}]})(a)}const G=t.div`
+import{G as B,s as t,d as S,o as E,r as d,u as L,e as P,f as T,h as m,H as D,I as O,j as e,x as V}from"./index-4271b554.js";import{a as Z,P as M}from"./index.esm-aaf4fb03.js";import{t as W,p as q,C as G}from"./StyledDayPicker-509b2d3b.js";import{E as u}from"./RegisterForm.styled-99a7e0df.js";import"./index-ebb8ef85.js";import"./index.esm-3fa2e1f5.js";import"./index.esm-f451c87d.js";function H(a){return B({tag:"svg",attr:{viewBox:"0 0 512 512"},child:[{tag:"path",attr:{fill:"none",strokeMiterlimit:"10",strokeWidth:"32",d:"M448 256c0-106-86-192-192-192S64 150 64 256s86 192 192 192 192-86 192-192z"}},{tag:"path",attr:{fill:"none",strokeLinecap:"round",strokeLinejoin:"round",strokeWidth:"32",d:"M352 176L217.6 336 160 272"}}]})(a)}const K=t.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -25,7 +25,7 @@ import{G as B,s as t,d as E,o as S,r as l,u as L,e as P,f as O,h as m,I as T,K a
     width: 1087px;
     padding: 60px 164px;
   }
-`,H=t.div`
+`,_=t.div`
   position: absolute;
   top: -31px;
   left: 50%;
@@ -47,7 +47,7 @@ import{G as B,s as t,d as E,o as S,r as l,u as L,e as P,f as O,h as m,I as T,K a
 
     margin-bottom: 20px;
   }
-`,_=t.div`
+`,X=t.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -71,7 +71,7 @@ import{G as B,s as t,d as E,o as S,r as l,u as L,e as P,f as O,h as m,I as T,K a
   height: 100%;
   object-fit: cover;
   object-position: center;
-`,X=t(D)`
+`,J=t(Z)`
   position: absolute;
   top: 62px;
   left: 43px;
@@ -95,9 +95,9 @@ import{G as B,s as t,d as E,o as S,r as l,u as L,e as P,f as O,h as m,I as T,K a
     top: 106px;
     left: 76px;
   }
-`,J=t.input`
+`,Q=t.input`
   display: none;
-`,Q=t(M)`
+`,Y=t(M)`
   width: 48px;
   height: 48px;
   color: ${({theme:a})=>a.colors.avatarPlaceholder};
@@ -106,7 +106,7 @@ import{G as B,s as t,d as E,o as S,r as l,u as L,e as P,f as O,h as m,I as T,K a
     width: 32px;
     height: 32px;
   }
-`,Y=t.h2`
+`,ee=t.h2`
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 700;
@@ -123,7 +123,7 @@ import{G as B,s as t,d as E,o as S,r as l,u as L,e as P,f as O,h as m,I as T,K a
 
     margin-bottom: 8px;
   }
-`,ee=t.p`
+`,ie=t.p`
   font-family: 'Inter', sans-serif;
   font-size: 12px;
   font-weight: 500;
@@ -138,7 +138,7 @@ import{G as B,s as t,d as E,o as S,r as l,u as L,e as P,f as O,h as m,I as T,K a
     font-size: 14px;
     line-height: calc(18 / 14);
   }
-`,ie=t.form`
+`,ae=t.form`
   display: flex;
   flex-direction: column;
 
@@ -219,7 +219,7 @@ import{G as B,s as t,d as E,o as S,r as l,u as L,e as P,f as O,h as m,I as T,K a
     font-size: 16px;
     line-height: calc(18 / 16);
   }
-`,ae=t(W)`
+`,te=t(W)`
   width: 100%;
   padding: 12px 14px;
   border: ${({theme:a})=>a.colors.borderUserForm};
@@ -254,9 +254,9 @@ import{G as B,s as t,d as E,o as S,r as l,u as L,e as P,f as O,h as m,I as T,K a
     font-size: 16px;
     line-height: calc(18 / 16);
   }
-`,te=t(g)`
+`,re=t(g)`
   margin-bottom: 0;
-`,re=t.button`
+`,ne=t.button`
   margin-left: auto;
   margin-right: auto;
   margin-top: 40px;
@@ -295,7 +295,7 @@ import{G as B,s as t,d as E,o as S,r as l,u as L,e as P,f as O,h as m,I as T,K a
   @media screen and (min-width: 1440px) {
     margin-top: 88px;
   }
-`,ne=t.div`
+`,se=t.div`
   @media screen and (max-width: 1439px) {
     display: flex;
     flex-direction: column;
@@ -335,7 +335,7 @@ import{G as B,s as t,d as E,o as S,r as l,u as L,e as P,f as O,h as m,I as T,K a
   &.invalid {
     color: #ff0000;
   }
-`,f=t(K)`
+`,f=t(H)`
   position: absolute;
   right: 12px;
   bottom: 37px;
@@ -346,4 +346,4 @@ import{G as B,s as t,d as E,o as S,r as l,u as L,e as P,f as O,h as m,I as T,K a
   @media screen and (min-width: 768px) {
     bottom: 37px;
   }
-`,se=/^(?:\+\d|[\d\s\-./()]){10,20}$/,oe=/^[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?$/,de=()=>{const{avatarURL:a,birthDay:$,email:R,phone:z,skype:C,userName:x}=E(S),[b,I]=l.useState(a??""),[d,y]=l.useState(""),U=L(),v=l.useRef(),F=l.useRef(),j=l.useRef();l.useEffect(()=>()=>{d&&URL.revokeObjectURL(d)},[d]);const w=()=>{v.current.click()},A=r=>{const c=r.target.files[0];if(d||j.current.click(),I(c),c){const o=URL.createObjectURL(c);y(o),console.log(d)}else y(a)},i=P({initialValues:{avatar:`${a}`,checkBox:!1,userName:`${x??""}`,birthday:`${$}`,email:`${R??""}`,phone:`${z??""}`,skype:`${C??""}`},validationSchema:O({userName:m().min(3,"Username must contain at least 3 characters").max(16,"Username must contain not more than 16 characters").required("Username is required field"),birthday:T(),email:m().email("This is an ERROR email").matches(oe,"This is an ERROR email").required("Email is required field"),phone:m().matches(se,"Phone number is not valid"),skype:m().min(3,"Skype must contain at least 3 characters").max(16,"Skype must not have more than 16 characters")}),onSubmit:async(r,c)=>{const o=new FormData;i.initialValues.userName!==r.userName&&o.append("userName",r.userName),i.initialValues.email!==r.email&&o.append("email",r.email),i.initialValues.phone!==r.phone&&o.append("phone",r.phone),i.initialValues.skype!==r.skype&&o.append("skype",r.skype),i.initialValues.birthday!==r.birthday&&o.append("birthDay",r.birthday),b!==""&&o.append("avatarURL",b),U(V(o)),setTimeout(()=>{i.resetForm({values:r,touched:{userName:!0,birthday:!0,email:!0,phone:!0,skype:!0}})},1e3),c.setSubmitting(!1)}});return e.jsx(G,{children:e.jsxs(ie,{onSubmit:i.handleSubmit,children:[e.jsxs(H,{children:[e.jsx(_,{onClick:w,children:d?e.jsx(k,{src:d,alt:x}):a?e.jsx(k,{src:a,alt:x}):e.jsx(Q,{})}),e.jsx(X,{onClick:w}),e.jsx(J,{name:"avatar",type:"file",ref:v,accept:"image/*",onChange:A}),e.jsx("input",{ref:j,type:"checkbox",name:"checkBox",onChange:i.handleChange,checked:i.values.checkBox,style:{display:"none"}})]}),e.jsx(Y,{children:x}),e.jsx(ee,{children:"User"}),e.jsxs(ne,{children:[e.jsxs(N,{children:[e.jsxs(p,{children:[e.jsx(h,{htmlFor:"userName",className:i.touched.userName?i.errors.userName?"invalid-input":"valid-input":"",children:"User Name"}),e.jsx(g,{id:"userName",name:"userName",type:"text",placeholder:"Enter your name",value:i.values.userName,onChange:i.handleChange,onBlur:i.handleBlur,className:i.touched.userName?i.errors.userName?"invalid-input":"valid-input":""}),i.touched.userName?i.errors.userName?e.jsxs(n,{children:[e.jsx(s,{className:"invalid",children:i.errors.userName}),e.jsx(u,{})]}):e.jsxs(n,{children:[e.jsx(s,{className:"valid",children:"This is CORRECT username"}),e.jsx(f,{})]}):null]}),e.jsxs(p,{children:[e.jsx(h,{htmlFor:"birthday",children:"Birthday"}),e.jsx(ae,{id:"birthday",selected:i.values.birthday?q(i.values.birthday):new Date,onChange:r=>{i.setFieldValue("birthday",Z(r,"yyyy-MM-dd"))},dateFormat:"dd/MM/yyyy",className:i.touched.birthday?i.errors.birthday?"invalid-input":"valid-input":""}),i.touched.birthday?i.errors.birthday?e.jsx(n,{children:e.jsx(s,{className:"invalid",children:i.errors.birthday})}):e.jsx(n,{children:e.jsx(s,{className:"valid",children:"This is CORRECT date"})}):null]}),e.jsxs(p,{children:[e.jsx(h,{htmlFor:"email",children:"Email"}),e.jsx(g,{id:"email",name:"email",type:"text",placeholder:"Enter your email",...i.getFieldProps("email"),className:i.touched.email?i.errors.email?"invalid-input":"valid-input":""}),i.touched.email?i.errors.email?e.jsxs(n,{children:[e.jsx(s,{className:"invalid",children:i.errors.email}),e.jsx(u,{})]}):e.jsxs(n,{children:[e.jsx(s,{className:"valid",children:"This is CORRECT email"}),e.jsx(f,{})]}):null]})]}),e.jsxs(N,{children:[e.jsxs(p,{children:[e.jsx(h,{htmlFor:"phone",children:"Phone"}),e.jsx(g,{id:"phone",name:"phone",type:"tel",placeholder:"38 (067) 000 00 00",...i.getFieldProps("phone"),className:i.touched.phone?i.errors.phone?"invalid-input":"valid-input":""}),i.touched.phone?i.errors.phone?e.jsxs(n,{children:[e.jsx(s,{className:"invalid",children:i.errors.phone}),e.jsx(u,{})]}):e.jsxs(n,{children:[e.jsx(s,{className:"valid",style:{color:"transparent"},children:"OK"}),e.jsx(f,{})]}):null]}),e.jsxs(p,{children:[e.jsx(h,{htmlFor:"skype",children:"Skype"}),e.jsx(te,{id:"skype",name:"skype",type:"text",placeholder:"Add a skype number",...i.getFieldProps("skype"),className:i.touched.skype?i.errors.skype?"invalid-input":"valid-input":""}),i.touched.skype?i.errors.skype?e.jsxs(n,{children:[e.jsx(s,{className:"invalid",children:i.errors.skype}),e.jsx(u,{})]}):e.jsxs(n,{children:[e.jsx(s,{className:"valid",style:{color:"transparent"},children:"OK"}),e.jsx(f,{})]}):null]})]})]}),e.jsx(re,{type:"submit",ref:F,disabled:!(i.isValid&&i.dirty)||i.isSubmitting,children:"Save changes"})]})})},fe=()=>e.jsx(de,{});export{fe as default};
+`,oe=/^(?:\+\d|[\d\s\-./()]){10,20}$/,le=/^[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?$/,de=()=>{const{avatarURL:a,birthDay:$,email:R,phone:C,skype:z,userName:x}=S(E),[b,F]=d.useState(a??""),[l,y]=d.useState(""),I=L(),v=d.useRef(),U=d.useRef(),j=d.useRef();d.useEffect(()=>()=>{l&&URL.revokeObjectURL(l)},[l]);const w=()=>{v.current.click()},A=r=>{const c=r.target.files[0];if(l||j.current.click(),F(c),c){const o=URL.createObjectURL(c);y(o),console.log(l)}else y(a)},i=P({initialValues:{avatar:`${a}`,checkBox:!1,userName:`${x??""}`,birthday:`${$}`,email:`${R??""}`,phone:`${C??""}`,skype:`${z??""}`},validationSchema:T({userName:m().min(3,"Username must contain at least 3 characters").max(16,"Username must contain not more than 16 characters").required("Username is required field"),birthday:D().min(new Date(1923,0,1),"Date is too early").max(new Date,"Date is not valid"),email:m().email("This is an ERROR email").matches(le,"This is an ERROR email").required("Email is required field"),phone:m().matches(oe,"Phone number is not valid"),skype:m().min(3,"Skype must contain at least 3 characters").max(16,"Skype must not have more than 16 characters")}),onSubmit:async(r,c)=>{const o=new FormData;i.initialValues.userName!==r.userName&&o.append("userName",r.userName),i.initialValues.email!==r.email&&o.append("email",r.email),i.initialValues.phone!==r.phone&&o.append("phone",r.phone),i.initialValues.skype!==r.skype&&o.append("skype",r.skype),i.initialValues.birthday!==r.birthday&&o.append("birthDay",r.birthday),b!==""&&o.append("avatarURL",b),I(O(o)),setTimeout(()=>{i.resetForm({values:r,touched:{userName:!0,birthday:!0,email:!0,phone:!0,skype:!0}})},500),c.setSubmitting(!1)}});return e.jsx(K,{children:e.jsxs(ae,{onSubmit:i.handleSubmit,children:[e.jsxs(_,{children:[e.jsx(X,{onClick:w,children:l?e.jsx(k,{src:l,alt:x}):a?e.jsx(k,{src:a,alt:x}):e.jsx(Y,{})}),e.jsx(J,{onClick:w}),e.jsx(Q,{name:"avatar",type:"file",ref:v,accept:"image/*",onChange:A}),e.jsx("input",{ref:j,type:"checkbox",name:"checkBox",onChange:i.handleChange,checked:i.values.checkBox,style:{display:"none"}})]}),e.jsx(ee,{children:x}),e.jsx(ie,{children:"User"}),e.jsxs(se,{children:[e.jsxs(N,{children:[e.jsxs(p,{children:[e.jsx(h,{htmlFor:"userName",className:i.touched.userName?i.errors.userName?"invalid-input":"valid-input":"",children:"User Name"}),e.jsx(g,{id:"userName",name:"userName",type:"text",placeholder:"Enter your name",value:i.values.userName,onChange:i.handleChange,onBlur:i.handleBlur,className:i.touched.userName?i.errors.userName?"invalid-input":"valid-input":""}),i.touched.userName?i.errors.userName?e.jsxs(n,{children:[e.jsx(s,{className:"invalid",children:i.errors.userName}),e.jsx(u,{})]}):e.jsxs(n,{children:[e.jsx(s,{className:"valid",children:"This is CORRECT username"}),e.jsx(f,{})]}):null]}),e.jsxs(p,{children:[e.jsx(h,{htmlFor:"birthday",children:"Birthday"}),e.jsx(te,{id:"birthday",selected:i.values.birthday?q(i.values.birthday):new Date,onChange:r=>{i.setFieldValue("birthday",V(r,"yyyy-MM-dd"))},onBlur:()=>i.setFieldTouched("birthday",!0),dateFormat:"dd/MM/yyyy",className:i.touched.birthday?i.errors.birthday?"invalid-input":"valid-input":""}),i.touched.birthday?i.errors.birthday?e.jsx(n,{children:e.jsx(s,{className:"invalid",children:i.errors.birthday})}):e.jsx(n,{children:e.jsx(s,{className:"valid",children:"This is CORRECT date"})}):null,e.jsx(G,{})]}),e.jsxs(p,{children:[e.jsx(h,{htmlFor:"email",children:"Email"}),e.jsx(g,{id:"email",name:"email",type:"text",placeholder:"Enter your email",...i.getFieldProps("email"),className:i.touched.email?i.errors.email?"invalid-input":"valid-input":""}),i.touched.email?i.errors.email?e.jsxs(n,{children:[e.jsx(s,{className:"invalid",children:i.errors.email}),e.jsx(u,{})]}):e.jsxs(n,{children:[e.jsx(s,{className:"valid",children:"This is CORRECT email"}),e.jsx(f,{})]}):null]})]}),e.jsxs(N,{children:[e.jsxs(p,{children:[e.jsx(h,{htmlFor:"phone",children:"Phone"}),e.jsx(g,{id:"phone",name:"phone",type:"tel",placeholder:"38 (067) 000 00 00",...i.getFieldProps("phone"),className:i.touched.phone?i.errors.phone?"invalid-input":"valid-input":""}),i.touched.phone?i.errors.phone?e.jsxs(n,{children:[e.jsx(s,{className:"invalid",children:i.errors.phone}),e.jsx(u,{})]}):e.jsxs(n,{children:[e.jsx(s,{className:"valid",style:{color:"transparent"},children:"OK"}),e.jsx(f,{})]}):null]}),e.jsxs(p,{children:[e.jsx(h,{htmlFor:"skype",children:"Skype"}),e.jsx(re,{id:"skype",name:"skype",type:"text",placeholder:"Add a skype number",...i.getFieldProps("skype"),className:i.touched.skype?i.errors.skype?"invalid-input":"valid-input":""}),i.touched.skype?i.errors.skype?e.jsxs(n,{children:[e.jsx(s,{className:"invalid",children:i.errors.skype}),e.jsx(u,{})]}):e.jsxs(n,{children:[e.jsx(s,{className:"valid",style:{color:"transparent"},children:"OK"}),e.jsx(f,{})]}):null]})]})]}),e.jsx(ne,{type:"submit",ref:U,disabled:!(i.isValid&&i.dirty)||i.isSubmitting,children:"Save changes"})]})})},ge=()=>e.jsx(de,{});export{ge as default};
