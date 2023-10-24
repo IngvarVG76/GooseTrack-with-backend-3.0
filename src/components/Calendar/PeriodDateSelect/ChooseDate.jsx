@@ -1,7 +1,8 @@
 import { subDays, addDays, subMonths, addMonths, format } from 'date-fns';
 
 import {
-  Button,
+  ButtonBack,
+  ButtonForward,
   Controllers,
   //CurrentMonth,
   StyledAiOutlineLeft,
@@ -11,14 +12,13 @@ import {
 import CustomDatePicker from '../../DatePicker/DatePicker';
 import { GetDatefromURL } from '../../../heplers/getDatefromURL';
 import { useNavigate } from 'react-router-dom';
-const ChooseDate = ({ activePage, setStaticticDate, staticticDate }) => {
+const ChooseDate = ({ activePage }) => {
   const navigate = useNavigate();
   const activeDate = GetDatefromURL();
 
   const changeNextDate = () => {
     const addMonth = format(addMonths(activeDate, 1), 'yyyy-MM');
     const addDay = format(addDays(activeDate, 1), 'yyyy-MM-dd');
-  
 
     switch (activePage) {
       case 'month':
@@ -27,16 +27,13 @@ const ChooseDate = ({ activePage, setStaticticDate, staticticDate }) => {
       case 'day':
         navigate(`/calendar/day/${addDay}`);
         break;
-    
+
       default:
     }
   };
   const changePrevDate = () => {
     const prevMonth = format(subMonths(activeDate, 1), 'yyyy-MM');
     const prevDay = format(subDays(activeDate, 1), 'yyyy-MM-dd');
-
-   
-
     switch (activePage) {
       case 'month':
         navigate(`/calendar/month/${prevMonth}`);
@@ -44,23 +41,20 @@ const ChooseDate = ({ activePage, setStaticticDate, staticticDate }) => {
       case 'day':
         navigate(`/calendar/day/${prevDay}`);
         break;
-     
+
       default:
     }
   };
   return (
     <Controllers>
-      <CustomDatePicker
-        setStaticticDate={setStaticticDate}
-        activePage={activePage}
-        />
+      <CustomDatePicker activePage={activePage} />
       <div>
-        <Button $direction="back" $back onClick={() => changePrevDate()}>
+        <ButtonBack onClick={() => changePrevDate()}>
           <StyledAiOutlineLeft />
-        </Button>
-        <Button $direction="forward" onClick={() => changeNextDate()}>
+        </ButtonBack>
+        <ButtonForward onClick={() => changeNextDate()}>
           <StyledAiOutlineRight />
-        </Button>
+        </ButtonForward>
       </div>
     </Controllers>
   );
