@@ -95,7 +95,7 @@ const StatisticsChart = ({ data }) => {
             offset={8}
             fill={theme.colors.textColorTasksChart}
             fontSize={12}
-            // formatter={formatValue(value)}
+            // formatter={formatValue(data.value)}
           />
         </Bar>
         <Bar

@@ -10,6 +10,13 @@ export const filterTasksByMonth = (tasksCurrentMonth) => {
   );
 
   const allTasks = toDo.length + inProgress.length + done.length;
+  if (allTasks <= 0) {
+    return {
+      toDoByMonth: 0,
+      inProgressByMonth: 0,
+      doneByMonth: 0,
+    };
+  }
   const toDoByMonth = ((toDo.length / allTasks) * 100).toFixed(0);
   const inProgressByMonth = ((inProgress.length / allTasks) * 100).toFixed(0);
   const doneByMonth = ((done.length / allTasks) * 100).toFixed(0);

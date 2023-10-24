@@ -1,10 +1,8 @@
-import { format, subDays, addDays } from 'date-fns';
+import { format, subDays, addDays, parseISO, isDate } from 'date-fns';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import StatisticsChart from '../../components/statisticsChart/StatisticsChart';
-
 import { WrapperPage, LegendWrapp, Legend, Text } from './stylesPage';
-
 import { fetchTasks } from '../../redux/tasks/task';
 import { selectTasks } from '../../redux/tasks/tasksSelectors';
 import { filterTasksByDay } from './functionsDiagram/filterTasksByDay';
@@ -14,7 +12,6 @@ import StatisticHead from './StatisticHead/StatisticHead';
 
 const StatisticsPage = () => {
   const [staticticDate, setStaticticDate] = useState(new Date(), 'yyyy-MM-dd');
-  // console.log('staticticDate: ', staticticDate);
 
   const [toDoByDay, setToDoByDay] = useState(0);
   const [inProgressByDay, setInProgressByDay] = useState(0);
@@ -22,35 +19,74 @@ const StatisticsPage = () => {
   const [toDoByMonth, setToDoByMonth] = useState(0);
   const [inProgressByMonth, setInProgressByMonth] = useState(0);
   const [doneByMonth, setDoneByMonth] = useState(0);
+  const [isChangeMonth, setChangeMonth] = useState('');
+
   const dispatch = useDispatch();
 
   const tasksCurrentMonth = useSelector(selectTasks);
-  const date = new Date();
-  const month = format(date, 'MM');
-  const year = format(date, 'yyyy');
-  const newFormatDate = `${year}-${month}`;
 
   useEffect(() => {
-    const fullDate = format(new Date(), 'yyyy-MM-dd');
-    setStaticticDate(fullDate);
+    const date = new Date();
+    const month = format(date, 'MM');
+    const year = format(date, 'yyyy');
+    const newFormatDate = `${year}-${month}`;
     dispatch(fetchTasks(newFormatDate));
+    setChangeMonth(month);
+    setStaticticDate(format(staticticDate, 'yyyy-MM-dd'));
   }, []);
 
+  //-------------------------------------------------
+
   useEffect(() => {
-    if (tasksCurrentMonth.length === 0) return;
+    if (tasksCurrentMonth.length === 0) {
+      resetStateMonth();
+      return;
+    }
     const res = filterTasksByMonth(tasksCurrentMonth);
 
     setToDoByMonth(res.toDoByMonth);
     setInProgressByMonth(res.inProgressByMonth);
     setDoneByMonth(res.doneByMonth);
+  }, [isChangeMonth, tasksCurrentMonth]);
+
+  //----------------------------------------------------
+
+  useEffect(() => {
+    const resultDate = isDate(staticticDate);
+    const validDate = resultDate
+      ? format(staticticDate, 'yyyy-MM-dd')
+      : staticticDate;
+
+    const getDate = parseISO(validDate, { additionalDigits: 1 });
+    const newMonth = format(getDate, 'MM');
+    const newYear = format(getDate, 'yyyy');
+    const newFormatDate = `${newYear}-${newMonth}`;
+    if (newMonth !== isChangeMonth) {
+      setChangeMonth(newMonth);
+      dispatch(fetchTasks(newFormatDate));
+    }
 
     const arrayData = filterTasksByDay(tasksCurrentMonth, staticticDate);
+    if (arrayData.length === 0) {
+      return resetStateDays();
+    }
     const resultsValues = filterCategory(arrayData);
 
     setToDoByDay(resultsValues.toDoByDay);
     setInProgressByDay(resultsValues.inProgressByDay);
     setDoneByDay(resultsValues.doneByDay);
-  }, [tasksCurrentMonth]);
+  }, [staticticDate]);
+
+  const resetStateDays = () => {
+    setToDoByDay(0);
+    setInProgressByDay(0);
+    setDoneByDay(0);
+  };
+  const resetStateMonth = () => {
+    setToDoByMonth(0);
+    setInProgressByMonth(0);
+    setDoneByMonth(0);
+  };
 
   const data = [
     {
@@ -69,8 +105,6 @@ const StatisticsPage = () => {
       month: doneByMonth,
     },
   ];
-
-  console.log('data', data);
 
   const changeNextDate = () => {
     setStaticticDate(format(addDays(new Date(staticticDate), 1), 'yyyy-MM-dd'));
