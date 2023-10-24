@@ -37,8 +37,7 @@ const CustomDatePicker = ({ activePage, staticticDate, setStaticticDate }) => {
       case 'day':
         return format(GetDatefromURL(), 'd MMM yyyy');
 
-      case 'statistics':
-        return format(new Date(staticticDate || new Date()), 'dd MMM yyyy');
+     
       default:
     }
   };

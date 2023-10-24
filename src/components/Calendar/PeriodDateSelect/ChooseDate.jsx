@@ -18,9 +18,7 @@ const ChooseDate = ({ activePage, setStaticticDate, staticticDate }) => {
   const changeNextDate = () => {
     const addMonth = format(addMonths(activeDate, 1), 'yyyy-MM');
     const addDay = format(addDays(activeDate, 1), 'yyyy-MM-dd');
-    // activePage === 'month'
-    //   ? navigate(`/calendar/month/${addMonth}`)
-    //   : navigate(`/calendar/day/${addDay}`);
+  
 
     switch (activePage) {
       case 'month':
@@ -29,11 +27,7 @@ const ChooseDate = ({ activePage, setStaticticDate, staticticDate }) => {
       case 'day':
         navigate(`/calendar/day/${addDay}`);
         break;
-      case 'statistics':
-        setStaticticDate(
-          format(addDays(new Date(staticticDate), 1), 'yyyy-MM-dd'),
-        );
-        break;
+    
       default:
     }
   };
@@ -41,13 +35,7 @@ const ChooseDate = ({ activePage, setStaticticDate, staticticDate }) => {
     const prevMonth = format(subMonths(activeDate, 1), 'yyyy-MM');
     const prevDay = format(subDays(activeDate, 1), 'yyyy-MM-dd');
 
-    // console.log(
-    //   '  subDay',
-    //   format(subDays(new Date(staticticDate), 1), 'yyyy-MM-dd'),
-    // );
-    // activePage === 'month'
-    //   ? navigate(`/calendar/month/${prevMonth}`)
-    //   : navigate(`/calendar/day/${prevDay}`);
+   
 
     switch (activePage) {
       case 'month':
@@ -56,11 +44,7 @@ const ChooseDate = ({ activePage, setStaticticDate, staticticDate }) => {
       case 'day':
         navigate(`/calendar/day/${prevDay}`);
         break;
-      case 'statistics':
-        setStaticticDate(
-          format(subDays(new Date(staticticDate), 1), 'yyyy-MM-dd'),
-        );
-        break;
+     
       default:
     }
   };

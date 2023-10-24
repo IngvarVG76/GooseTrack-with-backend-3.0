@@ -1,8 +1,8 @@
-import { format } from 'date-fns';
+import { format, subDays, addDays } from 'date-fns';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import StatisticsChart from '../../components/statisticsChart/StatisticsChart';
-import ChooseDate from '../../components/Calendar/PeriodDateSelect/ChooseDate';
+
 import { WrapperPage, LegendWrapp, Legend, Text } from './stylesPage';
 
 import { fetchTasks } from '../../redux/tasks/task';
@@ -10,9 +10,12 @@ import { selectTasks } from '../../redux/tasks/tasksSelectors';
 import { filterTasksByDay } from './functionsDiagram/filterTasksByDay';
 import { filterTasksByMonth } from './functionsDiagram/filterTasksByMonth';
 import { filterCategory } from './functionsDiagram/filterCategory';
+import StatisticHead from './StatisticHead/StatisticHead';
 
 const StatisticsPage = () => {
-  const [staticticDate, setStaticticDate] = useState('');
+  const [staticticDate, setStaticticDate] = useState(new Date(), 'yyyy-MM-dd');
+  console.log('staticticDate: ', staticticDate);
+
   const [toDoByDay, setToDoByDay] = useState(0);
   const [inProgressByDay, setInProgressByDay] = useState(0);
   const [doneByDay, setDoneByDay] = useState(0);
@@ -68,14 +71,24 @@ const StatisticsPage = () => {
   ];
 
   console.log('data', data);
-  
+
+  const changeNextDate = () => {
+    setStaticticDate(format(addDays(new Date(staticticDate), 1), 'yyyy-MM-dd'));
+  };
+
+  const changePrevDate = () => {
+    setStaticticDate(format(subDays(new Date(staticticDate), 1), 'yyyy-MM-dd'));
+  };
+
   return (
     <WrapperPage>
-      <ChooseDate
-        activePage="statistics"
+      <StatisticHead
         staticticDate={staticticDate}
         setStaticticDate={setStaticticDate}
+        changePrevDate={changePrevDate}
+        changeNextDate={changeNextDate}
       />
+
       <LegendWrapp>
         <Legend>
           <svg
@@ -102,7 +115,6 @@ const StatisticsPage = () => {
           <Text>By Month</Text>
         </Legend>
       </LegendWrapp>
-
       <StatisticsChart data={data} />
     </WrapperPage>
   );
