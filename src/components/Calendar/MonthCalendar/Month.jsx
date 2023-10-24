@@ -17,6 +17,7 @@ import {
   DayNumberToday,
   Text,
   TextWrapper,
+  Wrapper,
 
   // DayWeekend,
 } from './StyledMonth';
@@ -28,9 +29,6 @@ import { selectTasks } from '../../../redux/tasks/tasksSelectors';
 
 const MonthCalendar = () => {
   const tasks = useSelector(selectTasks);
-  const unique = tasks.filter(
-    (item, index, arr) => arr.findIndex((e) => e.date === item.date) === index,
-  );
 
   const activeDate = GetDatefromURL();
 
@@ -59,16 +57,17 @@ const MonthCalendar = () => {
           ) : (
             <DayNumberRegular>{format(oneDayofMonth, 'd')}</DayNumberRegular>
           )}
-
-          {unique.map(({ date, title, priority, _id }) => {
-            if (format(oneDayofMonth, 'y-M-d') === date) {
-              return (
-                <TextWrapper $priority={priority} key={_id}>
-                  <Text $priority={priority}>{title}</Text>
-                </TextWrapper>
-              );
-            }
-          })}
+          <Wrapper>
+            {tasks.map(({ date, title, priority, _id }) => {
+              if (format(oneDayofMonth, 'y-M-d') === date) {
+                return (
+                  <TextWrapper $priority={priority} key={_id}>
+                    <Text $priority={priority}>{title}</Text>
+                  </TextWrapper>
+                );
+              }
+            })}
+          </Wrapper>
         </Day>
       ))}
     </CalendarContainer>
