@@ -25,16 +25,18 @@ const RevievBox = styled.div`
 border-radius: 8px;
 border: 1px solid #1111111A;
 padding: 32px 32px 32px 50px;
-
+max-height: 252px;
 @media screen and (max-width: 767px) {
     padding: 24px;
     max-width: 335px;
       }
       @media screen and (min-width: 768px) and (max-width: 1399px) {
         max-width: 580px;
+        height: 187px;
       }
       @media screen and (min-width: 1440px) {
         max-width: 580px;
+        height: 187px;
       }
 
 `
@@ -84,12 +86,17 @@ const StarsBox = styled.div`
 margin-bottom: 24px;
 `
 const TextOpinion = styled.p`
+font-family: inherit sans-serif;
 font-weight: 500;
 font-size: 14px;
 line-height: 18px;
 color: #111111B2;
 text-align: start;
-
+overflow: auto;
+height: 54px;
+@media screen and (max-width: 767px) {
+  height: 72px;
+} 
 `
 
 const WrapperBtn = styled.div`
