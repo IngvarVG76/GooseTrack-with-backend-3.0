@@ -9,9 +9,9 @@ import {
   StyledAiOutlineRight,
 } from './ChooseDate.styled';
 
-import CustomDatePicker from '../../DatePicker/DatePicker';
 import { GetDatefromURL } from '../../../heplers/getDatefromURL';
 import { useNavigate } from 'react-router-dom';
+import CustomDatePicker from '../../DatePicker/DatePicker';
 const ChooseDate = ({ activePage }) => {
   const navigate = useNavigate();
   const activeDate = GetDatefromURL();
