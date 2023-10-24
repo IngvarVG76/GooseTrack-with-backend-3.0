@@ -24,7 +24,7 @@ const tasksSlice = createSlice({
       .addCase(fetchTasks.rejected, handleRejected)
       .addCase(addTask.pending, handlePending)
       .addCase(addTask.fulfilled, (state, { payload }) => {
-        state.tasks.push(payload.task);
+        state.tasks.push(payload.data);
         state.isLoading = false;
         state.error = null;
       })

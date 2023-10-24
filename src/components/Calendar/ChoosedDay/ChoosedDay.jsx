@@ -7,18 +7,22 @@ import { TasksColumnsList } from '../TasksColumnsList/TasksColumnsList';
 import { selectTasks } from '../../../redux/tasks/tasksSelectors';
 import { GetDatefromURL } from '../../../heplers/getDatefromURL';
 import { setActiveDate } from '../../../redux/date/dateSlice';
-// import { useState } from 'react';
+
 
 export const ChoosedDay = () => {
-  const tasks = useSelector(selectTasks);
   const dispatch = useDispatch();
+  const tasks = useSelector(selectTasks);
   
   const activeDay = format(GetDatefromURL(), 'yyyy-MM-dd');
   console.log('ChoosedDay', activeDay);
 
+
+
  useEffect(() => {
    dispatch(setActiveDate(activeDay));
+   console.log('dispatch', activeDay);
  }, [activeDay, dispatch]);
+  
 
   return (
     <>

@@ -34,8 +34,6 @@ import {
   TimeField,
   TitleField,
 } from './TaskForm.styled';
-import { GetDatefromURL } from '../../../heplers/getDatefromURL';
-import { Navigate } from 'react-router';
 
 const schema = Yup.object().shape({
   title: Yup.string().max(250, 'Too Long!').required('Title is required'),
@@ -59,7 +57,8 @@ export const TaskForm = ({ category, task, onClose }) => {
   const [action, setAction] = useState('create');
   // const date = useSelector(selectSelectedDate);
   const dispatch = useDispatch();
-  const activeDay = format(GetDatefromURL(), 'yyyy-MM-dd');
+  // const activeDay = format(GetDatefromURL(), 'yyyy-MM-dd');
+  const activeDay = useSelector((state) => state.date.activeDate);
 
   const initialValues = {
     title: '',
