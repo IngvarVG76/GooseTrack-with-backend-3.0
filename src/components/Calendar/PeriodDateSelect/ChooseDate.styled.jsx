@@ -1,9 +1,10 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
+
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 
 export const StyledAiOutlineLeft = styled(AiOutlineLeft)`
   font-size: 16px;
-  color: ${({ theme }) => theme.colors.arrowColor};
+  color: ${({ theme }) => theme.colors.toolbarButtonArrowColor};
   &:hover {
     color: ${({ theme }) => theme.colors.activeArrowColor};
   }
@@ -11,10 +12,9 @@ export const StyledAiOutlineLeft = styled(AiOutlineLeft)`
     font-size: 18px;
   }
 `;
-
 export const StyledAiOutlineRight = styled(AiOutlineRight)`
   font-size: 16px;
-  color: ${({ theme }) => theme.colors.arrowColor};
+  color: ${({ theme }) => theme.colors.toolbarButtonArrowColor};
   &:hover {
     color: ${({ theme }) => theme.colors.activeArrowColor};
   }
@@ -32,37 +32,29 @@ export const Controllers = styled.div`
   }
 `;
 
-const commonButton = css`
+export const Button = styled.button`
   border: 1px solid ${({ theme }) => theme.colors.borderСalendarColor};
   background-color: ${({ theme }) => theme.colors.backgroundCalendar};
   padding: 7px 10px;
   cursor: pointer;
+
+  &:hover svg {
+    color: ${({ theme }) => theme.colors.toolbarButtonArrowColorHover};
+  }
+
   @media screen and (min-width: 768px) {
     padding: 8px 10px;
   }
 `;
 
-export const Button = styled.button`
-  ${commonButton}
-  ${(props) => {
-    switch (props.$direction) {
-      case 'back':
-        return css`
-          border-radius: 8px 0px 0px 8px;
-          border-right: ${(props) => props.$back && 'none; '};
-        `;
-      case 'forward':
-        return css`
-          border-radius: 0px 8px 8px 0px;
-        `;
-      default:
-        return css`
-          ${commonButton}
-        `;
-    }
-  }}
-
-  &:hover svg {
-    color: ${({ theme }) => theme.colors.toolbarButtonArrowColorHover};
-  }
+export const ButtonBack = styled(Button)`
+  border-radius: 8px 0px 0px 8px;
+  border-right: ${(props) => props.$back && 'none; '};
 `;
+export const ButtonForward = styled(Button)`
+  border-radius: 0px 8px 8px 0px;
+`;
+
+/* &:hover svg {
+    color: ${({ theme }) => theme.colors.toolbarButtonArrowColorHover};
+  } */

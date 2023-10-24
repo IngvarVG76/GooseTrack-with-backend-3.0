@@ -1,5 +1,5 @@
+import MonthCalendarHead from '../ChoosedDay/CalendarHeadMonth/MonthCalendarHead';
 import MonthCalendar from '../MonthCalendar/Month';
-import MonthCalendarHead from '../CalendarHeadMonth/MonthCalendarHead';
 
 export const ChoosedMonth = () => {
   return (

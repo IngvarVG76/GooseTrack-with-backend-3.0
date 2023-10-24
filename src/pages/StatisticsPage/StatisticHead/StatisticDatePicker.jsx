@@ -10,7 +10,7 @@ import {
 
 const StatisticDatePicker = ({ staticticDate, setStaticticDate }) => {
   const handleClick = (date) => {
-    console.log('date: ', date);
+    // console.log('date: ', date);
     const formatedDate = format(date, 'yyyy-MM-dd');
 
     setStaticticDate(formatedDate);

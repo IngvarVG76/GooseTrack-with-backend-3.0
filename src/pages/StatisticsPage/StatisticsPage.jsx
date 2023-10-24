@@ -14,7 +14,7 @@ import StatisticHead from './StatisticHead/StatisticHead';
 
 const StatisticsPage = () => {
   const [staticticDate, setStaticticDate] = useState(new Date(), 'yyyy-MM-dd');
-  console.log('staticticDate: ', staticticDate);
+  // console.log('staticticDate: ', staticticDate);
 
   const [toDoByDay, setToDoByDay] = useState(0);
   const [inProgressByDay, setInProgressByDay] = useState(0);
