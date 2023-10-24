@@ -1,14 +1,16 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { parse, isDate } from 'date-fns';
+import { parse, isDate, format } from 'date-fns';
 import moment from 'moment';
 import icons from '../../../images/icons.svg';
-import { selectSelectedDate } from '../../../redux/date/selectors';
+// import { selectSelectedDate } from '../../../redux/date/selectors';
 import { addTask, updateTask } from '../../../redux/tasks/task';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 import {
   ActionButton,
   AddIcon,
@@ -43,13 +45,9 @@ const schema = Yup.object().shape({
       return moment(value, 'HH:mm').isSameOrAfter(moment(start, 'HH:mm'));
     }),
   priority: Yup.string().oneOf(['LOW', 'MEDIUM', 'HIGH']).required('Required'),
-  date: Yup.date()
-    .required('Required')
-    .transform(function parseDateString(value, originalValue) {
-      return isDate(originalValue)
-        ? originalValue
-        : parse(originalValue, 'yyyy-MM-dd', new Date());
-    }),
+  date: Yup.string()
+    .matches(/^\d{4}-\d{2}-\d{2}$/, 'Date must be in the format YYYY-MM-DD')
+    .required('Date is required'),
   category: Yup.string()
     .oneOf(['TODO', 'INPROGRESS', 'DONE'])
     .required('Required'),
@@ -57,21 +55,24 @@ const schema = Yup.object().shape({
 
 export const TaskForm = ({ category, task, onClose }) => {
   const [action, setAction] = useState('create');
-  const date = useSelector(selectSelectedDate);
+  // const date = useSelector(selectSelectedDate);
   const dispatch = useDispatch();
+  // const activeDay = format(GetDatefromURL(), 'yyyy-MM-dd');
+  const activeDay = useSelector((state) => state.date.activeDate);
 
   const initialValues = {
     title: '',
     start: '09:00',
     end: '09:30',
     priority: 'LOW',
-    date: date,
+    date: activeDay,
     category: category,
   };
 
   useEffect(() => {
     if (task?._id) setAction('edit');
   }, [task]);
+
 
   const handleSubmit = (values) => {
     const payload = {
@@ -81,7 +82,7 @@ export const TaskForm = ({ category, task, onClose }) => {
         start: values.start,
         end: values.end,
         priority: values.priority,
-        date: values.date,
+        date: values.activeDay,
         category: values.category,
       },
     };
@@ -100,7 +101,7 @@ export const TaskForm = ({ category, task, onClose }) => {
         });
     } else {
       Notify.success('Task has been successfully created.');
-      dispatch(addTask({ ...values, date, category }))
+      dispatch(addTask({ ...values, activeDay, category }))
         .then((data) => {
           if (data.error) {
             throw new Error(data.payload);
