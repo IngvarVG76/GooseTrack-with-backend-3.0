@@ -5,6 +5,7 @@ export const Container = styled.div`
   gap: 16px;
   margin-top: 14px;
   list-style: none;
+  color: ${({ theme }) => theme.colors.calendarTextColor};
 
   overflow: hidden;
   overflow-x: auto;
