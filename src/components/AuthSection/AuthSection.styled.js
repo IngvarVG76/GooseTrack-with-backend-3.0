@@ -80,12 +80,17 @@ const BtnSignUp = styled(Link)`
   line-height: 18px;
   font-size: 14px;
   position: relative;
-
+  transition: border-color 0.3s, box-shadow 0.3s transform 0.2s; 
   @media screen and (max-width: 767px) {
     font-size: 12px;
     ine-height: 14px;
   }
-
+  &:hover {
+    border-color: #0056b3; 
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    border-radius: 16px;
+    background-color: #6FA2FF
+  }
   &::after {
     content: '';
     position: absolute;
@@ -95,7 +100,6 @@ const BtnSignUp = styled(Link)`
     height: 1px;
     background-color: #FFFFFF;
   }
-  transition: transform 0.2s;
 
   &:active {
     transform: translateY(3px);
@@ -121,6 +125,10 @@ const BtnLogIn = styled(Link)`
 
   &:active {
     transform: translateY(3px);
+  }
+  &:hover {
+    border-color: #0056b3; 
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
   }
 `;
 const BtnLoginText = styled.h2`

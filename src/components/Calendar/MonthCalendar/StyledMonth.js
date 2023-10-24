@@ -59,14 +59,30 @@ export const DayNumberInActive = styled(DayNumberRegular)`
   color: rgba(220, 227, 229, 0.5);
 `;
 
-export const TextWrapper = styled.div`
+export const Wrapper = styled.div`
   position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
+  bottom: 5px;
+  width: 100%;
+  height: 50%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  @media screen and (min-width: 768px) {
+    height: 70px;
+  }
+  @media screen and (min-width: 1440px) {
+    height: 60px;
+  }
+`;
+
+export const TextWrapper = styled.div`
   padding: 4px 5px;
   border-radius: 8px;
-  width: 90%;
-  margin: 2px;
+  margin-left: 2px;
+  margin-bottom: 2px;
   background: ${(props) => props.$priority === 'LOW' && '#CEEEFD'};
   background: ${(props) => props.$priority === 'MEDIUM' && '#FCF0D4'};
   background-color: ${(props) => props.$priority === 'HIGH' && '#FFD2DD'};

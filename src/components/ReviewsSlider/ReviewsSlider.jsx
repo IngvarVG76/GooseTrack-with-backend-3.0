@@ -50,7 +50,6 @@ export const ReviewsSlider = () => {
     (async () => {
       const response = await getRewievs();
       setReviews(response);
-      console.log(response !== 'error');
     })();
   }, []);
 
