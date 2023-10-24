@@ -63,7 +63,7 @@ export const Wrapper = styled.div`
   position: absolute;
   bottom: 5px;
   width: 100%;
-  height: 35px;
+  height: 50%;
   overflow-y: scroll;
   overflow-x: hidden;
   &::-webkit-scrollbar {
