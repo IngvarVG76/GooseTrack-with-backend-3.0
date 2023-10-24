@@ -26,10 +26,16 @@ import { GetDatefromURL } from '../../../heplers/getDatefromURL';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectTasks } from '../../../redux/tasks/tasksSelectors';
+import { TaskModal } from '../TaskModal/TaskModal';
+import { useState } from 'react';
 
 const MonthCalendar = () => {
   const tasks = useSelector(selectTasks);
-
+  const [isOpened, setIsOpen] = useState(false);
+  const [taskToEdit, setTaskToEdit] = useState(null);
+  const handleToggle = () => {
+    setIsOpen(!isOpened);
+  };
   const activeDate = GetDatefromURL();
 
   const navigate = useNavigate();
@@ -46,22 +52,34 @@ const MonthCalendar = () => {
   return (
     <CalendarContainer>
       {totalDays.map((oneDayofMonth) => (
-        <Day
-          key={oneDayofMonth}
-          onClick={() => nagigatetoGoosedDay(oneDayofMonth)}
-        >
+        <Day key={oneDayofMonth}>
           {isSameDay(oneDayofMonth, new Date()) ? (
-            <DayNumberToday>{format(oneDayofMonth, 'd')}</DayNumberToday>
+            <DayNumberToday onClick={() => nagigatetoGoosedDay(oneDayofMonth)}>
+              {format(oneDayofMonth, 'd')}
+            </DayNumberToday>
           ) : !isSameMonth(oneDayofMonth, activeDate) ? (
-            <DayNumberInActive>{format(oneDayofMonth, 'd')}</DayNumberInActive>
+            <DayNumberInActive
+              onClick={() => nagigatetoGoosedDay(oneDayofMonth)}
+            >
+              {format(oneDayofMonth, 'd')}
+            </DayNumberInActive>
           ) : (
-            <DayNumberRegular>{format(oneDayofMonth, 'd')}</DayNumberRegular>
+            <DayNumberRegular
+              onClick={() => nagigatetoGoosedDay(oneDayofMonth)}
+            >
+              {format(oneDayofMonth, 'd')}
+            </DayNumberRegular>
           )}
           <Wrapper>
             {tasks.map(({ date, title, priority, _id }) => {
               if (format(oneDayofMonth, 'y-M-d') === date) {
                 return (
-                  <TextWrapper $priority={priority} key={_id}>
+                  <TextWrapper
+                    type="button"
+                    onClick={handleToggle}
+                    $priority={priority}
+                    key={_id}
+                  >
                     <Text $priority={priority}>{title}</Text>
                   </TextWrapper>
                 );
@@ -70,6 +88,10 @@ const MonthCalendar = () => {
           </Wrapper>
         </Day>
       ))}
+
+      {isOpened && (
+        <TaskModal task={taskToEdit} onClose={handleToggle}></TaskModal>
+      )}
     </CalendarContainer>
   );
 };
