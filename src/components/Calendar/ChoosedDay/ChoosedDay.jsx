@@ -1,17 +1,22 @@
-import { useSelector } from 'react-redux';
+import {
+  useSelector,
+} from 'react-redux';
+import { format } from 'date-fns';
+
 import WeekCalendar from '../CalendarHeadDay/WeekCalendar';
 import { TasksColumnsList } from '../TasksColumnsList/TasksColumnsList';
-import { selectSelectedDate } from '../../../redux/date/selectors';
 import { selectTasks } from '../../../redux/tasks/tasksSelectors';
+import { GetDatefromURL } from '../../../heplers/getDatefromURL';
 
 export const ChoosedDay = () => {
   const tasks = useSelector(selectTasks);
-  const date = useSelector(selectSelectedDate);
-
+  const activeDay = format(GetDatefromURL(), 'yyyy-MM-dd');
+  console.log('ChoosedDay', activeDay);
+  
   return (
     <>
       <WeekCalendar />
-      <TasksColumnsList tasks={tasks} date={date} />
+      <TasksColumnsList tasks={tasks} date={activeDay} />
     </>
   );
 };

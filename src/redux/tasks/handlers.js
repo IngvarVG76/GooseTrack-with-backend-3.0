@@ -17,7 +17,7 @@ export const handleMonthFulfilled = (state, { payload }) => {
   state.tasks = payload.data;
 
   if (payload.data.length === 0)
-    Notify.info('There are no tasks for this date.', {
+    Notify.info('There are no tasks for this month.', {
       timeout: 3000,
     });
   state.isLoading = false;
