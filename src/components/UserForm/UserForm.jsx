@@ -30,6 +30,8 @@ import {
   ContainerErrorIcon,
   Error,
   SuccessIcon,
+  ChevronDownIcon,
+  ChevronUpIcon,
 } from './UserForm.styled';
 import { ErrorIcon } from '../../components/RegisterForm/RegisterForm.styled';
 import { CalendarGlobalStyles } from '../DatePicker/StyledDayPicker';
@@ -44,10 +46,12 @@ const UserForm = () => {
 
   const [avatar, setAvatar] = useState(avatarURL ?? '');
   const [avatarPreviewURL, setAvatarPreviewURL] = useState('');
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
   const dispatch = useDispatch();
 
   const fileInputRef = useRef();
+  const dateInputRef = useRef();
   const submitBtnRef = useRef();
   const fakeInputRef = useRef();
 
@@ -63,6 +67,18 @@ const UserForm = () => {
     fileInputRef.current.click();
   };
 
+  const handleDateArrowClick = () => {
+    // console.log(dateInputRef.current);
+    if (!isCalendarOpen) {
+      dateInputRef.current.setOpen(true);
+      // setIsCalendarOpen(true);
+    }
+    if (isCalendarOpen) {
+      dateInputRef.current.setOpen(false);
+      // setIsCalendarOpen(false);
+    }
+  };
+
   const handleAvatarChange = (e) => {
     const file = e.target.files[0];
     if (!avatarPreviewURL) {
@@ -72,7 +88,7 @@ const UserForm = () => {
     if (file) {
       const previewURL = URL.createObjectURL(file);
       setAvatarPreviewURL(previewURL);
-      console.log(avatarPreviewURL);
+      // console.log(avatarPreviewURL);
     } else {
       setAvatarPreviewURL(avatarURL);
     }
@@ -250,8 +266,15 @@ const UserForm = () => {
                 onChange={(date) => {
                   formik.setFieldValue('birthday', format(date, 'yyyy-MM-dd'));
                 }}
-                onBlur={() => formik.setFieldTouched('birthday', true)}
+                onBlur={() => {
+                  formik.setFieldTouched('birthday', true);
+                  setIsCalendarOpen(false);
+                }}
+                // onInputClick={() => setIsCalendarOpen(true)}
+                onCalendarOpen={() => setIsCalendarOpen(true)}
+                onCalendarClose={() => setIsCalendarOpen(false)}
                 dateFormat="dd/MM/yyyy"
+                ref={dateInputRef}
                 className={
                   formik.touched.birthday
                     ? formik.errors.birthday
@@ -260,6 +283,12 @@ const UserForm = () => {
                     : ''
                 }
               />
+              {isCalendarOpen ? (
+                <ChevronUpIcon onClick={handleDateArrowClick} />
+              ) : (
+                <ChevronDownIcon onClick={handleDateArrowClick} />
+              )}
+
               {formik.touched.birthday ? (
                 formik.errors.birthday ? (
                   <ContainerErrorIcon>

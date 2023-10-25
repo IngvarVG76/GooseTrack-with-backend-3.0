@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { BsFillPlusCircleFill } from 'react-icons/bs';
 import { PiUserLight } from 'react-icons/pi';
 import { IoCheckmarkCircleOutline } from 'react-icons/io5';
+import { FaChevronDown, FaChevronUp } from 'react-icons/fa6';
 import DatePicker from 'react-datepicker';
 
 const FormContainer = styled.div`
@@ -97,6 +98,7 @@ const AddAvatarBtn = styled(BsFillPlusCircleFill)`
   height: 14px;
   border-radius: 100%;
   border: 0;
+  cursor: pointer;
 
   background-color: #ffffff;
   color: #3e85f3;
@@ -172,7 +174,7 @@ const Form = styled.form`
 `;
 
 const InputWrap = styled.div`
-  /* position: relative; */
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -394,6 +396,28 @@ export const SuccessIcon = styled(IoCheckmarkCircleOutline)`
   }
 `;
 
+const ChevronDownIcon = styled(FaChevronDown)`
+  position: absolute;
+  top: 40px;
+  right: 14px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+
+  color: ${({ theme }) => theme.colors.titleAvatar};
+`;
+
+const ChevronUpIcon = styled(FaChevronUp)`
+  position: absolute;
+  top: 40px;
+  right: 14px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+
+  color: ${({ theme }) => theme.colors.titleAvatar};
+`;
+
 export {
   FormContainer,
   InputFile,
@@ -415,4 +439,6 @@ export {
   LastInput,
   ContainerErrorIcon,
   Error,
+  ChevronDownIcon,
+  ChevronUpIcon,
 };
