@@ -25,13 +25,7 @@ const teamMembers = [
   },
   {
     name: 'Yuliia Yehorova',
-    role: 'Scrum Master',
-    githubLink: 'https://github.com/YYuliia1102',
-    photoLink: './src/images/team/Yehorova.png',
-  },
-  {
-    name: 'Yuliia Yehorova',
-    role: 'Backend developer',
+    role: 'Scrum Master Backend developer',
     githubLink: 'https://github.com/YYuliia1102',
     photoLink: './src/images/team/Yehorova.png',
   },
@@ -100,22 +94,21 @@ export const OurTeam = () => {
           <DeveloperItem key={index}>
             <DeveloperCard>
               <DeveloperImage
-                loading="lazy"
                 src={member.photoLink}
                 alt={member.name}
               />
+              <DeveloperInfo>
+                <h3>{member.name}</h3>
+                <p>{member.role}</p>
+              </DeveloperInfo>
+              <DeveloperLink
+                href={member.githubLink}
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <GithubIcon src={'./src/images/github.png'}></GithubIcon>
+              </DeveloperLink>
             </DeveloperCard>
-            <DeveloperInfo>
-              <h3 className="developers__member">{member.name}</h3>
-              <p className="developers__position">{member.role}</p>
-            </DeveloperInfo>
-            <DeveloperLink
-              href={member.githubLink}
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              <GithubIcon src={'./src/images/github.png'}></GithubIcon>
-            </DeveloperLink>
           </DeveloperItem>
         ))}
       </DeveloperWraper>
