@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { LuLogIn } from 'react-icons/lu';
 
-
 const GooseImg = styled.img`
   width: 150px;
   height: 149px;
@@ -20,14 +19,18 @@ const HeaderContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #3E85F3;
+  background-color: #3e85f3;
   height: ${(props) => props.height}px;
+  width: 100%;
+  min-width: 375px;
 `;
 
-
 const MainText = styled.h1`
-  color: #FFFFFF;
-  text-shadow: 0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04), 0px 47px 355px rgba(0, 0, 0, 0.07);
+  color: #ffffff;
+  font-family: 'Inter';
+  text-shadow:
+    0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04),
+    0px 47px 355px rgba(0, 0, 0, 0.07);
   font-weight: 700;
   font-size: 120px;
   line-height: 150px;
@@ -45,12 +48,14 @@ const MainText = styled.h1`
 `;
 
 const MainSpan = styled.span`
-  color: #FFFFFF;
+  font-family: 'Inter';
+  color: #ffffff;
   font-style: italic;
   font-weight: 700;
   font-size: 120px;
   line-height: 150px;
   margin-bottom: 40px;
+  margin-right: 4px;
 
   @media screen and (max-width: 767px) {
     font-size: 44px;
@@ -75,21 +80,24 @@ const ButtonContainer = styled.div`
   }
 `;
 const BtnSignUp = styled(Link)`
-  color: #FFFFFF;
+  font-family: 'Inter';
+  color: #ffffff;
   font-weight: 600;
   line-height: 18px;
   font-size: 14px;
   position: relative;
-  transition: border-color 0.3s, box-shadow 0.3s transform 0.2s; 
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s transform 0.2s;
   @media screen and (max-width: 767px) {
     font-size: 12px;
     ine-height: 14px;
   }
   &:hover {
-    border-color: #0056b3; 
+    border-color: #0056b3;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     border-radius: 16px;
-    background-color: #6FA2FF
+    background-color: #6fa2ff;
   }
   &::after {
     content: '';
@@ -98,7 +106,7 @@ const BtnSignUp = styled(Link)`
     bottom: 0;
     width: 100%;
     height: 1px;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
   }
 
   &:active {
@@ -115,7 +123,7 @@ const BtnLogIn = styled(Link)`
   color: inherit;
   text-align: inherit;
   cursor: pointer;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 16px;
   padding: 14px 22px;
   display: flex;
@@ -127,22 +135,22 @@ const BtnLogIn = styled(Link)`
     transform: translateY(3px);
   }
   &:hover {
-    border-color: #0056b3; 
+    border-color: #0056b3;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
   }
 `;
 const BtnLoginText = styled.h2`
-  font-family: inherit;
+  font-family: 'Inter';
   font-weight: 600;
   font-size: 14px;
   line-height: 18px;
-  color: #3E85F3;
+  color: #3e85f3;
 `;
 
 const LogInIcon = styled(LuLogIn)`
   width: 18px;
   height: 18px;
-  color: #3E85F3;
+  color: #3e85f3;
 `;
 
 export {
