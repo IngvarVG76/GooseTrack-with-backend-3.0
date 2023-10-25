@@ -19,7 +19,7 @@ const StatisticsChart = ({ data }) => {
   return (
     <ChartContainer>
       <Taskstitle>Tasks</Taskstitle>
-      <BarChart width={279} height={266} data={data} barGap={8}>
+      <BarChart width={780} height={286} data={data} barGap={14}>
         <CartesianGrid
           vertical={false}
           fill={theme.colors.secondaryBackground}
@@ -52,21 +52,20 @@ const StatisticsChart = ({ data }) => {
           axisLine={false}
           tick={{
             fill: theme.colors.textColorTasksChart,
-            fontSize: '12px',
+            fontSize: '14px',
             fontFamily: 'Inter',
             fontWeight: 400,
-            lineHeight: 1.33,
+            lineHeight: 1.5,
           }}
-          tickSize={20}
+          tickSize={19}
           tickLine={false}
         />
         <YAxis
           type="number"
           domain={[0, 100]}
           axisLine={false}
-          width={38}
           tickCount={6}
-          tickSize={14}
+          tickSize={40}
           tickLine={false}
           tick={{
             fill: theme.colors.textColorTasksChart,
@@ -78,7 +77,7 @@ const StatisticsChart = ({ data }) => {
 
         <Bar
           dataKey="day"
-          barSize={22}
+          barSize={27}
           fill="url(#pinkGradientFill)"
           radius={6}
         >
@@ -87,13 +86,13 @@ const StatisticsChart = ({ data }) => {
             position="top"
             offset={8}
             fill={theme.colors.textColorTasksChart}
-            fontSize={12}
+            fontSize={16}
             formatter={formatValue}
           />
         </Bar>
         <Bar
           dataKey="month"
-          barSize={22}
+          barSize={27}
           fill="url(#blueGradientFill)"
           radius={6}
         >
@@ -102,7 +101,7 @@ const StatisticsChart = ({ data }) => {
             position="top"
             offset={8}
             fill={theme.colors.textColorTasksChart}
-            fontSize={12}
+            fontSize={16}
             formatter={formatValue}
           />
         </Bar>
