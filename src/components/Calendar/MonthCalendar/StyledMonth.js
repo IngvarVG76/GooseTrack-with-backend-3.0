@@ -1,4 +1,15 @@
+import { Box } from '@mui/material';
 import styled from 'styled-components';
+
+export const StyledBoxModalLoader = styled(Box)`
+  position: absolute;
+  top: 50%;
+  right: 50%;
+`;
+export const StyledBoxTextLoader = styled(Box)`
+  display: 'flex';
+  justify-content: 'center';
+`;
 
 export const CalendarContainer = styled.div`
   width: 100vw;
@@ -26,7 +37,6 @@ export const CalendarContainer = styled.div`
 `;
 
 export const Day = styled.div`
-  cursor: pointer;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -47,16 +57,35 @@ export const DayNumberRegular = styled.p`
   line-height: 1.16;
 
   color: ${({ theme }) => theme.colors.calendarTextColor};
+
+  transition: var(--animation);
+  &:hover,
+  :focus {
+    opacity: 0.5;
+  }
+  cursor: pointer;
 `;
 
 export const DayNumberToday = styled(DayNumberRegular)`
   background: ${({ theme }) => theme.colors.backgroundButton};
   color: ${({ theme }) => theme.colors.calendarActivNumber};
   border-radius: 6px;
+  transition: var(--animation);
+  &:hover,
+  :focus {
+    opacity: 0.5;
+  }
+  cursor: pointer;
 `;
 
 export const DayNumberInActive = styled(DayNumberRegular)`
   color: rgba(220, 227, 229, 0.5);
+  transition: var(--animation);
+  &:hover,
+  :focus {
+    opacity: 0.5;
+  }
+  cursor: pointer;
 `;
 
 export const Wrapper = styled.div`
@@ -64,33 +93,29 @@ export const Wrapper = styled.div`
   bottom: 5px;
   width: 100%;
   height: 50%;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
+
   &::-webkit-scrollbar {
     width: 7px;
-  }
-
-  @media screen and (min-width: 768px) {
-    height: 70px;
-  }
-  @media screen and (min-width: 1440px) {
-    height: 60px;
   }
 `;
 
 export const TextWrapper = styled.div`
+  margin: 0 2px;
   padding: 4px 5px;
   border-radius: 8px;
-  margin-left: 2px;
   margin-bottom: 2px;
   background: ${(props) => props.$priority === 'LOW' && '#CEEEFD'};
   background: ${(props) => props.$priority === 'MEDIUM' && '#FCF0D4'};
   background-color: ${(props) => props.$priority === 'HIGH' && '#FFD2DD'};
 
-  @media screen and (min-width: 768px) {
-    width: 95%;
-    margin-right: 5px;
+  transition: var(--animation);
+  &:hover,
+  :focus {
+    opacity: 0.5;
   }
+  cursor: pointer;
 `;
 
 export const Text = styled.p`

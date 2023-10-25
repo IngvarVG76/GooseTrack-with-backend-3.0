@@ -38,15 +38,14 @@ const tasksSlice = createSlice({
       .addCase(deleteTask.rejected, handleRejected)
       .addCase(updateTask.pending, handlePending)
       .addCase(updateTask.fulfilled, (state, { payload }) => {
-        const updateTaskIndex = state.tasks.findIndex(
-          (task) => task._id === payload.task.id,
+        const updatedContact = payload.data;
+
+        const index = state.tasks.findIndex(
+          (task) => task._id === updatedContact._id,
         );
 
-        if (updateTaskIndex >= 0) {
-          state.tasks[updateTaskIndex] = {
-            ...state.tasks[updateTaskIndex],
-            ...payload.task,
-          };
+        if (index !== -1) {
+          state.tasks.splice(index, 1, updatedContact);
         }
         state.isLoading = false;
         state.error = null;
