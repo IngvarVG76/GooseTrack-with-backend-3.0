@@ -51,20 +51,22 @@ export const Header = ({ onClickModal, modal }) => {
   return (
     <>
       <WrapperHeader>
-        {pathname.includes('/day') ? (
-          <TitleWrapper>
-            <img src={GooseCalendarImg} alt="company logo" />
-            <div>
-              <Title>Calendar</Title>
+        <TitleWrapper>
+          {pathname.includes('/day') ? (
+            <>
+              <img src={GooseCalendarImg} alt="company logo" />
+              <div>
+                <Title>Calendar</Title>
 
-              <StyledSlogan>
-                <span>Let go</span> of the past and focus on the present!
-              </StyledSlogan>
-            </div>
-          </TitleWrapper>
-        ) : (
-          <Title>{namePage}</Title>
-        )}
+                <StyledSlogan>
+                  <span>Let go</span> of the past and focus on the present!
+                </StyledSlogan>
+              </div>
+            </>) : 
+            (
+            <Title>{namePage}</Title>
+          )}
+        </TitleWrapper>
 
         <Wrapper>
           <ButtonFeedback type="button" onClick={onClickModal}>
