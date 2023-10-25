@@ -1,4 +1,4 @@
-import{s as D,L as At,r as I,j as v,c as ie,g as dn,a as fn,b as pn}from"./index-af9f270b.js";import{L as hn,R as vn}from"./Rating-5363fbfa.js";import{c as me}from"./index-53e5ac49.js";import"./emotion-styled.browser.esm-9a36c4c0.js";const gn=D.img`
+import{s as D,L as At,r as I,j as v,c as ie,g as dn,a as fn,b as pn}from"./index-3e47e801.js";import{L as hn,R as vn}from"./index.esm-b15c7946.js";import{c as me}from"./index-480a2420.js";const gn=D.img`
   width: 150px;
   height: 149px;
   background-size: cover;
@@ -447,4 +447,4 @@ line-height: 24px;
     font-size: 26px;
 line-height: 30px;
 } 
-`,Po=()=>v.jsx(ko,{children:v.jsxs(To,{children:["The project was created by ",v.jsx(_o,{children:"Adamant Team"})]})}),Lo=()=>v.jsxs("div",{children:[v.jsx(jn,{}),v.jsx(or,{}),v.jsx(Oo,{}),v.jsx(Po,{})]});export{Lo as MainPage,Lo as default};
+`,Po=()=>v.jsx(ko,{children:v.jsxs(To,{children:["The project was created by ",v.jsx(_o,{children:"Adamant Team"})]})}),Mo=()=>v.jsxs("div",{children:[v.jsx(jn,{}),v.jsx(or,{}),v.jsx(Oo,{}),v.jsx(Po,{})]});export{Mo as MainPage,Mo as default};

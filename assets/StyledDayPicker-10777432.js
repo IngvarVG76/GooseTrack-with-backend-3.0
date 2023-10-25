@@ -1,4 +1,4 @@
-import{s as t,F as r}from"./index-af9f270b.js";const i=t.button`
+import{s as t,a8 as r}from"./index-3e47e801.js";const i=t.button`
   width: 150px;
   padding: 8px 12px;
   font-size: 14px;
