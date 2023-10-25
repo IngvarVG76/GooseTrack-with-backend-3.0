@@ -10,7 +10,8 @@ export const ContainerColumnCard = styled.div`
   width: 100%;
   padding: 14px 14px 18px;
   border-radius: 8px;
-  margin-bottom: 18px;
+  margin-top: 24px;
+  margin-bottom: 14px;
   background-color: ${({ theme }) => theme.colors.primaryBackground};
   border: ${({ theme }) => theme.colors.borderColorSideBar};
   // bordercalendarcolor: 'rgba(220,	227,	229, 0.80)';

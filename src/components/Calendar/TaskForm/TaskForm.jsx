@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
-import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { parse, isDate, format } from 'date-fns';
+
 import moment from 'moment';
 import icons from '../../../images/icons.svg';
 // import { selectSelectedDate } from '../../../redux/date/selectors';
@@ -73,7 +72,6 @@ export const TaskForm = ({ category, task, onClose }) => {
     if (task?._id) setAction('edit');
   }, [task]);
 
-
   const handleSubmit = (values) => {
     const payload = {
       id: values._id,
@@ -89,28 +87,12 @@ export const TaskForm = ({ category, task, onClose }) => {
 
     if (action === 'edit') {
       Notify.info('Task has been edited.');
-      dispatch(updateTask(payload))
-        .then((data) => {
-          if (data.error) {
-            throw new Error(data.payload);
-          }
-          onClose();
-        })
-        .catch((error) => {
-          Notify.failure('Something went wrong.');
-        });
+      dispatch(updateTask(payload));
+      onClose();
     } else {
       Notify.success('Task has been successfully created.');
-      dispatch(addTask({ ...values, activeDay, category }))
-        .then((data) => {
-          if (data.error) {
-            throw new Error(data.payload);
-          }
-          onClose();
-        })
-        .catch((error) => {
-          Notify.failure('Something went wrong.');
-        });
+      dispatch(addTask({ ...values, activeDay, category }));
+      onClose();
     }
   };
 

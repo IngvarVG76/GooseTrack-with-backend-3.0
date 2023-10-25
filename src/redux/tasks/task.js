@@ -59,8 +59,8 @@ export const updateTask = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       const { id, updatedTask } = payload;
+
       const res = await $instants.patch(`/tasks/${id}`, updatedTask);
-      res.data.task.id = id;
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

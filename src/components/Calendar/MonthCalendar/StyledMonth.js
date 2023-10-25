@@ -1,4 +1,15 @@
+import { Box } from '@mui/material';
 import styled from 'styled-components';
+
+export const StyledBoxModalLoader = styled(Box)`
+  position: absolute;
+  top: 50%;
+  right: 50%;
+`;
+export const StyledBoxTextLoader = styled(Box)`
+  display: 'flex';
+  justify-content: 'center';
+`;
 
 export const CalendarContainer = styled.div`
   width: 100vw;
@@ -48,7 +59,8 @@ export const DayNumberRegular = styled.p`
   color: ${({ theme }) => theme.colors.calendarTextColor};
 
   transition: var(--animation);
-  &:hover {
+  &:hover,
+  :focus {
     opacity: 0.5;
   }
   cursor: pointer;
@@ -59,7 +71,8 @@ export const DayNumberToday = styled(DayNumberRegular)`
   color: ${({ theme }) => theme.colors.calendarActivNumber};
   border-radius: 6px;
   transition: var(--animation);
-  &:hover {
+  &:hover,
+  :focus {
     opacity: 0.5;
   }
   cursor: pointer;
@@ -77,7 +90,6 @@ export const DayNumberInActive = styled(DayNumberRegular)`
 
 export const Wrapper = styled.div`
   position: absolute;
-  margin: 0 2px;
   bottom: 5px;
   width: 100%;
   height: 50%;
@@ -90,6 +102,7 @@ export const Wrapper = styled.div`
 `;
 
 export const TextWrapper = styled.div`
+  margin: 0 2px;
   padding: 4px 5px;
   border-radius: 8px;
   margin-bottom: 2px;
@@ -98,7 +111,8 @@ export const TextWrapper = styled.div`
   background-color: ${(props) => props.$priority === 'HIGH' && '#FFD2DD'};
 
   transition: var(--animation);
-  &:hover {
+  &:hover,
+  :focus {
     opacity: 0.5;
   }
   cursor: pointer;
