@@ -1,11 +1,11 @@
 import { forwardRef, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { GetDatefromURL } from '../../heplers/getDatefromURL';
 
 import { format } from 'date-fns';
 import { useNavigate } from 'react-router';
 import { StyledButton, CalendarGlobalStyles } from './StyledDayPicker';
+import { GetDatefromURL } from '../../heplers/getDatefromURL';
 
 const CustomDatePicker = ({ activePage }) => {
   const [activeDate, setActiveDate] = useState(GetDatefromURL());

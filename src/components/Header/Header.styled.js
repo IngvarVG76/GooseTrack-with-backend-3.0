@@ -127,3 +127,19 @@ export const AvatarPlaceholder = styled(PiUserLight)`
     height: 44px;
   }
 `;
+//--calendar/day title with img-----
+
+export const TitleWrapper = styled.div`
+  display: flex;
+`;
+
+export const StyledSlogan = styled.p`
+  font-size: 14px;
+  line-height: 1.3;
+  font-weight: 600;
+  color: ${({ theme }) => theme.colors.text};
+
+  span {
+    color: #3e85f3;
+  }
+`;

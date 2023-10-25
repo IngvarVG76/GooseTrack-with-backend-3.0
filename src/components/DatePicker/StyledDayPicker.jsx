@@ -3,20 +3,25 @@ import { createGlobalStyle, styled } from 'styled-components';
 import 'react-datepicker/dist/react-datepicker.css';
 
 export const StyledButton = styled.button`
-  width: 145px;
+  width: 150px;
   padding: 8px 12px;
   font-size: 14px;
   font-weight: 700;
   line-height: calc(18 / 14);
 
   color: #ffffff;
-  background: #3e85f3;
+  background: ${({ theme }) => theme.colors.backgroundButton};
   border: none;
   border-radius: 8px;
   text-transform: uppercase;
   align-items: center;
   /* 
   margin-bottom: 18px; */
+
+  &:hover,
+  :focus {
+    background-color: #2b78ef;
+  }
 `;
 
 export const CalendarGlobalStyles = createGlobalStyle`

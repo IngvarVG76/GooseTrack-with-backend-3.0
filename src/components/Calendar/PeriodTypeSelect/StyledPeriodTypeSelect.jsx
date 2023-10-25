@@ -7,6 +7,7 @@ const common = css`
   width: 82px;
   align-items: center;
   justify-content: center;
+
   color: ${(props) => {
     return (props.theme.name === 'dark-theme') & props.$primary
       ? '#fff'
@@ -21,6 +22,15 @@ const common = css`
   cursor: pointer;
   border-radius: ${(props) =>
     props.$borderSide ? '8px 0px 0px 8px' : '0px 8px 8px 0px'};
+
+  &:hover,
+  :focus {
+    color: ${(props) => {
+      return (props.theme.name === 'dark-theme') & props.$primary
+        ? '#111111'
+        : '#fff';
+    }};
+  }
   @media screen and (min-width: 768px) {
     font-size: 16px;
   }
@@ -52,6 +62,6 @@ export const StyledLink = styled(Link)`
   }}
 `;
 
-export const LinkWrapper= styled.div`
-display:flex;
-`
+export const LinkWrapper = styled.div`
+  display: flex;
+`;
