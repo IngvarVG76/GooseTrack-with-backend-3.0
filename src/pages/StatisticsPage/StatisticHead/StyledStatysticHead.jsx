@@ -28,6 +28,7 @@ export const Controllers = styled.div`
   justify-content: space-between;
   align-items: center;
   @media screen and (min-width: 768px) {
+    justify-content: start;
     gap: 8px;
   }
 `;

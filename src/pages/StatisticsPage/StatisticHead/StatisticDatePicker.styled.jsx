@@ -15,6 +15,9 @@ export const StyledButton = styled.button`
   border-radius: 8px;
   text-transform: uppercase;
   align-items: center;
+  @media (min-width: 768px) {
+    font-size: 16px;
+  }
   /* 
   margin-bottom: 18px; */
 `;
@@ -165,4 +168,3 @@ export const DatePickerGlobalStyles = createGlobalStyle`
     visibility: hidden;
   }
 `;
-
