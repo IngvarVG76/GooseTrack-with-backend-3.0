@@ -20,7 +20,7 @@ const CalendarPage = () => {
       return;
     }
   }, [navigate, location.pathname, activeMonth]);
-  console.log(activeMonth);
+
   useEffect(() => {
     dispatch(fetchTasks(activeMonth));
   }, [dispatch, activeMonth]);
