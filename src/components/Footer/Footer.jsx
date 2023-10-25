@@ -6,9 +6,9 @@ export const Footer = ({ onClickModal, modal }) => {
   return (
     <Container>
       <Text>
-        The project was created by
-        <TeamBtn type="button" onClick={onClickModal}>
-          Adamant Team
+        © 2023 | All Rights Reserved | The project was created by&nbsp;
+        <TeamBtn onClick={onClickModal}>
+        Adamant Team
         </TeamBtn>
       </Text>
 

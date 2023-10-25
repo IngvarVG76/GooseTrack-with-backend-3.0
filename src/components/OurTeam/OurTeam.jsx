@@ -8,6 +8,8 @@ import {
   DeveloperInfo,
   DevHeader,
   DeveloperWraper,
+  DeveloperName,
+  DeveloperRole
 } from './OurTeam.styled';
 
 import Artymuk from '../../images/team/Artymuk.png';
@@ -107,8 +109,8 @@ export const OurTeam = () => {
             <DeveloperCard>
               <DeveloperImage src={member.photoLink} alt={member.name} />
               <DeveloperInfo>
-                <h3>{member.name}</h3>
-                <p>{member.role}</p>
+                <DeveloperName>{member.name}</DeveloperName>
+                <DeveloperRole>{member.role}</DeveloperRole>
               </DeveloperInfo>
               <DeveloperLink
                 href={member.githubLink}
