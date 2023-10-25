@@ -27,6 +27,25 @@ const HeaderContainer = styled.div`
 
 const MainText = styled.h1`
   color: #FFFFFF;
+  text-shadow: 0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04), 0px 47px 355px rgba(0, 0, 0, 0.07);
+  font-weight: 700;
+  font-size: 120px;
+  line-height: 150px;
+  margin-bottom: 40px;
+
+  @media screen and (max-width: 767px) {
+    font-size: 44px;
+    line-height: 48px;
+    margin-bottom: 32px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+    font-size: 100px;
+    line-height: 130px;
+  }
+`;
+
+const MainSpan = styled.span`
+  color: #FFFFFF;
   font-style: italic;
   font-weight: 700;
   font-size: 120px;
@@ -130,6 +149,7 @@ export {
   GooseImg,
   HeaderContainer,
   MainText,
+  MainSpan,
   ButtonContainer,
   BtnSignUp,
   BtnLogIn,

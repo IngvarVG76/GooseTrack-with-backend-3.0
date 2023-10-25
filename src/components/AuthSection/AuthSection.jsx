@@ -7,6 +7,7 @@ import {
   BtnLogIn,
   LogInIcon,
   BtnLoginText,
+  MainSpan,
 } from './AuthSection.styled';
 import gooseDesk from '../../images/main-goose/Desk_mainGoose.png';
 import gooseDeskTwoX from '../../images/main-goose/Desk@2x_mainGoose.png';
@@ -66,7 +67,9 @@ export const AuthSection = () => {
     <>
       <HeaderContainer height={window.innerHeight}>
         <GooseImg src={suitableImage} alt="main-Goose" />
-        <MainText>GooseTrack</MainText>
+        <MainText>
+          G<MainSpan>oo</MainSpan>seTrack
+        </MainText>
         <ButtonContainer>
           <BtnSignUp to="/register">Sign up</BtnSignUp>
           <BtnLogIn to="/login">
