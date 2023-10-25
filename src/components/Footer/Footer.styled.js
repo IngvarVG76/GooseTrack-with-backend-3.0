@@ -22,7 +22,7 @@ text-align: center;
 const Text = styled.h3`
 margin-top: auto;
 margin-bottom: auto;
-font-family: inherit sans-serif;
+/* font-family: inherit, sans-serif; */
 text-align: center;
 font-weight: 700;
 font-size: 30px;
@@ -39,7 +39,7 @@ line-height: 28px;
 } 
 `
 const Team = styled.span`
-font-family: inherit sans-serif;
+/* font-family: inherit, sans-serif; */
 font-style: italic;
 text-align: center;
 font-weight: 700;
