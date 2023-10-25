@@ -1,19 +1,24 @@
-import{s as e,F as t}from"./index-48862c36.js";const a=e.button`
-  width: 145px;
+import{s as t,F as r}from"./index-af9f270b.js";const i=t.button`
+  width: 150px;
   padding: 8px 12px;
   font-size: 14px;
   font-weight: 700;
   line-height: calc(18 / 14);
 
   color: #ffffff;
-  background: #3e85f3;
+  background: ${({theme:e})=>e.colors.backgroundButton};
   border: none;
   border-radius: 8px;
   text-transform: uppercase;
   align-items: center;
   /* 
   margin-bottom: 18px; */
-`,i=t`
+
+  &:hover,
+  :focus {
+    background-color: #2b78ef;
+  }
+`,o=r`
   .react-datepicker__wrapper {
     position: relative;
   }
@@ -158,4 +163,4 @@ import{s as e,F as t}from"./index-48862c36.js";const a=e.button`
   .react-datepicker__triangle {
     visibility: hidden;
   }
-`;export{i as C,a as S};
+`;export{o as C,i as S};
