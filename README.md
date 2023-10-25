@@ -1,108 +1,116 @@
-# React + Vite template
+<p align="center">
+  <img src="./src/images/main-goose/Desk@2x_mainGoose.pngDesk@2x_mainGoose.png" alt="GooseTracks">
+</p>
 
-Цей проєкт було створено за допомогою [Create Vite](https://vitejs.dev/). Для
-знайомства і налаштування додаткових можливостей
-[звернися до документації](https://vitejs.dev/guide/).
+<h1 align="center">Welcome to GooseTracks</h1>
 
-## Створення репозиторію за шаблоном
+<p align="center">
+  <img src="./src/images/Description/Desk/Desk_FirstDescription-min.png" alt="Discover Our Calendar Month View">
+</p>
 
-Використовуй цей репозиторій організації GoIT як шаблон для створення
-репозиторію свого проєкту. Для цього натисни на кнопку `"Use this template"` і
-обери опцію `"Create a new repository"`, як показано на зображенні.
+<h2 align="center">Calendar Month View</h2>
 
-![Creating repo from a template step 1](./src/assets/template-step-1.png)
+<p align="center">
+  Discover GooseTracks' Calendar view, your key to gaining a comprehensive perspective of your schedule. It gracefully showcases your tasks, events, and appointments, ensuring you remain seamlessly aligned with your daily, weekly, or monthly obligations.
+</p>
 
-На наступному кроці відкриється сторінка створення нового репозиторію. Заповни
-поле його імені, переконайся що репозиторій публічний, після чого натисни кнопку
-`"Create repository from template"`.
+<p align="center">
+  <img src="./src/images/Description/Desk/Desk_ThirdDescription-min.png" alt="Discover Our Calendar Day View">
+</p>
 
-![Creating repo from a template step 2](./src/assets/template-step-2.png)
+<h2 align="center">Calendar Day View</h2>
 
-Після того як репозиторій буде створено, необхідно перейти в налаштування
-створеного репозиторію на вкладку `Settings` > `Actions` > `General` як показано
-на зображенні.
+<p align="center">
+   GooseTracks stands as the ultimate all-in-one productivity solution, meticulously crafted to streamline and simplify your daily life. Bid farewell to scattered to-do lists, and welcome a seamlessly productive journey with GooseTracks. It enables you to efficiently manage tasks, events, and deadlines from a single unified platform, ensuring that you stay organized and consistently on top of all your commitments.
+</p>
 
-![Settings GitHub Actions permissions step 1](./src/assets/gh-actions-perm-1.png)
+<p align="center">
+  <img src="src\images\Description\Desk\Desk_SecondDescription-min.png" alt="Simplified Sidebar">
+</p>
 
-Проскроливши сторінку до самого кінця, у секції `"Workflow permissions"` вибери
-опцію `"Read and write permissions"` і постав галочку в чекбоксі. Це необхідно
-для автоматизації процесу деплою проєкту.
+<h2 align="center">Sidebar</h2>
 
-![Settings GitHub Actions permissions step 2](./src/assets/gh-actions-perm-2.png)
+<p align="center">
+  GooseTracks streamlines the accessibility of your account settings, calendar, and filters via the Sidebar. Within the "My Account" section, you have the flexibility to customize your profile and preferences, shaping your GooseTracks experience to suit your unique needs. Simultaneously, the Sidebar's calendar provides a swift and convenient means to preview forthcoming events and tasks.
+</p>
 
-Тепер у тебе є особистий репозиторій проєкту, зі структурою файлів і папок
-репозиторія-шаблону. Далі працюй з ним як з будь-яким іншим особистим
-репозиторієм, клонуй його собі на комп'ютер, пиши код, роби комміти і відправляй
-їх на GitHub.
+<p align="center">
+  <img src="./src/images/reviews.png" alt="Reviews and Feedback">
+</p>
+<h2 align="center">Reviews</h2>
 
-## Підготовка до роботи
+<p align="center">
+  Your feedback is of immense importance to us! We kindly request you to spare a moment and share your thoughts and experiences with GooseTracks. Your reviews serve as a cornerstone in our continuous journey of improvement, guaranteeing that we deliver exceptional service to our esteemed users.
+</p>
 
-1. Переконайся, що на комп'ютері встановлена LTS-версія Node.js.
-   [Скачай і встанови](https://nodejs.org/en/) її якщо необхідно.
-2. Встановіть базові залежності проекту командою `npm install`.
-3. Запустіть режим розробки, виконавши команду `npm run dev`.
-4. Перейди в браузері за адресою, що зазначено в терміналі.
+<p align="center">
+  We extend our heartfelt gratitude for choosing <strong>GooseTracks</strong>. We firmly believe it will turbocharge your productivity and streamline your schedule with utmost efficiency.
+</p>
 
-## Деплой
+# Dependencies
 
-Продакшн версія проєкту буде автоматично збиратися і деплоїтися на GitHub Pages,
-у гілку `gh-pages`, щоразу, коли оновлюється гілка `main`. Наприклад, після
-прямого пушу або прийнятого пул-реквесту. Для цього необхідно у файлі
-`vite.config.js` відредагувати поле `base`, замінивши `react_vite` на свою назву
-репозиторію `"/your_repo_name"`, і відправити зміни на GitHub.
+<p align="center">
+  This project relies on various dependencies to enhance its functionality and user experience. Below is a list of key dependencies and their versions:
+</p>
 
-Далі необхідно зайти в налаштування GitHub-репозиторію (`Settings` > `Pages`) і
-виставити роздачу продакшн версії файлів із папки `/root` гілки `gh-pages`, якщо
-це не було зроблено автоматично.
+- **@emotion/react (^11.11.1)** and **@emotion/styled (^11.11.0)**: The Emotion library for handling CSS styling in React applications.
+- **@mui/icons-material (^5.14.13)** and **@mui/material (^5.14.13)**: Material-UI, a design library that provides a rich set of pre-built components and styles in the Material Design tradition.
+- **@mui/styled-engine-sc (^6.0.0-alpha.1)**: The styled engine for Material-UI, enhancing styling capabilities.
+- **@reduxjs/toolkit (^1.9.7)**: Redux Toolkit, which simplifies state management in React applications.
+- **@vitejs/plugin-react-swc (^3.4.0)**: A Vite plugin for optimizing React code.
+- **axios (^1.5.1)**: A library for making HTTP requests and handling data interactions with servers.
+- **date-fns (^2.30.0)**: A library for handling date and time-related operations.
+- **formik (^2.4.5)**: A library for simplifying form management in React applications.
+- **moment (^2.29.4)**: A library for handling and formatting dates and times.
+- **normalize.css (^8.0.1)**: A CSS file that normalizes styles across different browsers.
+- **notiflix (^3.2.6)**: A library for displaying notifications in your application.
+- **npm (^10.2.0)**: Node Package Manager for installing and managing project dependencies.
+- **react (^18.2.0)** and **react-dom (^18.2.0)**: The core libraries for building React applications.
+- **react-datepicker (^4.21.0)**: A library for adding date picker functionality to your forms.
+- **react-i18next (^13.3.1)**: A library for enabling internationalization (i18n) and translations in your app.
+- **react-icons (^4.11.0)**: A library providing a collection of icons for React applications.
+- **react-imask (^7.1.3)**: A library for creating input masks in React forms.
+- **react-redux (^8.1.3)**: The library for integrating Redux into your React applications.
+- **react-router-dom (^6.15.0)**: A library for handling navigation and routing in React applications.
+- **react-slick (^0.29.0)**: A library for creating responsive carousel components.
+- **react-spinners (^0.13.8)**: A library for adding loading spinners and animations to your application.
+- **react-toastify (^9.1.3)**: A library for displaying toast notifications in your app.
+- **recharts (^2.9.0)**: A library for creating interactive charts and diagrams in React.
+- **redux (^4.2.1)**: The library for managing application state.
+- **redux-persist (^6.0.0)**: A library for persisting and rehydrating your Redux store.
+- **slick-carousel (^1.8.1)**: A library for creating carousel components with slick animations.
+- **styled-components (^6.1.0)**: A library for styling React components with tagged template literals.
+- **vite-plugin-svgr (^3.2.0)**: A Vite plugin for handling SVG files as React components.
+- **yup (^1.3.2)**: A library for data validation and form schema definition in React applications.
 
-![GitHub Pages settings](./src/assets/repo-settings.png)
+These dependencies enable the project to provide a wide range of features and enhance the user experience. Be sure to keep them up to date for optimal performance and security.
 
-### Статус деплоя
+# Our Development Team
 
-Статус деплою крайнього коміту відображається іконкою біля його ідентифікатора.
+Here are the talented individuals who have contributed to the development of GooseTracks:
 
-- **Жовтий колір** - виконується збірка і деплой проєкту.
-- **Зелений колір** - деплой завершився успішно.
-- **Червоний колір** - під час збирання або деплою сталася помилка.
+## Teamleaders 
 
-Детальнішу інформацію про статус можна подивитися, клікнувши на іконку, і в
-випадаючому вікні перейти за посиланням `Details`.
+1. [Maksym Stepanenko](https://github.com/MaksymStepanenko)
+2. [Igor Grybanov](https://github.com/IngvarVG76)
 
-![Deployment status](./src/assets/deploy-status.png)
+## Scrum Master 
 
-### Жива сторінка
+3. [Yuliia Yehorova](https://github.com/YYuliia1102)
 
-Через якийсь час, зазвичай кілька хвилин, живу сторінку можна буде подивитися за
-адресою, вказаною в налаштуваннях GitHub-репозиторію (`Settings` > `Pages`).
+## Backend developers
 
-![GitHub-pages URL](./src/assets/gh-pages-url.png)
+3. [Yuliia Yehorova](https://github.com/YYuliia1102)
+4. [Yaroslav Zamrii](https://github.com/YaroslavZamrii)
 
-Якщо відкривається порожня сторінка, переконайся що у вкладці `Console` немає
-помилок пов'язаних із неправильними шляхами до CSS і JS файлів проекту
-(**404**). Швидше за все найімовірніше, у тебе неправильне значення поля `base`
-у файлі `vite.config.js`.
+## Frontend developers
 
-### Маршрутизація
+5. [Julia Tarasenko](https://github.com/JuliaTarasenko00)
+6. [Iryna Artymuk](https://github.com/Iryna-Artymuk)
+7. [Volodymyr Pliuto](https://github.com/VovaPliuto)
+8. [Oleg Podlesny](https://github.com/SpaceProdigy)
+9. [Sergey Kravchenko](https://github.com/Serzh1006)
+10. [Yurii Ilkevych](https://github.com/Yurii-Ilkevych)
+11. [Oleksandr Martyniuk](https://github.com/Derovse)
+12. [Egor Krechuniak](https://github.com/Egor4ik2)
 
-Якщо додаток використовує бібліотеку `react-router-dom` для маршрутизації,
-необхідно додатково налаштувати компонент `<BrowserRouter>`, передавши в пропе
-`basename` точну назву твого репозиторію. Слеш на початку рядка обов'язковий.
-
-```jsx
-<BrowserRouter basename="/your_repo_name">
-  <App />
-</BrowserRouter>
-```
-### Додавання змінних в  .env
-Для зберігання конфігураційних даних, таких як API ключі, адреси серверів, порти та інші змінні використовуйте файл `.env`. Для цього необхідно з назви файлу `.env.template` видалити зайві ".template",після чого файл відповідатиме умовам файлу `.ignore` і буде зберігатися лише локально, не публікуючись на віддаленому репозиторії з метою безпеки. Задля використання змінних на GitHub-pages усі змінні, передбачені файлом .env, слід додати до файлу `.github/workflows/deploy.yml`, а також до налаштувань репозиторію. Для цього слід перейти (`Settings` > `Secrets and variables` > `Actions`)
-
-![Add enviroments from .env](./src/assets/secrets.png)
-
-## Як це працює
-
-1. Після кожного пушу в гілку `main` GitHub-репозиторію, запускається
-   спеціальний скрипт (GitHub Action) з файлу `.github/workflows/deploy.yml`.
-2. Усі файли репозиторію копіюються на сервер, де проєкт ініціалізується і
-   проходить збірку перед деплоєм. 3 Якщо всі кроки пройшли успішно, зібрана
-   продакшн-версія файлів проєкту відправляється в гілку `gh-pages`. В іншому
-   випадку, в логах виконання скрипта буде вказано в чому проблема.
