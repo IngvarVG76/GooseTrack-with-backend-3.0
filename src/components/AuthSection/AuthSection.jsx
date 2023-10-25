@@ -68,7 +68,7 @@ export const AuthSection = () => {
       <HeaderContainer height={window.innerHeight}>
         <GooseImg src={suitableImage} alt="main-Goose" />
         <MainText>
-          G<MainSpan>oo</MainSpan>seTrack
+          Go<MainSpan>o</MainSpan>seTrack
         </MainText>
         <ButtonContainer>
           <BtnSignUp to="/register">Sign up</BtnSignUp>

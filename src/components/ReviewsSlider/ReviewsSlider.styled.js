@@ -42,7 +42,8 @@ max-height: 252px;
 `
 
 const TittleReviews = styled.h3`
-font-family: inherit sans-serif;
+font-family: 'Inter';
+text-transform: uppercase;
 text-align: center;
 font-weight: 700;
 font-size: 40px;
@@ -70,7 +71,7 @@ column-gap: 18px;
 `
 
 const UserName = styled.h3`
-font-family: inherit sans-serif;
+font-family: 'Inter';
 font-weight: 700;
 font-size: 18px;
 line-height: 18px;
@@ -86,7 +87,7 @@ const StarsBox = styled.div`
 margin-bottom: 24px;
 `
 const TextOpinion = styled.p`
-font-family: inherit sans-serif;
+font-family: 'Inter';
 font-weight: 500;
 font-size: 14px;
 line-height: 18px;
@@ -141,7 +142,7 @@ align-items: center;
 `
 
 const DefaultText = styled.h3`
-font-family: inherit sans-serif;
+font-family: 'Inter';
 text-align: center;
 font-weight: 700;
 font-size: 32px;

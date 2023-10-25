@@ -8,7 +8,7 @@ margin-right: auto;
 @media screen and (max-width: 767px) {
 padding-left: 20px;
 padding-right: 20px;
-  width: 375px;
+  max-width: 375px;
       }
       @media screen and (min-width: 768px) and (max-width: 1439px) {
         width: 768px;
@@ -24,7 +24,6 @@ padding-right: 32px;
 `
 const FirstContainer = styled.div`
 margin-bottom: 64px;
-
 @media screen and (min-width: 1440px) {
 display: flex;
 gap: 228px;
@@ -35,11 +34,6 @@ padding-right: 128px;
 `
 const SecondContainer = styled.div`
 margin-bottom: 64px;
-
-// @media screen and (min-width: 768px) and (max-width: 1439px) {
-//   padding: 0px 32px;
-// margin-left: auto;
-// }
 @media screen and (min-width: 1440px) {
     display: flex;
     flex-direction: row-reverse;
@@ -61,6 +55,7 @@ padding-right: 128px;
 
 
 const Number = styled.h2`
+font-family: 'Inter';
 font-weight: 700;
 font-size: 104px;
 line-height: 104px;
@@ -75,6 +70,7 @@ line-height: 80px;
 
 `
 const MainTittle = styled.h3`
+font-family: 'Inter';
 font-weight: 700;
 font-size: 40px;
 line-height: 44px;
@@ -82,6 +78,7 @@ margin-bottom: 14px;
 color: #3E85F3;
 padding:  6px 18px;
 border-radius: 44px;
+text-transform: uppercase;
 
 display: inline-block;
 background-color: #DCEBF7;
@@ -95,6 +92,7 @@ line-height: 40px;
 `
 
 const Tittle = styled.h3`
+font-family: 'Inter';
 font-weight: 700;
 font-size: 40px;
 line-height: 44px;

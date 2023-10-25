@@ -1,15 +1,15 @@
 import { ModalComponent } from '../Modal/Modal';
 import { OurTeam } from '../OurTeam/OurTeam';
-import { Container, Text, Team } from './Footer.styled';
+import { Container, Text, TeamBtn } from './Footer.styled';
 
 export const Footer = ({ onClickModal, modal }) => {
   return (
     <Container>
       <Text>
         The project was created by
-        <button type="button" onClick={onClickModal}>
+        <TeamBtn type="button" onClick={onClickModal}>
           Adamant Team
-        </button>
+        </TeamBtn>
       </Text>
 
       {modal && (

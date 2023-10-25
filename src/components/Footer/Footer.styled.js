@@ -38,23 +38,54 @@ line-height: 22px;
 line-height: 28px;
 } 
 `
-const Team = styled.span`
-/* font-family: inherit, sans-serif; */
-font-style: italic;
-text-align: center;
-font-weight: 700;
-font-size: 38px;
-line-height: 42px;
-color: #111111B2;
 
-@media screen and (max-width: 590px) {
-    font-size: 18px;
-line-height: 24px;
-} 
-@media screen and (min-width: 591px) and (max-width:  767px) {
-    font-size: 26px;
-line-height: 30px;
-} 
+const TeamBtn = styled.button`
+border: none;
+background: none;
+margin: 0;
+padding: 0;
+font: inherit;
+text-align: inherit;
+cursor: pointer;
+margin-left: 10px;
+color: #111111B2;
+font-family: 'Inter';
+  font-weight: 600;
+  line-height: 18px;
+  font-size: 14px;
+  position: relative;
+  transition: border-color 0.3s box-shadow 0.3s transform 0.2s;
+
+  font-size: 38px;
+line-height: 42px;
+    @media screen and (max-width: 590px) {
+        font-size: 18px;
+    line-height: 24px;
+    margin-left: 5px;
+    } 
+    @media screen and (min-width: 591px) and (max-width:  767px) {
+        font-size: 26px;
+    line-height: 30px;
+    margin-left: 5px;
+    } 
+  &:hover {
+    box-shadow: 0 0 25px 10px #F0F7FC;
+    background-color: #F0F7FC;
+    border-radius: 16px;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color:  #111111B2;
+  }
+
+  &:active {
+    transform: translateY(3px);
+  }
 `
 
-export {Container, Text, Team}
+export {Container, Text, TeamBtn}
