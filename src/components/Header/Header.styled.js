@@ -130,7 +130,11 @@ export const AvatarPlaceholder = styled(PiUserLight)`
 //--calendar/day title with img-----
 
 export const TitleWrapper = styled.div`
-  display: flex;
+  display: none;
+
+  @media screen and (min-width: 1440px) {
+    display: flex;
+  }
 `;
 
 export const StyledSlogan = styled.p`
