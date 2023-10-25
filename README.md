@@ -1,6 +1,6 @@
-<h1 align="center">Welcome to GooseTracks</h1>
+<h1 align="center">Welcome to GooseTrack</h1>
 <p align="center">
-  <img src="./src/images/main-goose/Desk@2x_mainGoose.png" alt="GooseTracks">
+  <img src="./src/images/main-goose/Desk@2x_mainGoose.png" alt="GooseTrack">
 </p>
 
 <h2 align="center">Calendar Month View</h2>
@@ -8,7 +8,7 @@
   <img src="./src/images/Description/Desk/Desk_FirstDescription-min.png" alt="Discover Our Calendar Month View">
 </p>
 <p align="center">
-  Discover GooseTracks' Calendar view, your key to gaining a comprehensive perspective of your schedule. It gracefully showcases your tasks, events, and appointments, ensuring you remain seamlessly aligned with your daily, weekly, or monthly obligations.
+  Discover GooseTrack' Calendar view, your key to gaining a comprehensive perspective of your schedule. It gracefully showcases your tasks, events, and appointments, ensuring you remain seamlessly aligned with your daily, weekly, or monthly obligations.
 </p>
 
 <h2 align="center">Calendar Day View</h2>
@@ -16,7 +16,7 @@
   <img src="./src/images/Description/Desk/Desk_ThirdDescription-min.png" alt="Discover Our Calendar Day View">
 </p>
 <p align="center">
-   GooseTracks stands as the ultimate all-in-one productivity solution, meticulously crafted to streamline and simplify your daily life. Bid farewell to scattered to-do lists, and welcome a seamlessly productive journey with GooseTracks. It enables you to efficiently manage tasks, events, and deadlines from a single unified platform, ensuring that you stay organized and consistently on top of all your commitments.
+   GooseTrack stands as the ultimate all-in-one productivity solution, meticulously crafted to streamline and simplify your daily life. Bid farewell to scattered to-do lists, and welcome a seamlessly productive journey with GooseTrack. It enables you to efficiently manage tasks, events, and deadlines from a single unified platform, ensuring that you stay organized and consistently on top of all your commitments.
 </p>
 
 <h2 align="center">Sidebar</h2>
@@ -24,7 +24,7 @@
   <img src="src\images\Description\Desk\Desk_SecondDescription-min.png" alt="Simplified Sidebar">
 </p>
 <p align="center">
-  GooseTracks streamlines the accessibility of your account settings, calendar, and filters via the Sidebar. Within the "My Account" section, you have the flexibility to customize your profile and preferences, shaping your GooseTracks experience to suit your unique needs. Simultaneously, the Sidebar's calendar provides a swift and convenient means to preview forthcoming events and tasks.
+  GooseTrack streamlines the accessibility of your account settings, calendar, and filters via the Sidebar. Within the "My Account" section, you have the flexibility to customize your profile and preferences, shaping your GooseTrack experience to suit your unique needs. Simultaneously, the Sidebar's calendar provides a swift and convenient means to preview forthcoming events and tasks.
 </p>
 
 <h2 align="center">Reviews</h2>
@@ -32,16 +32,16 @@
   <img src="./src/images/main-goose/reviews.jpg" alt="Reviews and Feedback">
 </p>
 <p align="center">
-  Your feedback is of immense importance to us! We kindly request you to spare a moment and share your thoughts and experiences with GooseTracks. Your reviews serve as a cornerstone in our continuous journey of improvement, guaranteeing that we deliver exceptional service to our esteemed users.
+  Your feedback is of immense importance to us! We kindly request you to spare a moment and share your thoughts and experiences with GooseTrack. Your reviews serve as a cornerstone in our continuous journey of improvement, guaranteeing that we deliver exceptional service to our esteemed users.
 </p>
 
 <p align="center">
-  We extend our heartfelt gratitude for choosing <strong>GooseTracks</strong>. We firmly believe it will turbocharge your productivity and streamline your schedule with utmost efficiency.
+  We extend our heartfelt gratitude for choosing <strong>GooseTrack</strong>. We firmly believe it will turbocharge your productivity and streamline your schedule with utmost efficiency.
 </p>
 
 # Dependencies
 
-<p align="center">
+<p align="left">
   This project relies on various dependencies to enhance its functionality and user experience. Below is a list of key dependencies and their versions:
 </p>
 
@@ -79,7 +79,7 @@ These dependencies enable the project to provide a wide range of features and en
 
 # Our Development Team
 
-Here are the talented individuals who have contributed to the development of GooseTracks:
+Here are the talented individuals who have contributed to the development of GooseTrack:
 
 ## Teamleaders 
 
