@@ -337,10 +337,6 @@ img {
   height: auto;
 }
 
-::-webkit-scrollbar{
-  width: 15px;
-}
-
 ::-webkit-scrollbar-track{
   background-color:  ${({ theme }) => theme.colors.modalReviewTextBg};
 }

@@ -55,7 +55,7 @@ export const FeedbackForm = ({ modal, onClickModal }) => {
     onSubmit: ({ textReview, rating }) => {
       const trimmedReview = textReview.trim();
       const editAction = edit
-        ? editReview({ _id: review._id, text: trimmedReview, rating })
+        ? editReview({ text: trimmedReview, rating })
         : createReview({ text: trimmedReview, rating });
       setEdit(false);
       onClickModal();
@@ -73,7 +73,7 @@ export const FeedbackForm = ({ modal, onClickModal }) => {
   }, [modal, receivingReview]);
 
   const handleDeleteClick = () => {
-    dispatch(deleteReview(review._id));
+    dispatch(deleteReview());
     setDeleteReviewUser(true);
     setEdit(false);
     formik.setFieldValue('textReview', '');
