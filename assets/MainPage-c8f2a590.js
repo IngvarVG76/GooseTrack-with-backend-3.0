@@ -1,4 +1,4 @@
-import{s as w,L as zt,r as H,j as d,c as ie,g as fn,a as pn,b as hn,M as gn}from"./index-34da5d8c.js";import{L as vn,R as mn}from"./index.esm-6a77a091.js";import{c as me}from"./index-02df88a1.js";const yn=w.img`
+import{s as w,L as zt,r as H,j as d,c as ie,g as fn,a as pn,b as hn,M as gn}from"./index-b29131cd.js";import{L as vn,R as mn}from"./index.esm-f078250e.js";import{c as me}from"./index-c2b635c8.js";const yn=w.img`
   width: 150px;
   height: 149px;
   background-size: cover;
@@ -172,6 +172,7 @@ margin-bottom: 64px;
     column-gap: 228px;
     align-items: center;
     padding-left: 128px;
+    padding-right: 208px;
   }
 `,Gn=w.div`
 
