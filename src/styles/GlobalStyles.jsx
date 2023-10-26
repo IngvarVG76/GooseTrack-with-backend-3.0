@@ -196,7 +196,9 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     margin: 0;
-    background-color: #FFFFFF; 
+    background-color: ${({ theme }) => theme.colors.primaryBackground};
+
+
 }
 
 @font-face {

@@ -16,6 +16,7 @@ import {
   AvatarPlaceholder,
   TitleWrapper,
   StyledSlogan,
+  HeaderPhoto,
 } from './Header.styled';
 import { ModalComponent } from '../Modal/Modal';
 import { FeedbackForm } from '../FeedbackForm/FeedbackForm';
@@ -62,8 +63,8 @@ export const Header = ({ onClickModal, modal }) => {
                   <span>Let go</span> of the past and focus on the present!
                 </StyledSlogan>
               </div>
-            </>) : 
-            (
+            </>
+          ) : (
             <Title>{namePage}</Title>
           )}
         </TitleWrapper>
@@ -79,7 +80,7 @@ export const Header = ({ onClickModal, modal }) => {
             <Name>{userData?.userName}</Name>
             <Image>
               {userData?.avatarURL ? (
-                <img
+                <HeaderPhoto
                   src={userData?.avatarURL}
                   alt="Img User"
                   loading="lazy"

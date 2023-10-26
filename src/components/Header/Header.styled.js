@@ -109,12 +109,23 @@ export const Image = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 
   @media screen and (min-width: 768px) {
     width: 44px;
     height: 44px;
     border-radius: 44px;
   }
+`;
+
+export const HeaderPhoto = styled.img`
+  width: 32px;
+  height: auto;
+
+  @media screen and (min-width: 768px) {
+    width: 44px;
+  }
+
 `;
 
 export const AvatarPlaceholder = styled(PiUserLight)`
