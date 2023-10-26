@@ -122,9 +122,13 @@ height: 61px;
 display: flex;
 justify-content: center;
 align-items: center;
+transition: transform 0.2s ease-in-out;
 @media screen and (max-width: 767px) {
     width: 50px;
     height: 50px;
+      }
+      &:active {
+        transform: translateX(-5px);
       }
 `
 const NextBtn = styled.button`
@@ -135,9 +139,13 @@ height: 61px;
 display: flex;
 justify-content: center;
 align-items: center;
+transition: transform 0.2s ease-in-out;
 @media screen and (max-width: 767px) {
     width: 50px;
     height: 50px;
+      }
+      &:active {
+        transform: translateX(5px);
       }
 `
 
