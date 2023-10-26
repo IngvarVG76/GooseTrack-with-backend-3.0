@@ -20,6 +20,10 @@ export const Content = styled.div`
     justify-content: flex-end;
     max-width: 1440px;
     padding: 40px 32px 32px 0;
+
+    &::-webkit-scrollbar {
+      width: 15px;
+    }
   }
 `;
 

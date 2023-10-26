@@ -119,13 +119,10 @@ export const Image = styled.div`
 `;
 
 export const HeaderPhoto = styled.img`
-  width: 32px;
-  height: auto;
-
-  @media screen and (min-width: 768px) {
-    width: 44px;
-  }
-
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 `;
 
 export const AvatarPlaceholder = styled(PiUserLight)`

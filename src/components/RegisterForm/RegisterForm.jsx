@@ -104,7 +104,6 @@ const RegisterForm = () => {
                     type="text"
                     id="userName"
                     name="userName"
-                    autoComplete="true"
                     value={formik.values.userName}
                     placeholder="Enter your name"
                     onChange={formik.handleChange}
@@ -152,7 +151,6 @@ const RegisterForm = () => {
                     type="email"
                     id="email"
                     name="email"
-                    autoComplete="true"
                     value={formik.values.email}
                     placeholder="Enter your email"
                     onChange={formik.handleChange}
@@ -197,7 +195,6 @@ const RegisterForm = () => {
                       type={showPassword ? 'text' : 'password'}
                       id="password"
                       name="password"
-                      autoComplete="current-password"
                       placeholder="Enter your password"
                       value={formik.values.password}
                       onChange={formik.handleChange}
