@@ -40,6 +40,7 @@ margin-bottom: 64px;
     column-gap: 228px;
     align-items: center;
     padding-left: 128px;
+    padding-right: 208px;
   }
 `
 const ThirdContainer = styled.div`
