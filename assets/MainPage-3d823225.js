@@ -1,4 +1,4 @@
-import{s as w,L as zt,r as H,j as d,c as ie,g as fn,a as pn,b as hn,M as gn}from"./index-3175fa19.js";import{L as vn,R as mn}from"./index.esm-9c604cad.js";import{c as me}from"./index-62ee76ad.js";const yn=w.img`
+import{s as w,L as zt,r as H,j as d,c as ie,g as fn,a as pn,b as hn,M as gn}from"./index-9ecfa2cf.js";import{L as vn,R as mn}from"./index.esm-863f3805.js";import{c as me}from"./index-160d404e.js";const yn=w.img`
   width: 150px;
   height: 149px;
   background-size: cover;
@@ -74,9 +74,6 @@ import{s as w,L as zt,r as H,j as d,c as ie,g as fn,a as pn,b as hn,M as gn}from
   line-height: 18px;
   font-size: 14px;
   position: relative;
-  transition:
-    border-color 0.3s,
-    box-shadow 0.3s transform 0.2s;
   @media screen and (max-width: 767px) {
     font-size: 12px;
     ine-height: 14px;
@@ -86,6 +83,7 @@ import{s as w,L as zt,r as H,j as d,c as ie,g as fn,a as pn,b as hn,M as gn}from
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     border-radius: 16px;
     background-color: #6fa2ff;
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.2s ease-in-out;
   }
   &::after {
     content: '';
@@ -115,12 +113,13 @@ import{s as w,L as zt,r as H,j as d,c as ie,g as fn,a as pn,b as hn,M as gn}from
   display: flex;
   column-gap: 6px;
 
-  transition: transform 0.2s;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.2s ease-in-out;
 
   &:active {
     transform: translateY(3px);
   }
   &:hover {
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.2s ease-in-out;
     border-color: #0056b3;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
   }
@@ -374,9 +373,13 @@ height: 61px;
 display: flex;
 justify-content: center;
 align-items: center;
+transition: transform 0.2s ease-in-out;
 @media screen and (max-width: 767px) {
     width: 50px;
     height: 50px;
+      }
+      &:active {
+        transform: translateX(-5px);
       }
 `,bo=w.button`
 all: initial;
@@ -386,9 +389,13 @@ height: 61px;
 display: flex;
 justify-content: center;
 align-items: center;
+transition: transform 0.2s ease-in-out;
 @media screen and (max-width: 767px) {
     width: 50px;
     height: 50px;
+      }
+      &:active {
+        transform: translateX(5px);
       }
 `,jt=w.h3`
 font-family: 'Inter';
