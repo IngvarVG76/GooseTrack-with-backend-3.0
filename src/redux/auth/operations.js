@@ -112,7 +112,7 @@ export const updateUser = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const response = await $instants.patch(
-        '/users/profile/avatars',
+        '/users/profile/avatar',
         credentials,
       );
       toast.success('Your user data successfully updated', styleToastify);
