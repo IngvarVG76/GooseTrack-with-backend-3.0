@@ -32,7 +32,7 @@ const DeveloperWraper = styled.div`
 const DeveloperItem = styled.div`
     background: var(--main-background-color);
     padding: 5px;
-    border-radius: 5px;
+    border-radius: 10px;
 
 `;
 

@@ -22,6 +22,7 @@ import Yehorova from '../../images/team/Yehorova.png';
 import Zamriy from '../../images/team/Zamriy.jpg';
 import Podlesny from '../../images/team/Podlesny.png';
 import nophoto from '../../images/team/nophoto.png';
+import Kravchenko from '../../images/team/Kravchenko.jpg';
 import github from '../../images/github.png';
 
 const teamMembers = [
@@ -77,7 +78,7 @@ const teamMembers = [
     name: 'Sergey Kravchenko',
     role: 'Frontend developer',
     githubLink: 'https://github.com/Serzh1006',
-    photoLink: nophoto,
+    photoLink: Kravchenko,
   },
   {
     name: 'Yurii Ilkevych',
